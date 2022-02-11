@@ -31,8 +31,8 @@ ${arr.slice(0, 3).join('')}
 ${arr.slice(3, 6).join('')}
 ${arr.slice(6).join('')}
 
-Menunggu @${room.game.currentTurn.split('@')[0]}
-Ketik *nyerah* untuk nyerah
+Tu turno @${room.game.currentTurn.split('@')[0]}
+Escriba *rd* para rendirse
 `.trim()
         if (room.x !== room.o) m.reply(str, room.x, {
             contextInfo: {
@@ -53,13 +53,13 @@ Ketik *nyerah* untuk nyerah
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('Menunggu partner' + (text ? `mengetik command dibawah ini
+        m.reply('Esperando jugador' + (text ? `Si quiere entrar a la sala escriba el comando a continuación
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }
 }
 
-handler.help = ['tictactoe', 'ttt'].map(v => v + ' [custom room name]')
+handler.help = ['tictactoe', 'ttt'].map(v => v + ' [nombre de la sala]')
 handler.tags = ['game']
 handler.command = /^(tictactoe|t{3})$/
 
