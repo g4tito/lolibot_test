@@ -1,31 +1,69 @@
 let limit = 30
-let { MessageType } = require('@adiwajshing/baileys')
+let { MessageType, 
+  WAMessage,
+  proto,
+  generateWAMessageFromContent
+} = require('@adiwajshing/baileys')
 let yts = require('yt-search')
 const { servers, yta, ytv } = require('../lib/y2mate')
-let handler = async (m, { conn, command, text, isPrems, isOwner, DevMode }) => {
+let handler = async (m, { conn, command, text, usedPrefix, isPrems, isOwner, DevMode }) => {
   conn.play = conn.play ? conn.play : {}
-  if (m.chat in conn.play) throw 'Masih ada yang sedang mencari di youtube\ndi chat ini... tunggu sampai selesai'
+  if (m.chat in conn.play) throw 'Todavía hay quienes están buscando en youtube en este chat... esperen a que termine'
   else conn.play[m.chat] = true
   try {
       try {
-          if (!text) throw 'Cari apa?'
+          if (!text) throw `*Ingrese el nombre de la música*\n\n- Ejemplo : ${usedPrefix + command} beliver`
           let results = await yts(text)
           let vid = results.all.find(video => video.seconds < 3600)
-          if (!vid) throw 'Video/Audio Tidak ditemukan silahkan di coba lagi yang lain'
+          if (!vid) throw 'No se encontró el video/audio'
           let { dl_link, thumb, title, filesize, filesizeF} = await (/2$/.test(command) ? ytv : yta)(vid.url, 'id4')
           let isLimit = (isPrems || isOwner ? 99 : limit) * 1024 < filesize
-          conn.sendFile(m.chat, thumb, 'thumbnail.jpg', `
-*Título* : _${title}_
-*Tamaño* : _${filesizeF}_
-*Link* : _${vid.url}_
+          
+          let konrasel = `*──「 Descarga de Youtube 」──*
 
-${isLimit ? 'Pakai ': ''}*Link de descarga* : _${dl_link}_
-`.trim(), m)
-          if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp' + (3 + /2$/.test(command)), `
-*Título* : _${title}_
-*Tamaño* : _${filesizeF}_
-*Link* : _${vid.url}_
-`.trim(), m)
+• *🎵 Titulo* : ${title}
+• *👾 Link* : ${vid.url}
+
+• *🔊 Tamaño del audio* : ${filesizeF}
+• *📽 Tamaño del video* : ${yt2.filesizeF}`
+          const template = generateWAMessageFromContent(m.key.remoteJid, proto.Message.fromObject({
+      templateMessage: {
+          hydratedTemplate: {
+              locationMessage: { jpegThumbnail: await (await fetch(thumb)).buffer()},
+              hydratedContentText: konrasel.trim(),
+              hydratedFooterText: `Selecciona una opción`,
+              hydratedButtons: [{
+                index: 0,
+                 urlButton: {
+                      displayText: '🌏 Url YouTube',
+                      url: `${vid.url}`
+                  }
+              }, {
+                 quickReplyButton: {
+                      displayText: `🎵 Audio`,
+                      id: `/yta ${vid.url}`
+                  }
+              }, {
+                 quickReplyButton: {
+                      displayText: `📽 Video`,
+                      id: `/ytv ${vid.url}`
+                  }
+              }, {
+                  quickReplyButton: {
+                      displayText: `🔎 YT Search ${text}`,
+                      id: `/yts ${text}`
+                  },
+                  selectedIndex: 1
+              }]
+          }
+      }
+  }), { userJid: m.participant || m.key.remoteJid, quoted: m });
+  return await conn.relayMessage(
+      m.key.remoteJid,
+      template.message,
+      { messageId: template.key.id }
+  )
+
       } catch (e) {
           console.log(e)
           m.reply('error')
@@ -39,9 +77,9 @@ ${isLimit ? 'Pakai ': ''}*Link de descarga* : _${dl_link}_
     delete conn.play[m.chat]
   }
 }
-handler.help = ['play', 'play2'].map(v => v + ' <pencarian>')
+handler.help = ['play'].map(v => v + ' <texto>')
 handler.tags = ['downloader']
-handler.command = /^play2?$/i
+handler.command = /^play?$/i
 
 handler.exp = 0
 handler.limit = false
