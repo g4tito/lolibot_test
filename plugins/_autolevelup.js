@@ -21,9 +21,9 @@ module.exports = {
       let str = `
 *Hola ${name} subiste de nivel*
 
-  Nivel anterior : ${before}
-  Nuevo nivel : ${lvlnow}
-  Hora : ${time}
+⎔ 🍧 Nivel anterior : ${before}
+⎔ 🆙 Nuevo nivel : ${lvlnow}
+⎔ ⏰ Hora : ${time}
 
 *_Cuando mas interactues con la bot mayor sera tu nivel_*
 `.trim()
