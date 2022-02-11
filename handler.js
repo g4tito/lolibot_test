@@ -455,7 +455,21 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(jid)).replace('@desc', groupMetadata.desc) :
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
               //this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
-              this.sendButtonLoc(jid, text, 'Lolibot - OFC', await(await fetch(pp)).buffer(), [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Test xd']], null, {
+              
+              py =  await this.sendMessage(jid, await(await fetch(pp)).buffer(), MessageType.image, {contextInfo: { externalAdReply:{title: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ",body:"", previewType:"PHOTO",thumbnail: pp, sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
+gbutsan = [
+{buttonId: 'qqq', buttonText: {displayText: `${action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Lolibot - OFC'}`}, type: 1}
+]
+gbuttonan = {
+imageMessage: py.message.imageMessage,
+contentText: text,
+footerText: '– anu.action == 'add' –',
+buttons: gbutsan,
+headerType: 4
+}
+this.sendMessage(jid, gbuttonan, MessageType.buttonsMessage, {contextInfo: {  mentionedJid: [user]} })
+              
+              //this.sendButtonLoc(jid, text, 'Lolibot - OFC', await(await fetch(pp)).buffer(), [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Test xd']], null, {
                 contextInfo: {
                   mentionedJid: [user]
                 }
