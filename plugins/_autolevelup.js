@@ -17,15 +17,15 @@ module.exports = {
       })
       let name = this.getName(m.sender)
       let lvlnow = user.level
-      let teks = `Selamat ${name} naik level` // teks di gambar tidak bisa ditambahkan emoticon
+      let teks = `*Hola ${name} subiste de nivel*` // teks di gambar tidak bisa ditambahkan emoticon
       let str = `
 ${teks} 
 
-• 🧬Level Sebelumnya : ${before}
-• 🧬Level Baru : ${lvlnow}
-• Pada Jam : ${time}
+• 🧬Nivel anterior : _${before}_
+• 🧬Nuevo nivel : _${lvlnow}_
+• Hora : ${time}
 
-*_Semakin sering berinteraksi dengan bot Semakin Tinggi level kamu_*
+*_Cuando mas interactues con la bot mayor sera tu nivel_*
 `.trim()
       if (global.support.convert || global.support.magick || global.support.gm) {
         let fontLevel = 'src/level_c.otf'
