@@ -458,7 +458,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
                 (chat.sBye || this.bye || conn.bye || '@user un gay salio del grupo')).replace('@user', '@' + user.split('@')[0])
               addz = "```– anu.action == 'add' –```"
 gbutsan = [
-{buttonId: 'qqq', buttonText: {displayText: [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Lolibot - OFC']]}, type: 1}
+{buttonId: 'qqq', buttonText: {displayText: `---`}, type: 1}
 ]
 gbuttonan = {
 imageMessage: pyy.message.imageMessage,
