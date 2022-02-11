@@ -22,9 +22,9 @@ let handler = async (m, { conn, command, text, isPrems, isOwner, DevMode }) => {
 ${isLimit ? 'Pakai ': ''}*Link de descarga* : _${dl_link}_
 `.trim(), m)
           if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp' + (3 + /2$/.test(command)), `
-*Title:* ${title}
-*Filesize:* ${filesizeF}
-*Source:* ${vid.url}
+*Título* : _${title}_
+*Tamaño* : _${filesizeF}_
+*Link* : _${vid.url}_
 `.trim(), m)
       } catch (e) {
           console.log(e)
