@@ -453,7 +453,8 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(jid)).replace('@desc', groupMetadata.desc) :
                 (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-              this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
+              //this.sendFile(jid, pp, 'pp.jpg', text, null, false, {
+              sock.sendButtonLoc(jid, text, 'Lolibot - OFC', await(await fetch(pp)).buffer(), [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Test xd']], null, {
                 contextInfo: {
                   mentionedJid: [user]
                 }
