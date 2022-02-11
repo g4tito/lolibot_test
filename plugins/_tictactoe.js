@@ -32,7 +32,7 @@ handler.before = function (m) {
         else if (room.game.board === 511) isTie = true
         let arr = room.game.render().map(v => {
             return {
-                X: '❌',
+                X: '❎',
                 O: '⭕',
                 1: '1️⃣',
                 2: '2️⃣',
@@ -56,7 +56,7 @@ handler.before = function (m) {
    ${arr.slice(3, 6).join('')}
    ${arr.slice(6).join('')}
 
-${isWin ? `@${(isSurrender ? room.game.currentTurn : room.game.winner).split('@')[0]} Ganaste!` : isTie ? 'Juego terminado' : `Tu turno @${room.game.currentTurn.split('@')[0]}`}
+${isWin ? `@${(isSurrender ? room.game.currentTurn : room.game.winner).split('@')[0]} Ganaste!` : isTie ? 'El juego terminó en empate' : `Tu turno @${room.game.currentTurn.split('@')[0]}`}
 
 Escriba *rendirse* para dejar de jugar
 `.trim()

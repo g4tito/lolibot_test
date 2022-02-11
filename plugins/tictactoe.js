@@ -12,7 +12,7 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
         room.state = 'PLAYING'
         let arr = room.game.render().map(v => {
             return {
-                X: '❌',
+                X: '❎',
                 O: '⭕',
                 1: '1️⃣',
                 2: '2️⃣',
