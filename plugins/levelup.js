@@ -6,8 +6,8 @@ let handler = m => {
   if (!levelling.canLevelUp(user.level, user.exp, global.multiplier)) {
     let { min, xp, max } = levelling.xpRange(user.level, global.multiplier)
     throw `
-Level *${user.level} (${user.exp - min}/${xp})*
-Kurang *${max - user.exp}* lagi!
+Nivel *${user.level} (${user.exp - min}/${xp})*
+Menos *${max - user.exp}* otra vez!
 `.trim()
   }
   let before = user.level * 1
@@ -24,13 +24,13 @@ Kurang *${max - user.exp}* lagi!
     let lvlnow = user.level
     let teks = `Selamat ${name} naik 🧬level`
     let str = `
-${teks} 
+*Hola ${name} subiste de nivel*
 
-• 🧬Level Sebelumnya : ${before}
-• 🧬Level Baru : ${lvlnow}
-• Pada Jam : ${time}
+  Nivel anterior : ${before}
+  Nuevo nivel : ${lvlnow}
+  Hora : ${time}
 
-*_Semakin sering berinteraksi dengan bot Semakin Tinggi level kamu_*
+*_Cuando mas interactues con la bot mayor sera tu nivel_*
 `.trim()
     if (global.support.convert || global.support.magick || global.support.gm) {
       let fontLevel = 'src/level_c.otf'

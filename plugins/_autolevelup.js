@@ -17,13 +17,13 @@ module.exports = {
       })
       let name = this.getName(m.sender)
       let lvlnow = user.level
-      let teks = `*Hola ${name} subiste de nivel*` // teks di gambar tidak bisa ditambahkan emoticon
+      let teks = `Hola ${name} subiste de nivel` // teks di gambar tidak bisa ditambahkan emoticon
       let str = `
-${teks} 
+*Hola ${name} subiste de nivel*
 
-• 🧬Nivel anterior : _${before}_
-• 🧬Nuevo nivel : _${lvlnow}_
-• Hora : ${time}
+  Nivel anterior : ${before}
+  Nuevo nivel : ${lvlnow}
+  Hora : ${time}
 
 *_Cuando mas interactues con la bot mayor sera tu nivel_*
 `.trim()
