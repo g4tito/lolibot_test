@@ -10,7 +10,7 @@ handler.before = function (m) {
     let room = Object.values(this.game).find(room => room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
     if (room) {
         // m.reply(`[DEBUG]\n${parseInt(m.text)}`)
-        if (!/^([1-9]|(me)?rd|surr?ender)$/i.test(m.text)) return !0
+        if (!/^([1-9]|(me)?rendirse|surr?ender)$/i.test(m.text)) return !0
         isSurrender = !/^[1-9]$/.test(m.text)
         if (m.sender !== room.game.currentTurn) { // nek wayahku
             if (!isSurrender) return !0
@@ -50,14 +50,15 @@ handler.before = function (m) {
             isWin = true
         }
         let str = `
-Sala ID: ${room.id}
+*ID de la sala* : : ${room.id}
 
-${arr.slice(0, 3).join('')}
-${arr.slice(3, 6).join('')}
-${arr.slice(6).join('')}
+   ${arr.slice(0, 3).join('')}
+   ${arr.slice(3, 6).join('')}
+   ${arr.slice(6).join('')}
 
 ${isWin ? `@${(isSurrender ? room.game.currentTurn : room.game.winner).split('@')[0]} Ganaste!` : isTie ? 'Juego terminado' : `Tu turno @${room.game.currentTurn.split('@')[0]}`}
-Escriba *rd* para rendirse
+
+Escriba *rendirse* para dejar de jugar
 `.trim()
         if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
             room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat

@@ -26,13 +26,15 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
             }[v]
         })
         let str = `
-Sala ID: ${room.id}
-${arr.slice(0, 3).join('')}
-${arr.slice(3, 6).join('')}
-${arr.slice(6).join('')}
+*ID de la sala* : ${room.id}
+
+   ${arr.slice(0, 3).join('')}
+   ${arr.slice(3, 6).join('')}
+   ${arr.slice(6).join('')}
 
 Tu turno @${room.game.currentTurn.split('@')[0]}
-Escriba *rd* para rendirse
+
+Escriba *rendirse* para dejar de jugar
 `.trim()
         if (room.x !== room.o) m.reply(str, room.x, {
             contextInfo: {
@@ -53,7 +55,7 @@ Escriba *rd* para rendirse
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('Esperando jugador' + (text ? `Si quiere entrar a la sala escriba el comando a continuación
+        m.reply('*Esperando jugador*\n\n' + (text ? `Si quiere entrar a la sala escriba el comando a continuación
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }

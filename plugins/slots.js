@@ -1,14 +1,14 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let num = /([0-9])$/i
 let handler = async (m, { conn, text }) => {
-    if (!text) throw 'Masukkan Jumlah Uang Yang Ingin Anda Slot'
-    if (!num.test(text)) throw 'Hanya Angka'
+    if (!text) throw 'Ingrese la cantidad de dinero que desea colocar'
+    if (!num.test(text)) throw 'La cantidad debe ser un número'
     let money = text * 1
     let jackpot = Math.ceil(money * 5)
     let win = Math.ceil(money * 2)
-    if (money < 10) throw 'Minimal 10'
+    if (money < 10) throw 'Minimo 10 de dinero'
     let users = global.DATABASE._data.users
-    if (money > users[m.sender].money) throw 'Uang Anda Tidak Cukup'
+    if (money > users[m.sender].money) throw 'Su dinero no es suficiente'
     let emojis = ["🍏","🍎","🍊","🍋","🍑","🪙","🍅","🍐","🍒","🥥","🍌"];
     let a = Math.floor(Math.random() * emojis.length);
     let b = Math.floor(Math.random() * emojis.length);
