@@ -1,5 +1,6 @@
 let fs = require('fs')
 let path = require('path')
+let fetch = require('node-fetch')
 let levelling = require('../lib/levelling')
 let tags = {
   'main': 'Main',
@@ -144,10 +145,23 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     let pp = await conn.getProfilePicture(conn.user.jid).catch(_ => path.join(__dirname, '../src/avatar_contact.png'))
-    conn.sendButton(m.chat,text.trim(), author,  pp,  [
-  ['Ping',  '/ping'],
-  ['Owner',  '/owner']
-], { quoted: m}).catch(_ => conn.sendFile(m.chat, pp, 'menu.jpg', text.trim(), m)).catch(_ => conn.reply(m.chat, text.trim(), m))
+
+let menupp = './src/menu.pdf'
+let menup = './src/menu.jpg'
+let py = await conn.prepareMessage(m.chat, await(await fetch(menupp)).buffer(), MessageType.document, {mimetype: "application/vnd.android.package-archive",thumbnail: await(await fetch(menup)).buffer(), filename: '𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄', quoted: m })
+gbutsan = [
+{buttonId:`/owner`,buttonText:{displayText:'🍧 CREADOR'},type:1},
+{buttonId:`/ping`,buttonText:{displayText:'👾 PING'},type:1}
+]
+gbuttonan = {
+documentMessage: py.message.documentMessage,
+contentText: text.trim(),
+footerText: 'Lolibot - OFC',
+buttons: gbutsan,
+headerType: "DOCUMENT"
+}
+conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, { contextInfo: { mentionedJid: [user]} })
+
   } catch (e) {
     conn.reply(m.chat, 'Lo siento, ocurrió un error al mostrar el menú', m)
     throw e
