@@ -1,6 +1,9 @@
+const {
+  MessageType
+} = require("@adiwajshing/baileys");
+let fetch = require('node-fetch')
 let fs = require('fs')
 let path = require('path')
-let fetch = require('node-fetch')
 let levelling = require('../lib/levelling')
 let tags = {
   'main': 'Main',
@@ -32,22 +35,19 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-╭─「 %me 」
-│ %ucapan, %name!
-│
-│ Tanggal: *%week %weton, %date*
-│ Tanggal Islam: *%dateIslamic*
-│ Waktu: *%time*
-│
-│ Uptime: *%uptime (%muptime)*
-│ Database: %rtotalreg of %totalreg
-│ Github:
-│ %github
-╰────
+%ucapan, %name!
+
+• *Tanggal* : _%week %weton, %date_
+• *Tanggal Islam* : _%dateIslamic_
+• *Waktu* : _%time_
+
+• *Uptime* : _%uptime (%muptime)_
+• *Database* : _%rtotalreg of %totalreg_
+
 %readmore`.trimStart(),
-  header: '╭─「 %category 」',
-  body: '│ • %cmd %islimit %isPremium',
-  footer: '╰────\n',
+  header: '❑ *%category*',
+  body: '│∙ %cmd %islimit %isPremium',
+  footer: '╰❑\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
@@ -145,23 +145,13 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     let pp = await conn.getProfilePicture(conn.user.jid).catch(_ => path.join(__dirname, '../src/avatar_contact.png'))
-
-let menupp = './src/menu.pdf'
-let menup = './src/menu.jpg'
-let py = await conn.prepareMessage(m.chat, await(await fetch(menupp)).buffer(), MessageType.document, {mimetype: "application/vnd.android.package-archive",thumbnail: await(await fetch(menup)).buffer(), filename: '𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄', quoted: m })
-gbutsan = [
-{buttonId:`/owner`,buttonText:{displayText:'🍧 CREADOR'},type:1},
-{buttonId:`/ping`,buttonText:{displayText:'👾 PING'},type:1}
-]
-gbuttonan = {
-documentMessage: py.message.documentMessage,
-contentText: text.trim(),
-footerText: 'Lolibot - OFC',
-buttons: gbutsan,
-headerType: "DOCUMENT"
-}
-conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, { contextInfo: { mentionedJid: [user]} })
-
+     let tumb = await(await fetch("https://w.wallpaperkiss.com/wimg/s/151-1513066_small.jpg")).buffer()
+     let tumbb = await(await fetch("https://i.ibb.co/YQxJTwx/long-hair-anime-girls-gochuumon-wa-usagi-desu-ka-kafuu-chino-wallpaper-preview.jpg")).buffer()
+     conn.sendMessage(m.chat, { contentText: text.trim(), footerText: 'Lolibot - OFC', buttons: [{buttonId: '/ping', buttonText: {displayText: '👾 PING'}, type: 1},{buttonId: '/owner' , buttonText: {displayText: '🍧 CREADOR'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": "Dibuat Oleh: Arifi Razzaq", "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 999999999999, "pageCount": 999999999, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": "𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄", "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": tumb 
+            }}, MessageType.buttonsMessage, { quoted: m, thumbnail: tumbb, contextInfo: { externalAdReply: { title: `あなたは私のすべてです`, body: `Macielly ? D‵ Gatito`, thumbnail: tumbb, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
+            }
+            }
+            })
   } catch (e) {
     conn.reply(m.chat, 'Lo siento, ocurrió un error al mostrar el menú', m)
     throw e
