@@ -55,6 +55,8 @@ global.APIKeys = { // APIKey Here
 global.packname = 'lolibot'
 global.author = 'gatito'
 
+global.wait = '_• Espere un momento..._'
+
 global.multiplier = 39 // The higher, The harder levelup
 
 let fs = require('fs')
