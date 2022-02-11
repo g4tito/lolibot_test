@@ -3,24 +3,24 @@ let { MessageType } = require('@adiwajshing/baileys')
 let handler  = async (m, { conn, args, usedPrefix, DevMode }) => {
     try {
         if (args.length < 1) return conn.reply(m.chat, `
-Mode: ${Object.keys(modes).join(' | ')}
+*Modos* : ${Object.keys(modes).join(' | ')}
 
-Contoh penggunaan: ${usedPrefix}math medium
+Ejemplo de uso : ${usedPrefix}math medium
 `.trim(), m)
         let mode = args[0].toLowerCase()
         if (!(mode in modes)) return conn.reply(m.chat, `
-Mode: ${Object.keys(modes).join(' | ')}
+*Modos* : ${Object.keys(modes).join(' | ')}
 
-Contoh penggunaan: ${usedPrefix}math medium
+Ejemplo de uso : ${usedPrefix}math medium
 `.trim(), m)
         let id = m.chat
-        if (id in global.math) return conn.reply(m.chat, 'Masih ada soal belum terjawab di chat ini', global.math[id][0])
+        if (id in global.math) return conn.reply(m.chat, 'Todavía hay preguntas sin responder en este chat', global.math[id][0])
         let math = genMath(mode)
   global.math[id] = [
-        await conn.reply(m.chat, `Berapa hasil dari *${math.str}*?\n\nTimeout: ${(math.time / 1000).toFixed(2)} detik\nBonus Jawaban Benar: ${math.bonus} XP`, m),
+        await conn.reply(m.chat, `Cuanto es el resultado de : *${math.str}*?\n\nTiempo : ${(math.time / 1000).toFixed(2)} detik\nBono de respuesta correcta : ${math.bonus} Exp`, m),
         math, 4,
         setTimeout(() => {
-            if (global.math[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah ${math.result}`, global.math[id][0])
+            if (global.math[id]) conn.reply(m.chat, `El tiempo ha terminado!\nLa respuesta es : ${math.result}`, global.math[id][0])
             delete global.math[id]
         }, math.time)
         ]
