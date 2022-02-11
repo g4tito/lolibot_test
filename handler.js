@@ -456,7 +456,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
                 (chat.sBye || this.bye || conn.bye || '@user un gay salio del grupo')).replace('@user', '@' + user.split('@')[0])
               addz = "```– anu.action == 'add' –```"
               this.sendButton(jid, text, `${addz}`, await(await fetch(pp)).buffer(), [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Lolibot - OFC']], null, {
-                contextInfo: { externalAdReply:{title: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ",body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}
+                contextInfo: { externalAdReply:{title: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ",body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`},
                   mentionedJid: [user]
                 }
               })
