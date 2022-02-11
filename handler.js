@@ -463,12 +463,11 @@ gbutsan = [
 gbuttonan = {
 imageMessage: py.message.imageMessage,
 contentText: text,
-footerText: '– anu.action == 'add' –',
+footerText: 'welcome',
 buttons: gbutsan,
 headerType: 4
 }
-this.sendMessage(jid, gbuttonan, MessageType.buttonsMessage, {contextInfo: {  mentionedJid: [user]} })
-              
+this.sendMessage(jid, gbuttonan, MessageType.buttonsMessage, {
               //this.sendButtonLoc(jid, text, 'Lolibot - OFC', await(await fetch(pp)).buffer(), [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Test xd']], null, {
                 contextInfo: {
                   mentionedJid: [user]
