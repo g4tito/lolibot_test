@@ -448,20 +448,19 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
           let groupMetadata = await this.groupMetadata(jid)
           for (let user of participants) {
             let pp = './src/avatar_contact.png'
-            let pyy = await this.sendMessage(jid, await(await fetch(pp)).buffer(), MessageType.image, {contextInfo: { externalAdReply:{title: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ",body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
             try {
               pp = await this.getProfilePicture(user)
-              pyy = await this.sendMessage(jid, await(await fetch(pp)).buffer(), MessageType.image, {contextInfo: { externalAdReply:{title: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ",body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
             } catch (e) {
             } finally {
+            	let py = await this.sendMessage(jid, await(await fetch(pp)).buffer(), MessageType.image, {contextInfo: { externalAdReply:{title: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ",body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Hola 😙, *@user*\n───────────────────\n*🎊Bienvenido/a al grupo* :\n@subject\n\n• *Descripción* :\n\n@desc').replace('@subject', await this.getName(jid)).replace('@desc', groupMetadata.desc) :
                 (chat.sBye || this.bye || conn.bye || '@user un gay salio del grupo')).replace('@user', '@' + user.split('@')[0])
               addz = "```– anu.action == 'add' –```"
 gbutsan = [
-{buttonId: 'qqq', buttonText: {displayText: `---`}, type: 1}
+{buttonId: 'qqq', buttonText: {displayText: [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋', 'Lolibot - OFC']]}, type: 1}
 ]
 gbuttonan = {
-imageMessage: pyy.message.imageMessage,
+imageMessage: py.message.imageMessage,
 contentText: text,
 footerText: `${addz}`,
 buttons: gbutsan,
