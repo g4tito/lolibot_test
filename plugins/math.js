@@ -17,7 +17,7 @@ Ejemplo de uso : ${usedPrefix}math medium
         if (id in global.math) return conn.reply(m.chat, 'Todavía hay preguntas sin responder en este chat', global.math[id][0])
         let math = genMath(mode)
   global.math[id] = [
-        await conn.reply(m.chat, `Cuanto es el resultado de : *${math.str}*?\n\nTiempo : ${(math.time / 1000).toFixed(2)} detik\nBono de respuesta correcta : ${math.bonus} Exp`, m),
+        await conn.reply(m.chat, `Cuanto es el resultado de *${math.str}*?\n\nTiempo : ${(math.time / 1000).toFixed(2)} segundos\nBono de respuesta correcta : ${math.bonus} Exp`, m),
         math, 4,
         setTimeout(() => {
             if (global.math[id]) conn.reply(m.chat, `El tiempo ha terminado!\nLa respuesta es : ${math.result}`, global.math[id][0])
@@ -26,7 +26,7 @@ Ejemplo de uso : ${usedPrefix}math medium
         ]
     } catch (e) {
         console.log(e)
-        m.reply('error!!')
+        m.reply('Lo siento acurrio un error!')
         if (DevMode) {
             for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
                 conn.sendMessage(jid, 'Math.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
@@ -34,7 +34,7 @@ Ejemplo de uso : ${usedPrefix}math medium
         }
     }
 }
-handler.help = ['math <mode>']
+handler.help = ['math <modo>']
 handler.tags = ['game']
 handler.command = /^math/i
 
