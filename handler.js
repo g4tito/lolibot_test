@@ -454,7 +454,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Hola 😙, *@user*\n───────────────────\n*🎊Bienvenido/a al grupo* :\n@subject\n\n• *Descripción* :\n\n@desc').replace('@subject', await this.getName(jid)).replace('@desc', groupMetadata.desc) :
                 (chat.sBye || this.bye || conn.bye || '@user un gay salio del grupo')).replace('@user', '@' + user.split('@')[0])
-               let py = await this.prepareMessage(jid, await(await fetch(pp)).buffer(), MessageType.image, {contextInfo: { externalAdReply:{title: "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ",body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
+               let py = await this.prepareMessage(jid, await(await fetch(pp)).buffer(), MessageType.image, {contextInfo: { externalAdReply:{title: [[action === 'add' ? "ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ɴᴇᴡ ɢʀᴏᴜᴘ": "ɪ ʟᴇғᴛ ᴛʜᴇ ɢʀᴏᴜᴘ"]], body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
 gbutsan = [
 {buttonId: 'qqq', buttonText: {displayText: [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋']]}, type: 1}
 ]
@@ -493,10 +493,10 @@ this.sendMessage(jid, gbuttonan, MessageType.buttonsMessage, {
     let chat = global.DATABASE._data.chats[m.key.remoteJid]
     if (chat.delete) return
     await this.reply(m.key.remoteJid, `
-Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
+Mensaje eliminado de @${m.participant.split`@`[0]}
 
-Untuk mematikan fitur ini, ketik
-*.enable delete*
+Para desactivar esta función, escriba
+*/disable delete*
 `.trim(), m.message, {
       contextInfo: {
         mentionedJid: [m.participant]
@@ -533,21 +533,21 @@ Untuk mematikan fitur ini, ketik
       
       await this.send(`${tag},${JSON.stringify(NodePayload)}`)
     }
-    await this.sendMessage(from, 'Maaf, Tolong jangan telfon BOT!!', MessageType.extendedText)
+    await this.sendMessage(from, 'No llame a la bot!!', MessageType.extendedText)
   }
 }
 
 global.dfail = (type, m, conn) => {
   let msg = {
-    rowner: 'Perintah ini hanya dapat digunakan oleh _*OWWNER!1!1!*_',
-    owner: 'Perintah ini hanya dapat digunakan oleh _*Owner Bot*_!',
-    mods: 'Perintah ini hanya dapat digunakan oleh _*Moderator*_ !',
-    premium: 'Perintah ini hanya untuk member _*Premium*_ !',
-    group: 'Perintah ini hanya dapat digunakan di grup!',
-    private: 'Perintah ini hanya dapat digunakan di Chat Pribadi!',
-    admin: 'Perintah ini hanya untuk *Admin* grup!',
-    botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini!',
-    unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Manusia.16*'
+    rowner: 'Esta función solo puede ser usado por el *creador* del bot',
+    owner: 'Esta función solo puede ser usado por el *creador* del bot',
+    mods: 'Esta función solo puede ser usado por los *moderadores* del bot',
+    premium: 'Esta función solo es para usuarios *premium*!',
+    group: 'Esta función solo puede ser utilizado en *grupos*!',
+    private: 'Esta función solo puede ser utilizado en mi chat *privado*!',
+    admin: 'Esta función solo puede ser utilizado por *administradores* del grupos!',
+    botAdmin: 'Devo ser *administradora* para ejecutar esta función',
+    unreg: 'Todavía no estas registrado\n\n*Ejemplo* :\n/daftar Gatito.17'
   }[type]
   if (msg) return m.reply(msg)
 }
