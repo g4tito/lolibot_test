@@ -5,12 +5,12 @@ let handler = async (m, { conn }) => {
     let _timers = (cooldown - (new Date - user.lastweekly))
     let timers = clockString(_timers)
     if (new Date - user.lastweekly > cooldown) {
-        conn.reply(m.chat, `Anda sudah mengklaim dan mendapatkan 20000 💵money dan 3 🎁Legendary crate`, m)
+        conn.reply(m.chat, `Has reclamado 20000 de dinero y 3 cajas legendarias`, m)
         user.money += 20000
         user.legendary += 3
         user.lastweekly = new Date * 1
     } else {
-        let buttons = button(`silahkan tunggu *🕒${timers}* lagi untuk bisa mengclaim lagi`, user)
+        let buttons = button(`⏰ Espere *${timers}* para volver a reclamar`, user)
         conn.sendMessage(m.chat, buttons, MessageType.buttonsMessage, { quoted: m })
     }
 }

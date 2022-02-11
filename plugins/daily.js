@@ -6,7 +6,7 @@ let handler = async (m, { conn }) => {
     let _timers = (cooldown - __timers)
     let timers = clockString(_timers)
     if (new Date - user.lastclaim > cooldown) {
-        conn.reply(m.chat, `Has reclamado 1000 de dinero y una poción`, m)
+        conn.reply(m.chat, ` Has reclamado 1000 de dinero y una poción`, m)
         global.DATABASE._data.users[m.sender].money += 1000
         global.DATABASE._data.users[m.sender].potion += 1
         global.DATABASE._data.users[m.sender].lastclaim = new Date * 1
