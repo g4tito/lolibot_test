@@ -1,14 +1,14 @@
 let handler  = async (m, { conn, text }) => {
   let groups = conn.chats.all().filter(v => v.jid.endsWith('g.us') && !v.read_only && v.message).map(v => v.jid)
-  let content = (/bcgc|broadcastgroup|bcgrup|bcgrup|broadcastgc/i.test(text) ? text : text + '\n' + readMore + '「 ' + conn.getName(conn.user.jid) + ' Broadcast 」')
+  let content = (/bcgc|anuncio/i.test(text) ? text : text + '\n\n' + readMore + '∙ 「 anuncio 」 ∙')
   for (let id of groups) conn.sendMessage(id, content, m.mtype, m.msg.contextInfo ? {
     contextInfo: m.msg.contextInfo
   } : {})
-  conn.reply(m.chat, `_Mengirim pesan broadcast ke ${groups.length} grup_`, m)
+  conn.reply(m.chat, `El anuncio se envio a ${groups.length} grupos`, m)
 }
-handler.help = ['broadcastgroup','bcgc'].map(v => v + ' <teks>')
+handler.help = ['anuncio','bcgc'].map(v => v + ' <texto>')
 handler.tags = ['owner']
-handler.command = /^(broadcast|bc)(group|grup|gc)$/i
+handler.command = /^(anuncio|bcgc)$/i
 handler.owner = true
 
 handler.fail = null
