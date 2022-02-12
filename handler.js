@@ -1,9 +1,7 @@
 let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType, Presence } = require('@adiwajshing/baileys')
-const fetch = require('node-fetch')
-const fs = require('fs')
-const chalk = require('chalk')
+let fetch = require('node-fetch')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -555,6 +553,8 @@ global.dfail = (type, m, conn) => {
   if (msg) return m.reply(msg)
 }
 
+let fs = require('fs')
+let chalk = require('chalk')
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
   fs.unwatchFile(file)
