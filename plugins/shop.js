@@ -20,10 +20,10 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
     let _type = (args[1] || '').toLowerCase()
     let jualbeli = (args[0] || '').toLowerCase()
     const Kchat = `
-${usedPrefix}shop <Buy|sell> <item> <jumlah>\n
-Contoh penggunaan: *${usedPrefix}shop buy potion 1*\n\n
-List Barang:\n\n
-*Barang   |  Harga beli*\n
+${usedPrefix}shop <buy|sell> <item> <total>\n
+Ejemplo de uso: *${usedPrefix}shop buy potion 1*\n\n
+Lista de articulos:\n\n
+*Artículos  |  Precios*\n
 Potion:       ${potion}
 Diamond:     ${Bdiamond}
 Common:     ${Bcommon}
@@ -32,7 +32,7 @@ Mythic:     ${Bmythic}
 Legendary: ${Blegendary}
 Sampah:     ${Bsampah}
 Armor:       ${armor}\n\n
-*Barang   | Harga Jual*\n
+*Cajas  |  Precios*\n
 Potion:       ${Spotion}
 Diamond:     ${Sdiamond}
 Common:     ${Scommon}
@@ -238,9 +238,9 @@ Sampah:     ${Ssampah}\n\n
                         if (global.DATABASE._data.users[m.sender].money > armor * 1) {
                             global.DATABASE._data.users[m.sender].armor += 1
                             global.DATABASE._data.users[m.sender].money -= armor * 1
-                            conn.reply(m.chat, `Succes membeli armor seharga ${armor} money` ,m)
+                            conn.reply(m.chat, `Compraste una armadura por ${armor} de dinero` ,m)
                           
-                        } else conn.reply(m.chat, `uang mu tidak cukup untuk membeli armor seharga ${armor} money`, m)
+                        } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar una armadura, costo ${armor} de dinero`, m)
                     
                     break
                 default:
@@ -313,7 +313,7 @@ Sampah:     ${Ssampah}\n\n
     }
 }
 
-handler.help = ['shop <sell|buy> <args>', 'toko <sell|buy> <args>']
+handler.help = ['shop <sell|buy> <tipo>', 'toko <sell|buy> <tipo>']
 handler.tags = ['rpg']
     
 handler.command = /^(shop|toko|buy|beli|sell|jual)$/i
