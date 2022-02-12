@@ -22,7 +22,7 @@ let handler = async (m, { conn, usedPrefix, command, text, isPrems, isOwner, Dev
 • *🔊 Tamaño* : ${filesizeF}
 • *👾 Link* : ${vid.url}
 
-${isLimit ? 'Pakai ': ''}- Link de descarga : _${dl_link}_
+${isLimit ? 'El archivo es muy grande descargalo por el link\n': ''}- Link de descarga : _${dl_link}_
 `.trim(), m)
           if (!isLimit) conn.sendFile(m.chat, dl_link, title + '.mp' + (3 + /2$/.test(command)), `
 *Video descargado*
