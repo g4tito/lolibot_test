@@ -33,19 +33,19 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
                 let sampah = `${Math.floor(Math.random() * 300)}`.trim()
                 let legendary = (_legendary * 1)
                 let str = `
-Nyawa mu berkurang -${healt * 1} karena Kamu telah berpetualang sampai ${pickRandom(['Jepang', 'Korea', 'Bali', 'Amerika', 'Iraq', 'Arab', 'Pakistan', 'German', 'Finlandia', 'Ke bawa dunia mimpi', 'Ujung dunia', 'Mars', 'Bulan', 'Pluto', 'Matahari', 'Hatinya dia', '...'])} dan mendapatkan
-*exp:* ${exp} 
-*uang:* ${uang}
-*sampah:* ${sampah}${potion == 0 ? '' : '\n*Potion:* ' + potion + ''}${diamond == 0 ? '' : '\n*diamond:* ' + diamond + ''}${common == 0 ? '' : '\n*common crate:* ' + common + ''}${uncommon == 0 ? '' : '\n*uncommon crate:* ' + uncommon + ''}
+Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['a un mundo de los sueños', 'al fin del mundo', 'a marte', 'a la luna', 'a pluto', 'al sol', 'a su corazón', '...'])} y obtienes
+*Exp* :${exp} 
+*Dinero* : ${uang}
+*Basura* : ${sampah}${potion == 0 ? '' : '\n*Pocion* : ' + potion + ''}${diamond == 0 ? '' : '\n*Diamantes* : ' + diamond + ''}${common == 0 ? '' : '\n*Cajas comunes* : ' + common + ''}${uncommon == 0 ? '' : '\n*Caja poco común* : ' + uncommon + ''}
 `.trim()
                 conn.reply(m.chat, str, m)
                 if (mythic > 0) {
                     global.DATABASE._data.users[m.sender].mythic += mythic * 1
-                    conn.reply(m.chat, '*Selamat anda mendapatkan item Rare yaitu*\n' + mythic + ' Mythic Crate', m)
+                    conn.reply(m.chat, '*Felicidades, tienes un artículo raro*\n' + mythic + ' Caja mítica', m)
                 }
                 if (legendary > 0) {
                     global.DATABASE._data.users[m.sender].legendary += legendary * 1
-                    conn.reply(m.chat, '*Selamat anda mendapatkan item Epic yaitu*\n' + legendary + ' Legendary Crate', m)
+                    conn.reply(m.chat, '*Felicidades, tienes un artículo épico*\n' + legendary + ' Caja legendaria', m)
                 }
                 global.DATABASE._data.users[m.sender].healt -= healt * 1
                 global.DATABASE._data.users[m.sender].exp += exp * 1
@@ -57,7 +57,7 @@ Nyawa mu berkurang -${healt * 1} karena Kamu telah berpetualang sampai ${pickRan
                 global.DATABASE._data.users[m.sender].sampah += sampah * 1
                 global.DATABASE._data.users[m.sender].lastadventure = new Date * 1
             } else conn.reply(m.chat, `Anda sudah berpetualang dan kelelahan, silahkan coba *${timers}* lagi`, m)
-        } else conn.reply(m.chat, 'Minimal 80 health untuk bisa berpetualang, beli nyawa dulu dengan ketik *' + usedPrefix + 'shop buy potion <jumlah>*\ndan ketik *' + usedPrefix + 'use potion <jumlah>*\n\n_Untuk mendapat money dan potion gratis ketik_ *' + usedPrefix + 'claim*', m)
+        } else conn.reply(m.chat, 'Mínimo 80 de salud para poder emprender una aventura, compra una vida primero escribiendo *' + usedPrefix + 'shop buy potion <total>*\ny luego *' + usedPrefix + 'use potion <total>*\n\n_para obtener dinero gratis y porciones utiliza_ *' + usedPrefix + 'daily*', m)
     } catch (e) {
         console.log(e)
         conn.reply(m.chat, 'Error', m)
