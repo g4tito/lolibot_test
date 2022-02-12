@@ -2,8 +2,8 @@ let { MessageType } = require('@adiwajshing/baileys')
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
     let msgerror = (pickRandom(['Error', 'astagfirullah error', 'Nice Error', 'Salah format keknya :v', 'error bro', 'Kocak error :v', 'wtf error :v', 'Ciaaa error', 'error cuyy', 'dahlah (emot batu) error']))
     try {
-        let msgkurang = (pickRandom(['potionmu tidak cukup', 'ciaa gk cukup potionyya :v', 'wtf gk cukup :v', 'beli potion dulu, potionmu gk cukup', 'Duaarr potionmu gk cukup', 'eyyyy potionmu kurang', 'beli dulu lah, masak mau pakai potion tapi gk ada potionnnya :v', 'minta ke orang lain suruh transfer potion, biar potionmu gk kurang :v', 'Beli potion dulu KK']))
-        let msgpenuh = (pickRandom(['Nyawamu sudah penuh', 'coba deh liat inv mu, nyawamu kan dah 100 ngapai ngunain potion lagi?', 'health mu dah penuh woyy', 'ws kebek weh :v', 'nyawamu dah penuh :v', 'udh weh, udh penuh']))
+        let msgkurang = (pickRandom(['No tienes suficientes opciones', 'ciaa gk cukup potionyya :v', 'wtf gk cukup :v', 'beli potion dulu, potionmu gk cukup', 'Duaarr potionmu gk cukup', 'eyyyy potionmu kurang', 'beli dulu lah, masak mau pakai potion tapi gk ada potionnnya :v', 'minta ke orang lain suruh transfer potion, biar potionmu gk kurang :v', 'Beli potion dulu KK']))
+        let msgpenuh = (pickRandom(['Tu vida esta llena', 'coba deh liat inv mu, nyawamu kan dah 100 ngapai ngunain potion lagi?', 'health mu dah penuh woyy', 'ws kebek weh :v', 'Tu vida esta llena :v', 'udh weh, udh penuh']))
         let kucing = global.DATABASE._data.users[m.sender].kucing
         let usepotion = (kucing == 0 ? 40 : '' || kucing == 1 ? 45 : '' || kucing == 2 ? 50 : '' || kucing == 3 ? 55 : '' || kucing == 4 ? 60 : '' || kucing == 5 ? 65 : '' || kucing == 6 ? 70 : '' || kucing == 7 ? 75 : '' || kucing == 8 ? 80 : '' || kucing == 9 ? 85 : '' || kucing == 10 ? 90 : '')
         let healt = global.DATABASE._data.users[m.sender].healt
@@ -19,7 +19,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
                             conn.reply(m.chat, msgsucces, m)
                         } else conn.reply(m.chat, msgkurang, m)
                     } else conn.reply(m.chat, msgpenuh, m)
-                } else if (args.length > 2 && args[0] === !'potion') m.reply(pickRandom(['Hanya bisa menggunakan potion', 'Mau ngunain apa? Cuma bisa gunain potion :v', 'Wih mau gunain apa kamu, kan hanya bisa potion', 'Waduheck, hanya bisa potion', 'lah, mau gunain apa?, kan hanya bisa potion']) + '\nContoh penggunaan: *' + usedPrefix + 'potion 1*')
+                } else if (args.length > 2 && args[0] === !'potion') m.reply(pickRandom(['Solo puede usar pociones.', 'Mau ngunain apa? Cuma bisa gunain potion :v', 'Wow, que quieres usar, solo puedes hacer pociones', 'Waduheck, hanya bisa potion', 'lah, mau gunain apa?, kan hanya bisa potion']) + '\nContoh penggunaan: *' + usedPrefix + 'potion 1*')
             } catch (e) {
                 console.log(e)
                 m.reply(msgerror)
@@ -64,7 +64,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
     }
 }
 
-handler.help = ['use <item> <jumlah>', 'heal']
+handler.help = ['use <item> <total>', 'heal']
 handler.tags = ['rpg']
 handler.command = /^(use|heal)$/i
 

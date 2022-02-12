@@ -1,9 +1,9 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
   try {
-    let bruh = `${usedPrefix}open <crate name> < 1 | 10 | 100 | 1000 >\n\nContoh penggunaan: *${usedPrefix}open common 10*\n\nlist crate:\n*common*\n*uncommon*\n*mythic*\n*legendary*`
+    let bruh = `${usedPrefix}open <nombre de la caja> < 1 | 10 | 100 | 1000 >\n\nEjemplo de uso: *${usedPrefix}open common 10*\n\nLista de cajas:\n*common*\n*uncommon*\n*mythic*\n*legendary*`
     let _lmao = args[0]
-    let Lmao = `Hanya support 1, 10, 100, 1000\nContoh penggunaan: *${usedPrefix}open ${args > 2 ? _lmao : pickRandom(['common', 'uncommon', 'mythic', 'legendary'])} 10*`
+    let Lmao = `Solo se admite 1, 10, 100, 1000\nEjemplo: *${usedPrefix}open ${args > 2 ? _lmao : pickRandom(['common', 'uncommon', 'mythic', 'legendary'])} 10*`
     let type = (args[0] || '').toLowerCase()
     let jumlah = (args[1] || '').toLowerCase()
     switch (type) {
@@ -22,7 +22,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
                     let ce = (_ce * 1)
                     let cu = (_cu * 1)
                     let Hcom = `
-Anda telah membuka *Common crate* dan mendapatkan:${cm > 0 ? `\nMoney: ${cm}` : ''}${ce > 0 ? `\nExp: ${ce} *exp*` : ''}${cp > 0 ? `\nPotion: ${cp} *potion*` : ''}${cc > 0 ? `\ncommon crate: ${cc} *crate*` : ''}${cu > 0 ? `\nUncommon crate: ${cu} *crate*` : ''}
+Has abierto una *Caja común* y obtienes:${cm > 0 ? `\nDinero: ${cm}` : ''}${ce > 0 ? `\nExp: ${ce} *exp*` : ''}${cp > 0 ? `\nPocion: ${cp} *potion*` : ''}${cc > 0 ? `\nCaja comun: ${cc} total` : ''}${cu > 0 ? `\nCaja poco comun: ${cu} total` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1) {
                         global.DATABASE._data.users[m.sender].common -= 1
@@ -32,7 +32,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm > 0 ? `\nMoney: ${cm}` : 
                         global.DATABASE._data.users[m.sender].uncommon += cu * 1
                         global.DATABASE._data.users[m.sender].common += cc * 1
                         conn.reply(m.chat, Hcom, m)
-                    } else conn.reply(m.chat, 'Common crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas comunes', m)
                     break
                 case '10':
                     let _cm1 = `${Math.floor(Math.random() * 500)}`.trim()
@@ -46,7 +46,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm > 0 ? `\nMoney: ${cm}` : 
                     let ce1 = (_ce1 * 1)
                     let cu1 = (_cu1 * 1)
                     let Hcom1 = `
-Anda telah membuka *Common crate* dan mendapatkan:${cm1 > 0 ? `\nMoney: ${cm1}` : ''}${ce1 > 0 ? `\nExp: ${ce1} *exp*` : ''}${cp1 > 0 ? `\nPotion: ${cp1} *potion*` : ''}${cc1 > 0 ? `\ncommon crate: ${cc1} *crate*` : ''}${cu1 > 0 ? `\nUncommon crate: ${cu1} *crate*` : ''}
+Has abierto 10 *Cajas comunes* y obtienes:${cm1 > 0 ? `\nDinero: ${cm1}` : ''}${ce1 > 0 ? `\nExp: ${ce1} *exp*` : ''}${cp1 > 0 ? `\nPocion: ${cp1} *potion*` : ''}${cc1 > 0 ? `\nCaja comun: ${cc1} total` : ''}${cu1 > 0 ? `\nCaja poco comun: ${cu1} total` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 10) {
                         global.DATABASE._data.users[m.sender].common -= 10
@@ -56,7 +56,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm1 > 0 ? `\nMoney: ${cm1}` 
                         global.DATABASE._data.users[m.sender].uncommon += cu1 * 1
                         global.DATABASE._data.users[m.sender].common += cc1 * 1
                         conn.reply(m.chat, Hcom1, m)
-                    } else conn.reply(m.chat, 'Common crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas comunes', m)
                     break
                 case '100':
                     let _cm2 = `${Math.floor(Math.random() * 5000)}`.trim()
@@ -70,7 +70,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm1 > 0 ? `\nMoney: ${cm1}` 
                     let ce2 = (_ce2 * 1)
                     let cu2 = (_cu2 * 1)
                     let Hcom2 = `
-Anda telah membuka *Common crate* dan mendapatkan:${cm2 > 0 ? `\nMoney: ${cm2}` : ''}${ce2 > 0 ? `\nExp: ${ce2} *exp*` : ''}${cp2 > 0 ? `\nPotion: ${cp2} *potion*` : ''}${cc2 > 0 ? `\ncommon crate: ${cc2} *crate*` : ''}${cu2 > 0 ? `\nUncommon crate: ${cu2} *crate*` : ''}
+Has abierto una 100 *Cajas comunes* y obtienes:${cm2 > 0 ? `\nDinero: ${cm2}` : ''}${ce2 > 0 ? `\nExp: ${ce2} *exp*` : ''}${cp2 > 0 ? `\nPocion: ${cp2} *potion*` : ''}${cc2 > 0 ? `\nCaja comun: ${cc2} total` : ''}${cu2 > 0 ? `\nCaja poco comun: ${cu2} total` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 100) {
                         global.DATABASE._data.users[m.sender].common -= 100
@@ -80,7 +80,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm2 > 0 ? `\nMoney: ${cm2}` 
                         global.DATABASE._data.users[m.sender].uncommon += cu2 * 1
                         global.DATABASE._data.users[m.sender].common += cc2 * 1
                         conn.reply(m.chat, Hcom2, m)
-                    } else conn.reply(m.chat, 'Common crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas comunes', m)
                     break
                 case '1000':
                     let _cm3 = `${Math.floor(Math.random() * 50000)}`.trim()
@@ -94,7 +94,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm2 > 0 ? `\nMoney: ${cm2}` 
                     let ce3 = (_ce3 * 1)
                     let cu3 = (_cu3 * 1)
                     let Hcom3 = `
-Anda telah membuka *Common crate* dan mendapatkan:${cm3 > 0 ? `\nMoney: ${cm3}` : ''}${ce3 > 0 ? `\nExp: ${ce3} *exp*` : ''}${cp3 > 0 ? `\nPotion: ${cp3} *potion*` : ''}${cc3 > 0 ? `\ncommon crate: ${cc3} *crate*` : ''}${cu3 > 0 ? `\nUncommon crate: ${cu3} *crate*` : ''}
+Has abierto una 1000 *Cajas comunes* y obtienes:${cm3 > 0 ? `\nDinero: ${cm3}` : ''}${ce3 > 0 ? `\nExp: ${ce3} *exp*` : ''}${cp3 > 0 ? `\nPotion: ${cp3} *potion*` : ''}${cc3 > 0 ? `\ncommon crate: ${cc3} *crate*` : ''}${cu3 > 0 ? `\nUncommon crate: ${cu3} *crate*` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1000) {
                         global.DATABASE._data.users[m.sender].common -= 1000
@@ -104,7 +104,7 @@ Anda telah membuka *Common crate* dan mendapatkan:${cm3 > 0 ? `\nMoney: ${cm3}` 
                         global.DATABASE._data.users[m.sender].uncommon += cu3 * 1
                         global.DATABASE._data.users[m.sender].common += cc3 * 1
                         conn.reply(m.chat, Hcom3, m)
-                    } else conn.reply(m.chat, 'Common crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas comunes', m)
                     break
                 default:
                     return conn.reply(m.chat, Lmao, m)
@@ -631,9 +631,9 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm3 > 0 ? `\nMoney: ${lm3
     }
   }
 }
-handler.help = ['open <crate>', 'gacha <crate>']
+handler.help = ['open <caja>']
 handler.tags = ['rpg']
-handler.command = /^(open|buka|gacha)$/i
+handler.command = /^(open|buka)$/i
 
 handler.fail = null
 
