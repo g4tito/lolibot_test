@@ -6,48 +6,48 @@ let fs = require('fs')
 let path = require('path')
 let levelling = require('../lib/levelling')
 let tags = {
-  'main': 'Main',
-  'rpg': 'Epic RPG',
-  'game': 'Game',
-  'xp': 'Exp & Limit',
-  'sticker': 'Sticker',
+  'main': 'MENU',
+  'rpg': 'EPIC RPG',
+  'game': 'JUEGOS',
+  'xp': 'EXP & LIMITE',
+  'sticker': 'STICKER',
   'kerang': 'Kerang Ajaib',
-  'quotes': 'Quotes',
-  'admin': 'Admin',
-  'group': 'Group',
-  'premium': 'Premium',
-  'internet': 'Internet',
-  'anonymous': 'Anonymous Chat',
-  'nulis': 'MagerNulis & Logo',
-  'downloader': 'Downloader',
-  'tools': 'Tools',
-  'fun': 'Fun',
-  'database': 'Database',
-  'vote': 'Voting',
+  'quotes': 'CITAS',
+  'admin': 'ADMIN',
+  'group': 'GRUPO',
+  'premium': 'PREMIUN',
+  'internet': 'INTERNET',
+  'anonymous': 'CHAT ANONIMO',
+  'nulis': 'LOGO MAKER',
+  'downloader': 'DESCARGA',
+  'tools': 'AJUSTES',
+  'fun': 'DIVERCION',
+  'database': 'DATABASE',
+  'vote': 'VOTACION',
   'absen': 'Absen',
   'quran': 'Al Qur\'an',
-  'jadibot': 'Jadi Bot',
-  'owner': 'Owner',
-  'host': 'Host',
-  'advanced': 'Advanced',
-  'info': 'Info',
-  '': 'No Category',
+  'jadibot': 'JADI BOT',
+  'owner': 'CREADOR',
+  'host': 'HOST',
+  'advanced': 'AVANZADO',
+  'info': 'INFO',
+  '': 'SIN CATEGORIA',
 }
 const defaultMenu = {
   before: `
-%ucapan, %name!
+Hola @${m.sender.split`@`[0]}, %ucapan!
 
-• *Tanggal* : _%week %weton, %date_
-• *Tanggal Islam* : _%dateIslamic_
-• *Waktu* : _%time_
+• *Fecha* : _%week %weton, %date_
+• *Fecha islamica* : _%dateIslamic_
+• *Hora* : _%time_
 
-• *Uptime* : _%uptime (%muptime)_
-• *Database* : _%rtotalreg of %totalreg_
+• *Tiempo activo* : _%uptime (%muptime)_
+• *Registrados* : _%rtotalreg de %totalreg_
 
 %readmore`.trimStart(),
-  header: '❑ *%category*',
+  header: '╭─❑ *%category*',
   body: '│∙ %cmd %islimit %isPremium',
-  footer: '╰❑\n',
+  footer: '└──❑\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
@@ -148,7 +148,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
      let tumb = await(await fetch("https://w.wallpaperkiss.com/wimg/s/151-1513066_small.jpg")).buffer()
      let tumbb = await(await fetch("https://i.ibb.co/YQxJTwx/long-hair-anime-girls-gochuumon-wa-usagi-desu-ka-kafuu-chino-wallpaper-preview.jpg")).buffer()
      conn.sendMessage(m.chat, { contentText: text.trim(), footerText: 'Lolibot - OFC', buttons: [{buttonId: '/ping', buttonText: {displayText: '👾 PING'}, type: 1},{buttonId: '/owner' , buttonText: {displayText: '🍧 CREADOR'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": "Dibuat Oleh: Arifi Razzaq", "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 999999999999, "pageCount": 999999999, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": "𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄", "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": tumb 
-            }}, MessageType.buttonsMessage, { quoted: m, thumbnail: tumbb, contextInfo: { externalAdReply: { title: `あなたは私のすべてです`, body: `Macielly ? D‵ Gatito`, thumbnail: tumbb, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
+            }}, MessageType.buttonsMessage, { quoted: m, thumbnail: tumbb, contextInfo: { mentionedJid: [m.sender], externalAdReply: { title: `あなたは私のすべてです`, body: `Macielly ? D‵ Gatito`, thumbnail: tumbb, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
             }
             }
             })
@@ -187,16 +187,16 @@ function ucapan() {
   const time = (new Date().getUTCHours() + 7) % 24
   res = "Woi. Pagi"
   if (time >= 4) {
-    res = "Selamat Pagi"
+    res = "Espero que tenga un lindo dia"
   }
   if (time >= 12) {
-    res = "Selamat Siang"
+    res = "Espero que tenga un lindo tarde"
   }
   if (time >= 15) {
-    res = "Selamat Sore"
+    res = "Espero que tenga un linda noche"
   }
   if (time >= 19) {
-    res = "Selamat Malam"
+    res = "Espero que tenga un linda noche"
   }
   return res
 }
