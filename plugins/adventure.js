@@ -56,7 +56,7 @@ Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['a un mun
                 global.DATABASE._data.users[m.sender].uncommon += uncommon * 1
                 global.DATABASE._data.users[m.sender].sampah += sampah * 1
                 global.DATABASE._data.users[m.sender].lastadventure = new Date * 1
-            } else conn.reply(m.chat, `Anda sudah berpetualang dan kelelahan, silahkan coba *${timers}* lagi`, m)
+            } else conn.reply(m.chat, `Te quedaste sin energía vuelve dentro de *${timers}* minutos`, m)
         } else conn.reply(m.chat, 'Mínimo 80 de salud para poder emprender una aventura, compra una vida primero escribiendo *' + usedPrefix + 'shop buy potion <total>*\ny luego *' + usedPrefix + 'use potion <total>*\n\n_para obtener dinero gratis y porciones utiliza_ *' + usedPrefix + 'daily*', m)
     } catch (e) {
         console.log(e)
