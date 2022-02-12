@@ -2,6 +2,8 @@ let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType, Presence } = require('@adiwajshing/baileys')
 const fetch = require('node-fetch')
+const fs = require('fs')
+const chalk = require('chalk')
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -447,14 +449,15 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
         if (chat.welcome) {
           let groupMetadata = await this.groupMetadata(jid)
           for (let user of participants) {
-            let pp = './src/avatar_contact.png'
+            let ppp = fs.readFileSync('./src/avatar_contact.png')
             try {
               pp = await this.getProfilePicture(user)
             } catch (e) {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Hola 😙, *@user*\n───────────────────\n*🎊Bienvenido/a al grupo* :\n@subject\n\n• *Descripción* :\n\n@desc').replace('@subject', await this.getName(jid)).replace('@desc', groupMetadata.desc) :
                 (chat.sBye || this.bye || conn.bye || '@user un gay salio del grupo')).replace('@user', '@' + user.split('@')[0])
-               let py = await this.prepareMessage(jid, await(await fetch(pp)).buffer(), MessageType.image, {contextInfo: { externalAdReply:{title: "ʟᴏʟɪʙᴏᴛ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
+                let ppp await(await fetch(pp)).buffer()
+                let py = await this.prepareMessage(jid, ppp, MessageType.image, {contextInfo: { externalAdReply:{title: "ʟᴏʟɪʙᴏᴛ sᴜᴘᴘᴏʀᴛ ɢʀᴏᴜᴘ", body:"", previewType:"PHOTO",thumbnail: await(await fetch(pp)).buffer(), sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
 gbutsan = [
 {buttonId: 'qqq', buttonText: {displayText: [[action === 'add' ? 'Gracias 🧃' : 'Adios 👋']]}, type: 1}
 ]
@@ -552,8 +555,6 @@ global.dfail = (type, m, conn) => {
   if (msg) return m.reply(msg)
 }
 
-let fs = require('fs')
-let chalk = require('chalk')
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
   fs.unwatchFile(file)
