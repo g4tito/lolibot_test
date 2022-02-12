@@ -41,9 +41,9 @@ Hola %name, %ucapan!
 
 • *Nombre* : _${conn.getName(conn.user.jid)}_
 • *Prefix* : _< Multiprefijo >_
-• *Navegador* : _${Fg.browserDescription[1]}_
-• *Servidor* : _${Fg.browserDescription[0]}_
-• *Version* : _${Fg.browserDescription[2]}_
+• *Navegador* : _${conn.browserDescription[1]}_
+• *Servidor* : _${conn.browserDescription[0]}_
+• *Version* : _${conn.browserDescription[2]}_
 
 • *Fecha* : _%week %weton, %date_
 • *Fecha islamica* : _%dateIslamic_
