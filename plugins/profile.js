@@ -1,25 +1,40 @@
+let PhoneNumber = require('awesome-phonenumber')
+let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix }) => {
   let pp = './src/avatar_contact.png'
+  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
   try {
-    pp = await conn.getProfilePicture(m.sender)
+    pp = await conn.getProfilePicture(who)
   } catch (e) {
 
   } finally {
-    let name = m.fromMe ? conn.user : conn.contacts[m.sender]
+    let about = (await conn.getStatus(who).catch(console.error) || {}).status || ''
+    let { name, limit, exp, lastclaim, registered, regTime, age, level } = global.db.data.users[who]
+    let { min, xp, max } = levelling.xpRange(level, global.multiplier)
+    let username = conn.getName(who)
+    let math = max - xp
+    let prem = global.prems.includes(who.split`@`[0])
     let str = `
-Name: ${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])} (@${m.sender.replace(/@.+/, '')})
-Number: +${m.sender.split`@`[0]}
-Link: https://wa.me/${m.sender.split`@`[0]}
-${readMore}
-\n\n*Mau nge check isi inventorymu? Ketik ${usedPrefix}inv*
+*⤹ ꞋꞌꞋ ┊˖࣪  PERFIL INFO ˊ-  />*
+
+• *Nombre* : ${username} ${registered ? '(' + name + ') ': ''}(@${who.replace(/@.+/, '')})${about ? '\n• *Estado* : ' + about : ''}
+• *Nunero* : ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
+• *Link* : https://wa.me/${who.split`@`[0]}${registered ? '\n• *Edad* : ' + age : ''}
+• *Exp* : TOTAL ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Listo para subir de nivel *${usedPrefix}levelup*` : `${math} Exp restante para subir de nivel`}]
+• *Nivel* : ${level}
+• *Limite* : ${limit}
+• *Registrado* : ${registered ? 'Si (' + new Date(regTime) + ')': 'No'}
+• *Premium* : ${prem ? 'Si' : 'No'}${lastclaim > 0 ? '\nUltimo reclamo: ' + new Date(lastclaim) : ''}
+
+Quieres ver tu inventario? pon ${usedPrefix}inv
 `.trim()
-    let mentionedJid = [m.sender]
+    let mentionedJid = [who]
     conn.sendFile(m.chat, pp, 'pp.jpg', str, m, false, { contextInfo: { mentionedJid }})
   }
 }
-handler.help = ['profile']
-handler.tags = ['rpg']
-handler.command = /^(profile|profil|pp|propile|propil)$/i
+handler.help = ['profile [@user]']
+handler.tags = ['tools']
+handler.command = /^(profile|perfil)$/i
 module.exports = handler
 
 const more = String.fromCharCode(8206)
