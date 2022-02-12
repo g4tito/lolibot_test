@@ -39,7 +39,7 @@ Hola %name, %ucapan!
 
 *៹࣪ 🧃₊∙ BOT INFO ₊°›››*
 
-• *Nombre* : _${conn.getName(conn.user.jid)}_
+• *Nombre* : _%me_
 • *Prefix* : _< Multiprefijo >_
 • *Navegador* : _${conn.browserDescription[1]}_
 • *Servidor* : _${conn.browserDescription[0]}_
