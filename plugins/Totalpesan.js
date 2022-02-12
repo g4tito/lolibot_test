@@ -13,11 +13,11 @@ let handler = async (m, { conn }) => {
     }, 1000)
     let sorted = Object.entries(mCount).sort((a, b) => b[1] - a[1])
     let pesan = sorted.map(v => `${v[0].replace(/(\d+)@.+/, '@$1')}: ${v[1]} mensajes`).join('\n')
-    m.reply(`*Total* :${totalM} mensajes\n\n${pesan}`, false, { contextInfo: { mentionedJid: sorted.map(v => v[0]) } })
+    m.reply(`*Total* : ${totalM} mensajes\n\n${pesan}`, false, { contextInfo: { mentionedJid: sorted.map(v => v[0]) } })
 }
 handler.help = ['totalmsg']
 handler.tags = ['group']
 
-handler.command = /^totalpesan$/i
+handler.command = /^totalmsg$/i
 
 module.exports = handler
