@@ -46,7 +46,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 Inventario de *${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])}*
 
 ♥️ Vida: *${healt}*
-👕 Armadura: *${armor == 0 ? 'Tidak Punya' : '' || armor == 1 ? 'Leather Armor' : '' || armor == 2 ? 'Iron Armor' : '' || armor == 3 ? 'Gold Armor' : '' || armor == 4 ? 'Diamond Armor' : '' || armor == 5 ? 'Netherite Armor' : ''}*\n
+👕 Armadura: *${armor == 0 ? 'No tiene' : '' || armor == 1 ? 'Armadura de cuero' : '' || armor == 2 ? 'Armadura de hierro' : '' || armor == 3 ? 'Armadura de oro' : '' || armor == 4 ? 'Armadura de diamante' : '' || armor == 5 ? 'Armadura de netherite' : ''}*\n
 💵 Dinero: *${money}*
 📈 Nivel: *${level}*
 ✨ Exp: *${exp}*
