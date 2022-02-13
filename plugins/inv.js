@@ -62,8 +62,8 @@ Total inv: *${diamond + potion + sampah + makananpet}* items
 
 ${readMore}
 *📦 Cajas*
-Común: *${common}*
-Poco común: *${uncommon}*
+Comun: *${common}*
+Normal: *${uncommon}*
 Mitico: *${mythic}*
 Legendario: *${legendary}*
 Mascota: *${pet}*
@@ -77,7 +77,8 @@ Mascota: *${pet}*
 
 ╭────────────────
 │Nivel *${level}* al nivel *${level + 1}*
-│Exp *${exp}* -> *${max}* [${math <= 0 ? `Use *${usedPrefix}levelup* para subir de nivel` : `${math} Exp restante para subir de nivel`}]
+│Exp *${exp}* -> *${max}*
+│[${math <= 0 ? `Use *${usedPrefix}levelup* para subir de nivel` : `${math} Exp restante para subir de nivel`}]
 ╰────────────────
 ╭────────────────
 │🦊 Zorro ${rubah == 0 ? 'No tiene' : '' || rubah > 0 && rubah < 5 ? `Nivel *${rubah}* al nivel *${rubah + 1}*\n│Exp *${_rubah}* -> *${rubah * 100}*` : '' || rubah == 5 ? '*Nivel maximo*' : ''}
@@ -94,14 +95,14 @@ Mascota: *${pet}*
 2.Top Dinero *${usersmoney.indexOf(m.sender) + 1}* de *${usersmoney.length}*
 3.Top Diamante *${usersdiamond.indexOf(m.sender) + 1}* de *${usersdiamond.length}*
 4.Top Pocion *${userspotion.indexOf(m.sender) + 1}* de *${userspotion.length}*
-5.Top Comun *${userscommon.indexOf(m.sender) + 1}* de *${userscommon.length}*
-6.Top Poco comun *${usersuncommon.indexOf(m.sender) + 1}* de *${usersuncommon.length}*
-7.Top Mítico *${usersmythic.indexOf(m.sender) + 1}* de *${usersmythic.length}*
-8.Top Legendario *${userslegendary.indexOf(m.sender) + 1}* de *${userslegendary.length}*
+5.Top Caja comun *${userscommon.indexOf(m.sender) + 1}* de *${userscommon.length}*
+6.Top Caja normal *${usersuncommon.indexOf(m.sender) + 1}* de *${usersuncommon.length}*
+7.Top Caja mitico *${usersmythic.indexOf(m.sender) + 1}* de *${usersmythic.length}*
+8.Top Caja legendario *${userslegendary.indexOf(m.sender) + 1}* de *${userslegendary.length}*
 9.Top Basura *${userssampah.indexOf(m.sender) + 1}* de *${userssampah.length}*
 
-Warn: *${warn}*
-Banned: *No*
+Advertencia: *${warn}*
+Baneado: *No*
 `.trim()
     conn.reply(m.chat, str, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tINVENTARIO`, previewType:"PHOTO",thumbnail: invt, sourceUrl:``}}})
 }

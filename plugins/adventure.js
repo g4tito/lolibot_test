@@ -34,18 +34,18 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
                 let legendary = (_legendary * 1)
                 let str = `
 Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['a un mundo de los sueños', 'al fin del mundo', 'a marte', 'a la luna', 'a pluto', 'al sol', 'a su corazón', '...'])} y obtienes
-*Exp* :${exp} 
-*Dinero* : ${uang}
-*Basura* : ${sampah}${potion == 0 ? '' : '\n*Pocion* : ' + potion + ''}${diamond == 0 ? '' : '\n*Diamantes* : ' + diamond + ''}${common == 0 ? '' : '\n*Cajas comunes* : ' + common + ''}${uncommon == 0 ? '' : '\n*Caja poco común* : ' + uncommon + ''}
+- *Exp* :${exp} 
+- *Dinero* : ${uang}
+- *Basura* : ${sampah}${potion == 0 ? '' : '\n- *Pocion* : ' + potion + ''}${diamond == 0 ? '' : '\n- *Diamantes* : ' + diamond + ''}${common == 0 ? '' : '\n- *Cajas comunes* : ' + common + ''}${uncommon == 0 ? '' : '\n- *Caja poco común* : ' + uncommon + ''}
 `.trim()
                 conn.reply(m.chat, str, m)
                 if (mythic > 0) {
                     global.DATABASE._data.users[m.sender].mythic += mythic * 1
-                    conn.reply(m.chat, '*Felicidades, tienes un artículo raro*\n' + mythic + ' Caja mítica', m)
+                    conn.reply(m.chat, '*Felicidades, obtienes un artículo raro*\n' + mythic + ' Caja mitica', m)
                 }
                 if (legendary > 0) {
                     global.DATABASE._data.users[m.sender].legendary += legendary * 1
-                    conn.reply(m.chat, '*Felicidades, tienes un artículo épico*\n' + legendary + ' Caja legendaria', m)
+                    conn.reply(m.chat, '*Felicidades, obtienes un artículo épico*\n' + legendary + ' Caja legendaria', m)
                 }
                 global.DATABASE._data.users[m.sender].healt -= healt * 1
                 global.DATABASE._data.users[m.sender].exp += exp * 1
@@ -57,7 +57,7 @@ Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['a un mun
                 global.DATABASE._data.users[m.sender].sampah += sampah * 1
                 global.DATABASE._data.users[m.sender].lastadventure = new Date * 1
             } else conn.reply(m.chat, `Te quedaste sin energía vuelve dentro de *${timers}* minutos`, m)
-        } else conn.reply(m.chat, 'Mínimo 80 de salud para poder emprender una aventura, compra una vida primero escribiendo *' + usedPrefix + 'shop buy potion <total>*\ny luego *' + usedPrefix + 'use potion <total>*\n\n_para obtener dinero gratis y porciones utiliza_ *' + usedPrefix + 'daily*', m)
+        } else conn.reply(m.chat, 'Mínimo 80 de salud para poder emprender una aventura, compra una vida primero escribiendo *' + usedPrefix + 'shop buy pocion <total>*\ny luego *' + usedPrefix + 'use pocion <total>*\n\n_para obtener dinero gratis y porciones utiliza_ *' + usedPrefix + 'daily*', m)
     } catch (e) {
         console.log(e)
         conn.reply(m.chat, 'Error', m)
