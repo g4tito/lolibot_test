@@ -4,9 +4,9 @@ let handler = async (m, { conn, args, usedPrefix }) => {
     let kuda = global.DATABASE._data.users[m.sender].kuda
     let kucing = global.DATABASE._data.users[m.sender].kucing
     switch (type) {
-        case 'rubah':
-            if (rubah == 0) return m.reply('*Kamu belum memiliki Pet Rubah*')
-            if (rubah == 5) return m.reply('*Pet kamu dah lvl max*')
+        case 'zorro':
+            if (rubah == 0) return m.reply('Aún no tienes un zorro de mascota')
+            if (rubah == 5) return m.reply('Tu mascota esta a nivel maximo')
             let __waktur = (new Date - global.DATABASE._data.users[m.sender].rubahlastclaim)
             let _waktur = (600000 - __waktur)
             let waktur = clockString(_waktur)
@@ -15,21 +15,21 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                     global.DATABASE._data.users[m.sender].makananpet -= 1
                     global.DATABASE._data.users[m.sender].anakrubah += 20
                     global.DATABASE._data.users[m.sender].rubahlastclaim = new Date * 1
-                    conn.reply(m.chat, `Berhasil memberi makan pet ${type}`, m)
+                    conn.reply(m.chat, `Alimentaste a tu mascota ${type}`, m)
                     if (rubah > 0) {
                         let naiklvl = ((rubah * 100) - 1)
                         if (global.DATABASE._data.users[m.sender].anakrubah > naiklvl) {
                             global.DATABASE._data.users[m.sender].rubah += 1
                             global.DATABASE._data.users[m.sender].anakrubah -= (rubah * 100)
-                            conn.reply(m.chat, `*Selamat Pet Rubah kamu naik level*`, m)
+                            conn.reply(m.chat, `Felicidades, tu mascota zorro subió de nivel`, m)
                         }
                     }
-                } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${waktur}* lagi`)
+                } else m.reply(`No tienes suficiente comida`)
+            } else m.reply(`Tu mascota esta llena vuelve dentro de *${waktur}* minutos`)
             break
-        case 'kuda':
-            if (kuda == 0) return m.reply('*Kamu belum memiliki Pet Kuda*')
-            if (kuda == 5) return m.reply('*Pet kamu dah lvl max*')
+        case 'lobo':
+            if (kuda == 0) return m.reply('Aún no tienes un lobo de mascota')
+            if (kuda == 5) return m.reply('Tu mascota esta a nivel maximo')
             let __waktuk = (new Date - global.DATABASE._data.users[m.sender].kudalastclaim)
             let _waktuk = (600000 - __waktuk)
             let waktuk = clockString(_waktuk)
@@ -38,21 +38,21 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                     global.DATABASE._data.users[m.sender].makananpet -= 1
                     global.DATABASE._data.users[m.sender].anakkuda += 20
                     global.DATABASE._data.users[m.sender].kudalastclaim = new Date * 1
-                    conn.reply(m.chat, `Berhasil memberi makan pet ${type}`, m)
+                    conn.reply(m.chat, `Alimentaste a tu mascota ${type}`, m)
                     if (kuda > 0) {
                         let naiklvl = ((kuda * 100) - 1)
                         if (global.DATABASE._data.users[m.sender].anakkuda > naiklvl) {
                             global.DATABASE._data.users[m.sender].kuda += 1
                             global.DATABASE._data.users[m.sender].anakkuda -= (kuda * 100)
-                            conn.reply(m.chat, `*Selamat Pet Kuda kamu naik level*`, m)
+                            conn.reply(m.chat, `Felicidades, tu mascota lobo subió de nivel`, m)
                         }
                     }
-                } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${waktuk}* lagi`)
+                } else m.reply(`No tienes suficiente comida`)
+            } else m.reply(`Tu mascota esta llena vuelve dentro de *${waktuk}* minutos`)
             break
-        case 'kucing':
-            if (kucing == 0) return m.reply('*Kamu belum memiliki Pet Kucing*')
-            if (kucing == 5) return m.reply('*Pet kamu dah lvl max*')
+        case 'gato':
+            if (kucing == 0) return m.reply('Aún no tienes un gato de mascota')
+            if (kucing == 5) return m.reply('Tu mascota esta a nivel maximo')
             let __waktu = (new Date - global.DATABASE._data.users[m.sender].kucinglastclaim)
             let _waktu = (600000 - __waktu)
             let waktu = clockString(_waktu)
@@ -61,23 +61,23 @@ let handler = async (m, { conn, args, usedPrefix }) => {
                     global.DATABASE._data.users[m.sender].makananpet -= 1
                     global.DATABASE._data.users[m.sender].anakkucing += 20
                     global.DATABASE._data.users[m.sender].kucinglastclaim = new Date * 1
-                    conn.reply(m.chat, `Berhasil memberi makan pet ${type}`, m)
+                    conn.reply(m.chat, `Alimentaste a tu mascota ${type}`, m)
                     if (kucing > 0) { 
                         let naiklvl = ((kucing * 100) - 1)
                         if (global.DATABASE._data.users[m.sender].anakkucing > naiklvl) {
                             global.DATABASE._data.users[m.sender].kucing += 1
                             global.DATABASE._data.users[m.sender].anakkucing -= (kucing * 100)
-                            conn.reply(m.chat, `*Selamat Pet Kucing kamu naik level*`, m)
+                            conn.reply(m.chat, `Felicidades, tu mascota gato subió de nivel`, m)
                         }
                     }
-                } else m.reply(`Makanan pet kamu tidak cukup`)
-            } else m.reply(`Pet kamu sudah kenyang, coba kasih makan *${waktu}* lagi`)
+                } else m.reply(`No tienes suficiente comida`)
+            } else m.reply(`Tu mascota esta llena vuelve dentro de *${waktu}* minutos`)
             break
         default:
-            return conn.reply(m.chat, `${usedPrefix}feed [kucing | rubah | kuda]\nContoh penggunaan: *${usedPrefix}feed kucing*`, m)
+            return conn.reply(m.chat, `*Ejemplo de uso:* ${usedPrefix}feed gato\n\nLista de mascotas :\n- zorro\n- lobo\n- gato`, m)
     }
 }
-handler.help = ['feed [pet type]']
+handler.help = ['feed <mascota>']
 handler.tags = ['rpg']
 handler.command = /^(feed(ing)?)$/i
 
