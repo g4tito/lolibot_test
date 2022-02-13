@@ -28,14 +28,14 @@ Lista de articulos:
 
 - Pocion:           ${potion}
 - Diamante:     ${Bdiamond}
+- Basura:           ${Bsampah}
+- Armadura      ${armor}
 
 *Cajas*
 - Comun:          ${Bcommon}
 - Normal:         ${Buncommon}
 - Mitico:            ${Bmythic}
 - Legendario:  ${Blegendary}
-- Basura:           ${Bsampah}
-- Armadura      ${armor}
 
 ${usedPrefix}shop <buy> <item> <total>
 
@@ -47,13 +47,13 @@ ${usedPrefix}shop buy pocion 1
 
 - Pocion:           ${Spotion}
 - Diamante:     ${Sdiamond}
+- Basura:           ${Ssampah}
 
 *Cajas*
 - Comun:          ${Scommon}
 - Normal:         ${Suncommon}
 - Mitico:            ${Smythic}
 - Legendario:  ${Slegendary}
-- Basura:           ${Ssampah}
 
 ${usedPrefix}shop <sell> <item> <total>
 

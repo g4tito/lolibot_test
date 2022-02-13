@@ -11,7 +11,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
             try {
                 let count = (/[0-9]/g.test(args[1])) ? !args[1] || args.length < 2 ? Math.max((Math.ceil((100 - global.DATABASE._data.users[m.sender].healt) / usepotion)), 1) : Math.max(args[1], 1) : Math.max((Math.ceil((100 - global.DATABASE._data.users[m.sender].healt) / usepotion)), 1)
                  let msgsucces = (pickRandom(['Acabas de beber', 'Bebiste cum digo,', 'Bebiste', 'Tu usas', 'Acabas de usar']) + ' *' + (count * 1) + '* pocion')
-                 if (args[0] === 'potion') {
+                 if (args[0] === 'pocion') {
                     if (global.DATABASE._data.users[m.sender].healt < 100) {
                         if (global.DATABASE._data.users[m.sender].potion >= count * 1) {
                             global.DATABASE._data.users[m.sender].potion -= count * 1

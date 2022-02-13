@@ -6,16 +6,19 @@ let handler = async (m, { conn }) => {
     let _timers = (cooldown - __timers)
     let timers = clockString(_timers)
     if (new Date - user.lastclaim > cooldown) {
-        conn.reply(m.chat, ` Has reclamado 1000 de dinero y una poción`, m)
+        conn.reply(m.chat, `Has reclamado 1000 de dinero y una pocion`, m)
         global.DATABASE._data.users[m.sender].money += 1000
         global.DATABASE._data.users[m.sender].potion += 1
         global.DATABASE._data.users[m.sender].lastclaim = new Date * 1
     } else {
-        let buttons = button(` Espere *${timers}* para volver a reclamar`, user)
+        let buttons = button(`Espere *${timers}* minutos para volver a reclamar`, user)
         conn.sendMessage(m.chat, buttons, MessageType.buttonsMessage, { quoted: m })
     }
 }
-handler.help = ['claim']
+
+
+
+handler.help = ['daily']
 handler.tags = ['rpg']
 handler.command = /^(claim|daily)$/i
 
@@ -42,7 +45,7 @@ function button(teks, user) {
 
     if (monthly) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/monthly' }, type: 1 })
     if (weekly) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/weekly' }, type: 1 })
-    if (claim) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/claim' }, type: 1 })
+    if (claim) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/daily' }, type: 1 })
     if (buttons.length == 0) throw teks
 
     const buttonMessage = {

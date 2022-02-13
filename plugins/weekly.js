@@ -10,7 +10,7 @@ let handler = async (m, { conn }) => {
         user.legendary += 3
         user.lastweekly = new Date * 1
     } else {
-        let buttons = button(`⏰ Espere *${timers}* para volver a reclamar`, user)
+        let buttons = button(`Espere *${timers}* minutos para volver a reclamar`, user)
         conn.sendMessage(m.chat, buttons, MessageType.buttonsMessage, { quoted: m })
     }
 }
@@ -43,12 +43,12 @@ function button(teks, user) {
 
     if (monthly) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/monthly' }, type: 1 })
     if (weekly) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/weekly' }, type: 1 })
-    if (claim) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/claim' }, type: 1 })
+    if (claim) buttons.push({ buttonId: `id${buttons.length + 1}`, buttonText: { displayText: '/daily' }, type: 1 })
     if (buttons.length == 0) throw teks
 
     const buttonMessage = {
         contentText: teks,
-        footerText: '©games-wabot',
+        footerText: 'Lolibot - OFC',
         buttons: buttons,
         headerType: 1
     }
