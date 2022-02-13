@@ -1,7 +1,7 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
   try {
-    let bruh = `${usedPrefix}open <nombre de la caja> < 1 | 10 | 100 | 1000 >\n\nEjemplo de uso: *${usedPrefix}open common 10*\n\nLista de cajas:\n*common*\n*uncommon*\n*mythic*\n*legendary*`
+    let bruh = `${usedPrefix}open <nombre de la caja> < 1 | 10 | 100 | 1000 >\n\nEjemplo de uso: *${usedPrefix}open comun 10*\n\nLista de cajas:\n*comun*\n*normal*\n*mitico*\n*legendario*`
     let _lmao = args[0]
     let Lmao = `Solo se permite estas cantidades 1, 10, 100, 1000\n\nEjemplo: *${usedPrefix}open ${args > 2 ? _lmao : pickRandom(['comun', 'normal', 'mitico', 'legendario'])} 10*`
     let type = (args[0] || '').toLowerCase()
