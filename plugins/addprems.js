@@ -4,16 +4,21 @@ let handler = async(m, { conn, text }) => {
 let who
   if (m.isGroup) who = m.mentionedJid[0]
   else who = m.chat
-  if (!who) throw 'Tag salah satu lah,dan masukkan nomor untuk di verivikasi !'
+  if (!who) throw 'Etiquete a alguien del grupo!'
   // if (participants.map(v=>v.jid).includes(global.conn.user.jid)) {
     global.DATABASE._data.chats[m.chat].premium = true
   var nomor = m.sender
-    m.reply(`*Done berhasil added User✅*\n\n*Nomor : wa.me/${nomor.split("@s.whatsapp.net")[0]}\n*Expired:* 30Days\n*Thanks For Added Premium !*`)
+    m.reply(`*✅ Premium añadido*
+
+• *Nunero* : wa.me/${nomor.split("@s.whatsapp.net")[0]}
+• *Expira* : 30 dias
+
+Gracias por ser usuario Premium!`)
   // } else m.reply('Ada nomor host disini...')
 }
-handler.help = ['addprems <nomor>']
+handler.help = ['addprem <nro>']
 handler.tags = ['owner']
-handler.command = /^addprems$/i
+handler.command = /^(addprems|addprem)$/i
 handler.rowner = true
 
 module.exports = handler

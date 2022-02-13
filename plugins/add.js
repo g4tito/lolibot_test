@@ -1,5 +1,6 @@
 let fetch = require('node-fetch')
-let handler = async (m, { conn, text, participants }) => {
+let handler = async (m, { conn, args, text, participants }) => {
+  if (!args[0]) throw 'Ingrese el numero de la persona que quiera añadir al grupo'
   let _participants = participants.map(user => user.jid)
   let users = (await Promise.all(
     text.split(',')
@@ -18,20 +19,20 @@ let handler = async (m, { conn, text, participants }) => {
       invite_code,
       invite_code_exp
     }]] = Object.entries(user)
-    let teks = `Mengundang @${jid.split('@')[0]} menggunakan invite...`
+    let teks = `Se mando una invitacion a @${jid.split('@')[0]} para que entre al grupo...`
     m.reply(teks, null, {
       contextInfo: {
         mentionedJid: conn.parseMention(teks)
       }
     })
-    await conn.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, false, 'Invitation to join my WhatsApp group', jpegThumbnail ? {
+    await conn.sendGroupV4Invite(m.chat, jid, invite_code, invite_code_exp, false, 'Te mandaron una invitacion para que te unas al grupo', jpegThumbnail ? {
       jpegThumbnail
     } : {})
   }
 }
-handler.help = ['add', '+'].map(v => v + ' nomor,nomor')
+handler.help = ['add'].map(v => v + ' <nro>')
 handler.tags = ['admin']
-handler.command = /^(add|\+)$/i
+handler.command = /^(add)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
