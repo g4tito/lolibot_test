@@ -243,7 +243,7 @@ Anda telah membuka *Uncommon crate* dan mendapatkan:${um3 > 0 ? `\nMoney: ${um3}
                             m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc3} Mythic Crate`)
                             global.DATABASE._data.users[m.sender].mythic += umc3 * 1
                         }
-                    } else conn.reply(m.chat, 'No tienes suficiente cajas normales', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Normales', m)
                     break
                 default:
                     return conn.reply(m.chat, Lmao ,m)
@@ -289,7 +289,7 @@ Has abierto una *caja mitica* y obtienes:${mm > 0 ? `\n- Dinero: ${mm}` : ''}${m
                             m.reply(`*Felicidades obtienes un artículo épico*\n${ml} Caja legendaria`)
                             global.DATABASE._data.users[m.sender].legendary += ml * 1
                         }
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Miticas', m)
                     break
                 case '10':
                     let _mm1 = `${Math.floor(Math.random() * 2000)}`.trim()
@@ -328,7 +328,7 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm1 > 0 ? `\nMoney: ${mm1}` 
                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml1} Legendary Crate`)
                             global.DATABASE._data.users[m.sender].legendary += ml1 * 1
                         }
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Miticas', m)
                     break
                 case '100':
                     let _mm2 = `${Math.floor(Math.random() * 25000)}`.trim()
@@ -359,7 +359,7 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm2 > 0 ? `\nMoney: ${mm2}` 
                         global.DATABASE._data.users[m.sender].common += mc2 * 1
                         global.DATABASE._data.users[m.sender].uncommon += mu2 * 1
                         conn.reply(m.chat, Mychat2, m)
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Miticas', m)
                     break
                 case '1000':
                     let _mm3 = `${Math.floor(Math.random() * 500000)}`.trim()
@@ -398,7 +398,7 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm3 > 0 ? `\nMoney: ${mm3}` 
                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml3} Legendary Crate`)
                             global.DATABASE._data.users[m.sender].legendary += ml3 * 1
                         }
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Miticas', m)
                     break
                 default:
                     return conn.reply(m.chat, Lmao, m)
@@ -489,7 +489,7 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm1 > 0 ? `\nMoney: ${lm1
                             global.DATABASE._data.users[m.sender].legendary += ll1 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp1 * 1
                         }
-                    } else conn.reply(m.chat, 'Legendary crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Legendarias', m)
                     break
                 case '100':
                     let _lm2 = `${Math.floor(Math.random() * 100000)}`.trim()
@@ -531,7 +531,7 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm2 > 0 ? `\nMoney: ${lm2
                             global.DATABASE._data.users[m.sender].legendary += ll2 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp2 * 1
                         }
-                    } else conn.reply(m.chat, 'Legendary crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Legendarias', m)
                     break
                 case '1000':
                     let _lm3 = `${Math.floor(Math.random() * 2000000)}`.trim()
@@ -573,7 +573,7 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm3 > 0 ? `\nMoney: ${lm3
                             global.DATABASE._data.users[m.sender].legendary += ll3 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp3 * 1
                         }
-                    } else conn.reply(m.chat, 'Legendary crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficiente cajas Legendarias', m)
                     break
                 default:
                     return conn.reply(m.chat, Lmao, m)
@@ -591,39 +591,39 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm3 > 0 ? `\nMoney: ${lm3
                 if (_pet == 'gato' && kucing > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Anda sudah memiliki pet ${_pet}, Hadiahmu diganti dengan 2 potion${mknp > 0 ? ` Dan ${mknp} Makanan Pet` : ''}`, m)
+                    conn.reply(m.chat, `Ya tienes un ${_pet} como mascota, tu recompensa se reemplaza con 2 pociones${mknp > 0 ? ` y ${mknp} alimentos para mascotas` : ''}`, m)
                 } else if (_pet == 'gato' && kucing == 0) {
                     global.DATABASE._data.users[m.sender].kucing += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Selamat Anda mendapatkan pet${_pet} ${mknp > 0 ? ` Dan ${mknp} Makanan Pet*` : '*'}`, m)
+                    conn.reply(m.chat, `Felicidades obtienes una mascota ${_pet}${mknp > 0 ? ` y ${mknp} alimento para mascotas` : ''}`, m)
                 } else if (_pet == 'zorro' && rubah > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Anda sudah memiliki pet ${_pet}, Hadiahmu diganti dengan 2 potion ${mknp > 0 ? `Dan ${mknp} Makanan Pet` : ''}`, m)
+                    conn.reply(m.chat, `Ya tienes un ${_pet} como mascota, tu recompensa se reemplaza con 2 pociones${mknp > 0 ? ` y ${mknp} alimento para mascotas` : ''}`, m)
                 } else if (_pet == 'zorro' && rubah == 0) {
                     global.DATABASE._data.users[m.sender].rubah += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Selamat Anda mendapatkan pet ${_pet}${mknp > 0 ? ` Dan ${mknp} Makanan Pet*` : '*'}`, m)
+                    conn.reply(m.chat, `Felicidades obtienes una mascota pet ${_pet}${mknp > 0 ? ` y ${mknp} alimento para mascotas` : ''}`, m)
                 } else if (_pet == 'lobo' && kuda  > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Anda sudah memiliki pet ${_pet}, Hadiahmu diganti dengan 2 potion${mknp > 0 ? ` Dan ${mknp} Makanan Pet` : ''}`, m)
+                    conn.reply(m.chat, `Ya tienes un ${_pet} como mascota, tu recompensa se reemplaza con 2 pociones${mknp > 0 ? ` y ${mknp} alimento para mascotas` : ''}`, m)
                 } else if (_pet == 'lobo' && kuda == 0) {
                     global.DATABASE._data.users[m.sender].kuda += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Selamat Anda mendapatkan pet ${_pet}${mknp > 0 ? ` Dan ${mknp} Makanan Pet*` : '*'}`, m)
+                    conn.reply(m.chat, `Felicidades obtienes una mascota ${_pet}${mknp > 0 ? ` y ${mknp} alimento para mascotas` : ''}`, m)
                 } else {
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    m.reply(pickRandom(['Anda kurang beruntung', 'Coba buka lagi lain kali, karena gk dapet pet', 'kasian gk dapet pet', 'Mungkin lagi gk hoki dan gk dapet pet', 'wkwkkwkwke']) + '. Anda hanya mendapatkan *' + mknp + '* makanan pet')
+                    m.reply(pickRandom(['No tienes suerte, intenta abrir de nuevo', 'En esta caja no hay mascotas']) + '.\nSolo obtienes *' + mknp + '* alimentos para mascotas')
                 }
-            } else m.reply('Tu jaula de mascotas no es suficiente')
+            } else m.reply('No tienes suficientes cajas de mascotas')
             break
         default:
             return conn.reply(m.chat, bruh, m)
     }
   } catch (e) {
       console.log(e)
-      conn.reply(m.chat, `${usedPrefix}open <crate name> < 1 | 10 | 100 | 1000 >\n\nContoh penggunaan: *${usedPrefix}open common 10*\n\nlist crate:\n*common*\n*uncommon*\n*mythic*\n*legendary*`, m)
+      conn.reply(m.chat, `${usedPrefix}open <nombre de la caja> < 1 | 10 | 100 | 1000 >\n\nEjemplo de uso: *${usedPrefix}open comun 10*\n\nLista de cajas:\n*comun*\n*normal*\n*mitico*\n*legendario*`, m)
       if (DevMode) {
         for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
             conn.sendMessage(jid, 'Open.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)

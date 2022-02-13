@@ -71,7 +71,7 @@ ${usedPrefix}shop sell basura 10
                             if (global.DATABASE._data.users[m.sender].money >= potion * count) {
                                 global.DATABASE._data.users[m.sender].money -= potion * count
                                 global.DATABASE._data.users[m.sender].potion += count * 1
-                                conn.reply(m.chat, `Compraste ${count} pociones por ${potion * count} de dinero\n\nUse la pocion escribiendo: *${usedPrefix}use potion <cantidad>*`, m)
+                                conn.reply(m.chat, `Compraste ${count} pociones por ${potion * count} de dinero\n\nUse la pocion escribiendo: *${usedPrefix}use pocion <cantidad>*`, m)
                             } else conn.reply(m.chat, `No tienes suficiente dinero para comprar ${count} pociones por ${potion * count} de dinero`,)
                         break
                     case 'diamante':
@@ -200,7 +200,7 @@ ${usedPrefix}shop sell basura 10
                         if (global.DATABASE._data.users[m.sender].money >= potion * count) {
                             global.DATABASE._data.users[m.sender].money -= potion * count
                             global.DATABASE._data.users[m.sender].potion += count * 1
-                            conn.reply(m.chat, `Compraste ${count} pociones por ${potion * count} de dinero\n\nUse la pocion escribiendo: *${usedPrefix}use potion <cantidad>*`, m)
+                            conn.reply(m.chat, `Compraste ${count} pociones por ${potion * count} de dinero\n\nUse la pocion escribiendo: *${usedPrefix}use pocion <cantidad>*`, m)
                         } else conn.reply(m.chat, `No tienes suficiente dinero para comprar ${count} pociones por ${potion * count} de dinero`,m)
                     
                     break
