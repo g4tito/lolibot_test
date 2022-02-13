@@ -1,5 +1,4 @@
 let handler = async (m, { conn, args }) => {
-  if (!args[0]) throw 'Ingrese el numero de la persona que quiera añadir al grupo'
   let ownerGroup = m.chat.split`-`[0] + '@s.whatsapp.net' || m.message.extendedTextMessage.contextInfo.participant
   let users = m.mentionedJid.filter(u => !(u == ownerGroup || u.includes(conn.user.jid)))
   for (let user of users) if (user.endsWith('@s.whatsapp.net')) await conn.groupRemove(m.chat, [user])
