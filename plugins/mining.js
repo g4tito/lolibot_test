@@ -14,8 +14,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     let selesai = (pickRandom(['huuh', 'Selesai Juga', 'Kayaknya Sampah', 'Kayaknya Bagus', 'Perlu Upgrade pickaxe nih biar hasilnya bagus', 'Trash!', 'GG', 'Banyak Batu doang', 'Iron nya dikit', 'Diamond nya dikit', 'Bjir banyak Diamond', 'Bjir banyak Iron']))
      
     if (pickaxe > 0) {
-    if (global.DATABASE._data.users[m.sender].pickaxedurability > 180000) {
-    if (new Date - global.DATABASE._data.users[m.sender].lastmining > 0) {
+    if (global.DATABASE._data.users[m.sender].pickaxedurability > 99) {
+    if (new Date - global.DATABASE._data.users[m.sender].lastmining > 180000) {
        
 global.DATABASE._data.users[m.sender].lastmining = new Date * 1
 global.DATABASE._data.users[m.sender].diamond += hasil * 1 
