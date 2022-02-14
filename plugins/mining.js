@@ -12,11 +12,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     let konz = Math.floor(Math.random() * 100)
     let goa = (pickRandom(['una cueva', 'un volcan', 'jupiter', 'saturno']))
     let selesai = (pickRandom(['huuh', 'Selesai Juga', 'Kayaknya Sampah', 'Kayaknya Bagus', 'Perlu Upgrade pickaxe nih biar hasilnya bagus', 'Trash!', 'GG', 'Banyak Batu doang', 'Iron nya dikit', 'Diamond nya dikit', 'Bjir banyak Diamond', 'Bjir banyak Iron']))
-            
+     
     if (pickaxe > 0) {
     if (global.DATABASE._data.users[m.sender].pickaxedurability > 99) {
-global.DATABASE._data.users[m.sender].pickaxe -= 1
-global.DATABASE._data.users[m.sender].pickaxedurability -= pdurability * 1
     if (new Date - global.DATABASE._data.users[m.sender].lastmining > 600000) {
        
 global.DATABASE._data.users[m.sender].lastmining = new Date * 1
@@ -26,15 +24,15 @@ global.DATABASE._data.users[m.sender].batu += hasiil * 1
 global.DATABASE._data.users[m.sender].pickaxedurability -= konz * 1
 
           setTimeout(() => {
-          	m.reply(`Minaste en ${selesai} y obtienes:
+          	m.reply(`Minaste en ${goa} y obtienes:
           
 - Diamante: ${hasil}
 - Hiero: ${hasiiil}
 - Piedra: ${hasiil}`)
-          }, 20000)
+          }, 0)
           
             } else m.reply(`Te quedaste sin energía vuelve dentro de *${waktur}* minutos`)
-         } else m.reply(`Tu pico esta roto, compra uno nuevo escribiendo ${usedPrefix}shop buy pico`)
+         } else m.reply(`Sube el nivel a tu pico, escribiendo ${usedPrefix}shop buy pico`)
      } else m.reply(`Todavía no tienes un pico, compralo escribiendo ${usedPrefix}shop buy pico`)
  }
 
