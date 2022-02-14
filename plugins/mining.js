@@ -15,7 +15,7 @@ let handler = async (m, { conn, usedPrefix }) => {
      
     if (pickaxe > 0) {
     if (global.DATABASE._data.users[m.sender].pickaxedurability > 99) {
-    if (new Date - global.DATABASE._data.users[m.sender].lastmining > 600000) {
+    if (new Date - global.DATABASE._data.users[m.sender].lastmining > 180000) {
        
 global.DATABASE._data.users[m.sender].lastmining = new Date * 1
 global.DATABASE._data.users[m.sender].diamond += hasil * 1 
@@ -45,10 +45,9 @@ handler.disabled = false
 module.exports = handler
 
 function clockString(ms) {
-  let h = Math.floor(ms / 3600000)
+  let h = Math.floor(ms / 3600000)300000
   let m = Math.floor(ms / 60000) % 60
   let s = Math.floor(ms / 1000) % 60
-  console.log({ms,h,m,s})
   return [h, m, s].map(v => v.toString().padStart(2, 0) ).join(':')
 }
 function pickRandom(list) {
