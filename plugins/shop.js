@@ -19,6 +19,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
     const armor = (_armor == 0 ? 20000 : '' || _armor == 1 ? 49999 : '' || _armor == 2 ? 99999 : '' || _armor == 3 ? 149999 : '' || _armor == 4 ? 299999 : '')
     const _pickaxe = global.DATABASE._data.users[m.sender].pickaxe
     const pickaxe = (_pickaxe == 0 ? 2000 : '' || _pickaxe == 1 ? 4999 : '' || _pickaxe == 2 ? 9999 : '' || _pickaxe == 3 ? 14999 : '' || _pickaxe == 4 ? 29999 : '')
+    const pickaxe_durability = (_pickaxe == 0 ? 2000 : '' || _pickaxe == 1 ? 4999 : '' || _pickaxe == 2 ? 9999 : '' || _pickaxe == 3 ? 14999 : '' || _pickaxe == 4 ? 29999 : '')
     let type = (args[0] || '').toLowerCase()
     let _type = (args[1] || '').toLowerCase()
     let jualbeli = (args[0] || '').toLowerCase()
@@ -138,9 +139,9 @@ ${usedPrefix}shop sell basura 10
                             if (global.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esta a nivel maximo', m)
                             if (global.DATABASE._data.users[m.sender].money > pickaxe) {
                                 global.DATABASE._data.users[m.sender].pickaxe += 1
-                                global.DATABASE._data.users[m.sender].pickaxedurability += 100
+                                global.DATABASE._data.users[m.sender].pickaxedurability += pickaxe_durability * 1
                                 global.DATABASE._data.users[m.sender].money -= pickaxe * 1
-                                conn.reply(m.chat, `Compraste una armadura por ${pickaxe} de dinero` ,m)
+                                conn.reply(m.chat, `Compraste un pico por ${pickaxe} de dinero` ,m)
                             } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
                         
                         break
@@ -279,9 +280,9 @@ ${usedPrefix}shop sell basura 10
                             if (global.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esta a nivel maximo', m)
                             if (global.DATABASE._data.users[m.sender].money > pickaxe) {
                                 global.DATABASE._data.users[m.sender].pickaxe += 1
-                                global.DATABASE._data.users[m.sender].pickaxedurability += 100
+                                global.DATABASE._data.users[m.sender].pickaxedurability += pickaxe_durability * 1
                                 global.DATABASE._data.users[m.sender].money -= pickaxe * 1
-                                conn.reply(m.chat, `Compraste una armadura por ${pickaxe} de dinero` ,m)
+                                conn.reply(m.chat, `Compraste un pico por ${pickaxe} de dinero` ,m)
                             } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
                         
                         break
