@@ -17,6 +17,8 @@ const Ssampah = 2
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
     const _armor = global.DATABASE._data.users[m.sender].armor
     const armor = (_armor == 0 ? 20000 : '' || _armor == 1 ? 49999 : '' || _armor == 2 ? 99999 : '' || _armor == 3 ? 149999 : '' || _armor == 4 ? 299999 : '')
+    const _pickaxe = global.DATABASE._data.users[m.sender].pickaxe
+    const pickaxe = (_pickaxe == 0 ? 2000 : '' || _pickaxe == 1 ? 4999 : '' || _pickaxe == 2 ? 9999 : '' || _pickaxe == 3 ? 14999 : '' || _pickaxe == 4 ? 29999 : '')
     let type = (args[0] || '').toLowerCase()
     let _type = (args[1] || '').toLowerCase()
     let jualbeli = (args[0] || '').toLowerCase()
@@ -29,9 +31,10 @@ Lista de articulos:
 - Pocion:           ${potion}
 - Diamante:     ${Bdiamond}
 - Basura:           ${Bsampah}
-- Armadura      ${armor}
+- Armadura:      ${armor}
+- Pico:                 ${pickaxe}
 
-*Cajas*
+*📦 Cajas*
 - Comun:          ${Bcommon}
 - Normal:         ${Buncommon}
 - Mitico:            ${Bmythic}
@@ -49,7 +52,7 @@ ${usedPrefix}shop buy pocion 1
 - Diamante:     ${Sdiamond}
 - Basura:           ${Ssampah}
 
-*Cajas*
+*📦 Cajas*
 - Comun:          ${Scommon}
 - Normal:         ${Suncommon}
 - Mitico:            ${Smythic}
@@ -129,6 +132,16 @@ ${usedPrefix}shop sell basura 10
                                 global.DATABASE._data.users[m.sender].money -= armor * 1
                                 conn.reply(m.chat, `Compraste una armadura por ${armor} de dinero` ,m)
                             } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar una armadura que cuesta ${armor} de dinero`, m)
+                        
+                        break
+                    case 'pico':
+                            if (global.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esta a nivel maximo', m)
+                            if (global.DATABASE._data.users[m.sender].money > pickaxe) {
+                                global.DATABASE._data.users[m.sender].pickaxe += 1
+                                global.DATABASE._data.users[m.sender].pickaxedurability += 100
+                                global.DATABASE._data.users[m.sender].money -= pickaxe * 1
+                                conn.reply(m.chat, `Compraste una armadura por ${pickaxe} de dinero` ,m)
+                            } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
                         
                         break
                     default:
@@ -262,6 +275,16 @@ ${usedPrefix}shop sell basura 10
                         } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar una armadura, costo ${armor} de dinero`, m)
                     
                     break
+                case 'pico':
+                            if (global.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esta a nivel maximo', m)
+                            if (global.DATABASE._data.users[m.sender].money > pickaxe) {
+                                global.DATABASE._data.users[m.sender].pickaxe += 1
+                                global.DATABASE._data.users[m.sender].pickaxedurability += 100
+                                global.DATABASE._data.users[m.sender].money -= pickaxe * 1
+                                conn.reply(m.chat, `Compraste una armadura por ${pickaxe} de dinero` ,m)
+                            } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
+                        
+                        break
                 default:
                     return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
             }

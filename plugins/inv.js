@@ -2,7 +2,11 @@ let fs = require('fs')
 let levelling = require('../lib/levelling')
 let handler = async (m, { conn, usedPrefix }) => {
     let healt = global.DATABASE._data.users[m.sender].healt
+    
     let armor = global.DATABASE._data.users[m.sender].armor
+    let pickaxe = global.DATABASE._data.users[m.sender].pickaxe
+    let pdurability = global.DATABASE._data.users[m.sender].pickaxedurability
+    
     let warn = global.DATABASE._data.users[m.sender].warn
     let pet = global.DATABASE._data.users[m.sender].pet
     let kucing = global.DATABASE._data.users[m.sender].kucing
@@ -11,7 +15,11 @@ let handler = async (m, { conn, usedPrefix }) => {
     let _rubah = global.DATABASE._data.users[m.sender].anakrubah
     let kuda = global.DATABASE._data.users[m.sender].kuda
     let _kuda = global.DATABASE._data.users[m.sender].anakkuda
+    
     let diamond = global.DATABASE._data.users[m.sender].diamond
+    let batu = global.DATABASE._data.users[m.sender].batu
+    let iron = global.DATABASE._data.users[m.sender].iron
+    
     let potion = global.DATABASE._data.users[m.sender].potion
     let common = global.DATABASE._data.users[m.sender].common
     let makananpet = global.DATABASE._data.users[m.sender].makananpet
@@ -49,16 +57,21 @@ Inventario de *${name.vnmae || name.notify || name.name || ('+' + name.jid.split
 
 ♥️ Vida: *${healt}*
 👕 Armadura: *${armor == 0 ? 'No tiene' : '' || armor == 1 ? 'Armadura de cuero' : '' || armor == 2 ? 'Armadura de hierro' : '' || armor == 3 ? 'Armadura de oro' : '' || armor == 4 ? 'Armadura de diamante' : '' || armor == 5 ? 'Armadura de netherite' : ''}*
+⛏️ Pico: *${pickaxe == 0 ? 'No tiene' : '' || pickaxe == 1 ? 'Pico de piedra' : '' || pickaxe == 2 ? 'Pico de hierro' : '' || pickaxe == 3 ? 'Pico de oro' : '' || armor == 4 ? 'Pico de diamante' : '' || armor >= 5 ? 'Pico de netherite' : ''}*
+⛏️ Durabilidad: *${pdurability}*
+
 💵 Dinero: *${money}*
 📈 Nivel: *${level}*
 ✨ Exp: *${exp}*
 
 *Inventario*
 💎 Diamante: *${diamond}*
+🪨 Piedra: *${batu}*
+🔩 Hierro: *${iron}*
 🧪 Poción: *${potion}*
 🗑️ Basura: *${sampah}*
 🥫 Alimentos para mascotas: *${makananpet}*
-Total inv: *${diamond + potion + sampah + makananpet}* items
+Total inv: *${diamond + batu + iron + potion + sampah + makananpet}* items
 
 ${readMore}
 *📦 Cajas*
