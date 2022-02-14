@@ -4,7 +4,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 	let pickaxe = global.DATABASE._data.users[m.sender].pickaxe
 	let pdurability = global.DATABASE._data.users[m.sender].pickaxedurability
     let __waktur = (new Date - global.DATABASE._data.users[m.sender].lastmining)
-    let _waktur = (600000 - __waktur)
+    let _waktur = (180000 - __waktur)
     let waktur = clockString(_waktur)
     let hasil = (pickaxe == 1 ? Math.floor(Math.random() * 8) : '' || pickaxe == 2 ? Math.floor(Math.random() * 13) : '' || pickaxe == 3 ? Math.floor(Math.random() * 17) : '' || pickaxe == 4 ? Math.floor(Math.random() * 20) : '' || pickaxe == 5 ? Math.floor(Math.random() * 25) : '' )
     let hasiiil = (pickaxe == 1 ? Math.floor(Math.random() * 20) : '' || pickaxe == 2 ? Math.floor(Math.random() * 30) : '' || pickaxe == 3 ? Math.floor(Math.random() * 40) : '' || pickaxe == 4 ? Math.floor(Math.random() * 50) : '' || pickaxe == 5 ? Math.floor(Math.random() * 60) : '' )
@@ -15,7 +15,7 @@ let handler = async (m, { conn, usedPrefix }) => {
      
     if (pickaxe > 0) {
     if (global.DATABASE._data.users[m.sender].pickaxedurability > 99) {
-    if (new Date - global.DATABASE._data.users[m.sender].lastmining > 180000) {
+    if (new Date - global.DATABASE._data.users[m.sender].lastmining > 0) {
        
 global.DATABASE._data.users[m.sender].lastmining = new Date * 1
 global.DATABASE._data.users[m.sender].diamond += hasil * 1 
