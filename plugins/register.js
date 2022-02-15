@@ -35,7 +35,7 @@ let handler = async function (m, { conn, text, usedPrefix }) {
   `.trim()
   py =  await conn.prepareMessage(m.chat, repp, MessageType.image)
 gbutsan = [
-{buttonId: `/menu`, buttonText: {displayText: '🍿 MENU'}, type: 1},
+{buttonId: `/menu`, buttonText: {displayText: '🍟 MENU'}, type: 1},
 {buttonId: `/owner`, buttonText: {displayText: '🍧 CREADOR'}, type: 1}
 ]
 gbuttonan = {
@@ -47,6 +47,7 @@ headerType: 4
 }
 conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, { quoted: m })
 }
+conn.sendMessage(m.sender, `Codigo de registro: ${sn}`, MessageType.text, { quoted: m })
 }
 handler.help = ['daftar', 'reg', 'register'].map(v => v + ' <nama>.<umur>')
 handler.tags = ['exp']
