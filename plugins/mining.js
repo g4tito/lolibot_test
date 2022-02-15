@@ -48,7 +48,7 @@ handler.disabled = false
 
 module.exports = handler
 
-function msToTime(duration) {
+function msToTime(seconds) {
   h = Math.floor((seconds / (1000 * 60 * 60)) % 24)
   m = Math.floor((seconds / (1000 * 60)) % 60),
   s = Math.floor((seconds / 1000) % 60)
