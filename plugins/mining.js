@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 	let pdurability = global.DATABASE._data.users[m.sender].pickaxedurability
     let __waktur = (new Date - global.DATABASE._data.users[m.sender].lastmining)
     let _waktur = (180000 - __waktur)
-    let waktur = clockString(_waktur)
+    //let waktur = clockString(_waktur)
     let hasil = (pickaxe == 1 ? Math.floor(Math.random() * 5) : '' || pickaxe == 2 ? Math.floor(Math.random() * 7) : '' || pickaxe == 3 ? Math.floor(Math.random() * 10) : '' || pickaxe == 4 ? Math.floor(Math.random() * 20) : '' || pickaxe == 5 ? Math.floor(Math.random() * 30) : '' )
     let hasiiil = (pickaxe == 1 ? Math.floor(Math.random() * 20) : '' || pickaxe == 2 ? Math.floor(Math.random() * 30) : '' || pickaxe == 3 ? Math.floor(Math.random() * 40) : '' || pickaxe == 4 ? Math.floor(Math.random() * 50) : '' || pickaxe == 5 ? Math.floor(Math.random() * 60) : '' )
     let hasiil = (pickaxe == 1 ? Math.ceil(Math.random() * 200) : '' || pickaxe == 2 ? Math.ceil(Math.random() * 250) : '' || pickaxe == 3 ? Math.ceil(Math.random() * 300) : '' || pickaxe == 4 ? Math.ceil(Math.random() * 350) : '' || pickaxe == 5 ? Math.ceil(Math.random() * 500) : '' )
