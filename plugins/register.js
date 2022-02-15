@@ -30,7 +30,7 @@ let handler = async function (m, { conn, text, usedPrefix }) {
  • Codigo: ${sn}
 
   `.trim()
-  py =  await con.prepareMessage(m.chat, repp, image)
+  py =  await conn.prepareMessage(m.chat, repp, image)
 gbutsan = [
 {buttonId: `/menu`, buttonText: {displayText: '🍿 MENU'}, type: 1},
 {buttonId: `/owner`, buttonText: {displayText: '🍧 CREADOR'}, type: 1}
