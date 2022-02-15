@@ -1,3 +1,6 @@
+const {
+  MessageType
+} = require("@adiwajshing/baileys");
 const { createHash } = require('crypto')
 let fs = require('fs')
 let fetch = require('node-fetch')
@@ -30,7 +33,7 @@ let handler = async function (m, { conn, text, usedPrefix }) {
  • Codigo: ${sn}
 
   `.trim()
-  py =  await conn.prepareMessage(m.chat, repp, image)
+  py =  await conn.prepareMessage(m.chat, repp, MessageType.image)
 gbutsan = [
 {buttonId: `/menu`, buttonText: {displayText: '🍿 MENU'}, type: 1},
 {buttonId: `/owner`, buttonText: {displayText: '🍧 CREADOR'}, type: 1}
