@@ -31,8 +31,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
   } catch (e) {
     console.error(e)
     if (!stiker) stiker = e
-  } finally {
-    if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m, contextInfo: {expiration: 604800} })
+  } finally { 
+    if (stiker) m.reply(m.chat, stiker, MessageType.sticker, false, { contextInfo: { expiration: 604800 } })
     else throw 'La conversión falló'
   }
 }
