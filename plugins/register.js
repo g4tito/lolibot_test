@@ -17,7 +17,9 @@ let handler = async function (m, { conn, text, usedPrefix }) {
   let reuser = './src/avatar_contact.png'
   try {
     reuser = await conn.getProfilePicture(m.sender)
-  }
+  } catch (e) {
+  	
+  } finally {
   let repp = await(await fetch(reuser)).buffer()
   retext = `
   *✅ Registro exitoso*
@@ -40,7 +42,7 @@ buttons: gbutsan,
 headerType: 4
 }
 conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, {contextInfo: {  mentionedJid: [m.sender]}, quoted: m })
-  
+}
 }
 handler.help = ['daftar', 'reg', 'register'].map(v => v + ' <nama>.<umur>')
 handler.tags = ['exp']
