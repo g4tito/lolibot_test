@@ -16,8 +16,7 @@ let handler = async function (m, { conn, text, usedPrefix }) {
   user.age = parseInt(age)
   user.regTime = + new Date
   user.registered = true
-  let snnro = m.sender.split("@")[0]
-  let sn = createHash('md5').update(snnro).digest('hex')
+  let sn = createHash('md5').update(m.sender).digest('hex')
   let reuser = './src/avatar_contact.png'
   try {
     reuser = await conn.getProfilePicture(m.sender)
