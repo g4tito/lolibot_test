@@ -6,7 +6,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let __waktur = (new Date - global.DATABASE._data.users[m.sender].lastmining)
     let _waktur = (180000 - __waktur)
     let waktur = clockString(_waktur)
-    let hasil = (pickaxe == 1 ? Math.floor(Math.random() * 8) : '' || pickaxe == 2 ? Math.floor(Math.random() * 13) : '' || pickaxe == 3 ? Math.floor(Math.random() * 17) : '' || pickaxe == 4 ? Math.floor(Math.random() * 20) : '' || pickaxe == 5 ? Math.floor(Math.random() * 25) : '' )
+    let hasil = (pickaxe == 1 ? Math.floor(Math.random() * 8) : '' || pickaxe == 2 ? Math.floor(Math.random() * 13) : '' || pickaxe == 3 ? Math.floor(Math.random() * 20) : '' || pickaxe == 4 ? Math.floor(Math.random() * 30) : '' || pickaxe == 5 ? Math.floor(Math.random() * 50) : '' )
     let hasiiil = (pickaxe == 1 ? Math.floor(Math.random() * 20) : '' || pickaxe == 2 ? Math.floor(Math.random() * 30) : '' || pickaxe == 3 ? Math.floor(Math.random() * 40) : '' || pickaxe == 4 ? Math.floor(Math.random() * 50) : '' || pickaxe == 5 ? Math.floor(Math.random() * 60) : '' )
     let hasiil = (pickaxe == 1 ? Math.ceil(Math.random() * 200) : '' || pickaxe == 2 ? Math.ceil(Math.random() * 250) : '' || pickaxe == 3 ? Math.ceil(Math.random() * 300) : '' || pickaxe == 4 ? Math.ceil(Math.random() * 350) : '' || pickaxe == 5 ? Math.ceil(Math.random() * 500) : '' )
     let hasiiiil = (pickaxe == 1 ? Math.ceil(Math.random() * 200) : '' || pickaxe == 2 ? Math.ceil(Math.random() * 400) : '' || pickaxe == 3 ? Math.ceil(Math.random() * 600) : '' || pickaxe == 4 ? Math.ceil(Math.random() * 800) : '' || pickaxe == 5 ? Math.ceil(Math.random() * 1000) : '' )
@@ -32,7 +32,7 @@ global.DATABASE._data.users[m.sender].exp += hasiiiil * 1
 - Diamante: ${hasil}
 - Hiero: ${hasiiil}
 - Piedra: ${hasiil}
-- Exp: ${hasiiiil} `)
+- Exp: ${hasiiiil}`)
           }, 0)
           
             } else m.reply(`Te quedaste sin energía vuelve dentro de *${waktur}* minutos`)
@@ -56,4 +56,4 @@ function clockString(ms) {
 }
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)]
-}
+} 
