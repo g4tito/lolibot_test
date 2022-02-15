@@ -1,5 +1,6 @@
 const { createHash } = require('crypto')
 let fs = require('fs')
+let fetch = require('node-fetch')
 let Reg = /(.*)([.|])([0-9]*)$/i
 let handler = async function (m, { conn, text, usedPrefix }) {
   let user = global.DATABASE._data.users[m.sender]
