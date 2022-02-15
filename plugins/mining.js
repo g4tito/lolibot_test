@@ -49,12 +49,12 @@ handler.disabled = false
 module.exports = handler
 
 function msToTime(duration) {
-  var h = Math.floor((seconds / (1000 * 60 * 60)) % 24)
-  var m = Math.floor((seconds / (1000 * 60)) % 60),
-  var s = Math.floor((seconds / 1000) % 60)
-  var hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
-  var mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
-  var sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
+  h = Math.floor((seconds / (1000 * 60 * 60)) % 24)
+  m = Math.floor((seconds / (1000 * 60)) % 60),
+  s = Math.floor((seconds / 1000) % 60)
+  hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
+  mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
+  sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
   return dDisplay + hDisplay + mDisplay + sDisplay;
 };
 
