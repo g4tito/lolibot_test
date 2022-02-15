@@ -35,7 +35,7 @@ global.DATABASE._data.users[m.sender].exp += hasiiiil * 1
 - Exp: ${hasiiiil}`)
           }, 0)
           
-            } else m.reply(`Te quedaste sin energía vuelve dentro de *${runtimee(_waktur)}*`)
+            } else m.reply(`Te quedaste sin energía vuelve dentro de *${runtimee(__waktur)}*`)
          } else m.reply(`Sube el nivel a tu pico, escribiendo ${usedPrefix}shop buy pico`)
      } else m.reply(`Todavía no tienes un pico, compralo escribiendo ${usedPrefix}shop buy pico`)
  }
