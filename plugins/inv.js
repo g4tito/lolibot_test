@@ -1,7 +1,6 @@
-const { MessageType, Presence } = require('@adiwajshing/baileys')
 let fs = require('fs')
 let levelling = require('../lib/levelling')
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn, text, usedPrefix }) => {
     let healt = global.DATABASE._data.users[m.sender].healt
     
     let armor = global.DATABASE._data.users[m.sender].armor
