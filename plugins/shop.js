@@ -1,4 +1,3 @@
-let { MessageType } = require('@adiwajshing/baileys')
 let fs = require('fs')
 const potion = 500
 const Spotion = 150 
@@ -15,7 +14,7 @@ const Blegendary = 7500
 const Slegendary = 3000
 const Bsampah = 10
 const Ssampah = 2
-let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
+let handler  = async (m, { conn, text, command, args, usedPrefix, DevMode }) => {
     const _armor = global.DATABASE._data.users[m.sender].armor
     const armor = (_armor == 0 ? 20000 : '' || _armor == 1 ? 49999 : '' || _armor == 2 ? 99999 : '' || _armor == 3 ? 149999 : '' || _armor == 4 ? 299999 : '')
     const _pickaxe = global.DATABASE._data.users[m.sender].pickaxe
@@ -148,7 +147,7 @@ ${usedPrefix}shop sell basura 10
                         
                         break
                     default:
-                        return conn.reply(m.chat, Kchat, MessageType.text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
+                        return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
                 }
                 break
             case 'sell': 
@@ -203,11 +202,11 @@ ${usedPrefix}shop sell basura 10
                         } else conn.reply(m.chat, `No tienes suficientes diamantes para vender`, m)
                         break
                     default:
-                        return conn.reply(m.chat, Kchat, MessageType.text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
+                        return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
                 }
                 break
             default:
-                return conn.reply(m.chat, Kchat, MessageType.text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
+                return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
             }
         } else if (/beli|buy/i.test(command)) {
             const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
@@ -289,7 +288,7 @@ ${usedPrefix}shop sell basura 10
                         
                         break
                 default:
-                    return conn.reply(m.chat, Kchat, MessageType.text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
+                    return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
             }
         } else if (/sell|jual|/i.test(command)) {
             const count = args[1] && args[1].length > 0 ? Math.min(99999999, Math.max(parseInt(args[1]), 1)) : !args[1] || args.length < 3 ? 1 : Math.min(1, count)
@@ -351,7 +350,7 @@ ${usedPrefix}shop sell basura 10
                     } else conn.reply(m.chat, `No tienes suficiente diamantes para vender`, m)
                     break
                 default:
-                    return conn.reply(m.chat, Kchat, MessageType.text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
+                    return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
             }
         }
     } catch (e) {
