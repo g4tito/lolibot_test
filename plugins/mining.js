@@ -35,7 +35,7 @@ global.DATABASE._data.users[m.sender].exp += hasiiiil * 1
 - Exp: ${hasiiiil}`)
           }, 0)
           
-            } else m.reply(`Te quedaste sin energía vuelve dentro de *${runtimee(__waktur)}* minutos`)
+            } else m.reply(`Te quedaste sin energía vuelve dentro de *${msToTime(_waktur)}* minutos`)
          } else m.reply(`Sube el nivel a tu pico, escribiendo ${usedPrefix}shop buy pico`)
      } else m.reply(`Todavía no tienes un pico, compralo escribiendo ${usedPrefix}shop buy pico`)
  }
@@ -48,13 +48,10 @@ handler.disabled = false
 
 module.exports = handler
 
-const runtimee = function (seconds) {
-  seconds = Number(seconds);
-  var d = Math.floor(seconds / (3600000 * 24));
-  var h = Math.floor((seconds % (3600000 * 24)) / 3600000);
-  var m = Math.floor((seconds % 3600000) / 60);
-  var s = Math.floor(seconds % 60);
-  var dDisplay = d > 0 ? d + (d == 1 ? " dia, " : " Dias, ") : "";
+function msToTime(duration) {
+  var h = Math.floor((seconds / (1000 * 60 * 60)) % 24)
+  var m = Math.floor((seconds / (1000 * 60)) % 60),
+  var s = Math.floor((seconds / 1000) % 60)
   var hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
   var mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
   var sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
