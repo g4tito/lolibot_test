@@ -4,6 +4,7 @@ const potion = 500
 const Spotion = 150 
 const Bdiamond = 900
 const Sdiamond = 750
+const Sbatu = 2
 const Bcommon = 200
 const Scommon = 20
 const Suncommon = 100
@@ -27,7 +28,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
     const Kchat = `
 Lista de articulos:
 
-*ArtÃ­culos  |  Precio de compra*
+*Artículos  |  Precio de compra*
 
 - Pocion:           ${potion}
 - Diamante:     ${Bdiamond}
@@ -35,7 +36,7 @@ Lista de articulos:
 - Armadura:      ${armor}
 - Pico:                 ${pickaxe}
 
-*ðŸ“¦ Cajas*
+* Cajas*
 - Comun:          ${Bcommon}
 - Normal:         ${Buncommon}
 - Mitico:            ${Bmythic}
@@ -45,15 +46,16 @@ ${usedPrefix}shop <buy> <item> <total>
 
 *Ejemplo se uso* :
 ${usedPrefix}shop buy pocion 1
-â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“
+– – – – – – – – – – – – – – –
 
-*ArtÃ­culos  |  Precio de venta*
+*Artículos  |  Precio de venta*
 
 - Pocion:           ${Spotion}
 - Diamante:     ${Sdiamond}
+- Piedra:            ${Sbatu}
 - Basura:           ${Ssampah}
 
-*ðŸ“¦ Cajas*
+* Cajas*
 - Comun:          ${Scommon}
 - Normal:         ${Suncommon}
 - Mitico:            ${Smythic}
@@ -334,11 +336,18 @@ ${usedPrefix}shop sell basura 10
                         conn.reply(m.chat, `Vendiste ${count} de basura por ${Ssampah * count} de dinero`.trim(), m)
                     } else conn.reply(m.chat, `No tienes suficiente basura para vender`.trim(), m)
                     break
+                case 'piedra':
+                    if (global.DATABASE._data.users[m.sender].batu >= count * 1) {
+                        global.DATABASE._data.users[m.sender].batu -= count * 1
+                        global.DATABASE._data.users[m.sender].money += Sbatu * count
+                        conn.reply(m.chat, `Vendiste ${count} de piedra por ${Sbatu * count} de dinero`.trim(), m)
+                    } else conn.reply(m.chat, `No tienes suficiente piedra para vender`.trim(), m)
+                    break
                 case 'diamante':
                     if (global.DATABASE._data.users[m.sender].diamond >= count * 1) {
                         global.DATABASE._data.users[m.sender].diamond -= count * 1
                         global.DATABASE._data.users[m.sender].money += Sdiamond * count
-                        conn.reply(m.chat, `Succes menjual ${count} Diamond, dan anda mendapatkan ${Sdiamond * count} money`, m)
+                        conn.reply(m.chat, `Vendiste ${count} de diamante por ${Sdiamond * count} de dinero`, m)
                     } else conn.reply(m.chat, `No tienes suficiente diamantes para vender`, m)
                     break
                 default:
