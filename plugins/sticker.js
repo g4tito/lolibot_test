@@ -32,7 +32,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     console.error(e)
     if (!stiker) stiker = e
   } finally { 
-    if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m})
+    if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m })
     else throw 'La conversión falló'
   }
 }
