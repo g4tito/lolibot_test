@@ -32,7 +32,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     console.error(e)
     if (!stiker) stiker = e
   } finally { 
-    if (stiker) m.reply(m.chat, stiker, MessageType.sticker, false, { contextInfo: { expiration: 604800 } })
+    if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m})
     else throw 'La conversión falló'
   }
 }
