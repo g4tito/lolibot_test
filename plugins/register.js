@@ -40,12 +40,12 @@ gbutsan = [
 ]
 gbuttonan = {
 imageMessage: py.message.imageMessage,
-contentText: capt,
+contentText: retext,
 footerText: `Lolibot - OFC`,
 buttons: gbutsan,
 headerType: 4
 }
-conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, {contextInfo: {  mentionedJid: [m.sender]}, quoted: m })
+conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, { quoted: m })
 }
 }
 handler.help = ['daftar', 'reg', 'register'].map(v => v + ' <nama>.<umur>')
