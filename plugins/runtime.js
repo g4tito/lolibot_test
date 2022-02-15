@@ -6,7 +6,7 @@ let runnya = `
 Hora: ${time}
 Tiempo activa: ${uptime}
 `.trim()
-await m.reply(runnya, m)
+await m.reply(runnya)
 }
 handler.help = ['runtime']
 handler.tags = ['info']
