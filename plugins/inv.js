@@ -57,7 +57,7 @@ Inventario de *${name.vnmae || name.notify || name.name || ('+' + name.jid.split
 
 ♥️ Vida: *${healt}*
 👕 Armadura: *${armor == 0 ? 'No tiene' : '' || armor == 1 ? 'Armadura de cuero' : '' || armor == 2 ? 'Armadura de hierro' : '' || armor == 3 ? 'Armadura de oro' : '' || armor == 4 ? 'Armadura de diamante' : '' || armor == 5 ? 'Armadura de netherite' : ''}*
-⛏️ Pico: *${pickaxe == 0 ? 'No tiene' : '' || pickaxe == 1 ? 'Pico de piedra' : '' || pickaxe == 2 ? 'Pico de hierro' : '' || pickaxe == 3 ? 'Pico de oro' : '' || armor == 4 ? 'Pico de diamante' : '' || armor == 5 ? 'Pico de netherite' : ''}*
+⛏️ Pico: *${pickaxe == 0 ? 'No tiene' : '' || pickaxe == 1 ? 'Pico de piedra' : '' || pickaxe == 2 ? 'Pico de hierro' : '' || pickaxe == 3 ? 'Pico de oro' : '' || pickaxe == 4 ? 'Pico de diamante' : '' || pickaxe == 5 ? 'Pico de netherite' : ''}*
 ⛏️ Durabilidad: *${pdurability}*
 
 💵 Dinero: *${money}*
