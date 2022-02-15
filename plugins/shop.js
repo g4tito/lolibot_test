@@ -28,7 +28,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) => {
     const Kchat = `
 Lista de articulos:
 
-*Artículos  |  Precio de compra*
+*ArtÃ­culos  |  Precio de compra*
 
 - Pocion:           ${potion}
 - Diamante:     ${Bdiamond}
@@ -36,7 +36,7 @@ Lista de articulos:
 - Armadura:      ${armor}
 - Pico:                 ${pickaxe}
 
-* Cajas*
+*ðŸ“¦ Cajas*
 - Comun:          ${Bcommon}
 - Normal:         ${Buncommon}
 - Mitico:            ${Bmythic}
@@ -46,16 +46,16 @@ ${usedPrefix}shop <buy> <item> <total>
 
 *Ejemplo se uso* :
 ${usedPrefix}shop buy pocion 1
-– – – – – – – – – – – – – – –
+â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“ â€“
 
-*Artículos  |  Precio de venta*
+*ArtÃ­culos  |  Precio de venta*
 
 - Pocion:           ${Spotion}
 - Diamante:     ${Sdiamond}
 - Piedra:            ${Sbatu}
 - Basura:           ${Ssampah}
 
-* Cajas*
+*ðŸ“¦ Cajas*
 - Comun:          ${Scommon}
 - Normal:         ${Suncommon}
 - Mitico:            ${Smythic}
@@ -108,7 +108,7 @@ ${usedPrefix}shop sell basura 10
                             if (global.DATABASE._data.users[m.sender].money >= Bmythic * count) {
                                     global.DATABASE._data.users[m.sender].mythic += count * 1
                                 global.DATABASE._data.users[m.sender].money -= Bmythic * count
-                                conn.reply(m.chat, `Compraste ${count} caja mÃ­tica por ${Bmythic * count} de dinero`, m)
+                                conn.reply(m.chat, `Compraste ${count} caja mÃƒÂ­tica por ${Bmythic * count} de dinero`, m)
                             } else conn.reply(m.chat, `Uang anda tidak cukup untuk membeli ${count} Mythic crate dengan harga ${Bmythic* count} money\n\nBuka crate dengan ketik: *${usedPrefix}open mythic*`, m)
                         
                         break
@@ -248,7 +248,7 @@ ${usedPrefix}shop sell basura 10
                         if (global.DATABASE._data.users[m.sender].money >= Bmythic * count) {
                             global.DATABASE._data.users[m.sender].mythic += count * 1
                             global.DATABASE._data.users[m.sender].money -= Bmythic * count
-                            conn.reply(m.chat, `Compraste ${count} caja mÃ­tica por ${Bmythic * count} de dinero`, m)
+                            conn.reply(m.chat, `Compraste ${count} caja mÃƒÂ­tica por ${Bmythic * count} de dinero`, m)
                         } else conn.reply(m.chat, `Uang anda tidak cukup untuk membeli ${count} Mythic crate dengan harga ${Bmythic* count} money\n\nBuka crate dengan ketik: *${usedPrefix}open mythic*`, m)
                     
                     break
@@ -320,7 +320,7 @@ ${usedPrefix}shop sell basura 10
                         global.DATABASE._data.users[m.sender].money += Smythic * count
                         global.DATABASE._data.users[m.sender].mythic -= count * 1
                         conn.reply(m.chat, `Succes menjual ${count} Mythic Crate dengan harga ${Smythic * count} money`.trim(), m)
-                    } else conn.reply(m.chat, `No tienes suficiente cajas mÃ­ticas para vender`.trim(), m)
+                    } else conn.reply(m.chat, `No tienes suficiente cajas mÃƒÂ­ticas para vender`.trim(), m)
                     break
                 case 'legendario':
                     if (global.DATABASE._data.users[m.sender].legendary >= count * 1) {
