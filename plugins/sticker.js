@@ -1,3 +1,4 @@
+const { MessageType, Presence, MessageType } = require('@adiwajshing/baileys')
 const { sticker } = require('../lib/sticker')
 const uploadFile = require('../lib/uploadFile')
 const uploadImage = require('../lib/uploadImage')
