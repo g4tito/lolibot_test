@@ -55,7 +55,7 @@ function msToTime(seconds) {
   hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
   mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
   sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
-  return dDisplay + hDisplay + mDisplay + sDisplay;
+  return hDisplay + mDisplay + sDisplay;
 };
 
 function pickRandom(list) {
