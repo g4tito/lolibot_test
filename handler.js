@@ -553,19 +553,6 @@ global.dfail = (type, m, conn) => {
   if (msg) return m.reply(msg)
 }
 
-function msToTime(seconds) {
-  d = Math.floor(seconds / (1000 * 60 * 60 * 24));
-  h = Math.floor((seconds / (1000 * 60 * 60)) % 24);
-  m = Math.floor((seconds / (1000 * 60)) % 60);
-  s = Math.floor((seconds / 1000) % 60);
-  
-  dDisplay = d > 0 ? d + (d == 1 ? " dia," : " Dias,") : "";
-  hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
-  mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
-  sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
-  return dDisplay + hDisplay + mDisplay + sDisplay;
-};
-
 let fs = require('fs')
 let chalk = require('chalk')
 let file = require.resolve(__filename)
