@@ -17,19 +17,20 @@ let handler = async (m, { conn, text, usedPrefix }) => {
     if (money > users[m.sender].money) throw 'Límite insuficiente para transferir'
     users[m.sender].money -= money
     users[who].money += poin
-    transfer = `
+    m.reply(m.key.remoteJid, `
 ✅ *Transferencia exitosa de dinero*
 
 • Transfer: ${-poin} de Dinero
 • Impuestos: ${-pjk} de Dinero -2%
 • Total: ${-money} de Dinero
 
-
-Hola @${who.replace(/@.+/, '')}
+Hola @${who.split`@`[0]}
 Te transfirieron *${poin}* de Dinero
-    `.trim()
-    let mentionedJid = [who]
-    m.reply(m.chat, transfer, m, false, { contextInfo: { mentionedJid }})
+`.trim(), m.message, {
+      contextInfo: {
+        mentionedJid: [who]
+      }
+    })
 }
 handler.help = ['paymoney @user <cantidad>']
 handler.tags = ['xp']
