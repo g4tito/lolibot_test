@@ -11,7 +11,7 @@ let handler = async (m, { conn }) => {
         user.pet += 3
         user.lastmonthly = new Date * 1
     } else {
-        let buttons = button(`Espere *${timers}* minutos para volver a reclamar`, user)
+        let buttons = button(`Espere *${timers}* para volver a reclamar`, user)
         conn.sendMessage(m.chat, buttons, MessageType.buttonsMessage, { quoted: m })
     }
 }
