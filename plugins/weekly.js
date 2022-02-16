@@ -25,13 +25,18 @@ module.exports = handler
 function pickRandom(list) {
     return list[Math.floor(list.length * Math.random())]
 }
-function clockString(ms) {
-    let h = Math.floor(ms / 3600000)
-    let m = Math.floor(ms / 60000) % 60
-    let s = Math.floor(ms / 1000) % 60
-    console.log({ ms, h, m, s })
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
+function clockString(seconds) {
+  d = Math.floor(seconds / (1000 * 60 * 60 * 24));
+  h = Math.floor((seconds / (1000 * 60 * 60)) % 24);
+  m = Math.floor((seconds / (1000 * 60)) % 60);
+  s = Math.floor((seconds / 1000) % 60);
+  
+  dDisplay = d > 0 ? d + (d == 1 ? " dia," : " Dias,") : "";
+  hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
+  mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
+  sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
+  return dDisplay + hDisplay + mDisplay + sDisplay;
+};
 
 function button(teks, user) {
     const buttons = []
