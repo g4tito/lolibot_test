@@ -56,7 +56,7 @@ Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['a un mun
                 global.DATABASE._data.users[m.sender].uncommon += uncommon * 1
                 global.DATABASE._data.users[m.sender].sampah += sampah * 1
                 global.DATABASE._data.users[m.sender].lastadventure = new Date * 1
-            } else conn.reply(m.chat, `Te quedaste sin energía vuelve dentro de *${timers}* minutos`, m)
+            } else conn.reply(m.chat, `Te quedaste sin energía vuelve dentro de *${timers}*`, m)
         } else conn.reply(m.chat, 'Mínimo 80 de salud para poder emprender una aventura, compra una vida primero escribiendo *' + usedPrefix + 'shop buy pocion <total>*\ny luego *' + usedPrefix + 'use pocion <total>*\n\n_para obtener dinero gratis y porciones utiliza_ *' + usedPrefix + 'daily*', m)
     } catch (e) {
         console.log(e)
@@ -80,10 +80,16 @@ module.exports = handler
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)]
 }
-function clockString(ms) {
-    let h = Math.floor(ms / 3600000)
-    let m = Math.floor(ms / 60000) % 60
-    let s = Math.floor(ms / 1000) % 60
-    console.log({ ms, h, m, s })
-    return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
+
+function clockString(seconds) {
+  d = Math.floor(seconds / (1000 * 60 * 60 * 24));
+  h = Math.floor((seconds / (1000 * 60 * 60)) % 24);
+  m = Math.floor((seconds / (1000 * 60)) % 60);
+  s = Math.floor((seconds / 1000) % 60);
+  
+  dDisplay = d > 0 ? d + (d == 1 ? " dia," : " Dias,") : "";
+  hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
+  mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
+  sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
+  return dDisplay + hDisplay + mDisplay + sDisplay;
+};
