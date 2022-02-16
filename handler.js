@@ -449,7 +449,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
           for (let user of participants) {
             let ppp = fs.readFileSync('./src/avatar_contact.png')
             try {
-              pp = await this.getProfilePicture(user)
+             let pp = await this.getProfilePicture(user)
             } catch (e) {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Hola 😙, *@user*\n───────────────────\n*🎊Bienvenido/a al grupo* :\n@subject\n\n• *Descripción* :\n\n@desc').replace('@subject', await this.getName(jid)).replace('@desc', groupMetadata.desc) :
@@ -552,6 +552,19 @@ global.dfail = (type, m, conn) => {
   }[type]
   if (msg) return m.reply(msg)
 }
+
+function msToTime(seconds) {
+  d = Math.floor(seconds / (1000 * 60 * 60 * 24));
+  h = Math.floor((seconds / (1000 * 60 * 60)) % 24);
+  m = Math.floor((seconds / (1000 * 60)) % 60);
+  s = Math.floor((seconds / 1000) % 60);
+  
+  dDisplay = d > 0 ? d + (d == 1 ? " dia," : " Dias,") : "";
+  hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
+  mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
+  sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
+  return dDisplay + hDisplay + mDisplay + sDisplay;
+};
 
 let fs = require('fs')
 let chalk = require('chalk')
