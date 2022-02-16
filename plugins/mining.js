@@ -1,4 +1,4 @@
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn, usedPrefix, msToTime }) => {
 	
 	let user = global.DATABASE._data.users[m.sender]
 	let pickaxe = global.DATABASE._data.users[m.sender].pickaxe
@@ -47,16 +47,6 @@ handler.command = /^(mining|minar)$/i
 handler.disabled = false
 
 module.exports = handler
-
-function msToTime(seconds) {
-  h = Math.floor((seconds / (1000 * 60 * 60)) % 24)
-  m = Math.floor((seconds / (1000 * 60)) % 60),
-  s = Math.floor((seconds / 1000) % 60)
-  hDisplay = h > 0 ? h + (h == 1 ? " hora, " : " Horas, ") : "";
-  mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " Minutos, ") : "";
-  sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " Segundos") : "";
-  return hDisplay + mDisplay + sDisplay;
-};
 
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)]
