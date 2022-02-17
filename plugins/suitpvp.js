@@ -9,7 +9,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   conn.suit = conn.suit ? conn.suit : {}
   if (Object.values(conn.suit).find(room => room.id.startsWith('suit') && [room.p, room.p2].includes(m.sender))) throw 'Todavia tienes un juego pendiente'
   if (!m.mentionedJid[0]) return m.reply(`Etiqueta a alguien del grupo\n\n*Ejemplo:* ${usedPrefix + command} @${owner[0]}`, m.chat, { contextInfo: { mentionedJid: [owner[0] + '@s.whatsapp.net'] } })
-  if (Object.values(conn.suit).find(room => room.id.startsWith('suit') && [room.p, room.p2].includes(m.mentionedJid[0]))) throw `Orang yang kamu tantang sedang bermain suit bersama orang lain :(`
+  if (Object.values(conn.suit).find(room => room.id.startsWith('suit') && [room.p, room.p2].includes(m.mentionedJid[0]))) throw `La persona a la que estás desafiando está jugando con otra persona`
   let id = 'suit_' + new Date() * 1
   let caption = `
 – *JUEGO PIEDRA PAPEL O TIJERA* –

@@ -8,7 +8,7 @@ handler.before = async function (m) {
     let tie = false
     if (m.sender == room.p2 && /^(S|s)/i.test(m.text) && m.isGroup && room.status == 'wait') {
       if (/^(N|n)/i.test(m.text)) {
-        this.reply(m.chat, `@${room.p2.split`@`[0]} menolak suit, suit dibatalkan`, m, { contextInfo: { mentionedJid: [room.p2] } })
+        this.reply(m.chat, `@${room.p2.split`@`[0]} rechazó el desafío`, m, { contextInfo: { mentionedJid: [room.p2] } })
         delete this.suit[room.id]
         return !0
       }
@@ -36,9 +36,9 @@ Ganador: +${room.poin} de dinero
 Perdedor: -${room.poin_lose} de dinero
 
 *Elija una opción:*
-✊🏻 - Batu
-🖐🏻 - Kertas
-✌🏻 - Gunting`, m)
+✊🏻 - Piedra
+🖐🏻 - Papel
+✌🏻 - Tijera`, m)
       if (!room.pilih2) this.reply(room.p2, `– *JUEGO PPT* –
 
 Ganador: +${room.poin} de dinero
@@ -49,7 +49,7 @@ Perdedor: -${room.poin_lose} de dinero
 🖐🏻 - Papel
 ✌🏻 - Tijera`, m)
       room.waktu_milih = setTimeout(() => {
-        if (!room.pilih && !room.pilih2) this.reply(m.chat, `Kedua pemain tidak niat main,\nSuit dibatalkan`)
+        if (!room.pilih && !room.pilih2) this.reply(m.chat, `El jugador no tiene intención de jugar, se canselo el juego`)
         else if (!room.pilih || !room.pilih2) {
           win = !room.pilih ? room.p2 : room.p
           this.reply(m.chat, `@${(room.pilih ? room.p2 : room.p).split`@`[0]} tidak memilih suit, game berakhir`, m)
@@ -69,13 +69,13 @@ Perdedor: -${room.poin_lose} de dinero
     if (jwb && reg.test(m.text) && !room.pilih && !m.isGroup) {
       room.pilih = reg.exec(m.text.toLowerCase())[0]
       room.text = m.text
-      m.reply(`Kamu telah memilih ${m.text} ${!room.pilih2 ? `\n\nMenunggu lawan memilih` : ''}`)
+      m.reply(`Has elegido ${m.text} ${!room.pilih2 ? `\n\nEsperando a que el oponente elija` : ''}`)
       if (!room.pilih2) this.reply(room.p2, 'Tu oponente ya elegido, ahora es tu turno', 0)
     }
     if (jwb2 && reg.test(m.text) && !room.pilih2 && !m.isGroup) {
       room.pilih2 = reg.exec(m.text.toLowerCase())[0]
       room.text2 = m.text
-      m.reply(`Kamu telah memilih ${m.text} ${!room.pilih ? `\n\nMenunggu lawan memilih` : ''}`)
+      m.reply(`Has elegido ${m.text} ${!room.pilih ? `\n\nEsperando a que el oponente elija` : ''}`)
       if (!room.pilih) this.reply(room.p, 'Tu oponente ya elegido, ahora es tu turno', 0)
     }
     let stage = room.pilih
