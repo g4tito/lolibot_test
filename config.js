@@ -30,6 +30,7 @@ global.APIs = { // API Prefix
   // name: 'https://website'
   nrtm: 'https://nurutomo.herokuapp.com',
   xteam: 'https://api.xteam.xyz',
+  melcanz: 'httpa://melcanz.com',
   nzcha: 'http://nzcha-apii.herokuapp.com',
   bg: 'http://bochil.ddns.net',
   fdci: 'https://api.fdci.se',
@@ -44,6 +45,7 @@ global.APIs = { // API Prefix
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.xteam.xyz': 'd90a9e986e18778b',
+  'https://melcanz.com': 'TCo9t7EO',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.xyz': 'apivinz',
   'https://pencarikode.xyz': 'pais',
@@ -55,7 +57,7 @@ global.APIKeys = { // APIKey Here
 global.packname = 'wa.me/6285713964963'
 global.author = 'Metro Bot Is The Best'
 
-global.wait = '_• Espere un momento..._'
+global.wait = '_• Espere un momento.._'
 
 global.multiplier = 39 // The higher, The harder levelup
 
