@@ -6,8 +6,8 @@ handler.before = async function (m) {
   if (room) {
     let win = ''
     let tie = false
-    if (m.sender == room.p2 && /^(acc(ept)?|terima|gas|oke?|tolak|gamau|nanti|ga(k.)?bisa)/i.test(m.text) && m.isGroup && room.status == 'wait') {
-      if (/^(tolak|gamau|nanti|ga(k.)?bisa)/i.test(m.text)) {
+    if (m.sender == room.p2 && /^(S|s)/i.test(m.text) && m.isGroup && room.status == 'wait') {
+      if (/^(N|n)/i.test(m.text)) {
         this.reply(m.chat, `@${room.p2.split`@`[0]} menolak suit, suit dibatalkan`, m, { contextInfo: { mentionedJid: [room.p2] } })
         delete this.suit[room.id]
         return !0
@@ -16,19 +16,38 @@ handler.before = async function (m) {
       room.asal = m.chat
       clearTimeout(room.waktu)
       //delete room[room.id].waktu
-      m.reply(`El juego ha sido enviado al chat privado de
-@${room.p.split`@`[0]} y
-@${room.p2.split`@`[0]}
+      m.reply(`– *JUEGO PIEDRA PPT* –
 
-Seleccionen una opcion"
-Link wa.me/${conn.user.jid.split`@`[0]}`, m.chat, {
+Jugador1: @${room.p.split`@`[0]}
+Juagdor2: @${room.p2.split`@`[0]}
+
+El juego ha sido enviado al chat privado
+
+*Seleccionen una opcion:*
+wa.me/${conn.user.jid.split`@`[0]}`, m.chat, {
         contextInfo: {
           mentionedJid: [room.p, room.p2]
         }
       })
 
-      if (!room.pilih) this.reply(room.p, ` *「 PIEDRA PAPEL TIJERA 」*\n\nGanador +${room.poin} de dinero\nPerdedor -${room.poin_lose} de dinero\n\nBatu ✊🏻\nKertas 🖐🏻\nGunting ✌🏻`, m)
-      if (!room.pilih2) this.reply(room.p2, ` *「 PIEDRA PAPEL TIJERA 」*\n\nGanador +${room.poin} de dinero\nPerdedor -${room.poin_lose} de dinero\n\nBatu ✊🏻\nKertas 🖐🏻\nGunting ✌🏻`, m)
+      if (!room.pilih) this.reply(room.p, `– *JUEGO PPT* –
+
+Ganador: +${room.poin} de dinero
+Perdedor: -${room.poin_lose} de dinero
+
+*Elija una opción:*
+✊🏻 - Batu
+🖐🏻 - Kertas
+✌🏻 - Gunting`, m)
+      if (!room.pilih2) this.reply(room.p2, `– *JUEGO PPT* –
+
+Ganador: +${room.poin} de dinero
+Perdedor: -${room.poin_lose} de dinero
+
+*Elija una opción:*
+✊🏻 - Piedra
+🖐🏻 - Papel
+✌🏻 - Tijera`, m)
       room.waktu_milih = setTimeout(() => {
         if (!room.pilih && !room.pilih2) this.reply(m.chat, `Kedua pemain tidak niat main,\nSuit dibatalkan`)
         else if (!room.pilih || !room.pilih2) {
@@ -43,10 +62,10 @@ Link wa.me/${conn.user.jid.split`@`[0]}`, m.chat, {
     }
     let jwb = m.sender == room.p
     let jwb2 = m.sender == room.p2
-    let g = /gunting/i
-    let b = /batu/i
-    let k = /kertas/i
-    let reg = /^(gunting|batu|kertas)/i
+    let g = /tijera/i
+    let b = /piedra/i
+    let k = /papel/i
+    let reg = /^(tijera|piedra|papel)/i
     if (jwb && reg.test(m.text) && !room.pilih && !m.isGroup) {
       room.pilih = reg.exec(m.text.toLowerCase())[0]
       room.text = m.text
@@ -71,10 +90,11 @@ Link wa.me/${conn.user.jid.split`@`[0]}`, m.chat, {
       else if (k.test(stage) && g.test(stage2)) win = room.p2
       else if (stage == stage2) tie = true
       this.reply(room.asal, `
-_*Hasil Suit*_${tie ? '\nSERI' : ''}
+– *INFO DEL JUEGO PPT* –
 
-@${room.p.split`@`[0]} (${room.text}) ${tie ? '' : room.p == win ? ` Menang \n+${room.poin} money` : ` Kalah \n-${room.poin_lose} de dinero`}
-@${room.p2.split`@`[0]} (${room.text2}) ${tie ? '' : room.p2 == win ? ` Menang \n+${room.poin} money` : ` Kalah \n-${room.poin_lose} de dinero`}
+@${room.p.split`@`[0]} (${room.text}) ${tie ? '' : room.p == win ? ` Ganaste!!\n+${room.poin} de dinero` : ` Ganaste!!\n-${room.poin_lose} de dinero`}
+
+@${room.p2.split`@`[0]} (${room.text2}) ${tie ? '' : room.p2 == win ? ` Perdiste\n+${room.poin} de dinero` : ` Perdiste\n-${room.poin_lose} de dinero`}
 `.trim(), m, { contextInfo: { mentionedJid: [room.p, room.p2] } })
       if (!tie) {
         global.DATABASE._data.users[win == room.p ? room.p : room.p2].money += room.poin
