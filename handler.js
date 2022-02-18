@@ -450,7 +450,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
             let ppp = fs.readFileSync('./src/avatar_contact.png')
             let lolisg = fs.readFileSync('./src/menu2.jpg')
             try {
-              pp = await this.getProfilePicture(user)
+              pp = await this.getProfilePicture(m.sender)
             } catch (e) {
             } finally {
               text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Hola 😙, *@user*\n───────────────────\n*🎊Bienvenido/a al grupo* :\n@subject\n\n• *Descripción* :\n\n@desc').replace('@subject', await this.getName(jid)).replace('@desc', groupMetadata.desc) :
