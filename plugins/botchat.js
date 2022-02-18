@@ -4,7 +4,7 @@ const ownernum = "51940617554@s.whatsapp.net"
 let teks = `
 Hola @${ownernum.split("@s.whatsapp.net")[0]} ${saludo}
 `.trim()
-conn.sendMessage(m.chat, teks, m, { contextInfo: { mentionedJid: [ownernum] }})
+conn.reply(m.chat, teks, m, { contextInfo: { mentionedJid: [ownernum] }})
 }
 handler.customPrefix = /Test/
 handler.command = new RegExp
