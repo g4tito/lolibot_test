@@ -1,11 +1,12 @@
 let handler  = async (m, { conn }) => {
 let name = conn.getName(m.sender)
+const ownernum = "51940617554@s.whatsapp.net"
 let teks = `
-${pickRandom([` _Hii @${m.sender.split`@`[0]}_\n\n_Saya disini_`, `_Oeetss @${m.sender.split`@`[0]}_\n\n_Ada apa??_`, `_Ekhheemmm, Uhuk Ughhuk_`, `_Puuuiyy_`, `_Poom_`, `_Hadirrr_`, `_Yooossshhhh_`])}
+@${ownernum.split("@s.whatsapp.net")[0]}
 `.trim()
-conn.reply(m.chat, teks, m, { contextInfo: { mentionedJid: [m.sender] }})
+conn.reply(m.chat, teks, m, { contextInfo: { mentionedJid: [ownernum] }})
 }
-handler.customPrefix = /Bot/
+handler.customPrefix = /Test/
 handler.command = new RegExp
 
 module.exports = handler
