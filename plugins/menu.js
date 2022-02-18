@@ -35,7 +35,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-  Holi @${m.sender.split("@s.whatsapp.net")[0]}
+  Holi @%user
   
 ✾ *Version:* %version
 ✾ *Navegador:* ${conn.browserDescription[1]}
@@ -137,6 +137,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
+      user: m.sender.split("@s.whatsapp.net")[0],
       me: conn.user.name,
       ucapan: ucapan(),
       npmname: package.name,
