@@ -55,13 +55,13 @@ Escriba *rendirse* para dejar de jugar
             state: 'WAITING'
         }
         if (text) room.name = text
-        m.reply('*Esperando jugador*\n\n' + (text ? `Si quiere entrar a la sala escriba el comando a continuación
+        m.reply('*Esperando jugador*' + (text ? `\n\nSi quiere entrar a la sala escriba el comando a continuación
 ${usedPrefix}${command} ${text}` : ''))
         conn.game[room.id] = room
     }
 }
 
-handler.help = ['tictactoe', 'ttt'].map(v => v + ' [nombre de la sala]')
+handler.help = ['tictactoe', 'ttt'].map(v => v + ' <nombre de la sala>')
 handler.tags = ['game']
 handler.command = /^(tictactoe|t{3})$/
 

@@ -50,7 +50,10 @@ handler.before = function (m) {
             isWin = true
         }
         let str = `
-*ID de la sala* : : ${room.id}
+*ID de la sala:* ${room.id}
+
+❎ - @${room.game.playerX.split`@`[0]}
+⭕ - @${room.game.playerO.split`@`[0]}
 
    ${arr.slice(0, 3).join('')}
    ${arr.slice(3, 6).join('')}
