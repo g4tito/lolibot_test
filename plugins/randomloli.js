@@ -3,7 +3,7 @@ let handler = async (m, { conn }) => {
     let yh = global.loli
     let url = yh[Math.floor(Math.random() * yh.length)]
     let buffer = (await conn.getFile(url)).data
-    conn.sendFile(m.chat, pint, '', `
+    conn.sendFile(m.chat, buffer, '', `
 Tome su loli UwU
 `.trim(), m)
 }
