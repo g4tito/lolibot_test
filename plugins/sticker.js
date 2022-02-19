@@ -18,14 +18,14 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         else if (/image/g.test(mime)) out = await uploadImage(img)
         else if (/video/g.test(mime)) out = await uploadFile(img)
         if (typeof out !== 'string') out = await uploadImage(img)
-        stiker = await sticker(out, false, global.packname, global.author)
+        stiker = await sticker(out, false, 'Test', 'xxx')
       } catch (e) {
         console.error(e)
       } finally {
-        if (!stiker) stiker = await sticker(img, false, global.packname, global.author)
+        if (!stiker) stiker = await sticker(img, false, 'Test', 'xxx')
       }
     } else if (args[0]) {
-      if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author)
+      if (isUrl(args[0])) stiker = await sticker(false, args[0], 'Test', 'xxx')
       else return m.reply('Url invalido!')
     }
   } catch (e) {
