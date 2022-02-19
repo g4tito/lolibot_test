@@ -35,7 +35,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   }
 }
 handler.help = ['suitpvp <@user>', 'ppt <@user>']
-handler.tags = ['games']
+handler.tags = ['game']
 handler.command = /^(ppt|suitpvp)$/i
 handler.limit = false
 handler.group = true
