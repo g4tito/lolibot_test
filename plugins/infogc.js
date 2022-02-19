@@ -13,7 +13,7 @@ let handler = async (m, { conn, participants, groupMetadata, text }) => {
         pp = await conn.getProfilePicture(m.chat)
     } catch (e) {
     } finally {
-        let { isBanned, welcome, detect, sWelcome, sBye, sPromote, sDemote, antiLink, expired, descUpdate } = global.DATABASE._data.chats[m.chat]
+        let { isBanned, welcome, detect, delete, antiToxic, sWelcome, sBye, sPromote, sDemote, antiLink, expired, descUpdate } = global.DATABASE._data.chats[m.chat]
         const groupAdmins = getGroupAdmins(participants)
         let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split`@`[0]}`).join('\n')
 
@@ -39,11 +39,12 @@ ${participants.length} total
 ${listAdmin}
 
 • *Bot Settings:*
-${isBanned ? '✅' : '❌'} Banned
-${welcome ? '✅' : '❌'} Welcome
-${detect ? '✅' : '❌'} Detect
-${Delete ? '❌' : '✅'} Anti Delete
-${antiLink ? '✅' : '❌'} Anti Link
+${isBanned ? '✅' : '❌'} - Banned
+${welcome ? '✅' : '❌'} - Welcome
+${detect ? '✅' : '❌'} - Detect
+${delete ? '❌' : '✅'} - Anti Delete
+${antiLink ? '✅' : '❌'} - Anti Link
+${antiToxic ? '✅' : '❌'} - Anti Toxic
 
 *Bot Message Settings:*
 Welcome: ${sWelcome}
