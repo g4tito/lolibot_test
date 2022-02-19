@@ -26,11 +26,14 @@ let handler = async (m, { conn, usedPrefix, command, text }) => {
             }[v]
         })
         let str = `
-*ID de la sala* : ${room.id}
+*ID de la sala:* ${room.id}
 
-   ${arr.slice(0, 3).join('')}
-   ${arr.slice(3, 6).join('')}
-   ${arr.slice(6).join('')}
+❎ - @${room.game.playerX.split`@`[0]}
+⭕ - @${room.game.playerO.split`@`[0]}
+
+      ${arr.slice(0, 3).join('')}
+      ${arr.slice(3, 6).join('')}
+      ${arr.slice(6).join('')}
 
 Tu turno @${room.game.currentTurn.split('@')[0]}
 

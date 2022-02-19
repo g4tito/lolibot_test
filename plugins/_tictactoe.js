@@ -55,9 +55,9 @@ handler.before = function (m) {
 ❎ - @${room.game.playerX.split`@`[0]}
 ⭕ - @${room.game.playerO.split`@`[0]}
 
-   ${arr.slice(0, 3).join('')}
-   ${arr.slice(3, 6).join('')}
-   ${arr.slice(6).join('')}
+      ${arr.slice(0, 3).join('')}
+      ${arr.slice(3, 6).join('')}
+      ${arr.slice(6).join('')}
 
 ${isWin ? `@${(isSurrender ? room.game.currentTurn : room.game.winner).split('@')[0]} Ganaste!` : isTie ? 'El juego terminó en empate' : `Tu turno @${room.game.currentTurn.split('@')[0]}`}
 
