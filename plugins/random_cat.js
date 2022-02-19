@@ -3,15 +3,16 @@ let fetch = require('node-fetch')
 
 let handler  = async (m, { conn, text }) => {
   try {
+     conn.reply(m.chat, wait, m) 
      let res = await fetch('https://cataas.com/cat')
      let img = await res.buffer()
      let caption = `
-©Chatbot
+- Gato
 `.trim()
     conn.sendFile(m.chat, img, 'cat.jpg', caption, m)
    } catch (e) {
         console.log(e)
-        throw '_*Erro!*_'
+        throw 'Lo siento ocurrio un error'
     }
 }
 
