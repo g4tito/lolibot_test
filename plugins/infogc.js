@@ -14,12 +14,13 @@ let handler = async (m, { conn, participants, groupMetadata, text }) => {
     } catch (e) {
     } finally {
         let { isBanned, welcome, detect, antiToxic, sWelcome, sBye, sPromote, sDemote, antiLink, expired, descUpdate } = global.DATABASE._data.chats[m.chat]
+        let Delete = global.DATABASE._data.chats[m.chat].delete
         const groupAdmins = getGroupAdmins(participants)
         let listAdmin = groupAdmins.map((v, i) => `${i + 1}. @${v.split`@`[0]}`).join('\n')
 
         if (text) return m.reply(msToDate(expired - new Date() * 1))
 
-        let caption = `– *INFORMACION DEL GRUPO* –\n
+        let caption = `— *INFORMACION DEL GRUPO* —\n
 • *ID:* 
 ${groupMetadata.id}
 
@@ -32,7 +33,7 @@ ${groupMetadata.desc}
 • *Miembros:*
 ${participants.length} total
 
-• *Group Maker:* 
+• *Creador:* 
 @${m.chat.split`-`[0]}
 
 • *Administradores/as:*
@@ -42,6 +43,7 @@ ${listAdmin}
 ${isBanned ? '✅' : '❌'} - Baneado
 ${welcome ? '✅' : '❌'} - Bienvenida
 ${detect ? '✅' : '❌'} - Detect
+${Delete ? '❌' : '✅'} - Delete
 ${antiLink ? '✅' : '❌'} - Anti Link
 ${antiToxic ? '✅' : '❌'} - Anti Toxic
 
