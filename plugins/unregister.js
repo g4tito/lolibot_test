@@ -8,7 +8,7 @@ let handler = async function (m, { args }) {
   m.reply(`Se elimino el registro con exito!`)
 }
 handler.help = ['', 'ister'].map(v => 'unreg' + v + ' <codigo>')
-handler.tags = ['exp']
+handler.tags = ['xp']
 
 handler.command = /^unreg(ister)?$/i
 handler.register = true

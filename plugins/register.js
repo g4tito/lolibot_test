@@ -48,8 +48,8 @@ conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, { quoted: m })
 }
 conn.sendMessage(m.sender, `Codigo de registro: ${sn}`, MessageType.text, { quoted: m })
 }
-handler.help = ['daftar', 'reg', 'register'].map(v => v + ' <nama>.<umur>')
-handler.tags = ['exp']
+handler.help = ['daftar', 'reg', 'register'].map(v => v + ' <nombre.edad>')
+handler.tags = ['xp']
 
 handler.command = /^(daftar|reg(ister)?)$/i
 
