@@ -6,52 +6,53 @@ let fs = require('fs')
 let path = require('path')
 let levelling = require('../lib/levelling')
 let tags = {
-  'main': 'MENU',
-  'rpg': 'EPIC RPG',
-  'game': 'JUEGOS',
-  'xp': 'EXP & LIMITE',
-  'sticker': 'STICKER',
-  'kerang': 'Kerang Ajaib',
-  'quotes': 'CITAS',
-  'admin': 'ADMIN',
-  'group': 'GRUPO',
-  'premium': 'PREMIUN',
-  'internet': 'INTERNET',
-  'random': 'RANDOM',
-  'anonymous': 'CHAT ANONIMO',
-  'nulis': 'LOGO MAKER',
-  'downloader': 'DESCARGA',
-  'tools': 'AJUSTES',
-  'fun': 'DIVERCION',
-  'database': 'DATABASE',
-  'vote': 'VOTACION',
-  'absen': 'Absen',
-  'quran': 'Al Qur\'an',
-  'jadibot': 'JADI BOT',
-  'owner': 'CREADOR',
-  'host': 'HOST',
-  'advanced': 'AVANZADO',
-  'info': 'INFO',
-  '': 'SIN CATEGORIA',
+  'main': 'Menu 🍟',
+  'rpg': 'Juego RPG ⚔️ ',
+  'game': 'Juegos 🎮',
+  'xp': 'Exp & limite ✨',
+  'sticker': 'Stickers 🧩',
+  'kerang': 'No se que es :v ❓',
+  'quotes': 'Citas 💌',
+  'admin': 'Admins 😎',
+  'group': 'Grupos 👥',
+  'premium': 'Premiun 👑',
+  'internet': 'Internet 📶',
+  'random': 'Random 🍥',
+  'anonymous': 'Chat anónimo 🕵️‍♂️',
+  'nulis': 'Logo maker  🎨',
+  'downloader': 'Descargas 📥',
+  'tools': 'Ajustes ⚙️',
+  'fun': 'Diverción 🎡',
+  'database': 'Database 📂',
+  'vote': 'Votación 🗳️',
+  'absen': 'Tampoco se que es :v ❓',
+  'quran': 'x3 ❓',
+  'jadibot': 'Jadi bot 🤖',
+  'owner': 'Creador 🐈',
+  'host': 'Host 📡',
+  'advanced': 'Abanzado 💠',
+  'info': 'Info 📍',
+  '': 'Sin categoría 🏵️',
 }
 const defaultMenu = {
   before: `
   Holi @%user, %greeting
-  
-✾ *Version:* %version
-✾ *Navegador:* ${conn.browserDescription[1]}
-✾ *Servidor:* ${conn.browserDescription[0]}
-✾ *Version:* ${conn.browserDescription[2]}
-✾ *Modo:* ${global.opts['self'] ? 'Privado' : 'Publico'}
+
+_*Info bot 📱*_
+• *Version:* %version
+• *Navegador:* ${conn.browserDescription[1]}
+• *Servidor:* ${conn.browserDescription[0]}
+• *Version:* ${conn.browserDescription[2]}
+• *Modo:* ${global.opts['self'] ? 'Privado' : 'Publico'}
 
 - La bot todavía es en beta
 y puede aver errores reportalos
 con el comando /bug <error>
 
 %readmore`.trimStart(),
-  header: '╭─❑ *%category*',
-  body: '│• %cmd %islimit %isPremium',
-  footer: '└──❑\n',
+  header: '_*%category*_',
+  body: '✾ %cmd %islimit %isPremium',
+  footer: '\n',
   after: `
 *%npmname@^%version*
 ${'```%npmdesc```'}
