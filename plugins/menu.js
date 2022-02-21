@@ -39,18 +39,18 @@ const defaultMenu = {
 Hola @%user, %greeting
 
 Un simple *Bot de WhatsApp*
-hecho por %ownum
+hecho por @%ownum
 
 _*Info Bot*_
-⌗ • Nombre: %me
-⌗ • Prefix: < Multiprefix + >
-⌗ • Velocidad: -
-⌗ • Runtime: %uptime
+⌗ • Nombre : %me
+⌗ • Prefix : < Multiprefix + >
+⌗ • Velocidad : -
+⌗ • Runtime : %uptime
 
-⌗ • Navegador: %navega
-⌗ • Servidor: %server
-⌗ • Vercion: %version
-⌗ • Sistema OP: -
+⌗ • Navegador : %navega
+⌗ • Servidor : %server
+⌗ • Vercion : %version
+⌗ • Sistema OP : -
 
 %readmore`.trimStart(),
   header: '_*%category*_',
