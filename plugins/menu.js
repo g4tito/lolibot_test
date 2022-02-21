@@ -145,9 +145,9 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       user: m.sender.split("@s.whatsapp.net")[0],
       ownum: ownernum.split("@s.whatsapp.net")[0],
       me: conn.user.name,
-      server: conn.browserDescription[0]
-      navega: conn.browserDescription[1]
-      version: conn.browserDescription[2]
+      server: conn.browserDescription[0],
+      navega: conn.browserDescription[1],
+      version: conn.browserDescription[2],
       greeting: saludo,
       npmname: package.name,
       npmdesc: package.description,
