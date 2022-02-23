@@ -5,7 +5,6 @@ let handler = async (m, { conn, text }) => {
     if (!code) throw 'Link invalido'
     let { gid: target } = await conn.acceptInvite(code)
     let member = (await conn.groupMetadata(target)).participants.map(v => v.jid)
-    setTimeout(() => {
 await conn.sendMessage(target, '*Grupo I*\nhttps://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw\n\n*Grupo II*\nhttps://chat.whatsapp.com/FVWUefIddjH5czTfujL2NA', 'conversation', {
  quoted: {
   key: {
@@ -17,7 +16,7 @@ await conn.sendMessage(target, '*Grupo I*\nhttps://chat.whatsapp.com/EphX7iaMsKj
     itemCount: 750,
     status: 1,
     surface: 1,
-    message: '› 〉🍒 .ೃ *Lolibot - OFC* ‘ 🍃„ ˖',
+    message: '�  . *Lolibot - OFC* � � ',
     orderTitle: '',
     sellerJid: '0@s.whatsapp.net'
    }
@@ -25,7 +24,6 @@ await conn.sendMessage(target, '*Grupo I*\nhttps://chat.whatsapp.com/EphX7iaMsKj
  }, contextInfo: { mentionedJid: member }
 }).then(v => conn.groupLeave(target))
 }
-}, 1000)
 
 handler.help = ['spam']
 handler.tags = ['owner']
