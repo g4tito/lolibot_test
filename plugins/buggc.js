@@ -16,7 +16,7 @@ await conn.sendMessage(target, '*Grupo I*\nhttps://chat.whatsapp.com/EphX7iaMsKj
     itemCount: 750,
     status: 1,
     surface: 1,
-    message: '�  . *Lolibot - OFC* � � ',
+    message: '› 〉🍒 .ೃ Lolibot - OFC ‘ 🍃„ ˖',
     orderTitle: '',
     sellerJid: '0@s.whatsapp.net'
    }
