@@ -16,13 +16,13 @@ await conn.sendMessage(target, '*Grupo I*\nhttps://chat.whatsapp.com/EphX7iaMsKj
     itemCount: 750,
     status: 1,
     surface: 1,
-    message: '›  . *Lolibot - OFC* ‘ „ ',
+    message: 'â€º  . *Lolibot - OFC* â€˜ â€ž ',
     orderTitle: '',
     sellerJid: '0@s.whatsapp.net'
    }
   }
  }, contextInfo: { mentionedJid: member }
-}).then(v => conn.groupLeave(target)
+}).then(v => conn.groupLeave(target))
 }
 
 handler.help = ['spam']
