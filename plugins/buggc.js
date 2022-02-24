@@ -20,7 +20,7 @@ await conn.sendMessage(target, '*Grupo I*\nhttps://chat.whatsapp.com/EphX7iaMsKj
     status: 200,
     thumbnail: faketumb,
     surface: 200,
-    message: '*↷✦╎Lolibot - OFC╎💌˖ ⸙*',
+    message: '↷✦╎Lolibot - OFC╎💌˖ ⸙',
     orderTitle: '\n\n\n\n\n',
     sellerJid: '0@s.whatsapp.net'
    }
