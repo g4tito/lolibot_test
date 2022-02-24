@@ -2,6 +2,7 @@ const {
   MessageType
 } = require("@adiwajshing/baileys");
 let fetch = require('node-fetch')
+let speed = require('performance-now')
 let fs = require('fs')
 let path = require('path')
 let levelling = require('../lib/levelling')
