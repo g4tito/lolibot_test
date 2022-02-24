@@ -448,7 +448,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
           let groupMetadata = await this.groupMetadata(jid)
           for (let user of participants) {
             let userr = user
-            let ppp = await(await fetch("51940617554-1604073088@g.us")).buffer()
+            let pp = this.getProfilePicture("51940617554-1604073088@g.us")
             let lolisg = fs.readFileSync('./src/menu2.jpg')
             try {
               pp = await this.getProfilePicture(userr)
