@@ -150,7 +150,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       server: conn.browserDescription[0],
       navega: conn.browserDescription[1],
       version: conn.browserDescription[2],
-      speed: latensi.toFixed(4)
+      speed: latensi.toFixed(4),
       greeting: saludo,
       npmname: package.name,
       npmdesc: package.description,
