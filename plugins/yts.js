@@ -1,26 +1,30 @@
 let yts = require('yt-search')
 let handler = async (m, { text }) => {
-  if (!text) return m.reply('Cari apa?')
+  if (!text) return m.reply('*Ingrese el texto para buscar*\n\n- Ejemplo: ${usedPrefix + command} Bobicraft')
   let results = await yts(text)
   let teks = results.all.map(v => {
     switch (v.type) {
       case 'video': return `
-*${v.title}* (${v.url})
-Duration: ${v.timestamp}
-Uploaded ${v.ago}
-${v.views} views
+*${v.title}*
+- Link: ${v.url}
+- Duración: ${v.timestamp}
+- Subido: ${v.ago}
+- Visitas: ${v.views} 
       `.trim()
       case 'channel': return `
-*${v.name}* (${v.url})
-_${v.subCountLabel} (${v.subCount}) Subscriber_
-${v.videoCount} video
+— *CANAL* —
+
+*Nombre:* ${v.name}
+*Link:* ${v.url})
+*Subs:* ${v.subCountLabel} Subscriptores
+*Videos* ${v.videoCount} Total
 `.trim()
     }
-  }).filter(v => v).join('\n========================\n')
+  }).filter(v => v).join('\n\n╶\n\n')
   m.reply(teks)
 }
-handler.help = ['', 'earch'].map(v => 'yts' + v + ' <pencarian>')
+handler.help = ['ytsearch']
 handler.tags = ['tools']
-handler.command = /^yts(earch)?$/i
+handler.command = /^(yts|ytsearch)$/i
 
 module.exports = handler
