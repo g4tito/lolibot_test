@@ -41,30 +41,32 @@ Hola @%user, %greeting
 Un simple *Bot de WhatsApp*
 hecho por @%ownum
 
-_*Info Bot*_
-⌗ • Nombre : %me
-⌗ • Prefix : < Multiprefix + >
-⌗ • Velocidad : -
-⌗ • Runtime : %uptime
+*INFO BOT  ⽜*
+⌗ › Nombre : %me
+⌗ › Prefix : < Multiprefix + >
+⌗ › Velocidad : %speed Segundos
+⌗ › Runtime : %uptime
 
-⌗ • Navegador : %navega
-⌗ • Servidor : %server
-⌗ • Vercion : %version
-⌗ • Sistema OP : -
+⌗ › Navegador : %navega
+⌗ › Servidor : %server
+⌗ › Vercion : %version
+⌗ › Sistema OP : Samsung s21
 
 %readmore`.trimStart(),
   header: '_*%category*_',
   body: '✾ %cmd %islimit %isPremium',
-  footer: '',
-  after: `
-*%npmname@^%version*
-${'```%npmdesc```'}
-`,
+  footer: '╶',
+  after: "*lolibot-ofc@^0.9.8*\n```Customizable WhatsApp Bot```",
 }
 let handler = async (m, { conn, usedPrefix: _p }) => {
   try {
     let package = JSON.parse(await fs.promises.readFile(path.join(__dirname, '../package.json')).catch(_ => '{}'))
     let name = conn.getName(m.sender)
+    
+    let timestamp = speed()
+    let neww = performance.now()
+    let latensi = speed() - timestamp
+    
     let d = new Date(new Date + 3600000)
     let locale = 'id'
     // d.getTimeZoneOffset()
@@ -148,6 +150,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       server: conn.browserDescription[0],
       navega: conn.browserDescription[1],
       version: conn.browserDescription[2],
+      speed: latensi.toFixed(4)
       greeting: saludo,
       npmname: package.name,
       npmdesc: package.description,
