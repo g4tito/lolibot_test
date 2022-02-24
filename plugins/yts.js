@@ -1,5 +1,5 @@
 let yts = require('yt-search')
-let handler = async (m, { text, usedPrefix }) => {
+let handler = async (m, { text, usedPrefix, command }) => {
   if (!text) return m.reply(`*Ingrese el texto para buscar*\n\n- Ejemplo: ${usedPrefix + command} Bobicraft`)
   let results = await yts(text)
   let teks = results.all.map(v => {
