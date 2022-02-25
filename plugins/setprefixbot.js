@@ -1,10 +1,9 @@
-let handler = async(m, { conn, text }) => {
-  if (!text) throw `No Prefix detected...`
+let handler = async(m, { conn, text, usedPrefix, command }) => {
+  if (!text) throw `*Introdusca un prefijo*\n\n- Ejemplo: ${usedPrefix + command} #`
   global.prefix = new RegExp('^[' + (text || global.opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
-  await m.reply(`Prefix telah ditukar ke *${text}*`)
-    // conn.fakeReply(m.chat, 'Prefix telah ditukar ke *${text}*', '0@s.whatsapp.net', 'Set Prefix Bot')
+  await m.reply(`El prefijo se cambio a: *${text}*`)
 }
-handler.help = ['setprefix'].map(v => v + ' [prefix]')
+handler.help = ['setprefix']
 handler.tags = ['owner']
 handler.command = /^(setprefix)$/i
 
