@@ -28,7 +28,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 - *Ukuran File Audio:* ${filesizeF}
 - *Ukuran File Video:* ${yt2.filesizeF}
 - *Server y2mate:* ${usedServer}
-`.trim(), footer, 'Audio', `.yta ${vid.url}`, 'Video', `.yt ${vid.url}`, m)
+`.trim(), `Elija una opcion`, 'Audio', `.yta ${vid.url}`, 'Video', `.yt ${vid.url}`, m)
 }
 handler.help = ['play', 'play2']
 handler.tags = ['downloader']
