@@ -1,3 +1,4 @@
+const { MessageType } = require("@adiwajshing/baileys");
 const { servers, yta, ytv } = require('../lib/y2mate')
 let yts = require('yt-search')
 let fetch = require('node-fetch')
@@ -23,12 +24,25 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (yt === false) throw 'Todos los servidores fallaron'
   if (yt2 === false) throw 'Todos los servidores fallaron'
   let { dl_link, thumb, title, filesize, filesizeF } = yt
-  await conn.send2ButtonLoc(m.chat, await (await fetch(thumb)).buffer(), `
-- *Judul:* ${title}
-- *Ukuran File Audio:* ${filesizeF}
-- *Ukuran File Video:* ${yt2.filesizeF}
-- *Server y2mate:* ${usedServer}
-`.trim(), `Elija una opcion`, 'Audio', `.yta ${vid.url}`, 'Video', `.yt ${vid.url}`, m)
+  let playtxt = `
+- *Titulo:* ${title}
+- *Tamaño del audio:* ${filesizeF}
+- *Tamaño del video:* ${yt2.filesizeF}
+- *Servidor y2mate:* ${usedServer}
+  `
+  py =  await conn.prepareMessage(m.chat, await (await fetch(thumb)).buffer(), MessageType.image)
+gbutsan = [
+{buttonId: `${usedPrefix}yta ${vid.url}`, buttonText: {displayText: 'Audio '}, type: 1},
+{buttonId: `${usedPrefix}ytv ${vid.url}`, buttonText: {displayText: 'Video '}, type: 1}
+]
+gbuttonan = {
+imageMessage: py.message.imageMessage,
+contentText: playtxt,
+footerText: `Elija una opcion de descarga`,
+buttons: gbutsan,
+headerType: 4
+}
+await conn.sendMessage(m.chat, gbuttonan, MessageType.buttonsMessage, { quoted: m })
 }
 handler.help = ['play', 'play2']
 handler.tags = ['downloader']
