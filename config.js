@@ -24,7 +24,7 @@ global.Owner = {
   },
   '13479805233': {} // ignore if you don't want anything, like name dll
 }
-global.mods = ['13479805233'] // Want some help?
+global.mods = ['5356588048'] // Want some help?
 global.prems = [] // Premium user has unlimited limit
 global.APIs = { // API Prefix
   // name: 'https://website'
