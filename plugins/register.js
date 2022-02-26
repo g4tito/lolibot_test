@@ -13,7 +13,7 @@ let handler = async function (m, { conn, text, usedPrefix, command}) {
   let [_, name, splitter, age] = text.match(Reg)
   if (!name) throw 'El nombre no puede estar vacio'
   if (!age) throw 'La edad no puede estar vacia'
-  if (!Rname.includes(name)) throw 'Ponga un nombre valido'
+  if (!Rname.test(name)) throw 'Ponga un nombre valido'
   user.name = name
   user.age = parseInt(age)
   user.regTime = + new Date
