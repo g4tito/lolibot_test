@@ -1,59 +1,75 @@
+let os = require('os')
+let util = require('util')
 let { performance } = require('perf_hooks')
-let fs = require ('fs')
-let path = require('path')
-let handler  = async (m, { conn, usedPrefix }) => { 
-  let package = JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json')))
+let { sizeFormatter } = require('human-readable')
+let fs = require("fs");
+let format = sizeFormatter({
+  std: 'JEDEC', // 'SI' (default) | 'IEC' | 'JEDEC'
+  decimalPlaces: 2,
+  keepTrailingZeroes: false,
+  render: (literal, symbol) => `${literal} ${symbol}B`,
+})
+let handler = async (m, { conn, usedPrefix }) => {
   let _uptime = process.uptime() * 1000
   let uptime = clockString(_uptime) 
   let totalreg = Object.keys(global.DATABASE._data.users).length
-  let old = Math.round(performance.now())
-  await m.reply('Wait Kakak!!')
-  let neww = Math.round(performance.now())
-  conn.reply(m.chat, `
-╠═〘 ${package.name} 〙 ═
-╠➥ *Versi:* ${package.version}
-╠➥ *HomePage:* ${(package.homepage ? package.homepage.url || package.homepage : '[unknown github url]')}
-╠➥ *Issue:* ${package.bugs.url}
-╠➥ *Prefix:* ' ${usedPrefix} '
-╠➥ *Menu:* ${usedPrefix}menu
-╠➥ *Ping:* ${neww - old} *ms*
-╠➥ *Total user:* ${totalreg} *user*
-╠➥ *Uptime:* ${uptime}
-║
-╠═〘 DONASI 〙 ═
-╠➥ Gopay: 085713964963
-╠➥ Indosat: 085713964963
-║
-╠═ Request? ${package.bugs.url}
-╠═ Official Group *${conn.user.name}* :
-${(global.linkGC).map((v, i) => '║ *Group ' + (i + 1) + '*\n║' + v).join`\n║\n`}
-║
-║${readMore}
-╠═〘 SYARAT & KETENTUAN Games-wabot 〙 ═
-╠➥ *KAMI TIDAK BERTANGGUNG*
-║   *JAWAB ATAS PENYALAH*
-║   *GUNAAN BOT*
-╠➥ *KAMI TIDAK BERTANGGUNG*
-║   *JAWAB ATAS KEBOCORAN DATA*
-║   *PRIBADI ANDA*
-╠➥ *KAMI AKAN MENYIMPAN DATA*
-║   *SEPERTI NOMER TELEPON*
-║   *ANDA DI DATABASE KAMI*
-║ 
-║ 
-╠═ ©2021 ${package.name}
-╠═ Script original by Nurutomo
-╠═〘 METRO BOT 〙 ═
-`.trim(), m)
+  const chats = conn.chats.all()
+  const groups = chats.filter(v => v.jid.endsWith('g.us'))
+  const groupsIn = groups.filter(v => !v.read_only)
+  const used = process.memoryUsage()
+  const cpus = os.cpus().map(cpu => {
+    cpu.total = Object.keys(cpu.times).reduce((last, type) => last + cpu.times[type], 0)
+    return cpu
+  })
+  const cpu = cpus.reduce((last, cpu, _, { length }) => {
+    last.total += cpu.total
+    last.speed += cpu.speed / length
+    last.times.user += cpu.times.user
+    last.times.nice += cpu.times.nice
+    last.times.sys += cpu.times.sys
+    last.times.idle += cpu.times.idle
+    last.times.irq += cpu.times.irq
+    return last
+  }, {
+    speed: 0,
+    total: 0,
+    times: {
+      user: 0,
+      nice: 0,
+      sys: 0,
+      idle: 0,
+      irq: 0
+    }
+  })
+  let old = performance.now()
+  let neww = performance.now()
+  let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
+  let speed = neww - old
+  let infot = fs.readFileSync('./src/menu2.jpg')
+  let info = `
+- Creador: Gatito
+- Navegador: ${conn.browserDescription[1]}z 
+- Version: ${conn.browserDescription[2]}
+- Prefijo: ${usedPrefix}
+- Velocidad: ${speed} milisegundos
+- Chat Privado: ${chats.length - groups.length}
+- Chat de Grupos: ${groups.length}
+- Chat Totales: ${chats.length}
+- Tiempo activo: ${uptime}
+- Usuarios: ${totalreg} numeros
+- Bateria: ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Cargando...' : '⚡ Desconectado'}` : '_Desconocido_'}
+- Sistema operativo: ${conn.user.phone.device_manufacturer}
+- Version de WhatsApp: ${conn.user.phone.wa_version}
+- Bots secundarios activos: ${totaljadibot.length} Total
+`.trim() 
+  conn.reply(m.chat, info, text, { quoted: m, contextInfo: { externalAdReply:{title: `↷✦╎Info - Bot╎💌˖ ⸙`, previewType:"PHOTO",thumbnail: infot, sourceUrl:``}, "mentionedJid": [m.sender]}})
 }
 handler.help = ['info']
 handler.tags = ['about']
-handler.command = /^(info(bot)?)$/i
+
+handler.command = /^(info|infobot)$/i
 
 module.exports = handler
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(4001)
 
 function clockString(ms) {
   let h = Math.floor(ms / 3600000)
