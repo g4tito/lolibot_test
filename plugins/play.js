@@ -25,20 +25,24 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (yt2 === false) throw 'Todos los servidores fallaron'
   let { dl_link, thumb, title, filesize, filesizeF } = yt
   let playtxt = `
-- *Titulo:* ${title}
-- *Tamaño del audio:* ${filesizeF}
-- *Tamaño del video:* ${yt2.filesizeF}
-- *Servidor y2mate:* ${usedServer}
+*< + DESCARGA DE YOUTUBE +/>*
+
+- Título: ${title}
+- Link: ${vid.url}
+- Tamaño del audio: ${filesizeF}
+- Tamaño del video: ${yt2.filesizeF}
+
+*Servidor y2mate:* ${usedServer}
   `
   py =  await conn.prepareMessage(m.chat, await (await fetch(thumb)).buffer(), MessageType.image)
 gbutsan = [
-{buttonId: `${usedPrefix}yta ${vid.url}`, buttonText: {displayText: 'Audio '}, type: 1},
-{buttonId: `${usedPrefix}ytv ${vid.url}`, buttonText: {displayText: 'Video '}, type: 1}
+{buttonId: `${usedPrefix}ytab ${vid.url}`, buttonText: {displayText: 'Audio '}, type: 1},
+{buttonId: `${usedPrefix}ytvb ${vid.url}`, buttonText: {displayText: 'Video '}, type: 1}
 ]
 gbuttonan = {
 imageMessage: py.message.imageMessage,
 contentText: playtxt,
-footerText: `Elija una opcion de descarga`,
+footerText: 'Seleccione el formato de descarga',
 buttons: gbutsan,
 headerType: 4
 }
