@@ -27,17 +27,17 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
   let playtxt = `
 *< + DESCARGA DE YOUTUBE +/>*
 
-- T�tulo: ${title}
-- Link: ${vid.url}
-- Tama�o del audio: ${filesizeF}
-- Tama�o del video: ${yt2.filesizeF}
+- 📝Título: ${title}
+- 📌Link: ${vid.url}
+- 📦Tamaño del audio: ${filesizeF}
+- 🗳️Tamaño del video: ${yt2.filesizeF}
 
 *Servidor y2mate:* ${usedServer}
   `
   py =  await conn.prepareMessage(m.chat, await (await fetch(thumb)).buffer(), MessageType.image)
 gbutsan = [
-{buttonId: `${usedPrefix}ytab ${vid.url}`, buttonText: {displayText: 'Audio '}, type: 1},
-{buttonId: `${usedPrefix}ytvb ${vid.url}`, buttonText: {displayText: 'Video '}, type: 1}
+{buttonId: `${usedPrefix}ytab ${vid.url}`, buttonText: {displayText: 'Audio 🔊'}, type: 1},
+{buttonId: `${usedPrefix}ytvb ${vid.url}`, buttonText: {displayText: 'Video 📽️'}, type: 1}
 ]
 gbuttonan = {
 imageMessage: py.message.imageMessage,
