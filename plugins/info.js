@@ -46,23 +46,25 @@ let handler = async (m, { conn, usedPrefix }) => {
   let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
   let speed = neww - old
   let infot = fs.readFileSync('./src/menu2.jpg')
-  let info = `
-- Creador: Gatito
-- Navegador: ${conn.browserDescription[1]}z 
-- Version: ${conn.browserDescription[2]}
-- Prefijo: ${usedPrefix}
-- Velocidad: ${speed} milisegundos
-- Chat Privado: ${chats.length - groups.length}
-- Chat de Grupos: ${groups.length}
-- Chat Totales: ${chats.length}
-- Tiempo activo: ${uptime}
-- Usuarios: ${totalreg} numeros
-- Bateria: ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Cargando...' : '⚡ Desconectado'}` : '_Desconocido_'}
-- Sistema operativo: ${conn.user.phone.device_manufacturer}
-- Version de WhatsApp: ${conn.user.phone.wa_version}
-- Bots secundarios activos: ${totaljadibot.length} Total
+  let ownum = "51940617554@s.whatsapp.net"
+  let info = `  
+🐋〃 Creador: ${ownum.split("@s.whatsapp.net")[0]}
+❄️〃 Navegador: ${conn.browserDescription[1]}
+🐋〃 Version: ${conn.browserDescription[2]}
+❄️〃 Servidor: ${conn.browserDescription[0]}
+🐋〃 Prefijo: ${usedPrefix}
+❄️〃 Velocidad: ${speed} milisegundos
+🐋〃 Chat Privado: ${chats.length - groups.length}
+❄️〃 Chat de Grupos: ${groups.length}
+🐋〃 Chat Totales: ${chats.length}
+❄️〃 Tiempo activo: ${uptime}
+🐋〃 Usuarios: ${totalreg} numeros
+❄️〃 Bateria: ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Cargando...' : '⚡ Desconectado'}` : '_Desconocido_'}
+🐋〃 Sistema operativo: ${conn.user.phone.device_manufacturer}
+❄️〃 Version de Wsp: ${conn.user.phone.wa_version}
+🐋〃 Bots secundarios: ${totaljadibot.length} Total
 `.trim() 
-  conn.reply(m.chat, info, text, { quoted: m, contextInfo: { externalAdReply:{title: `↷✦╎Info - Bot╎💌˖ ⸙`, previewType:"PHOTO",thumbnail: infot, sourceUrl:``}, "mentionedJid": [m.sender]}})
+  conn.reply(m.chat, info, text, { quoted: m, contextInfo: { externalAdReply:{title: `↷✦╎Info - Bot╎💌˖ ⸙`, previewType:"PHOTO",thumbnail: infot, sourceUrl:``}, mentionedJid: [ownum]}})
 }
 handler.help = ['info']
 handler.tags = ['about']
