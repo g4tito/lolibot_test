@@ -33,7 +33,7 @@ let handler = async (m, { conn, command, text, usedPrefix }) => {
 - 🗳️Tamaño del video: ${yt2.filesizeF}
 
 *Servidor y2mate:* ${usedServer}
-  `
+  `.trim()
   py =  await conn.prepareMessage(m.chat, await (await fetch(thumb)).buffer(), MessageType.image)
 gbutsan = [
 {buttonId: `${usedPrefix}ytab ${vid.url}`, buttonText: {displayText: 'Audio 🔊'}, type: 1},
