@@ -48,7 +48,7 @@ let handler = async (m, { conn, usedPrefix }) => {
   let infot = fs.readFileSync('./src/menu2.jpg')
   let ownum = "51940617554@s.whatsapp.net"
   let info = `  
-🐋〃 Creador: ${ownum.split("@s.whatsapp.net")[0]}
+🐋〃 Creador: @${ownum.split("@s.whatsapp.net")[0]}
 ❄️〃 Navegador: ${conn.browserDescription[1]}
 🐋〃 Version: ${conn.browserDescription[2]}
 ❄️〃 Servidor: ${conn.browserDescription[0]}
