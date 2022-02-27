@@ -14,7 +14,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let username = conn.getName(who)
     let math = max - xp
     let prem = global.prems.includes(who.split`@`[0])
-    let str = `\t\t\t\t･ 【 *PERFIL INFO* 】 ･
+    let str = `\t\t\t\t\t\t･ 【 *PERFIL INFO* 】 ･
 
 • Nombre: ${username}${registered ? '\n• Nombre de Reg : ' + name : ''}\n• Tag: @${who.replace(/@.+/, '')}${about ? '\n• Estado : ' + about : ''}
 • Nunero: ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
