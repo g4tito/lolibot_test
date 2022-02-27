@@ -4,6 +4,7 @@ let levelling = require('../lib/levelling')
 module.exports = {
   before(m) {
     let user = global.DATABASE._data.users[m.sender]
+    if (user.registered = false) return
     if (!user.autolevelup) return !0
     if (m.sender === conn.user.jid) return
     let before = user.level * 1
@@ -21,7 +22,7 @@ module.exports = {
       let lvlnow = user.level
       let teks = `⠀⠀⠀⠀⠀⠀⠀${name} subiste de nivel`
       let str = `
-Hola ${m.sender.split("@s.whatsapp.net")[0]} subiste de nivel
+Hola @${m.sender.split("@s.whatsapp.net")[0]} subiste de nivel
 
 » 🆙 Nivel: ${before} ➯ ${lvlnow} 
 » ⏰ Hora: ${time}
