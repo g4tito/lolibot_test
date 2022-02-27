@@ -1,3 +1,4 @@
+let { MessageType, mentionedJid } = require("@adiwajshing/baileys");
 let { spawn } = require('child_process')
 let levelling = require('../lib/levelling')
 module.exports = {
@@ -77,7 +78,7 @@ Cuando mas interactues con la bot mayor sera tu nivel
           })
           .on('close', () => {
             _thumbb = Buffer.concat(bufs)
-            this.sendFile(m.chat, Buffer.concat(bufs), 'result.jpg', str, m, false, {..._thumbb})
+            this.sendMessage(m.chat, Buffer.concat(bufs), MessageType.image, { quoted: m, caption: str, thumbnail: Buffer.concat(bufs) })
             
           })
           .stdout.on('data', chunk => bufs.push(chunk))
