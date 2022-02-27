@@ -4,7 +4,6 @@ let levelling = require('../lib/levelling')
 
 let handler = m => {
   let user = global.DATABASE.data.users[m.sender]
-  if (user.registered = false) return m.reply('Registrese para subir de nivel')
   if (!levelling.canLevelUp(user.level, user.exp, global.multiplier)) {
     let { min, xp, max } = levelling.xpRange(user.level, global.multiplier)
     throw `
@@ -100,5 +99,6 @@ handler.help = ['levelup']
 handler.tags = ['rpg']
 
 handler.command = /^levelup$/i
+handler.register = true
 
 module.exports = handler
