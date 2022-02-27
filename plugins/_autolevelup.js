@@ -4,7 +4,7 @@ let levelling = require('../lib/levelling')
 module.exports = {
   before(m) {
     let user = global.DATABASE._data.users[m.sender]
-    if (user.registered = false) return
+    if (!user.registered) return !0
     if (!user.autolevelup) return !0
     if (m.sender === conn.user.jid) return
     let before = user.level * 1
