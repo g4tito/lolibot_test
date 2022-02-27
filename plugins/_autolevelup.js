@@ -76,7 +76,8 @@ Cuando mas interactues con la bot mayor sera tu nivel
             throw e
           })
           .on('close', () => {
-            this.sendFile(m.chat, Buffer.concat(bufs), 'result.jpg', str, m, false, {..._thumb})
+            _thumbb = Buffer.concat(bufs)
+            this.sendFile(m.chat, Buffer.concat(bufs), 'result.jpg', str, m, false, {..._thumbb})
             
           })
           .stdout.on('data', chunk => bufs.push(chunk))
