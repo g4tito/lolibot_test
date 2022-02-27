@@ -1,3 +1,4 @@
+let { MessageType, mentionedJid } = require("@adiwajshing/baileys");
 let handler = m => m
 
 let linkRegex = /chat.whatsapp.com\/([0-9A-Za-z]{20,24})/i
@@ -7,8 +8,8 @@ handler.before = async function (m, { user, isBotAdmin, isAdmin }) {
   let isGroupLink = linkRegex.exec(m.text)
 
   if (chat.antiLink && isGroupLink) {
-    await m.reply(`*──「 WhatsApp enlace detectado 」──*\n\nHola ${await this.getName(m.sender)} los enlaces no son permitidos adiós`)
-    if (isAdmin) return m.reply('Menos mal que eres un administrador -_-')
+    await this.sendMessage(m.chat, `\t\t\t∙  『 🪅 *ENLACE DETECTADO* 🪅 』  ∙\n\n• Usuario: @${m.sender.split("@s.whatsapp.net")[0]}\n• Tipo de enlace: WhatsApp\nLos enlaces no son permitidos en este grupo`, MessageType.text, { quoted: m, contextInfo: { mentionedJid: [m.sender] } })
+    if (isAdmin) return m.reply('Menos mal que eres un administrador')
     if (!isBotAdmin) return m.reply('Menos mal que no soy administradora')
     let linkGC = ('https://chat.whatsapp.com/' + await this.groupInviteCode(m.chat))
     let isLinkThisGc = new RegExp(linkGC, 'i')
