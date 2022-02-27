@@ -1,17 +1,16 @@
 let handler = async (m, { conn, command, text }) => {
-  if (!text) throw `Siapa yang *${command.replace('how', '').toUpperCase()}*`
+  if (!text) throw `Mensione a alguien para ver su porsentaje de  *${command.replace('es', '').toUpperCase()}*`
   conn.reply(m.chat, `
-${command} *${text}*
-*${text}* is *${Math.floor(Math.random() * 101)}*% ${command.replace('how', '').toUpperCase()}
+*${text}* es *${Math.floor(Math.random() * 101)}*% ${command.replace('es', '').toUpperCase()}
 `.trim(), m, m.mentionedJid ? {
     contextInfo: {
       mentionedJid: m.mentionedJid
     }
   } : {})
 }
-handler.help = ['gay', 'pintar', 'cantik', 'ganteng', 'gabut', 'gila', 'lesbi', 'stress', 'bucin', 'jones', 'sadboy'].map(v => 'how' + v + ' siapa?')
-handler.tags = ['kerang']
-handler.command = /^how(gay|pintar|cantik|ganteng|gabut|gila|lesbi|stress?|bucin|jones|sadboy)/i
+handler.help = ['gay', 'inteligente', 'hermoso', 'hermosa', 'lesbiana', 'pajero', 'pajera', 'furro', 'furra'].map(v => 'es' + v + '')
+handler.tags = ['fun']
+handler.command = /^es(gay|inteligente|hermoso|hermosa|lesbiana|pajero|pajera|furro|furra)/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
