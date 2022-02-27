@@ -21,7 +21,7 @@ module.exports = {
       let lvlnow = user.level
       let teks = `⠀⠀⠀⠀⠀⠀⠀${name} subiste de nivel`
       let str = `
-Hola ${name} subiste de nivel
+Hola ${m.sender.split("@s.whatsapp.net")[0]} subiste de nivel
 
 » 🆙 Nivel: ${before} ➯ ${lvlnow} 
 » ⏰ Hora: ${time}
@@ -78,7 +78,7 @@ Cuando mas interactues con la bot mayor sera tu nivel
           })
           .on('close', () => {
             _thumbb = Buffer.concat(bufs)
-            this.sendMessage(m.chat, Buffer.concat(bufs), MessageType.image, { quoted: m, caption: str, thumbnail: Buffer.concat(bufs) })
+            this.sendMessage(m.chat, Buffer.concat(bufs), MessageType.image, { quoted: m, caption: str, thumbnail: Buffer.concat(bufs), contextInfo: { mentionedJid: [m.sender] } })
             
           })
           .stdout.on('data', chunk => bufs.push(chunk))
