@@ -14,10 +14,9 @@ let handler = async (m, { conn, usedPrefix }) => {
     let username = conn.getName(who)
     let math = max - xp
     let prem = global.prems.includes(who.split`@`[0])
-    let str = `
-\t\t\t･ 【 *PERFIL INFO* 】 ･
+    let str = `\t\t\t\t･ 【 *PERFIL INFO* 】 ･
 
-• Nombre: ${username}${registered ? '\n• Nombre de Reg: ' + name + '': ''}\n• Tag: @${who.replace(/@.+/, '')}${about ? '\n• *Estado* : ' + about : ''}
+• Nombre: ${username}${registered ? '\n• Nombre de Reg : ' + name : ''}\n• Tag: @${who.replace(/@.+/, '')}${about ? '\n• Estado : ' + about : ''}
 • Nunero: ${PhoneNumber('+' + who.replace('@s.whatsapp.net', '')).getNumber('international')}
 • Link: https://wa.me/${who.split`@`[0]}${registered ? '\n• *Edad* : ' + age : ''}
 • Exp: TOTAL ${exp} (${exp - min} / ${xp}) [${math <= 0 ? `Listo para subir de nivel *${usedPrefix}levelup*` : `${math} Exp restante para subir de nivel`}]
@@ -26,8 +25,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 • Registrado: ${registered ? 'Si (' + new Date(regTime) + ')': 'No'}
 • Premium: ${prem ? 'Si' : 'No'}${lastclaim > 0 ? '\nUltimo reclamo: ' + new Date(lastclaim) : ''}
 
-Quieres ver tu inventario? pon ${usedPrefix}inv
-`.trim()
+Quieres ver tu inventario? pon ${usedPrefix}inv`
     let mentionedJid = [who]
     conn.sendFile(m.chat, pp, 'pp.jpg', str, m, false, { contextInfo: { mentionedJid }})
   }
