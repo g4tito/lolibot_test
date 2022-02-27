@@ -42,7 +42,7 @@ Hola @%user, %greeting
 Un simple *Bot de WhatsApp*
 hecho por @%ownum
 
- *INFO BOT*
+*⛩ INFO BOT*
 ⌗ › Nombre: %me
 ⌗ › Prefix: < Multiprefix + >
 ⌗ › Velocidad: %speed Segundos
