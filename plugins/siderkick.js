@@ -38,9 +38,8 @@ let handler = async (m, { conn, text, participants }) => {
 				await conn.groupRemove(m.chat, [member[i]])
 			}
 		}
-		global.DATABASE.data.users[member[i]].chat == 0
 	}
-	conn.reply(m.chat, `Se eliminó a todos los fantasmas con éxito`, m)
+	conn.reply(m.chat, 'Se eliminó a todos los fantasmas con éxito', m)
 }
 handler.help = ['kicksider']
 handler.tags = ['group']
