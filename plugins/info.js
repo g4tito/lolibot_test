@@ -9,7 +9,7 @@ let format = sizeFormatter({
   keepTrailingZeroes: false,
   render: (literal, symbol) => `${literal} ${symbol}B`,
 })
-let handler = async (m, { conn, usedPrefix }) => {
+let handler = async (m, { conn, text, usedPrefix }) => {
   let _uptime = process.uptime() * 1000
   let uptime = clockString(_uptime) 
   let totalreg = Object.keys(global.DATABASE._data.users).length
