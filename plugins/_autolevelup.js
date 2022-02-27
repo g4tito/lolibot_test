@@ -15,17 +15,17 @@ module.exports = {
         minute: 'numeric',
         second: 'numeric'
       })
-      let name = this.getName(m.sender)
+      let username = global.DATABASE._data.users[m.sender].name
+      let name = username] ? username : this.getName(m.sender)
       let lvlnow = user.level
-      let teks = `Hola ${name} subiste de nivel` // teks di gambar tidak bisa ditambahkan emoticon
+      let teks = `Hola ${name} subiste de nivel`
       let str = `
-*Hola ${name} subiste de nivel*
+Hola ${name} subiste de nivel
 
-⎔ 🍧 Nivel anterior : ${before}
-⎔ 🆙 Nuevo nivel : ${lvlnow}
-⎔ ⏰ Hora : ${time}
+» 🆙 Nivel: ${before} ➯ ${lvlnow} 
+» ⏰ Hora: ${time}
 
-*_Cuando mas interactues con la bot mayor sera tu nivel_*
+Cuando mas interactues con la bot mayor sera tu nivel
 `.trim()
       if (global.support.convert || global.support.magick || global.support.gm) {
         let fontLevel = 'src/level_c.otf'
@@ -76,7 +76,8 @@ module.exports = {
             throw e
           })
           .on('close', () => {
-            this.sendFile(m.chat, Buffer.concat(bufs), 'result.jpg', str, m)
+            this.sendFile(m.chat, Buffer.concat(bufs), 'result.jpg', str, m, false, {..._thumb})
+            
           })
           .stdout.on('data', chunk => bufs.push(chunk))
 
