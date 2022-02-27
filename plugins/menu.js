@@ -42,7 +42,7 @@ Hola @%user, %greeting
 Un simple *Bot de WhatsApp*
 hecho por @%ownum
 
-*INFO BOT  ⽜*
+ *INFO BOT*
 ⌗ › Nombre: %me
 ⌗ › Prefix: < Multiprefix + >
 ⌗ › Velocidad: %speed Segundos
@@ -163,8 +163,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
      let tumb = fs.readFileSync('./src/menu.jpg')
      let tumbb = fs.readFileSync('./src/menu2.jpg')
-     conn.sendMessage(m.chat, { contentText: text.trim(), footerText: 'Lolibot - OFC', buttons: [{buttonId: '.ping', buttonText: {displayText: '🚀 SPEED'}, type: 1},{buttonId: '.owner' , buttonText: {displayText: '🍧 CREADOR'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": "Dibuat Oleh: Arifi Razzaq", "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 99999999999, "pageCount": 25791, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": "𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄", "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": tumb 
-            }}, MessageType.buttonsMessage, { quoted: m, thumbnail: tumbb, contextInfo: { mentionedJid: [m.sender, ownernum], forwardingScore: 750, isForwarded: true, externalAdReply: { title: `あなたは私のすべてです`, body: `Macielly ? D‵ Gatito`, thumbnail: tumbb, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
+     conn.sendMessage(m.chat, { contentText: text.trim(), footerText: 'Lolibot - OFC', buttons: [{buttonId: `${usedPrefix}info`, buttonText: {displayText: '🍭 INFO'}, type: 1},{buttonId: `${usedPrefix}owner` , buttonText: {displayText: '🍧 CREADOR'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": "Dibuat Oleh: Arifi Razzaq", "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 99999999999, "pageCount": 25791, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": "𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄", "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": tumb 
+            }}, MessageType.buttonsMessage, { quoted: m, thumbnail: tumbb, contextInfo: { mentionedJid: [m.sender, ownernum], forwardingScore: 750, isForwarded: true, externalAdReply: { title: `あなたは私のすべてです`, body: '💌 Macielly & Gatito 💫', thumbnail: tumbb, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
             }
             }
             })
@@ -203,29 +203,29 @@ function clockString(ms) {
 var ase = new Date();
                         var waktoonyabro = ase.getHours();
                         switch(waktoonyabro){
-                case 0: waktoonyabro = `espero que tengas una linda noche 🌙`; break;
-                case 1: waktoonyabro = `espero que tengas una linda noche 💤`; break;
-                case 2: waktoonyabro = `espero que tengas una linda noche 🦉`; break;
-                case 3: waktoonyabro = `espero que tengas una linda mañana ✨`; break;
-                case 4: waktoonyabro = `espero que tengas una linda mañana 💫`; break;
-                case 5: waktoonyabro = `espero que tengas una linda mañana 🌅`; break;
-                case 6: waktoonyabro = `espero que tengas una linda mañana 🌄`; break;
-                case 7: waktoonyabro = `espero que tengas una linda mañana 🌅`; break;
-                case 8: waktoonyabro = `espero que tengas una linda mañana 💫`; break;
-                case 9: waktoonyabro = `espero que tengas una linda mañana ✨`; break;
-                case 10: waktoonyabro = `espero que tengas un lindo dia 🌞`; break;
-                case 11: waktoonyabro = `espero que tengas un lindo dia 🌨`; break;
-                case 12: waktoonyabro = `espero que tengas un lindo dia ❄`; break;
-                case 13: waktoonyabro = `espero que tengas un lindo dia 🌤`; break;
-                case 14: waktoonyabro = `espero que tengas una linda tarde 🌇`; break;
-                case 15: waktoonyabro = `espero que tengas una linda tarde 🥀`; break;
-                case 16: waktoonyabro = `espero que tengas una linda tarde 🌹`; break;
-                case 17: waktoonyabro = `espero que tengas una linda tarde 🌆`; break;
-                case 18: waktoonyabro = `espero que tengas una linda noche 🌙`; break;
-                case 19: waktoonyabro = `espero que tengas una linda noche 🌃`; break;
-                case 20: waktoonyabro = `espero que tengas una linda noche 🌌`; break;
-                case 21: waktoonyabro = `espero que tengas una linda noche 🌃`; break;
-                case 22: waktoonyabro = `espero que tengas una linda noche 🌙`; break;
-                case 23: waktoonyabro = `espero que tengas una linda noche 🌃`; break;
+                case 0: waktoonyabro = `que tengas una linda noche 🌙`; break;
+                case 1: waktoonyabro = `que tengas una linda noche 💤`; break;
+                case 2: waktoonyabro = `que tengas una linda noche 🦉`; break;
+                case 3: waktoonyabro = `que tengas una linda mañana ✨`; break;
+                case 4: waktoonyabro = `que tengas una linda mañana 💫`; break;
+                case 5: waktoonyabro = `que tengas una linda mañana 🌅`; break;
+                case 6: waktoonyabro = `que tengas una linda mañana 🌄`; break;
+                case 7: waktoonyabro = `que tengas una linda mañana 🌅`; break;
+                case 8: waktoonyabro = `que tengas una linda mañana 💫`; break;
+                case 9: waktoonyabro = `que tengas una linda mañana ✨`; break;
+                case 10: waktoonyabro = `que tengas un lindo dia 🌞`; break;
+                case 11: waktoonyabro = `que tengas un lindo dia 🌨`; break;
+                case 12: waktoonyabro = `que tengas un lindo dia ❄`; break;
+                case 13: waktoonyabro = `que tengas un lindo dia 🌤`; break;
+                case 14: waktoonyabro = `que tengas una linda tarde 🌇`; break;
+                case 15: waktoonyabro = `que tengas una linda tarde 🥀`; break;
+                case 16: waktoonyabro = `que tengas una linda tarde 🌹`; break;
+                case 17: waktoonyabro = `que tengas una linda tarde 🌆`; break;
+                case 18: waktoonyabro = `que tengas una linda noche 🌙`; break;
+                case 19: waktoonyabro = `que tengas una linda noche 🌃`; break;
+                case 20: waktoonyabro = `que tengas una linda noche 🌌`; break;
+                case 21: waktoonyabro = `que tengas una linda noche 🌃`; break;
+                case 22: waktoonyabro = `que tengas una linda noche 🌙`; break;
+                case 23: waktoonyabro = `que tengas una linda noche 🌃`; break;
             }
             var saludo = "" + waktoonyabro;
