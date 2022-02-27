@@ -1,5 +1,5 @@
 let { MessageType, Presence } = require('@adiwajshing/baileys')
-let handler = async (m, { conn, text, participants }) => {
+let handler = async (m, { conn, text, participants, groupMetadata }) => {
 	await conn.updatePresence(m.chat, Presence.composing) 
 	let member = participants.map(u => u.jid)
 	if(!text) {
@@ -23,8 +23,8 @@ let handler = async (m, { conn, text, participants }) => {
 			}
 		}
 	}
-	if(total == 0) return conn.reply(m.chat, `*Este grupo no tiene fantasmas:D.*`, m) 
-	conn.reply(m.chat, `— [ *REVISIÓN DE INACTIVOS* ] —\n*Grupo:* ${conn.getName(m.chat)}\m*Activos:* ${sum}\nMiembros\n*Fantasmas:* ${total} Miembros\n\n👻 Manténgase activo en el grupo porque habrá limpieza de miembros todo el tiempo.\n\n*_〝  Lista de Fantasmas 〞_*\n\n${sider.map(v => '- @' + v.replace(/@.+/, '')).join('\n')}`, m,{ contextInfo: { mentionedJid: sider } })
+	if(total == 0) return conn.reply(m.chat, `*Este grupo no tiene fantasmas :D*`, m) 
+	conn.reply(m.chat, `— [ *REVISIÓN DE INACTIVOS* ] —\n\n- *Grupo:* ${groupMetadata.subject}\n- *Activos:* ${sum} Miembros\n- *Fantasmas:* ${total} Miembros\n\n👻 Manténgase activo en el grupo porque habrá limpieza de miembros todo el tiempo.\n\n*_〝  Lista de Fantasmas 〞_*\n\n${sider.map(v => '- @' + v.replace(/@.+/, '')).join('\n')}`, m,{ contextInfo: { mentionedJid: sider } })
 }
 handler.help = ['sider']
 handler.tags = ['group']
