@@ -1,8 +1,10 @@
+let { MessageType, mentionedJid } = require("@adiwajshing/baileys");
 let { spawn } = require('child_process')
 let levelling = require('../lib/levelling')
 
 let handler = m => {
   let user = global.DATABASE.data.users[m.sender]
+  if (user.registered = false) return m.reply('Registrese para subir de nivel')
   if (!levelling.canLevelUp(user.level, user.exp, global.multiplier)) {
     let { min, xp, max } = levelling.xpRange(user.level, global.multiplier)
     throw `
@@ -20,17 +22,17 @@ Menos *${max - user.exp}* otra vez!
       minute: 'numeric',
       second: 'numeric'
     })
-    let name = this.getName(m.sender)
+    let username = global.DATABASE._data.users[m.sender].name
+    let name = username ? username : this.getName(m.sender)
     let lvlnow = user.level
-    let teks = `Selamat ${name} naik 🧬level`
+    let teks = `⠀⠀⠀⠀⠀⠀⠀${name} subiste de nivel`
     let str = `
-*Hola ${name} subiste de nivel*
+Hola @${m.sender.split("@s.whatsapp.net")[0]} subiste de nivel
 
-⎔ 🍧 Nivel anterior : ${before}
-⎔ 🆙 Nuevo nivel : ${lvlnow}
-⎔ ⏰ Hora : ${time}
+» 🆙 Nivel: ${before} ➯ ${lvlnow} 
+» ⏰ Hora: ${time}
 
-*_Cuando mas interactues con la bot mayor sera tu nivel_*
+Cuando mas interactues con la bot mayor sera tu nivel
 `.trim()
     if (global.support.convert || global.support.magick || global.support.gm) {
       let fontLevel = 'src/level_c.otf'
@@ -80,7 +82,7 @@ Menos *${max - user.exp}* otra vez!
           throw e
         })
         .on('close', () => {
-          this.sendFile(m.chat, Buffer.concat(bufs), 'result.jpg', str, m)
+          this.sendMessage(m.chat, Buffer.concat(bufs), MessageType.image, { quoted: m, caption: str, thumbnail: Buffer.concat(bufs), contextInfo: { mentionedJid: [m.sender] } })
         })
         .stdout.on('data', chunk => bufs.push(chunk))
 
