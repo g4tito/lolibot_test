@@ -1,9 +1,9 @@
 let handler  = async (m, { conn }) => {
   conn.reply(m.chat,`“${pickRandom(global.bucin)}”`, m)
 }
-handler.help = ['bucin']
+handler.help = ['frase']
 handler.tags = ['quotes']
-handler.command = /^(bucin)$/i
+handler.command = /^(frase|frases)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
@@ -23,30 +23,30 @@ function pickRandom(list) {
 
 // https://jalantikus.com/tips/kata-kata-bucin/
 global.bucin = [
-  "Aku memilih untuk sendiri, bukan karena menunggu yang sempurna, tetapi butuh yang tak pernah menyerah.",
-  "Seorang yang single diciptakan bersama pasangan yang belum ditemukannya.",
-  "Jomblo. Mungkin itu cara Tuhan untuk mengatakan 'Istirahatlah dari cinta yang salah'.",
-  "Jomblo adalah anak muda yang mendahulukan pengembangan pribadinya untuk cinta yang lebih berkelas nantinya.",
-  "Aku bukan mencari seseorang yang sempurna, tapi aku mencari orang yang menjadi sempurna berkat kelebihanku.",
-  "Pacar orang adalah jodoh kita yang tertunda.",
-  "Jomblo pasti berlalu. Semua ada saatnya, saat semua kesendirian menjadi sebuah kebersamaan dengannya kekasih halal. Bersabarlah.",
-  "Romeo rela mati untuk juliet, Jack mati karena menyelamatkan Rose. Intinya, kalau tetap mau hidup, jadilah single.",
-  "Aku mencari orang bukan dari kelebihannya tapi aku mencari orang dari ketulusan hatinya.",
-  "Jodoh bukan sendal jepit, yang kerap tertukar. Jadi teruslah berada dalam perjuangan yang semestinya.",
-  "Kalau kamu jadi senar gitar, aku nggak mau jadi gitarisnya. Karena aku nggak mau mutusin kamu.",
-  "Bila mencintaimu adalah ilusi, maka izinkan aku berimajinasi selamanya.",
-  "Sayang... Tugas aku hanya mencintaimu, bukan melawan takdir.",
-  "Saat aku sedang bersamamu rasanya 1 jam hanya 1 detik, tetapi jika aku jauh darimu rasanya 1 hari menjadi 1 tahun.",
-  "Kolak pisang tahu sumedang, walau jarak membentang cintaku takkan pernah hilang.",
-  "Aku ingin menjadi satu-satunya, bukan salah satunya.",
-  "Aku tidak bisa berjanji untuk menjadi yang baik. Tapi aku berjanji akan selalu mendampingi kamu.",
-  "Kalau aku jadi wakil rakyat aku pasti gagal, gimana mau mikirin rakyat kalau yang selalu ada dipikiran aku hanyalah dirimu.",
-  "Lihat kebunku, penuh dengan bunga. Lihat matamu, hatiku berbunga-bunga.",
-  "Berjanjilah untuk terus bersamaku sekarang, esok, dan selamanya.",
-  "Rindu tidak hanya muncul karena jarak yang terpisah. Tapi juga karena keinginan yang tidak terwujud.",
-  "Kamu tidak akan pernah jauh dariku, kemanapun aku pergi kamu selalu ada, karena kamu selalu di hatiku, yang jauh hanya raga kita bukan hati kita.",
-  "Aku tahu dalam setiap tatapanku, kita terhalang oleh jarak dan waktu. Tapi aku yakin kalau nanti kita pasti bisa bersatu.",
-  "Merindukanmu tanpa pernah bertemu sama halnya dengan menciptakan lagu yang tak pernah ternyayikan.",
+  "Elijo estar solo, no porque esté esperando al perfecto, sino porque necesito a alguien que nunca se dé por vencido.",
+  "Una sola persona se crea con una pareja que no ha encontrado.",
+  "Único. Tal vez sea la manera de Dios de decir 'Descansa del falso amor'.",
+  "Los solteros son jóvenes que priorizan su desarrollo personal para un amor con más clase más adelante.",
+  "No estoy buscando a alguien que sea perfecto, pero estoy buscando a alguien que se vuelva perfecto debido a mis fortalezas.",
+  "Los novios de las personas son nuestras almas gemelas pendientes.",
+  "Los solteros deben pasar. Todo tiene un tiempo, cuando toda soledad se convierte en unión con un amante. Se paciente.",
+  "Romeo estaba dispuesto a morir por Julieta, Jack murió por salvar a Rose. El punto es, si quieres vivir, sé soltero.",
+  "Busco personas no por sus virtudes sino busco personas por su sinceridad.",
+  "Si eres las cuerdas de la guitarra, no quiero ser el guitarrista. Porque no quiero dejarte.",
+  "Si amarte es una ilusión, entonces déjame imaginar para siempre.",
+  "Cariño... Mi trabajo es solo amarte, no luchar contra el destino.",
+  "Cuando estoy contigo, parece que una hora es solo un segundo, pero cuando estoy lejos de ti, parece que un día se convierte en un año.",
+  "No puedo prometer ser bueno. Pero prometo estar siempre a tu lado.",
+  "Si me convierto en un representante de la gente, definitivamente fallaré ¿Cómo puedo pensar en la gente si lo único que tengo en mente eres tú?",
+  "Mira mi jardín, lleno de flores. Mírate a los ojos, mi corazón está floreciendo.",
+  "Promete estar conmigo ahora, mañana y para siempre.",
+  "El extrañar no surge sólo por la distancia que los separa. También por deseos que no se cumplen.",
+  "Nunca estarás lejos de mí, donde quiera que vaya siempre estás ahí, porque siempre estás en mi corazón, solo nuestros cuerpos están lejos, no nuestros corazones.",
+  "En cada mirada que estamos obstaculizados por la distancia y el tiempo. Pero estoy seguro de que en el futuro podremos unirnos.",
+  "Extrañarte sin conocerte nunca es lo mismo que crear una canción que nunca ha sido cantada."
+]
+
+global.buci = [
   "Ada kalanya jarak selalu menjadi penghalang antara aku sama kamu, namun tetap saja di hatiku kita selalu dekat.",
   "Jika hati ini tak mampu membendung segala kerinduan, apa daya tak ada yang bisa aku lakukan selain mendoakanmu.",
   "Mungkin di saat ini aku hanya bisa menahan kerinduan ini. Sampai tiba saatnya nanti aku bisa bertemu dan melepaskan kerinduan ini bersamamu.",
