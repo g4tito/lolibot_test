@@ -18,7 +18,7 @@ module.exports = {
       let username = global.DATABASE._data.users[m.sender].name
       let name = username ? username : this.getName(m.sender)
       let lvlnow = user.level
-      let teks = `⠀⠀⠀⠀⠀⠀⠀⠀${name} subiste de nivel`
+      let teks = `⠀⠀⠀⠀⠀⠀⠀${name} subiste de nivel`
       let str = `
 Hola ${name} subiste de nivel
 
