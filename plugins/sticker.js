@@ -1,4 +1,4 @@
-const { MessageType, Presence } = require('@adiwajshing/baileys')
+const { MessageType } = require('@adiwajshing/baileys')
 const { sticker } = require('../lib/sticker')
 const uploadFile = require('../lib/uploadFile')
 const uploadImage = require('../lib/uploadImage')
@@ -17,27 +17,27 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         if (/webp/g.test(mime)) out = await webp2png(img)
         else if (/image/g.test(mime)) out = await uploadImage(img)
         else if (/video/g.test(mime)) out = await uploadFile(img)
-        if (typeof out !== 'string') out = await uploadImage(img)
-        stiker = await sticker(out, false, global.packname, global.author)
+        stiker = await sticker(false, out, global.packname, global.author)
       } catch (e) {
         console.error(e)
-      } finally {
-        if (!stiker) stiker = await sticker(img, false, global.packname, global.author)
+        stiker = await sticker(img, false, global.packname, global.author)
       }
     } else if (args[0]) {
       if (isUrl(args[0])) stiker = await sticker(false, args[0], global.packname, global.author)
-      else return m.reply('Url invalido!')
+      else return m.reply('Link invalido')
     }
   } catch (e) {
     console.error(e)
-    if (!stiker) stiker = e
-  } finally { 
-    if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, { quoted: m })
-    else throw 'La conversión falló'
+    if (Buffer.isBuffer(e)) stiker = e
+  } finally {
+    if (stiker) await conn.sendMessage(m.chat, stiker, MessageType.sticker, {
+      quoted: m
+    })
+    else throw 'Ocurrió un error al crear el sticker'
   }
 }
-handler.help = ['stiker <img/vid/gif/stick>', 'stiker <url>', 'stickergif <img/vid/gif/stick>', 'stickergif <url>']
-handler.tags = ['sticker']
+handler.help = ['sticker', 'stickergif', 'sticker <url>']
+handler.tags = ['General']
 handler.command = /^s(tic?ker)?(gif)?(wm)?$/i
 
 module.exports = handler
