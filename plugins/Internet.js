@@ -3,7 +3,7 @@ let isOnline = require('is-online');
  let handler  = async (m, { command, conn, text }) => {
 
 (async () => {
-	console.log(await isOnline());
+	m.reply(await isOnline());
 })();
 
 }
