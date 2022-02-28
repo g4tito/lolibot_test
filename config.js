@@ -54,8 +54,8 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = 'Test'
-global.author = 'Test2'
+global.packname = 'Lolibot - OFC'
+global.author = '💌 Macielly & Gatito 💫'
 
 global.wait = '_• Espere un momento.._'
 
