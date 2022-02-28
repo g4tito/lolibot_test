@@ -8,6 +8,6 @@ let handler = async (m, { conn }) => {
 }
 handler.help = ['megumin']
 handler.tags = ['random']
-handler.command = /^(megumin)$/i
+handler.command = /^megumin$/i
 
 module.exports = handler
