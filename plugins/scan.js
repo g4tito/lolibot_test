@@ -15,15 +15,16 @@ let handler = async (m, { conn, args }) => {
         }
         if (user.jid in global.DATABASE._data.users) isInDatabase = true
         let str = ` 
-\t\t ･ 【 *NUMBER INFO* 】 ･
-• Nombre: ${conn.getName(user.jid)}
-• Número: ${splitM(user.jid)}
-• Tag: ${toM(user.jid)}
-• Api: wa.me/${splitM(user.jid)}
-• Jid: ${user.jid}
-• Whatsapp Bussines: ${user.isBusiness ? 'Si' : 'No'}
-• Database: ${isInDatabase ? 'Si' : 'No'}
-• Grupos Bot: ${sameGroup.length}  Total
+⠀⠀⠀･ 【 *NUMBER INFO* 】 ･
+
+🍟〃 Nombre: ${conn.getName(user.jid)}
+🐤〃 Número: ${splitM(user.jid)}
+🍟〃 Tag: ${toM(user.jid)}
+🐤〃 Api: http://wa.me/${splitM(user.jid)}
+🍟〃 Jid: ${user.jid}
+🐤〃 Whatsapp Bussines: ${user.isBusiness ? 'Si' : 'No'}
+🍟〃 Database: ${isInDatabase ? 'Si' : 'No'}
+🐤〃 Grupos Bot: ${sameGroup.length} Total
 `.trim()
         m.reply(str, m.chat, { 
             contextInfo: { 
