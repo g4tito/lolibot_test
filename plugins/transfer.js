@@ -1,7 +1,7 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
     if (args.length < 3) {
-        return conn.reply(m.chat, `*Ejemplo, uso del comando*\n• ${usedPrefix + command} <tipo> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Lista de transferencias:*\n\n- Dinero\n- Diamante`.trim(), m)
+        return conn.reply(m.chat, `*Ejemplo, uso del comando*\n• ${usedPrefix + command} <tipo> <cantidad> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Tipos de transferencias:*\n\n- Dinero\n- Diamante`.trim(), m)
     } else try {
         let type = (args[0] || '').toLowerCase()
         let count = args[1] && args[1].length > 0 ? Math.min(9999999, Math.max(parseInt(args[1]), 1)) : Math.min(1)
