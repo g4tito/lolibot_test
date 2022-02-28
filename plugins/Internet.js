@@ -2,9 +2,14 @@ let isOnline = require('is-online');
 
  let handler  = async (m, { command, conn, text }) => {
 
-(async () => {
-	console.log(await isOnline());
-})();
+isOnline().then(online => {
+    if (online) {
+        m.reply('📶 Internet: Con conexión')
+    } else {
+        m.reply('📶 Internet: Sin conexión')
+    }
+});
+
 
 }
 handler.help = ['internet']
