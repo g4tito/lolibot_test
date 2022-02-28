@@ -7,16 +7,18 @@ const effects = ['greyscale', 'invert', 'brightness', 'threshold', 'sepia', 'red
 let handler = async (m, { conn, usedPrefix, text }) => {
   let effect = text.trim().toLowerCase()
   if (!effects.includes(effect)) throw `
-*Usage:* ${usedPrefix}stickfilter <effectname>
-*Example:* ${usedPrefix}stickfilter invert
+*Etiqueta una imagen con el comando*
+• ${usedPrefix}stickfilter <efecto>
 
-*List Effect:*
-${effects.map(effect => `_> ${effect}_`).join('\n')}
+*Ejemplo:* ${usedPrefix}stickfilter invert
+
+*Lista de efectos:*
+${effects.map(effect => `- ${effect}`).join('\n')}
 `.trim()
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'No Image Found'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} not supported`
+  if (!mime) throw 'Etiqueta una imagen!'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Formato *${mime}* no soportado`
   let img = await q.download()
   let url = await uploadImage(img)
   let apiUrl = global.API('https://some-random-api.ml/canvas/', encodeURIComponent(effect), {
@@ -28,12 +30,12 @@ ${effects.map(effect => `_> ${effect}_`).join('\n')}
       quoted: m
     })
   } catch (e) {
-    m.reply('Conversion to Sticker Failed, Sending as Image Instead')
+    m.reply('Ocurrió un error al crear el sticker, se envió como imagen en su lugar')
     await conn.sendFile(m.chat, apiUrl, 'image.png', null, m)
   }
 }
 
-handler.help = ['stickfilter (caption|reply media)']
+handler.help = ['stickfilter']
 handler.tags = ['sticker']
 handler.command = /^(stickfilter)$/i
 handler.limit = true
