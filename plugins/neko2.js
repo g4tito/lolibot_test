@@ -14,7 +14,7 @@ conn.sendFile(m.chat, url, '', '*NEKO*', m)
 }
 handler.help = ['neko2']
 handler.tags = ['random']
-handler.command = /^random$/i
+handler.command = /^neko2$/i
 handler.register = true
 
 module.exports = handler
