@@ -1,7 +1,7 @@
 const axios = require('axios')
 let split = '|'
 let handler = async (m, { conn, args: [effect], text: txt, usedPrefix, command }) => {
-  if (!effect) throw `*Etiqueta una imagen con el comando*\n• ${usedPrefix + command} <efecto>\b\n*Ejemplo:*  ${usedPrefix + command} 3D-sci-fi\n\n*Lista de efectos:*\n\n` + effects.map(v => v.title).join('\n')
+  if (!effect) throw `*Etiqueta una imagen con el comando*\n• ${usedPrefix + command} <efecto>\n\n*Ejemplo:*  ${usedPrefix + command} 3D-sci-fi\n\n*Lista de efectos:*\n\n` + effects.map(v => v.title).join('\n')
   effect = effect.toLowerCase()
   if (!effects.find(v => (new RegExp(v.title, 'gi')).test(effect))) throw `El efecto *${effect}* no se encontró`
   let text = txt.replace(new RegExp(effect, 'gi'), '').trimStart()
