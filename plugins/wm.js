@@ -6,18 +6,18 @@ let handler = async (m, { conn, text }) => {
     let [packname, ...author] = text.split('|')
     author = (author || []).join('|')
     let mime = m.quoted.mimetype || ''
-    if (!/webp/.test(mime)) throw 'Reply sticker!'
+    if (!/webp/.test(mime)) throw 'Etiqueta un sticker!'
     let img = await m.quoted.download()
-    stiker = await sticker(img, false, packname || global.packname, author || global.author)
+    let stiker = await sticker(false, img, packname || global.packname, author || global.author)
   } finally {
     if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, {
       quoted: m
     })
-    else throw 'Conversion failed'
+    else throw 'Ocurrió un error al enviar el sticker'
   }
 }
-handler.help = ['wm <packname>|<author>']
+handler.help = ['wm']
 handler.tags = ['sticker']
-handler.command = /^wm$/i
+handler.command = /^(wm|take)$/i
 
 module.exports = handler
