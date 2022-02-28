@@ -4,13 +4,13 @@ let handler = async (m, { conn, args }) => {
       conn.sendFile(m.chat, global.API('https://some-random-api.ml', '/canvas/its-so-stupid', {
         avatar: await conn.getProfilePicture(who).catch(_ => 'https://telegra.ph/file/24fa902ead26340f3df2c.png'),
         dog: text || 'im+stupid'
-      }), 'iss.png', '@Daeho', m)
+      }), 'iss.png', '*STUPID*', m)
     }
     
-    handler.help = ['itssostupid', 'iss', 'stupid']
-    handler.tags = ['maker']
+    handler.help = ['stupid']
+    handler.tags = ['nulis']
     
-    handler.command = /^(itssostupid|iss|stupid)$/i
+    handler.command = /^(stupid)$/i
     
     module.exports = handler
     
