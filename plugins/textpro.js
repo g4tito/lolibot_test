@@ -1,21 +1,21 @@
 const axios = require('axios')
 let split = '|'
 let handler = async (m, { conn, args: [effect], text: txt, usedPrefix, command }) => {
-  if (!effect) throw '*List Effect*\n\n' + effects.map(v => v.title).join('\n')
+  if (!effect) throw `*Etiqueta una imagen con el comando*\n• ${usedPrefix + command} <efecto>\b\n*Ejemplo:*  ${usedPrefix + command} 3D-sci-fi\n\n*Lista de efectos:*\n\n` + effects.map(v => v.title).join('\n')
   effect = effect.toLowerCase()
-  if (!effects.find(v => (new RegExp(v.title, 'gi')).test(effect))) throw `Efek *${effect}* tidak ditemukan`
+  if (!effects.find(v => (new RegExp(v.title, 'gi')).test(effect))) throw `El efecto *${effect}* no se encontró`
   let text = txt.replace(new RegExp(effect, 'gi'), '').trimStart()
   if (text.includes(split)) text = text.split(split)
   text = Array.isArray(text) ? text : [text]
   let res = await textpro(effect, ...text)
-  if (typeof res == 'number') throw res == -1 ? `Efek *${effect}* tidak ditemukan` : `Gunakan format ${usedPrefix}${command} ${effect} ${new Array(res).fill('text').map((v, i) => v + (i ? i + 1 : '')).join('|')}`
+  if (typeof res == 'number') throw res == -1 ? `El efecto *${effect}* no se encontró` : `Ejemplo de uso ${usedPrefix + command} ${effect} ${new Array(res).fill('text').map((v, i) => v + (i ? i + 1 : '')).join('|')}`
   let result = await axios.get(res, {
     responseType: 'arraybuffer'
   })
-  await conn.sendFile(m.chat, result.data, 'textpro.jpg', `*TEXTPRO*\n*Effect:* ${effect}`, m)
+  await conn.sendFile(m.chat, result.data, 'textpro.jpg', `*TEXTPRO*\n*Efecto:* ${effect}`, m)
 }
-handler.help = ['textpro'].map(v => v + ' <effect> <text>|<text2?>|<text3?>')
-handler.tags = ['tools']
+handler.help = ['textpro'].map(v => v + '')
+handler.tags = ['nulis']
 handler.command = /^(textpro)$/i
 
 module.exports = handler
