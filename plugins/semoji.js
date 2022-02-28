@@ -163,6 +163,6 @@ Opciones disponibles:
 }
 handler.help = ['semoji']
 handler.tags = ['sticker']
-handler.command = /^((s(tic?ker)?)?emo(ji)?)$/i
+handler.command = /^semoji$/i
 
 module.exports = handler
