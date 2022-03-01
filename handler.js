@@ -227,9 +227,9 @@ module.exports = {
       
       isOnline().then(online => {
        if (online) {
-       	oonline = true
+       	let oonline = true
           } else {
-           oonline = false
+           let oonline = false
           }
           })
        let onlinee = oonline
