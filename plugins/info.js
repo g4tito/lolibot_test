@@ -1,7 +1,8 @@
 let os = require('os')
 let util = require('util')
-let { performance } = require('perf_hooks')
 let { sizeFormatter } = require('human-readable')
+let speed = require('performance-now')
+let isOnline = require('is-online')
 let fs = require("fs");
 let format = sizeFormatter({
   std: 'JEDEC', // 'SI' (default) | 'IEC' | 'JEDEC'
@@ -41,28 +42,29 @@ let handler = async (m, { conn, text, usedPrefix }) => {
       irq: 0
     }
   })
-  let old = performance.now()
-  let neww = performance.now()
+  let timestamp = speed()
+  let latensi = speed() - timestamp
+  let internet = await isOnline()
   let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
-  let speed = neww - old
   let infot = fs.readFileSync('./src/menu2.jpg')
   let ownum = "51940617554@s.whatsapp.net"
-  let info = `  
+  let info = `
 🐋〃 Creador: @${ownum.split("@s.whatsapp.net")[0]}
 ❄️〃 Navegador: ${conn.browserDescription[1]}
 🐋〃 Version: ${conn.browserDescription[2]}
 ❄️〃 Servidor: ${conn.browserDescription[0]}
 🐋〃 Prefijo: ${usedPrefix}
-❄️〃 Velocidad: ${speed} milisegundos
+❄️〃 Velocidad: ${latensi.toFixed(4)} Segundos
 🐋〃 Chat Privado: ${chats.length - groups.length}
 ❄️〃 Chat de Grupos: ${groups.length}
 🐋〃 Chat Totales: ${chats.length}
 ❄️〃 Tiempo activo: ${uptime}
-🐋〃 Usuarios: ${totalreg} numeros
+🐋〃 Usuarios: ${totalreg} Numeros
 ❄️〃 Bateria: ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Cargando...' : '⚡ Desconectado'}` : '_Desconocido_'}
-🐋〃 Sistema operativo: ${conn.user.phone.device_manufacturer}
-❄️〃 Version de Wsp: ${conn.user.phone.wa_version}
-🐋〃 Bots secundarios: ${totaljadibot.length} Total
+🐋〃 Internet: ${internet == true ? 'Con conexión' : 'Sin conexión'}
+❄️〃 Sistema operativo: ${conn.user.phone.device_manufacturer}
+🐋〃 Version de Wsp: ${conn.user.phone.wa_version}
+❄️〃 Bots secundarios: ${totaljadibot.length} Total
 `.trim() 
   conn.reply(m.chat, info, text, { quoted: m, contextInfo: { externalAdReply:{title: `↷✦╎Info - Bot╎💌˖ ⸙`, previewType:"PHOTO",thumbnail: infot, sourceUrl:``}, mentionedJid: [ownum]}})
 }
