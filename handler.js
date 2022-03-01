@@ -2,7 +2,6 @@ let util = require('util')
 let simple = require('./lib/simple')
 let { MessageType, Presence } = require('@adiwajshing/baileys')
 let fetch = require('node-fetch')
-let isOnline = require('is-online');
 
 const isNumber = x => typeof x === 'number' && !isNaN(x)
 const delay = ms => isNumber(ms) && new Promise(resolve => setTimeout(resolve, ms))
@@ -224,16 +223,6 @@ module.exports = {
       let bot = m.isGroup ? participants.find(u => u.jid == this.user.jid) : {} // Your Data
       let isAdmin = user.isAdmin || user.isSuperAdmin || false // Is User Admin?
       let isBotAdmin = bot.isAdmin || bot.isSuperAdmin || false // Are you Admin?
-      
-      isOnline().then(online => {
-       if (online) {
-       	let oonline = true
-          } else {
-           let oonline = false
-          }
-          })
-       let onlinee = oonline
-       
       let DevMode = /true/i.test(global.DeveloperMode.toLowerCase())
       for (let name in global.plugins) {
         let plugin = global.plugins[name]
@@ -343,10 +332,6 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
           }
           if (plugin.register == true && _user.registered == false) { // Butuh daftar?
             fail('unreg', m, this)
-            continue
-          }
-          if (plugin.internet && onlinee == false) { // Internet chet
-          	fail('offline', m, this)
             continue
           }
 
@@ -565,8 +550,7 @@ global.dfail = (type, m, conn) => {
     private: 'Esta función solo puede ser utilizado en mi chat *privado*!',
     admin: 'Esta función solo puede ser utilizado por *administradores* del grupos!',
     botAdmin: 'Devo ser *administradora* para ejecutar esta función',
-    unreg: 'Todavía no estas registrado\n\n*Ejemplo* :\n/daftar Gatito.17',
-    offline: 'Sin internet'
+    unreg: 'Todavía no estas registrado\n\n*Ejemplo* :\n.reg Gatito.17'
   }[type]
   if (msg) return m.reply(msg)
 }
