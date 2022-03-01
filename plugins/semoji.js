@@ -157,6 +157,7 @@ Opciones disponibles:
           break
       }
     } catch (e) {
+    	m.reply('Emoji no encontrado')
       throw er
     }
   }
