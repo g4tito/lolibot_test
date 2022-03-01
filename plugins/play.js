@@ -2,8 +2,11 @@ const { MessageType } = require("@adiwajshing/baileys");
 const { servers, yta, ytv } = require('../lib/y2mate')
 let yts = require('yt-search')
 let fetch = require('node-fetch')
+let isOnline = require('is-online')
 let handler = async (m, { conn, command, text, usedPrefix }) => {
   if (!text) throw `*Ingrese el nombre de la musica*\n\n- Ejemplo: ${usedPrefix + command} beliver`
+  let offline = await isOnline()
+  if (offline == false) return m.reply('Sin conexión a Internet :/')
   let results = await yts(text)
   let vid = results.all.find(video => video.seconds < 3600)
   if (!vid) throw 'No se encontro el video/audio'
