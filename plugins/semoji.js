@@ -157,13 +157,12 @@ Opciones disponibles:
           break
       }
     } catch (e) {
-    	m.reply('Emoji no encontrado')
       throw er
     }
   }
 }
 handler.help = ['semoji']
 handler.tags = ['sticker']
-handler.command = /^semoji$/i
+handler.command = /^(semoji)$/i
 
 module.exports = handler
