@@ -1,6 +1,6 @@
 let fetch = require('node-fetch')
 
-let handler = async(m, { conn, args, usedPrefix }) => {
+let handler = async(m, { conn, args, usedPrefix, command }) => {
     if (args.length == 0) return conn.reply(m.chat, `*Elige una categoría de anime*\n\n- Ejemplo: ${usedPrefix + command} random\n\n*Lista de categorías:*\n\n- Random\n- Waifu\n- Husbu\n- Neko`, m)
     if (args[0] == 'random' || args[0] == 'waifu' || args[0] == 'husbu' || args[0] == 'neko') {
 
