@@ -17,4 +17,6 @@ handler.tags = ['info']
 
 handler.command = /^(internet)$/i
 
+handler.internet = true
+
 module.exports = handler
