@@ -57,7 +57,7 @@ global.APIKeys = { // APIKey Here
 global.packname = 'Lolibot - OFC'
 global.author = '💌 Macielly & Gatito 💫'
 
-global.wait = '_• Espere un momento.._'
+global.wait = '↻ Espere un momento...'
 
 global.multiplier = 39 // The higher, The harder levelup
 
