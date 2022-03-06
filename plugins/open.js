@@ -24,7 +24,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
     
     switch (type) {
         case 'comun':
-            switch (jumlah) {
+            if (jumlah > 0) {
                     let _cm = `${Math.floor(Math.random() * 50)}`.trim()
                     let _cc = `${Math.floor(Math.random() * 2)}`.trim()
                     let _cp = `${Math.floor(Math.random() * 1)}`.trim()
@@ -50,7 +50,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja comun*' : `${jumlah} *Cajas comunes*`} y o
             }
             break
         case 'normal':
-            switch (jumlah) {
+            if (jumlah > 0) {
                     let _ud = `${Math.floor(Math.random() * 2)}`.trim()
                     let _ue = `${Math.floor(Math.random() * 100)}`.trim()
                     let _um = `${Math.floor(Math.random() * 150)}`.trim()
@@ -85,7 +85,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y
             }
             break
         case 'mitico':
-            switch (jumlah) {
+            if (jumlah > 0) {
              	   let mixx = pickRandom(['1', '0', '1', '0',  '1'])
                     let mizz = pickRandom(['1', '0', '1', '0'])
                     let _mm = `${Math.floor(Math.random() * 200)}`.trim()
@@ -128,7 +128,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
             }
             break
         case 'legendario':
-            switch (jumlah) {
+            if (jumlah > 0) {
             	    let lexx = pickRandom(['1', '0', '1', '0'])
                     let lezz = pickRandom(['0', '1', '0'])
                     let leyy = pickRandom(['0', '1', '0', '1', '0', '1'])
