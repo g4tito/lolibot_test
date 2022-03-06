@@ -47,8 +47,6 @@ Has abierto ${jumlah < 2 ? 'una *Caja comun*' : `${jumlah} *Cajas comunes*`} y o
                         global.DATABASE._data.users[m.sender].common += cc * 1
                         conn.reply(m.chat, Hcom, m)
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Comunes', m)
-                default:
-                    return conn.reply(m.chat, Lmao, m)
             }
             break
         case 'normal':
@@ -84,8 +82,6 @@ Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y
                             global.DATABASE._data.users[m.sender].mythic += umc * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Normales', m)
-                default:
-                    return conn.reply(m.chat, Lmao ,m)
             }
             break
         case 'mitico':
@@ -129,8 +125,6 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
                             global.DATABASE._data.users[m.sender].legendary += ml * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Miticas', m)
-                default:
-                    return conn.reply(m.chat, Lmao, m)
             }
             break
         case 'legendario':
@@ -178,8 +172,6 @@ Has abierto ${jumlah < 2 ? 'una *Caja legendaria*' : `${jumlah} *Cajas legendari
                             global.DATABASE._data.users[m.sender].pet += lpp * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Legendarias', m)
-                default:
-                    return conn.reply(m.chat, Lmao, m)
             }
             break
         case 'pet':
