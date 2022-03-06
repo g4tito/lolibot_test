@@ -27,6 +27,7 @@ Opciones disponibles:
   let template = (args[0] || '').toLowerCase()
   if (!args[1]) throw er
   if (/emo/i.test(command)) {
+  conn.reply(m.chat, wait, m)
     try {
       switch (template) {
         case 'apple':
