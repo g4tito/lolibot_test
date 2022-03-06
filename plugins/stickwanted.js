@@ -7,6 +7,7 @@ let handler = async (m, { conn, text }) => {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
   if (!mime) throw 'Etiqueta una imagen!'
+  conn.reply(m.chat, wait, m)
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Formato *${mime}* no soportado`
   let img = await q.download()
   let url = await uploadImage(img)
