@@ -20,7 +20,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
 - Ejemplo: ${usedPrefix + command} comun 7
 `.trim()
     let type = (args[0] || '').toLowerCase()
-    let jumlah = (args[1] || '').toLowerCase()
+    let jumlah = args[1]
     
     switch (type) {
         case 'comun':
