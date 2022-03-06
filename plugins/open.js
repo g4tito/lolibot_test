@@ -131,7 +131,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
             if (jumlah > 0) {
             	if (global.DATABASE._data.users[m.sender].legendary >= jumlah) {
             	    let lexx = pickRandom(['1', '0', '1', '1'])
-                    let lezz = pickRandom(['1', '1', '0'])
+                    let lezz = pickRandom(['0', '1', '0'])
                     let leyy = pickRandom(['1', '1', '1', '1', '0', '1'])
                     let _lm = `${Math.floor(Math.random() * 450)}`.trim()
                     let _le = `${Math.floor(Math.random() * 550)}`.trim()
@@ -147,7 +147,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
                     let lp = (_lp * jumlah) 
                     let lu = (_lu * jumlah) 
                     let lc = (_lc * jumlah) 
-                    let ll = (_ll * lexx) 
+                    let ll = (10 >= jumlah ? Math.floor(Math.random() * 5) : '' || 100 >= jumlah ? Math.floor(Math.random() * 10) : '' || 150 >= jumlah ? Math.floor(Math.random() * 23) : '' || 200 >= jumlah ? Math.floor(Math.random() * 50) : '' || 250 >= jumlah ? Math.floor(Math.random() * 60) : '' || 300 >= jumlah ? Math.floor(Math.random() * 80) : '')
                     let lpp = (_lpp * lezz)       
                     let ld = (_ld * jumlah) 
                     let lmm = (_lmm * leyy)
