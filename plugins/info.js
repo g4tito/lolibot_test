@@ -46,6 +46,7 @@ let handler = async (m, { conn, text, usedPrefix }) => {
   let latensi = speed() - timestamp
   let internet = await isOnline()
   let totaljadibot = [...new Set([...global.conns.filter(conn => conn.user && conn.state !== 'close').map(conn => conn.user)])]
+  let totalfeatures = Object.values(global.plugins).filter( (v) => v.help && v.tags ).length
   let infot = fs.readFileSync('./src/menu2.jpg')
   let ownum = "51940617554@s.whatsapp.net"
   let info = `
@@ -53,18 +54,19 @@ let handler = async (m, { conn, text, usedPrefix }) => {
 ❄️〃 Navegador: ${conn.browserDescription[1]}
 🐋〃 Version: ${conn.browserDescription[2]}
 ❄️〃 Servidor: ${conn.browserDescription[0]}
-🐋〃 Prefijo: ${usedPrefix}
-❄️〃 Velocidad: ${latensi.toFixed(4)} Segundos
-🐋〃 Chat Privado: ${chats.length - groups.length}
-❄️〃 Chat de Grupos: ${groups.length}
-🐋〃 Chat Totales: ${chats.length}
-❄️〃 Tiempo activo: ${uptime}
-🐋〃 Usuarios: ${totalreg} Numeros
-❄️〃 Bateria: ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Cargando...' : '⚡ Desconectado'}` : '_Desconocido_'}
-🐋〃 Internet: ${internet == true ? 'Con conexión' : 'Sin conexión'}
-❄️〃 Sistema operativo: ${conn.user.phone.device_manufacturer}
-🐋〃 Version de Wsp: ${conn.user.phone.wa_version}
-❄️〃 Bots secundarios: ${totaljadibot.length} Total
+🐋〃 Comandos: ${totalfeatures} Total
+❄️〃 Prefijo: ${usedPrefix}
+🐋〃 Velocidad: ${latensi.toFixed(4)} Segundos
+❄️〃 Chat Privado: ${chats.length - groups.length}
+🐋〃 Chat de Grupos: ${groups.length}
+❄️〃 Chat Totales: ${chats.length}
+🐋〃 Tiempo activo: ${uptime}
+❄️〃 Usuarios: ${totalreg} Numeros
+🐋〃 Bateria: ${conn.battery ? `${conn.battery.value}% ${conn.battery.live ? '🔌 Cargando...' : '⚡ Desconectado'}` : '_Desconocido_'}
+❄️〃 Internet: ${internet == true ? 'Con conexión' : 'Sin conexión'}
+🐋〃 Sistema operativo: ${conn.user.phone.device_manufacturer}
+❄️〃 Version de Wsp: ${conn.user.phone.wa_version}
+🐋〃 Bots secundarios: ${totaljadibot.length} Total
 `.trim() 
   conn.reply(m.chat, info, text, { quoted: m, contextInfo: { externalAdReply:{title: `↷✦╎Info - Bot╎💌˖ ⸙`, previewType:"PHOTO",thumbnail: infot, sourceUrl:``}, mentionedJid: [ownum]}})
 }
