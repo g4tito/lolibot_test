@@ -6,17 +6,17 @@ let handler = async (m, { conn, text }) => {
  try {
   let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'Tidak ada foto'
-  if (!/image\/(jpe?g|png)/.test(mime)) throw `Mime ${mime} tidak support`
+  if (!mime) throw 'Etiqueta una imagen!'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Formato *${mime}* no soportado`
   let img = await q.download()
   let url = await uploadImage(img)
   let wanted = `https://api.dhamzxploit.my.id/api/canvas/wanted?url=${url}`
-  let stiker = await sticker(null, wanted, 'wanted', '©damzz')
+  let stiker = await sticker(null, wanted, global.packname, global.author)
   conn.sendMessage(m.chat, stiker, MessageType.sticker, {
     quoted: m
   })
  } catch (e) {
-   m.reply('Conversion Failed')
+   m.reply('Ocurrió un error al crear el sticker')
   }
 }
 handler.help = ['wanted']
