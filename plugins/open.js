@@ -39,7 +39,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
 Has abierto ${jumlah < 2 ? 'una *Caja comun*' : `${jumlah} *Cajas comunes*`} y obtienes:\n${cm > 0 ? `\n- Dinero: ${cm}` : ''}${ce > 0 ? `\n- Exp: ${ce}` : ''}${cp > 0 ? `\n- Pocion: ${cp}` : ''}${cc > 0 ? `\n- Caja comun: ${cc}` : ''}${cu > 0 ? `\n- Caja normal: ${cu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1) {
-                        global.DATABASE._data.users[m.sender].common -= 1
+                        global.DATABASE._data.users[m.sender].common -= jumlah * 1
                         global.DATABASE._data.users[m.sender].money += cm * 1
                         global.DATABASE._data.users[m.sender].exp += ce * 1
                         global.DATABASE._data.users[m.sender].potion += cp * 1
@@ -69,7 +69,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja comun*' : `${jumlah} *Cajas comunes*`} y o
 Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y obtienes:\n${um > 0 ? `\n- Dinero: ${um}` : ''}${ue > 0 ? `\n- Exp: ${ue}` : ''}${ud > 0 ? `\n- Diamante: ${ud}` : ''}${up > 0 ? `\n- Pocion: ${up}` : ''}${uc > 0 ? `\n- Caja comun: ${uc}` : ''}${uu > 0 ? `\n- Caja normal: ${uu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].uncommon >= 1) {
-                        global.DATABASE._data.users[m.sender].uncommon -= 1
+                        global.DATABASE._data.users[m.sender].uncommon -= jumlah * 1
                         global.DATABASE._data.users[m.sender].money += um * 1
                         global.DATABASE._data.users[m.sender].diamond += ud * 1
                         global.DATABASE._data.users[m.sender].exp += ue * 1
@@ -108,7 +108,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y
 Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y obtienes:\n${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me}` : ''}${md > 0 ? `\n- Diamante: ${md}` : ''}${mp > 0 ? `\n- Pocion: ${mp}` : ''}${mc > 0 ? `\n- Caja comun: ${mc}` : ''}${mu > 0 ? `\n- Caja normal: ${mu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 1) {
-                        global.DATABASE._data.users[m.sender].mythic -= 1
+                        global.DATABASE._data.users[m.sender].mythic -= jumlah * 1
                         global.DATABASE._data.users[m.sender].money += mm * 1
                         global.DATABASE._data.users[m.sender].diamond += md * 1
                         global.DATABASE._data.users[m.sender].exp += me * 1
@@ -154,7 +154,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
 Has abierto ${jumlah < 2 ? 'una *Caja legendaria*' : `${jumlah} *Cajas legendarias*`} y obtienes:\n${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le}` : ''}${ld > 0 ? `\n- Diamante: ${ld}` : ''}${lp > 0 ? `\n- Pocion: ${lp}` : ''}${lc > 0 ? `\n- Caja comun: ${lc}` : ''}${lu > 0 ? `\n- Caja normal: ${lu}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 1) {
-                        global.DATABASE._data.users[m.sender].legendary -= 1
+                        global.DATABASE._data.users[m.sender].legendary -= jumlah * 1
                         global.DATABASE._data.users[m.sender].money += lm * 1
                         global.DATABASE._data.users[m.sender].diamond += ld * 1
                         global.DATABASE._data.users[m.sender].exp += le * 1
