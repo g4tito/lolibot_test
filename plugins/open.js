@@ -47,7 +47,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja comun*' : `${jumlah} *Cajas comunes*`} y o
                         global.DATABASE._data.users[m.sender].common += cc * 1
                         conn.reply(m.chat, Hcom, m)
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Comunes', m)
-            }
+            } else conn.reply(m.chat, Lmao, m)
             break
         case 'normal':
             if (jumlah > 0) {
@@ -82,27 +82,27 @@ Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y
                             global.DATABASE._data.users[m.sender].mythic += umc * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Normales', m)
-            }
+            } else conn.reply(m.chat, Lmao, m)
             break
         case 'mitico':
             if (jumlah > 0) {
-             	   let mixx = pickRandom(['1', '0', '1', '0',  '1'])
-                    let mizz = pickRandom(['1', '0', '1', '0'])
+             	   let mixx = pickRandom(['1', '1', '1', '0',  '1'])
+                    let mizz = pickRandom(['1', '0', '1', '1'])
                     let _mm = `${Math.floor(Math.random() * 200)}`.trim()
-                    let _mmm = `${Math.floor(Math.random() * mizz)}`.trim()
+                    let _mmm = `${Math.floor(Math.random() * jumlah)}`.trim()
                     let _me = `${Math.floor(Math.random() * 250)}`.trim()
                     let _mp = `${Math.floor(Math.random() * 3)}`.trim()
                     let _mu = `${Math.floor(Math.random() * 3)}`.trim()
                     let _mc = `${Math.floor(Math.random() * 5)}`.trim()
-                    let _ml = `${Math.floor(Math.random() * mixx)}`.trim()
+                    let _ml = `${Math.floor(Math.random() * jumlah)}`.trim()
                     let _md = `${Math.floor(Math.random() * 3)}`.trim()
                     let mm = (_mm * jumlah)
-                    let mmm = (_mmm * jumlah)
+                    let mmm = (_mmm * mizz)
                     let me = (_me * jumlah)
                     let mp = (_mp * jumlah)
                     let mu = (_mu * jumlah)
                     let mc = (_mc * jumlah)
-                    let ml = (_ml * jumlah)
+                    let ml = (_ml * mixx)
                     let md = (_md * jumlah)
                     let Mychat = `
 Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y obtienes:\n${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me}` : ''}${md > 0 ? `\n- Diamante: ${md}` : ''}${mp > 0 ? `\n- Pocion: ${mp}` : ''}${mc > 0 ? `\n- Caja comun: ${mc}` : ''}${mu > 0 ? `\n- Caja normal: ${mu}` : ''}
@@ -125,31 +125,31 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
                             global.DATABASE._data.users[m.sender].legendary += ml * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Miticas', m)
-            }
+            } else conn.reply(m.chat, Lmao, m)
             break
         case 'legendario':
             if (jumlah > 0) {
-            	    let lexx = pickRandom(['1', '0', '1', '0'])
-                    let lezz = pickRandom(['0', '1', '0'])
-                    let leyy = pickRandom(['0', '1', '0', '1', '0', '1'])
+            	    let lexx = pickRandom(['1', '0', '1', '1'])
+                    let lezz = pickRandom(['1', '1', '0'])
+                    let leyy = pickRandom(['0', '1', '1', '1', '0', '1'])
                     let _lm = `${Math.floor(Math.random() * 450)}`.trim()
                     let _le = `${Math.floor(Math.random() * 550)}`.trim()
                     let _lp = `${Math.floor(Math.random() * 5)}`.trim()
                     let _lu = `${Math.floor(Math.random() * 7)}`.trim()
                     let _lc = `${Math.floor(Math.random() * 10)}`.trim()
-                    let _ll = `${Math.floor(Math.random() * lexx)}`.trim()
-                    let _lpp = `${Math.floor(Math.random() * lezz)}`.trim()
+                    let _ll = `${Math.floor(Math.random() * jumlah)}`.trim()
+                    let _lpp = `${Math.floor(Math.random() * jumlah)}`.trim()
                     let _ld = `${Math.floor(Math.random() * 5)}`.trim()
-                    let _lmm = `${Math.floor(Math.random() * leyy)}`.trim()
+                    let _lmm = `${Math.floor(Math.random() * jumlah)}`.trim()
                     let lm = (_lm * jumlah)
                     let le = (_le * jumlah)
                     let lp = (_lp * jumlah) 
                     let lu = (_lu * jumlah) 
                     let lc = (_lc * jumlah) 
-                    let ll = (_ll * jumlah) 
-                    let lpp = (_lpp * jumlah)       
+                    let ll = (_ll * lexx) 
+                    let lpp = (_lpp * lezz)       
                     let ld = (_ld * jumlah) 
-                    let lmm = (_lmm * jumlah)
+                    let lmm = (_lmm * leyy)
                     let Lechat = `
 Has abierto ${jumlah < 2 ? 'una *Caja legendaria*' : `${jumlah} *Cajas legendarias*`} y obtienes:\n${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le}` : ''}${ld > 0 ? `\n- Diamante: ${ld}` : ''}${lp > 0 ? `\n- Pocion: ${lp}` : ''}${lc > 0 ? `\n- Caja comun: ${lc}` : ''}${lu > 0 ? `\n- Caja normal: ${lu}` : ''}
 `.trim()  
@@ -172,7 +172,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja legendaria*' : `${jumlah} *Cajas legendari
                             global.DATABASE._data.users[m.sender].pet += lpp * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficiente cajas Legendarias', m)
-            }
+            } else conn.reply(m.chat, Lmao, m)
             break
         case 'pet':
             let _mknp = pickRandom([1, 2, 1, 5, 3, 2, 1, 2, 4, 1, 3, 5, 2, 4, 3])
