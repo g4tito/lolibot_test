@@ -25,7 +25,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
     switch (type) {
         case 'comun':
             if (jumlah > 0) {
-            	if (global.DATABASE._data.users[m.sender].common >= 1) {
+            	if (global.DATABASE._data.users[m.sender].common >= jumlah) {
                     let _cm = `${Math.floor(Math.random() * 50)}`.trim()
                     let _cc = `${Math.floor(Math.random() * 2)}`.trim()
                     let _cp = `${Math.floor(Math.random() * 1)}`.trim()
@@ -51,7 +51,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja comun*' : `${jumlah} *Cajas comunes*`} y o
             break
         case 'normal':
             if (jumlah > 0) {
-            	if (global.DATABASE._data.users[m.sender].uncommon >= 1) {
+            	if (global.DATABASE._data.users[m.sender].uncommon >= jumlah) {
                     let _ud = `${Math.floor(Math.random() * 2)}`.trim()
                     let _ue = `${Math.floor(Math.random() * 100)}`.trim()
                     let _um = `${Math.floor(Math.random() * 150)}`.trim()
@@ -86,7 +86,7 @@ Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y
             break
         case 'mitico':
             if (jumlah > 0) {
-            	if (global.DATABASE._data.users[m.sender].mythic >= 1) {
+            	if (global.DATABASE._data.users[m.sender].mythic >= jumlah) {
              	   let mixx = pickRandom(['1', '1', '1', '0',  '1'])
                     let mizz = pickRandom(['1', '0', '1', '1'])
                     let _mm = `${Math.floor(Math.random() * 200)}`.trim()
@@ -129,10 +129,10 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
             break
         case 'legendario':
             if (jumlah > 0) {
-            	if (global.DATABASE._data.users[m.sender].legendary >= 1) {
+            	if (global.DATABASE._data.users[m.sender].legendary >= jumlah) {
             	    let lexx = pickRandom(['1', '0', '1', '1'])
                     let lezz = pickRandom(['1', '1', '0'])
-                    let leyy = pickRandom(['0', '1', '1', '1', '0', '1'])
+                    let leyy = pickRandom(['1', '1', '1', '1', '0', '1'])
                     let _lm = `${Math.floor(Math.random() * 450)}`.trim()
                     let _le = `${Math.floor(Math.random() * 550)}`.trim()
                     let _lp = `${Math.floor(Math.random() * 5)}`.trim()
