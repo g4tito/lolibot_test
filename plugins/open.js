@@ -87,8 +87,8 @@ Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y
         case 'mitico':
             if (jumlah > 0) {
             	if (global.DATABASE._data.users[m.sender].mythic >= jumlah) {
-             	   let mixx = pickRandom(['1', '1', '1', '0',  '1'])
-                    let mizz = pickRandom(['1', '0', '1', '1'])
+             	   let mixx = pickRandom(['1', '0', '1', '0',  '1'])
+                    let mizz = pickRandom(['1', '0', '1', '0'])
                     let _mm = `${Math.floor(Math.random() * 200)}`.trim()
                     let _mmm = `${Math.floor(Math.random() * jumlah)}`.trim()
                     let _me = `${Math.floor(Math.random() * 250)}`.trim()
@@ -98,12 +98,12 @@ Has abierto ${jumlah < 2 ? 'una *Caja normal*' : `${jumlah} *Cajas normales*`} y
                     let _ml = `${Math.floor(Math.random() * jumlah)}`.trim()
                     let _md = `${Math.floor(Math.random() * 3)}`.trim()
                     let mm = (_mm * jumlah)
-                    let mmm = (_mmm * mizz)
+                    let mmm = (10 >= jumlah ? Math.floor(Math.random() * 2) : '' || 100 >= jumlah ? Math.floor(Math.random() * 5) : '' || 150 >= jumlah ? Math.floor(Math.random() * 13) : '' || 200 >= jumlah ? Math.floor(Math.random() * 20) : '' || 250 >= jumlah ? Math.floor(Math.random() * 30) : '' || 300 >= jumlah ? Math.floor(Math.random() * 50) : '')
                     let me = (_me * jumlah)
                     let mp = (_mp * jumlah)
                     let mu = (_mu * jumlah)
                     let mc = (_mc * jumlah)
-                    let ml = (_ml * mixx)
+                    let ml = (10 >= jumlah ? Math.floor(Math.random() * 2) : '' || 100 >= jumlah ? Math.floor(Math.random() * 5) : '' || 150 >= jumlah ? Math.floor(Math.random() * 13) : '' || 200 >= jumlah ? Math.floor(Math.random() * 20) : '' || 250 >= jumlah ? Math.floor(Math.random() * 30) : '' || 300 >= jumlah ? Math.floor(Math.random() * 50) : '')
                     let md = (_md * jumlah)
                     let Mychat = `
 Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y obtienes:\n${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me}` : ''}${md > 0 ? `\n- Diamante: ${md}` : ''}${mp > 0 ? `\n- Pocion: ${mp}` : ''}${mc > 0 ? `\n- Caja comun: ${mc}` : ''}${mu > 0 ? `\n- Caja normal: ${mu}` : ''}
@@ -130,9 +130,9 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
         case 'legendario':
             if (jumlah > 0) {
             	if (global.DATABASE._data.users[m.sender].legendary >= jumlah) {
-            	    let lexx = pickRandom(['1', '0', '1', '1'])
+            	    let lexx = pickRandom(['1', '0', '1', '0'])
                     let lezz = pickRandom(['0', '1', '0'])
-                    let leyy = pickRandom(['1', '1', '1', '1', '0', '1'])
+                    let leyy = pickRandom(['1', '0', '1', '0', '1', '0'])
                     let _lm = `${Math.floor(Math.random() * 450)}`.trim()
                     let _le = `${Math.floor(Math.random() * 550)}`.trim()
                     let _lp = `${Math.floor(Math.random() * 5)}`.trim()
@@ -147,10 +147,10 @@ Has abierto ${jumlah < 2 ? 'una *Caja mitica*' : `${jumlah} *Cajas miticas*`} y 
                     let lp = (_lp * jumlah) 
                     let lu = (_lu * jumlah) 
                     let lc = (_lc * jumlah) 
-                    let ll = (10 >= jumlah ? Math.floor(Math.random() * 5) : '' || 100 >= jumlah ? Math.floor(Math.random() * 10) : '' || 150 >= jumlah ? Math.floor(Math.random() * 23) : '' || 200 >= jumlah ? Math.floor(Math.random() * 50) : '' || 250 >= jumlah ? Math.floor(Math.random() * 60) : '' || 300 >= jumlah ? Math.floor(Math.random() * 80) : '')
+                    let ll = (5 >= jumlah ? Math.floor(Math.random() * 1) : '' || 10 >= jumlah ? Math.floor(Math.random() * 4) : '' || 100 >= jumlah ? Math.floor(Math.random() * 10) : '' || 150 >= jumlah ? Math.floor(Math.random() * 23) : '' || 200 >= jumlah ? Math.floor(Math.random() * 50) : '' || 250 >= jumlah ? Math.floor(Math.random() * 60) : '' || 300 >= jumlah ? Math.floor(Math.random() * 80) : '')
                     let lpp = (_lpp * lezz)       
                     let ld = (_ld * jumlah) 
-                    let lmm = (_lmm * leyy)
+                    let lmm = (5 >= jumlah ? Math.floor(Math.random() * 1) : '' || 10 >= jumlah ? Math.floor(Math.random() * 4) : '' || 100 >= jumlah ? Math.floor(Math.random() * 10) : '' || 150 >= jumlah ? Math.floor(Math.random() * 23) : '' || 200 >= jumlah ? Math.floor(Math.random() * 50) : '' || 250 >= jumlah ? Math.floor(Math.random() * 60) : '' || 300 >= jumlah ? Math.floor(Math.random() * 80) : '')
                     let Lechat = `
 Has abierto ${jumlah < 2 ? 'una *Caja legendaria*' : `${jumlah} *Cajas legendarias*`} y obtienes:\n${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le}` : ''}${ld > 0 ? `\n- Diamante: ${ld}` : ''}${lp > 0 ? `\n- Pocion: ${lp}` : ''}${lc > 0 ? `\n- Caja comun: ${lc}` : ''}${lu > 0 ? `\n- Caja normal: ${lu}` : ''}
 `.trim() 
