@@ -1,7 +1,7 @@
 let { MessageType } = require('@adiwajshing/baileys')
 const cooldown = 2592000000
 let handler = async (m, { conn, usedPrefix, command }) => {
-    let uPrefix = `${usedPrefix}`
+    let uPrefix = usedPrefix
     let user = global.DATABASE._data.users[m.sender]
     let _timers = (cooldown - (new Date - user.lastmonthly))
     let timers = clockString(_timers)
@@ -43,11 +43,12 @@ function button(teks, user, uPrefix) {
     let claim = new Date - user.lastclaim > 86400000
     let monthly = new Date - user.lastmonthly > 2592000000
     let weekly = new Date - user.lastweekly > 604800000
+    let prefix = uPrefix
     console.log({ claim, monthly, weekly })
 
-    if (monthly) buttons.push({ buttonId: `${uPrefix}monthly`, buttonText: { displayText: 'Reclamo del mes 🎑' }, type: 1 })
-    if (weekly) buttons.push({ buttonId: `${uPrefix}weekly`, buttonText: { displayText: '🎁 Reclamo de la semana' }, type: 1 })
-    if (claim) buttons.push({ buttonId: `${uPrefix}daily`, buttonText: { displayText: 'Reclamo del día 🌤️' }, type: 1 })
+    if (monthly) buttons.push({ buttonId: `${prefix}monthly`, buttonText: { displayText: 'Reclamo del mes 🎑' }, type: 1 })
+    if (weekly) buttons.push({ buttonId: `${prefix}weekly`, buttonText: { displayText: '🎁 Reclamo de la semana' }, type: 1 })
+    if (claim) buttons.push({ buttonId: `${prefix}daily`, buttonText: { displayText: 'Reclamo del día 🌤️' }, type: 1 })
     if (buttons.length == 0) throw teks
 
     const buttonMessage = {
