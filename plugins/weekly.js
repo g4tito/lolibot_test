@@ -1,6 +1,6 @@
 let { MessageType } = require('@adiwajshing/baileys')
 const cooldown = 604800000
-let handler = async (m, { conn }) => {
+let handler = async (m, { conn, usedPrefix, command }) => {
     let user = global.DATABASE._data.users[m.sender]
     let _timers = (cooldown - (new Date - user.lastweekly))
     let timers = clockString(_timers)
