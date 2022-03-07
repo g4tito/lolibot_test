@@ -37,7 +37,7 @@ function clockString(seconds) {
   return dDisplay + hDisplay + mDisplay + sDisplay;
 };
 
-function button(teks, user, usedPrefix) {
+function button(teks, user, uPrefix) {
     const buttons = []
 
     let claim = new Date - user.lastclaim > 86400000
