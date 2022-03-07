@@ -20,11 +20,11 @@ let handler = async (m, { conn, usedPrefix }) => {
     const user = global.DATABASE._data.users[m.sender]
     let str = `
 *—「 🕖 Cooldown 」—*
-${Object.entries(cooldowns).map(([d, { name, cooldown }]) => `*Last ${name}:* ${new Date() - user[d] >= cooldown ? '✅' : '❌'}`).join('\n')}
+${Object.entries(cooldowns).map(([d, { name, cooldown }]) => `*Próximo ${name}:* ${new Date() - user[d] >= cooldown ? '✅' : '❌'}`).join('\n')}
 `.trim()
     conn.sendButton(m.chat, str, author, null, [
-        ['Inventory', usedPrefix + 'inv'],
-        ['Profile', usedPrefix + 'profile']
+        ['Inventario 🎒', usedPrefix + 'inv'],
+        ['Perfil 👤', usedPrefix + 'profile']
     ], { quoted: m })
 }
 handler.help = ['cd', 'cooldown']
