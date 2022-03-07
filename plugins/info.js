@@ -71,7 +71,7 @@ let handler = async (m, { conn, text, usedPrefix }) => {
   conn.reply(m.chat, info, text, { quoted: m, contextInfo: { externalAdReply:{title: `↷✦╎Info - Bot╎💌˖ ⸙`, previewType:"PHOTO",thumbnail: infot, sourceUrl:``}, mentionedJid: [ownum]}})
 }
 handler.help = ['info']
-handler.tags = ['about']
+handler.tags = ['info']
 
 handler.command = /^(info|infobot)$/i
 
