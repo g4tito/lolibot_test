@@ -22,7 +22,7 @@ let handler = async (m, { conn, usedPrefix }) => {
 *—「 🕖 Cooldown 」—*
 ${Object.entries(cooldowns).map(([d, { name, cooldown }]) => `*Próximo ${name}:* ${new Date() - user[d] >= cooldown ? '✅' : '❌'}`).join('\n')}
 `.trim()
-    conn.sendButton(m.chat, str, author, null, [
+    conn.sendButton(m.chat, str, `Lolibot- OFC`, null, [
         ['Inventario 🎒', usedPrefix + 'inv'],
         ['Perfil 👤', usedPrefix + 'profile']
     ], { quoted: m })
