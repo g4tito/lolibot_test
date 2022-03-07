@@ -1,6 +1,6 @@
 let handler = async (m, { conn, args }) => {
     const bonus = Math.floor(Math.random() * 300)
-    if (!args[0]) throw 'Por favor, introduzca un número'
+    if (!args[0]) throw 'Por favor, introduzca un número del 1 al 9'
     if (!/\d/i.test(args[0])) throw 'Elije un numero del 0 a 9!'
     const bot = pickRandom(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'])
     const isWin = bot == args[0]
@@ -14,9 +14,9 @@ Nro del bot : ${bot}
 `.trim(), m)
     if (isWin) global.DATABASE.data.users[m.sender].exp += bonus * 1
 }
-handler.help = ['adv <0-9>']
+handler.help = ['adv']
 handler.tags = ['game']
-handler.command = /^adv/i
+handler.command = /^(adv)$/i
 
 module.exports = handler
 
