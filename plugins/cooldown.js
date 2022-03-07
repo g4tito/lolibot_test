@@ -20,7 +20,8 @@ let handler = async (m, { conn, usedPrefix }) => {
     const user = global.DATABASE._data.users[m.sender]
     let str = `
 *—「 🕖 Cooldown 」—*
-${Object.entries(cooldowns).map(([d, { name, cooldown }]) => `*Próximo ${name}:* ${new Date() - user[d] >= cooldown ? '✅' : '❌'}`).join('\n')}
+
+${Object.entries(cooldowns).map(([d, { name, cooldown }]) => `*${name}:* ${new Date() - user[d] >= cooldown ? '✅' : '❌'}`).join('\n')}
 `.trim()
     conn.sendButton(m.chat, str, `Lolibot- OFC`, null, [
         ['Inventario 🎒', usedPrefix + 'inv'],
