@@ -8,7 +8,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         let mime = (q.msg || q).mimetype || ''
         if (!/audio/.test(mime)) throw `Balas vn/audio yang ingin diubah dengan caption *${usedPrefix + command}*`
         let audio = await q.download()
-        if (!audio) throw 'Can\'t download audio!'
+        if (!audio) throw 'Etiqueta un audio!'
+        conn.reply(m.chat, wait, m)
         let set
         if (/bass/.test(command)) set = '-af equalizer=f=94:width_type=o:width=2:g=30'
         if (/blown/.test(command)) set = '-af acrusher=.1:1:64:0:log'
@@ -31,7 +32,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             await fs.promises.unlink(media)
             if (err) return Promise.reject( `_*Error!*_`)
             let buff = await fs.promises.readFile(filename)
-            conn.sendFile(m.chat, buff, ran, null, m, /vn/.test(args[0]), { quoted: m, mimetype: 'audio/mp4' })
+            conn.sendFile(m.chat, buff, ran, null, m, /vn/.test(args[0]), { quoted: m, mimetype: 'audio/ogg; codecs=opus' })
             await fs.promises.unlink(filename)
         })
     } catch (e) {
