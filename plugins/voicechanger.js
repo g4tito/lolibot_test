@@ -32,7 +32,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
             await fs.promises.unlink(media)
             if (err) return Promise.reject( `_*Error!*_`)
             let buff = await fs.promises.readFile(filename)
-            conn.sendFile(m.chat, buff, ran, null, m, /vn/.test(args[0]), { quoted: m, mimetype: 'audio/ogg; codecs=opus' })
+            conn.sendFile(m.chat, buff, `${ran}.opus`, null, m, true)
             await fs.promises.unlink(filename)
         })
     } catch (e) {
