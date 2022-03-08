@@ -26,7 +26,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, stiker, MessageType.sticker)
         await delay(1500)
     }
-    m.reply(m.chat, 'Se envió todos los stickers', m)
+    m.reply('Se envió todos los stickers')
 }
 handler.help = ['sticktele <url>']
 handler.tags = ['sticker']
