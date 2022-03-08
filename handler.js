@@ -340,7 +340,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
           if (xp > 99999999999) m.reply('Ngecit -_-') // Hehehe
           else m.exp += xp
           if (!isPrems && plugin.limit && global.DATABASE._data.users[m.sender].limit < plugin.limit * 1) {
-            this.reply(m.chat, `Te quedaste sin *limites*, compra utilizando *${usedPrefix}buylimit*`, m)
+            this.reply(m.chat, `*Oh baya te quedaste sin límites*, compra mas utilizando el siguiente comando\n\n- Ejemplo: ${usedPrefix}buylimit <cantidad>`, m)
             continue // Limit habis
           }
           let extra = {
@@ -391,7 +391,7 @@ ${(global.linkGC).map((v, i) => '*Group ' + (i + 1) + '*\n' + v).join`\n\n`}
                 console.error(e)
               }
             }
-            if (m.limit) m.reply(+ m.limit + ' Limite utilizado')
+            if (m.limit) m.reply('🎟️ ' + m.limit + ' Limite utilizado')
           }
           break
         }
