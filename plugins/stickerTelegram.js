@@ -2,16 +2,16 @@ const fetch = require("node-fetch");
 const { MessageType } = require('@adiwajshing/baileys')
 const { sticker } = require('../lib/sticker')
 let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args[0]) throw `uhm.. url nya mana?\n\ncontoh:\n${usedPrefix + command} https://t.me/addstickers/namapack`
-    if (!args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) throw `url salah`
+    if (!args[0]) throw `*Ingrese el link del sticker*\n\n- Ejemplo: ${usedPrefix + command} https://t.me/addstickers/nombre_del_sticker`
+    if (!args[0].match(/(https:\/\/t.me\/addstickers\/)/gi)) throw `Link invalido!`
     let packName = args[0].replace("https://t.me/addstickers/", "")
 
     let gas = await fetch(`https://api.telegram.org/bot891038791:AAHWB1dQd-vi0IbH2NjKYUk-hqQ8rQuzPD4/getStickerSet?name=${encodeURIComponent(packName)}`, { method: "GET", headers: { "User-Agent": "GoogleBot" } })
     if (!gas.ok) throw await `${gas.status} ${gas.statusText}`
 
     let json = await gas.json()
-    m.reply(`*Total stiker:* ${json.result.stickers.length}
-*Estimasi selesai:* ${json.result.stickers.length * 1.5} detik`.trim())
+    m.reply(`*Total de stickers:* ${json.result.stickers.length}
+*Tiempo de envío:* ${json.result.stickers.length * 1.5} segundos`.trim())
 
     for (let i = 0; i < json.result.stickers.length; i++) {
         let fileId = json.result.stickers[i].thumb.file_id
@@ -26,11 +26,11 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         await conn.sendMessage(m.chat, stiker, MessageType.sticker)
         await delay(1500)
     }
-    m.reply('_*Selesai*_')
+    m.reply(m.chat, 'Se envió todos los stickers', m)
 }
-handler.help = ['stikertele <url>']
+handler.help = ['sticktele <url>']
 handler.tags = ['sticker']
-handler.command = /^(stic?kertele(gram)?)$/i
+handler.command = /^(stickertele|stele|sticktele)$/i
 
 handler.limit = 1
 
