@@ -22,6 +22,7 @@ let tags = {
   'random': 'Random 🍥',
   'anonymous': 'Chat - anónimo 🕵️‍♂️',
   'nulis': 'Logo maker  🎨',
+  'audio': 'Audio 🔊',
   'downloader': 'Descargas 📥',
   'tools': 'Ajustes ⚙️',
   'fun': 'Diverción 🎡',
