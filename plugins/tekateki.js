@@ -27,8 +27,8 @@ Escriba *${usedPrefix}tete* para obtener ayuda
         }, timeout)
     ]
 }
-handler.help = ['adivinanza']
+handler.help = ['pregunta]
 handler.tags = ['game']
-handler.command = /^(adivinanza|tekateki)$/i
+handler.command = /^(pregunta|tekateki)$/i
 
 module.exports = handler
