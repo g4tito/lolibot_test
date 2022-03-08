@@ -27,7 +27,7 @@ Escriba *${usedPrefix}tete* para obtener ayuda
         }, timeout)
     ]
 }
-handler.help = ['pregunta]
+handler.help = ['pregunta']
 handler.tags = ['game']
 handler.command = /^(pregunta|tekateki)$/i
 
