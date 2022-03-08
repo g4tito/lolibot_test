@@ -5,7 +5,7 @@ let handler = async (m, { conn }) => {
     let json = conn.tekateki[id][1]
     let ans = json.jawaban.trim()
     let clue = ans.replace(/[AIUEOaiueo]/g, '_')
-    conn.reply(m.chat, '```' + clue + '```\nResponde a la pregunta, no a este mensaje', conn.tekateki[id][0])
+    conn.reply(m.chat, '```' + clue + '```\n\nResponde a la pregunta, no a este mensaje', conn.tekateki[id][0])
 }
 handler.command = /^(tete)$/i
 handler.limit = true
