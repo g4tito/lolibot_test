@@ -23,7 +23,7 @@ Bono de respuesta correcta : ${poin} Exp
         await conn.reply(m.chat, caption, m),
         json, poin,
         setTimeout(() => {
-            if (conn.tekateki[id]) conn.reply(m.chat, `¡Se acabó el tiempo!\nLa respuesta es : *${json.answer}*`, conn.tekateki[id][0])
+            if (conn.tekateki[id]) conn.reply(m.chat, `¡Se acabó el tiempo!\nLa respuesta es : *${json.jawaban}*`, conn.tekateki[id][0])
             delete conn.tekateki[id]
         }, timeout)
     ]
