@@ -3,7 +3,7 @@ const threshold = 0.72
 let handler = m => m
 handler.before = async function (m) {
     let id = m.chat
-   if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !/Ketik.*tete/i.test(m.quoted.contentText)) return !0
+   if (!m.quoted || !m.quoted.fromMe || !m.quoted.isBaileys || !/Pregunta:/i.test(m.quoted.contentText)) return !0
     this.tekateki = this.tekateki ? this.tekateki : {}
     if (!(id in this.tekateki)) return m.reply('Esa pregunta a terminado!')
     if (/^(me)?nyerah$/i.test(m.text)) {
