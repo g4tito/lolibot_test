@@ -1,8 +1,6 @@
-let fetch = require('node-fetch')
-
+let fs = require('fs')
 let timeout = 120000
-let poin = 4999
-let src
+let poin = 500
 let handler = async (m, { conn, usedPrefix }) => {
     conn.tekateki = conn.tekateki ? conn.tekateki : {}
     let id = m.chat
@@ -10,25 +8,26 @@ let handler = async (m, { conn, usedPrefix }) => {
         conn.reply(m.chat, 'Todavía hay preguntas sin responder en este chat', conn.tekateki[id][0])
         throw false
     }
-    if (!src) src = await (await fetch(global.API('https://raw.githubusercontent.com', '/BochilTeam/database/master/games/tekateki.json'))).json()
-    let json = src[Math.floor(Math.random() * src.length)]
-    if (!json) throw json
-    let caption = ` 
-*${json.soal.trim()}?* 
-Tiempo : ${(timeout / 1000).toFixed(2)} segundos
-Escriba *${usedPrefix}hah* para obtener ayuda
+    let tekateki = JSON.parse(fs.readFileSync(`./src/tekateki.json`))
+    let json = tekateki[Math.floor(Math.random() * tekateki.length)]
+    let caption = `
+*${json.pertanyaan}*
+
+Tiempo : *${(timeout / 1000).toFixed(2)} segundos*
 Bono de respuesta correcta : ${poin} Exp
+
+Escriba *${usedPrefix}tete* para obtener ayuda
 `.trim()
     conn.tekateki[id] = [
-        await conn.reply(m.chat, caption, m),
+       await conn.reply(m.chat, caption, m),
         json, poin,
-        setTimeout(() => {
-            if (conn.tekateki[id]) conn.reply(m.chat, `¡Se acabó el tiempo!\nLa respuesta es : *${json.jawaban}*`, conn.tekateki[id][0])
+        setTimeout(async () => {
+            if (conn.tekateki[id]) await conn.reply(m.chat, `¡Se acabó el tiempo!\nLa respuesta es : *${json.jawaban}*`, conn.tekateki[id][0])
             delete conn.tekateki[id]
         }, timeout)
     ]
 }
-handler.help = ['tekateki']
+handler.help = ['adivinanza']
 handler.tags = ['game']
 handler.command = /^(adivinanza|tekateki)$/i
 
