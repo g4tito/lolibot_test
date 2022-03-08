@@ -11,7 +11,7 @@ let handler = async (m, { conn, usedPrefix }) => {
     let tekateki = JSON.parse(fs.readFileSync(`./src/tekateki.json`))
     let json = tekateki[Math.floor(Math.random() * tekateki.length)]
     let caption = `
-*${json.pertanyaan}*
+Pregunta: *${json.pertanyaan}*
 
 Tiempo : *${(timeout / 1000).toFixed(2)} segundos*
 Bono de respuesta correcta : ${poin} Exp
