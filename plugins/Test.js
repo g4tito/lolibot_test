@@ -1,6 +1,6 @@
 let fs = require ('fs')
 let handler = async (m, { conn, text }) => {
-	let tumb = fs.readFileSync('./src/menu2.jpg')
+	/*let tumb = fs.readFileSync('./src/menu2.jpg')
     let list = await conn.prepareMessageFromContent(m.chat, {
     "listMessage": {
       "title": "TEST PRODUCT",
@@ -35,7 +35,7 @@ let handler = async (m, { conn, text }) => {
       "footerText": "\nPowered by Gatito"
     }
   }, {quoted: m })
-  conn.relayWAMessage(list, { waitForAck: true })
+  conn.relayWAMessage(list, { waitForAck: true })*\
 }
 
 handler.customPrefix = /Test/i
