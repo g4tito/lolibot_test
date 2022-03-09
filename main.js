@@ -47,11 +47,11 @@ if (opts['debug']) conn.logger.level = 'debug'
 if (opts['big-qr'] || opts['server']) conn.on('qr', qr => generate(qr, { small: false }))
 let lastJSON = JSON.stringify(global.DATABASE.data)
 if (!opts['test']) setInterval(() => {
-  conn.logger.info('Saving database . . .')
-  if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('Database is up to date')
+  conn.logger.info('Guardando base de datos. . .')
+  if (JSON.stringify(global.DATABASE.data) == lastJSON) conn.logger.info('La base de datos está actualizada')
   else {
     global.DATABASE.save()
-    conn.logger.info('Done saving database!')
+    conn.logger.info('Se a guardado la base de datos!')
     lastJSON = JSON.stringify(global.DATABASE.data)
   }
 }, 60 * 1000) // Save every minute
@@ -235,5 +235,5 @@ async function _quickTest() {
 }
 
 _quickTest()
-  .then(() => conn.logger.info('Quick Test Done'))
+  .then(() => conn.logger.info('Prueba rápida realizada'))
   .catch(console.error)
