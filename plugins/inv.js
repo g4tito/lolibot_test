@@ -117,7 +117,7 @@ Mascota: *${pet}*
 Advertencia: *${warn}*
 Baneado: *No*
 `.trim()
-    conn.reply(m.chat, str, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tINVENTARIO`, previewType:"PHOTO",thumbnail: invt, sourceUrl:``}}})
+    conn.reply(m.chat, str, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tINVENTARIO`, previewType:"PHOTO",thumbnail: invt, sourceUrl:`https://chat.whatsapp.com/EphX7iaMsKj70m0BrZsmvw`}}})
 }
 handler.help = ['inventory', 'inv']
 handler.tags = ['rpg']
