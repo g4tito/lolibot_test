@@ -54,7 +54,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     let userslegendary = sortedlegendary.map(v => v[0])
     let invt = fs.readFileSync('./src/inventario.jpg')
     let str = `
-Inventario de *${name.vnmae || name.notify || name.name || ('+' + name.jid.split`@`[0])}*
+Inventario de *@${m.sender.split("@s.whatsapp.net")[0]}*
 
 ♥️ Vida: *${healt}*
 👕 Armadura: *${armor == 0 ? 'No tiene' : '' || armor == 1 ? 'Armadura de cuero' : '' || armor == 2 ? 'Armadura de hierro' : '' || armor == 3 ? 'Armadura de oro' : '' || armor == 4 ? 'Armadura de diamante' : '' || armor == 5 ? 'Armadura de netherite' : ''}*
