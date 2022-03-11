@@ -50,7 +50,7 @@ handler.before = async m => {
         if (/^(si|Si)$/i.test(txt)) {
             let Bot = (Math.ceil(Math.random() * 100)) * 1
             let Kamu = (Math.floor(Math.random() * 86)) * 1
-            let status = 'Kalah'
+            let status = 'Ganas!'
             if (Bot < Kamu) {
                 user.money += count * 1
                 status = 'Menang'
@@ -61,10 +61,12 @@ handler.before = async m => {
                 user.money += (Math.floor(count / 1.5)) * 1
             }
             m.reply(`
+💸 *APUESTA* 💸
+
 Bot roll: *${Bot}*
 User roll: *${Kamu}*
 
-Tu *${status}*, usted ${status == 'Pierdes' ? `Mendapatkan *+${count * 2}*` : status == 'Ganas!' ? `Perdiste *-${count * 1}*` : `Obtienes *+${Math.floor(count / 1.5)}*`} de dinero
+Tu *${status}* ${status == 'Pierdes' ? `Mendapatkan *+${count * 2}*` : status == 'Ganas!' ? `Perdiste *-${count * 1}*` : `*+${Math.floor(count / 1.5)}*`} de dinero
 `.trim())
             clearTimeout(timeout)
             delete confirm[m.sender]
