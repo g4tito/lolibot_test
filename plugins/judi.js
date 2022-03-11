@@ -23,7 +23,7 @@ async function handler(m, { conn, args, isROwner }) {
 
             const buttonMessage = {
                 contentText: txt,
-                footerText: 'Elija una opcion, tiene mínimo 60 segundos',
+                footerText: 'Elija una opcion, tienes 60 segundos',
                 buttons: buttons,
                 headerType: 1
             }
@@ -53,7 +53,7 @@ handler.before = async m => {
             let status = 'Ganas!'
             if (Bot < Kamu) {
                 user.money += count * 1
-                status = 'Menang'
+                status = 'Ganas!'
             } else if (Bot > Kamu) {
                 user.money -= count * 1
             } else {
