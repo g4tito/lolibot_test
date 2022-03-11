@@ -62,10 +62,10 @@ handler.before = async m => {
             }
             m.reply(`
 Bot roll: *${Bot}*
-Kamu roll: *${Kamu}*
+User roll: *${Kamu}*
 
-Kamu *${status}*, kamu ${status == 'Menang' ? `Mendapatkan *+${count * 2}*` : status == 'Kalah' ? `Kehilangan *-${count * 1}*` : `Mendapatkan *+${Math.floor(count / 1.5)}*`} 💵Money
-    `.trim())
+Tu *${status}*, usted ${status == 'Pierdes' ? `Mendapatkan *+${count * 2}*` : status == 'Ganas!' ? `Perdiste *-${count * 1}*` : `Obtienes *+${Math.floor(count / 1.5)}*`} de dinero
+`.trim())
             clearTimeout(timeout)
             delete confirm[m.sender]
             return !0
@@ -89,9 +89,9 @@ Kamu *${status}*, kamu ${status == 'Menang' ? `Mendapatkan *+${count * 2}*` : st
     }
 }
   
-handler.help = ['judi [jumlah]']
+handler.help = ['apostar <cantidad>']
 handler.tags = ['rpg']
-handler.command = /^(judi)$/i
+handler.command = /^(apostar)$/i
 
 module.exports = handler
 
