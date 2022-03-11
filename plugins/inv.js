@@ -96,8 +96,8 @@ Inventario de *@${m.sender.split("@s.whatsapp.net")[0]}*
 🗑️ Basura: *${sampah}*
 🥫 Alimentos para mascotas: *${makananpet}*
 Total inv: *${diamond + batu + iron + potion + sampah + makananpet}* items
-
 ${readMore}
+
 *📦 Cajas*
 Comun: *${common}*
 Normal: *${uncommon}*
@@ -127,7 +127,7 @@ Mascota: *${pet}*
 │🐱 Gato ${kucing == 0 ? 'No tiene' : '' || kucing > 0 && kucing < 5 ? `Nivel *${kucing}* al nivel *${kucing + 1}*\n│Exp *${_kucing}* -> *${kucing * 100}*` : '' || kucing == 5 ? '*Nivel maximo*' : ''}
 ╰────────────────
 
-*Logros*
+*Lista de tops*
 1.Top Nivel *${userslevel.indexOf(m.sender) + 1}* de *${userslevel.length}*
 2.Top Dinero *${usersmoney.indexOf(m.sender) + 1}* de *${usersmoney.length}*
 3.Top Diamante *${usersdiamond.indexOf(m.sender) + 1}* de *${usersdiamond.length}*
@@ -137,9 +137,6 @@ Mascota: *${pet}*
 7.Top Caja mitico *${usersmythic.indexOf(m.sender) + 1}* de *${usersmythic.length}*
 8.Top Caja legendario *${userslegendary.indexOf(m.sender) + 1}* de *${userslegendary.length}*
 9.Top Basura *${userssampah.indexOf(m.sender) + 1}* de *${userssampah.length}*
-
-Advertencia: *${warn}*
-Baneado: *No*
 `.trim()
     conn.sendMessage(m.chat, { contentText: str, footerText: '\n', buttons: [{buttonId: `${usedPrefix}shop`, buttonText: {displayText: 'Tienda ⛺'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": `${_healt}`, "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 99999999999, "pageCount": `${diamond + batu + iron + potion + sampah + makananpet}`, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": `${_healt}`, "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": false 
             }}, MessageType.buttonsMessage, { quoted: m, thumbnail: false, contextInfo: { mentionedJid: [m.sender], forwardingScore: 750, isForwarded: true, externalAdReply: { title: '◖🎒 INVENTARIO 🎒◗', thumbnail: invt, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
