@@ -29,7 +29,7 @@ _${dl_link}_
 }
 handler.help = ['ytv','mp4'].map(v => v + ' <url>')
 handler.tags = ['downloader']
-handler.command = /^(ytv|mp4)?$/i
+handler.command = /^(ytv|mp4)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
