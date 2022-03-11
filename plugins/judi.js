@@ -15,15 +15,15 @@ async function handler(m, { conn, args, isROwner }) {
                 count,
                 timeout: setTimeout(() => (m.reply('timed out'), delete confirm[m.sender]), 60000)
             }
-            let txt = '⚠️Warning⚠️\n*Jangan judi karena tidak akan menang, BENERAN!!*\nApakah anda yakin (pikirkan baik-baik) mau melakukan judi (Y/n) (60s Timeout)'
+            let txt = '*⭕ Estas seguro/a de que desea apostar?*'
             const buttons = [
-                {buttonId: `id1`, buttonText: {displayText: 'y'}, type: 1},
-                {buttonId: `id2`, buttonText: {displayText: 'n'}, type: 1}
+                {buttonId: `id1`, buttonText: {displayText: 'Si'}, type: 1},
+                {buttonId: `id2`, buttonText: {displayText: 'No'}, type: 1}
             ]
 
             const buttonMessage = {
                 contentText: txt,
-                footerText: '©games-wabot',
+                footerText: 'Elija una opcion, tiene mínimo 60 segundos',
                 buttons: buttons,
                 headerType: 1
             }
@@ -34,7 +34,7 @@ async function handler(m, { conn, args, isROwner }) {
             let { timeout } = confirm[m.sender]
             clearTimeout(timeout)
             delete confirm[m.sender]
-            m.reply('Rejected')
+            m.reply('Se acabo el tiempo!')
         }
     }
 }
@@ -47,7 +47,7 @@ handler.before = async m => {
     let moneyDulu = user.money * 1
     let txt = (m.msg && m.msg.selectedDisplayText ? m.msg.selectedDisplayText : m.text ? m.text : '').toLowerCase()
     try {
-        if (/^y(es|a)?$/i.test(txt)) {
+        if (/^(si|Si)$/i.test(txt)) {
             let Bot = (Math.ceil(Math.random() * 100)) * 1
             let Kamu = (Math.floor(Math.random() * 86)) * 1
             let status = 'Kalah'
@@ -69,7 +69,7 @@ Tu *${status}*, usted ${status == 'Pierdes' ? `Mendapatkan *+${count * 2}*` : st
             clearTimeout(timeout)
             delete confirm[m.sender]
             return !0
-        } else if (/^no?$/i.test(txt)) {
+        } else if (/^(no|No)$/i.test(txt)) {
             clearTimeout(timeout)
             delete confirm[m.sender]
             m.reply('Rejected')
@@ -128,7 +128,7 @@ function button(teks, user) {
     
     const buttonMessage = {
         contentText: teks,
-        footerText: '©games-wabot',
+        footerText: 'Lolibot - OFC',
         buttons: buttons,
         headerType: 1
     }
