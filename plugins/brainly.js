@@ -1,8 +1,8 @@
 const { Brainly } = require('brainly-scraper-v2')
-const brainly = new Brainly('id')
+const bbrainly = new Brainly('id')
 let handler = async function (m, { text }) {
   if (!text) throw 'Soalnya?'
-  let res = await brainly.search('id', text)
+  let res = await bbrainly.search('id', text)
   let answer = res.map(({ question, answers }, i) => `
 _*PREGUNTA ${i + 1}*_
 ${formatTags(question.content)}${answers.map((v, i) => `
