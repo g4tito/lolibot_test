@@ -13,7 +13,7 @@ Utilize ${usedPrefix}get${which} ${text} para enviar
 
 Tambien puede escribir solo te texto`)
 }
-handler.help = ['vn', 'msg', 'video', 'gif', 'audio', 'img', 'sticker'].map(v => 'add' + v + ' <texto>')
+handler.help = ['vn', 'msg', 'video', 'gif', 'audio', 'img', 'sticker'].map(v => 'add' + v + '')
 handler.tags = ['database']
 handler.command = /^(\+|add)(vn|msg|video|audio|img|stic?ker|gif)$/
 
