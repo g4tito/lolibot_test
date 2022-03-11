@@ -3,7 +3,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
     let msgerror = (pickRandom(['Error', 'astagfirullah error', 'Nice Error', 'Salah format keknya :v', 'error bro', 'Kocak error :v', 'wtf error :v', 'Ciaaa error', 'error cuyy', 'dahlah (emot batu) error']))
     try {
         let msgkurang = (pickRandom(['No tienes suficientes opciones', 'ciaa gk cukup potionyya :v', 'wtf gk cukup :v', 'beli potion dulu, potionmu gk cukup', 'Duaarr potionmu gk cukup', 'eyyyy potionmu kurang', 'beli dulu lah, masak mau pakai potion tapi gk ada potionnnya :v', 'minta ke orang lain suruh transfer potion, biar potionmu gk kurang :v', 'Beli potion dulu KK']))
-        let msgpenuh = (pickRandom(['Tu vida esta llena', 'coba deh liat inv mu, nyawamu kan dah 100 ngapai ngunain potion lagi?', 'health mu dah penuh woyy', 'ws kebek weh :v', 'Tu vida esta llena :v', 'udh weh, udh penuh']))
+        let msgpenuh = (pickRandom(['Tu vida ya esta llena', 'Ya no puedes beber mas pociones', 'Tu vida esta llena :v', 'Ya no puedes usar mas pociones']))
         let kucing = global.DATABASE._data.users[m.sender].kucing
         let usepotion = (kucing == 0 ? 40 : '' || kucing == 1 ? 45 : '' || kucing == 2 ? 50 : '' || kucing == 3 ? 55 : '' || kucing == 4 ? 60 : '' || kucing == 5 ? 65 : '' || kucing == 6 ? 70 : '' || kucing == 7 ? 75 : '' || kucing == 8 ? 80 : '' || kucing == 9 ? 85 : '' || kucing == 10 ? 90 : '')
         let healt = global.DATABASE._data.users[m.sender].healt
@@ -11,7 +11,7 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
             try {
                 let count = (/[0-9]/g.test(args[1])) ? !args[1] || args.length < 2 ? Math.max((Math.ceil((100 - global.DATABASE._data.users[m.sender].healt) / usepotion)), 1) : Math.max(args[1], 1) : Math.max((Math.ceil((100 - global.DATABASE._data.users[m.sender].healt) / usepotion)), 1)
                 let _count = (count * 1)
-                 let msgsucces = (pickRandom(['Acabas de beber', 'Bebiste cum digo,', 'Glu glu glu... bebiste', 'Tu usas', 'Acabas de usar']) + ` ${_count <= 1 ? 'una pocion' : `${_count} pociones`}`)
+                 let msgsucces = (pickRandom(['Acabas de beber', 'Bebiste cum digo,', 'Glu glu glu... bebiste', 'Tu usas', 'Acabas de usar']) + ` *${_count <= 1 ? 'una pocion' : `${_count} pociones`}*`)
                  if (args[0] === 'pocion') {
                     if (global.DATABASE._data.users[m.sender].healt < 100) {
                         if (global.DATABASE._data.users[m.sender].potion >= count * 1) {
