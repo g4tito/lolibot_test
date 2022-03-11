@@ -19,7 +19,7 @@ let handler = async (m, { conn, args, usedPrefix, command, isPrems, isOwner }) =
   asDocument: chat.useDocument
 })
 }
-handler.command = /^(ytvb)?$/i
+handler.command = /^(ytvb)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
