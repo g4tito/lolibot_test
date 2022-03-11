@@ -7,8 +7,10 @@ let handler = m => {
   if (!levelling.canLevelUp(user.level, user.exp, global.multiplier)) {
     let { min, xp, max } = levelling.xpRange(user.level, global.multiplier)
     throw `
-Nivel *${user.level} (${user.exp - min}/${xp})*
-Menos *${max - user.exp}* otra vez!
+*🆙 Nivel:* ${user.level}
+Tienes *${user.exp - min}* Exp de *${xp}*
+
+Te faltan *${max - user.exp}* para subir de nivel!
 `.trim()
   }
   let before = user.level * 1
@@ -98,7 +100,7 @@ Cuando mas interactues con la bot mayor sera tu nivel
 handler.help = ['levelup']
 handler.tags = ['rpg']
 
-handler.command = /^levelup$/i
+handler.command = /^(levelup|lvup)$/i
 handler.register = true
 
 module.exports = handler
