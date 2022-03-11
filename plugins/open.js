@@ -64,7 +64,7 @@ ${cm > 0 ? `\n- Dinero: ${cm}` : ''}${ce > 0 ? `\n- - Exp: ${ce}` : ''}${cp > 0 
                     let cu1 = (_cu1 * 1)
                     let Hcom1 = `
 Abriste *10 cajas comunes* y obtienes:
-${cm1 > 0 ? `\n- Dinero: ${cm1}` : ''}${ce1 > 0 ? `\n- Exp: ${ce1}` : ''}${cp1 > 0 ? `\n- Pocion: ${cp1}` : ''}${cc1 > 0 ? `\ncommon crate: ${cc1}` : ''}${cu1 > 0 ? `\n- Caja normal: ${cu1}` : ''}
+${cm1 > 0 ? `\n- Dinero: ${cm1}` : ''}${ce1 > 0 ? `\n- Exp: ${ce1}` : ''}${cp1 > 0 ? `\n- Pocion: ${cp1}` : ''}${cc1 > 0 ? `\n- Normal: ${cc1}` : ''}${cu1 > 0 ? `\n- Caja normal: ${cu1}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 10) {
                         global.DATABASE._data.users[m.sender].common -= 10
@@ -89,7 +89,7 @@ ${cm1 > 0 ? `\n- Dinero: ${cm1}` : ''}${ce1 > 0 ? `\n- Exp: ${ce1}` : ''}${cp1 >
                     let cu2 = (_cu2 * 1)
                     let Hcom2 = `
 Abriste *100 cajas comunes* y obtienes:
-${cm2 > 0 ? `\n- Dinero: ${cm2}` : ''}${ce2 > 0 ? `\n- Exp: ${ce2}` : ''}${cp2 > 0 ? `\n- Pocion: ${cp2}` : ''}${cc2 > 0 ? `\ncommon crate: ${cc2}` : ''}${cu2 > 0 ? `\n- Caja normal: ${cu2}` : ''}
+${cm2 > 0 ? `\n- Dinero: ${cm2}` : ''}${ce2 > 0 ? `\n- Exp: ${ce2}` : ''}${cp2 > 0 ? `\n- Pocion: ${cp2}` : ''}${cc2 > 0 ? `\n- Normal: ${cc2}` : ''}${cu2 > 0 ? `\n- Caja normal: ${cu2}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 100) {
                         global.DATABASE._data.users[m.sender].common -= 100
@@ -114,7 +114,7 @@ ${cm2 > 0 ? `\n- Dinero: ${cm2}` : ''}${ce2 > 0 ? `\n- Exp: ${ce2}` : ''}${cp2 >
                     let cu3 = (_cu3 * 1)
                     let Hcom3 = `
 Abriste *1000 cajas comunes* y obtienes:
-${cm3 > 0 ? `\n- Dinero: ${cm3}` : ''}${ce3 > 0 ? `\n- Exp: ${ce3}` : ''}${cp3 > 0 ? `\n- Pocion: ${cp3}` : ''}${cc3 > 0 ? `\ncommon crate: ${cc3}` : ''}${cu3 > 0 ? `\n- Caja normal: ${cu3}` : ''}
+${cm3 > 0 ? `\n- Dinero: ${cm3}` : ''}${ce3 > 0 ? `\n- Exp: ${ce3}` : ''}${cp3 > 0 ? `\n- Pocion: ${cp3}` : ''}${cc3 > 0 ? `\n- Normal: ${cc3}` : ''}${cu3 > 0 ? `\n- Caja normal: ${cu3}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1000) {
                         global.DATABASE._data.users[m.sender].common -= 1000
@@ -162,7 +162,7 @@ ${um > 0 ? `\n- Dinero: ${um}` : ''}${ue > 0 ? `\n- Exp: ${ue}` : ''}${ud > 0 ? 
                         global.DATABASE._data.users[m.sender].uncommon += uu * 1
                         conn.reply(m.chat, Hun, m)
                         if (umc > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${umc} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += umc * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
@@ -196,7 +196,7 @@ ${um1 > 0 ? `\n- Dinero: ${um1}` : ''}${ue1 > 0 ? `\n- Exp: ${ue1}` : ''}${ud1 >
                         global.DATABASE._data.users[m.sender].uncommon += uu1 * 1
                         conn.reply(m.chat, Hun1, m)
                         if (umc1 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc1} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${umc1} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += umc1 * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
@@ -230,7 +230,7 @@ ${um2 > 0 ? `\n- Dinero: ${um2}` : ''}${ue2 > 0 ? `\n- Exp: ${ue2}` : ''}${ud2 >
                         global.DATABASE._data.users[m.sender].uncommon += uu2 * 1
                         conn.reply(m.chat, Hun2, m)
                         if (umc2 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc2} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${umc2} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += umc2 * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
@@ -264,7 +264,7 @@ ${um3 > 0 ? `\n- Dinero: ${um3}` : ''}${ue3 > 0 ? `\n- Exp: ${ue3}` : ''}${ud3 >
                         global.DATABASE._data.users[m.sender].uncommon += uu3 * 1
                         conn.reply(m.chat, Hun3, m)
                         if (umc3 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc3} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${umc3} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += umc3 * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
@@ -307,11 +307,11 @@ ${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me}` : ''}${md > 0 ? 
                         global.DATABASE._data.users[m.sender].uncommon += mu * 1
                         conn.reply(m.chat, Mychat, m)
                         if (mmm > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${mmm} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${mmm} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += mmm * 1
                         }
                         if (ml > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml} Legendary Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo epico*\n${ml} Cajas legendarias`)
                             global.DATABASE._data.users[m.sender].legendary += ml * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficientes cajas miticas', m)
@@ -347,11 +347,11 @@ ${mm1 > 0 ? `\n- Dinero: ${mm1}` : ''}${me1 > 0 ? `\n- Exp: ${me1}` : ''}${md1 >
                         global.DATABASE._data.users[m.sender].uncommon += mu1 * 1
                         conn.reply(m.chat, Mychat1, m)
                         if (mmm1 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${mmm1} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${mmm1} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += mmm1 * 1
                         }
                         if (ml1 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml1} Legendary Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo epico*\n${ml1} Cajas legendarias`)
                             global.DATABASE._data.users[m.sender].legendary += ml1 * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficientes cajas miticas', m)
@@ -419,11 +419,11 @@ ${mm3 > 0 ? `\n- Dinero: ${mm3}` : ''}${me3 > 0 ? `\n- Exp: ${me3}` : ''}${md3 >
                         global.DATABASE._data.users[m.sender].uncommon += mu3 * 1
                         conn.reply(m.chat, Mychat3, m)
                         if (mmm3 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${mmm3} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${mmm3} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += mmm3 * 1
                         }
                         if (ml3 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml3} Legendary Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo epico*\n${ml3} Cajas legendarias`)
                             global.DATABASE._data.users[m.sender].legendary += ml3 * 1
                         }
                     } else conn.reply(m.chat, 'No tienes suficientes cajas miticas', m)
@@ -468,11 +468,11 @@ ${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le}` : ''}${ld > 0 ? 
                         global.DATABASE._data.users[m.sender].uncommon += lu * 1
                         conn.reply(m.chat, Lechat, m)
                         if (lmm > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${lmm} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${lmm} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += lmm * 1
                         }
                         if (ll > 0 || lpp > 0) {
-                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*${ll > 0 ? `\n${ll} Legendary Crate` : ''}${lpp > 0 ? `\n${lpp} Pet Crate` : ''}`)
+                             m.reply(`*Felicidades, obtienes un artículo epico*${ll > 0 ? `\n${ll} Cajas legendarias` : ''}${lpp > 0 ? `\n${lpp} Caja de mascotas` : ''}`)
                             global.DATABASE._data.users[m.sender].legendary += ll * 1
                             global.DATABASE._data.users[m.sender].pet += lpp * 1
                         }
@@ -511,11 +511,11 @@ ${lm1 > 0 ? `\n- Dinero: ${lm1}` : ''}${le1 > 0 ? `\n- Exp: ${le1}` : ''}${ld1 >
                         global.DATABASE._data.users[m.sender].uncommon += lu1 * 1
                         conn.reply(m.chat, Lechat1, m)
                         if (lmm1 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${lmm1} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${lmm1} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += lmm1 * 1
                         }
                         if (ll1 > 0 || lpp1 > 0) {
-                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*${ll1 > 0 ? `\n${ll1} Legendary Crate` : ''}${lpp1 > 0 ? `\n${lpp1} Pet Crate` : ''}`)
+                             m.reply(`*Felicidades, obtienes un artículo epico*${ll1 > 0 ? `\n${ll1} Cajas legendarias` : ''}${lpp1 > 0 ? `\n${lpp1} Caja de mascotas` : ''}`)
                             global.DATABASE._data.users[m.sender].legendary += ll1 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp1 * 1
                         }
@@ -554,11 +554,11 @@ ${lm2 > 0 ? `\n- Dinero: ${lm2}` : ''}${le2 > 0 ? `\n- Exp: ${le2}` : ''}${ld2 >
                         global.DATABASE._data.users[m.sender].uncommon += lu2 * 1
                         conn.reply(m.chat, Lechat2, m)
                         if (lmm2 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${lmm2} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${lmm2} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += lmm2 * 1
                         }
                         if (ll2 > 0 || lpp2 > 0) {
-                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*${ll2 > 0 ? `\n${ll2} Legendary Crate` : ''}${lpp2 > 0 ? `\n${lpp2} Pet Crate` : ''}`)
+                             m.reply(`*Felicidades, obtienes un artículo epico*${ll2 > 0 ? `\n${ll2} Cajas legendarias` : ''}${lpp2 > 0 ? `\n${lpp2} Caja de mascotas` : ''}`)
                             global.DATABASE._data.users[m.sender].legendary += ll2 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp2 * 1
                         }
@@ -597,11 +597,11 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
                         global.DATABASE._data.users[m.sender].uncommon += lu3 * 1
                         conn.reply(m.chat, Lechat3, m)
                         if (lmm3 > 0) {
-                            m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${lmm3} Mythic Crate`)
+                            m.reply(`*Felicidades, obtienes un artículo raro*\n${lmm3} Caja mitica`)
                             global.DATABASE._data.users[m.sender].mythic += lmm3 * 1
                         }
                         if (ll3 > 0 || lpp3 > 0) {
-                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*${ll3 > 0 ? `\n${ll3} Legendary Crate` : ''}${lpp3 > 0 ? `\n${lpp3} Pet Crate` : ''}`)
+                             m.reply(`*Felicidades, obtienes un artículo epico*${ll3 > 0 ? `\n${ll3} Cajas legendarias` : ''}${lpp3 > 0 ? `\n${lpp3} Caja de mascotas` : ''}`)
                             global.DATABASE._data.users[m.sender].legendary += ll3 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp3 * 1
                         }
