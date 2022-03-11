@@ -1,7 +1,7 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
   try {
-    let bruh = `*Ingrese el nombre*
+    let bruh = `*Ingrese el nombre & la cantidad*
 
 - Ejemplo: ${usedPrefix + command} comun 10
 
@@ -19,7 +19,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
 - 1000
 `.trim()
     let _lmao = args[0]
-    let Lmao = `Cantidades disponible 1, 10, 100, 1000`
+    let Lmao = `Solo están disponible estas cantidades 1, 10, 100, 1000`
     let type = (args[0] || '').toLowerCase()
     let jumlah = (args[1] || '').toLowerCase()
     switch (type) {
@@ -295,7 +295,7 @@ ${um3 > 0 ? `\n- Dinero: ${um3}` : ''}${ue3 > 0 ? `\n- Exp: ${ue3}` : ''}${ud3 >
                     let md = (_md * 1)
                     let Mychat = `
 Abriste *una caja mitica* y obtienes:
-:${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me}` : ''}${md > 0 ? `\n- Diamante: ${md}` : ''}${mp > 0 ? `\n- Pocion: ${mp}` : ''}${mc > 0 ? `\n- Caja comun: ${mc}` : ''}${mu > 0 ? `\n- Caja normal: ${mu}` : ''}
+${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me}` : ''}${md > 0 ? `\n- Diamante: ${md}` : ''}${mp > 0 ? `\n- Pocion: ${mp}` : ''}${mc > 0 ? `\n- Caja comun: ${mc}` : ''}${mu > 0 ? `\n- Caja normal: ${mu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 1) {
                         global.DATABASE._data.users[m.sender].mythic -= 1
@@ -335,7 +335,7 @@ Abriste *una caja mitica* y obtienes:
                     let md1 = (_md1 * 1)
                     let Mychat1 = `
 Abriste *10 cajas miticas* y obtienes:
-:${mm1 > 0 ? `\n- Dinero: ${mm1}` : ''}${me1 > 0 ? `\n- Exp: ${me1}` : ''}${md1 > 0 ? `\n- Diamante: ${md1}` : ''}${mp1 > 0 ? `\n- Pocion: ${mp1}` : ''}${mc1 > 0 ? `\n- Caja comun: ${mc1}` : ''}${mu1 > 0 ? `\n- Caja normal: ${mu1}` : ''}
+${mm1 > 0 ? `\n- Dinero: ${mm1}` : ''}${me1 > 0 ? `\n- Exp: ${me1}` : ''}${md1 > 0 ? `\n- Diamante: ${md1}` : ''}${mp1 > 0 ? `\n- Pocion: ${mp1}` : ''}${mc1 > 0 ? `\n- Caja comun: ${mc1}` : ''}${mu1 > 0 ? `\n- Caja normal: ${mu1}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 10) {
                         global.DATABASE._data.users[m.sender].mythic -= 10
@@ -375,7 +375,7 @@ Abriste *10 cajas miticas* y obtienes:
                     let md2 = (_md2 * 1)
                     let Mychat2 = `
 Abriste *100 cajas miticas* y obtienes:
-:${mm2 > 0 ? `\n- Dinero: ${mm2}` : ''}${me2 > 0 ? `\n- Exp: ${me2}` : ''}${md2 > 0 ? `\n- Diamante: ${md2}` : ''}${mp2 > 0 ? `\n- Pocion: ${mp2}` : ''}${mc2 > 0 ? `\n- Caja comun: ${mc2}` : ''}${mu2 > 0 ? `\n- Caja normal: ${mu2}` : ''}
+${mm2 > 0 ? `\n- Dinero: ${mm2}` : ''}${me2 > 0 ? `\n- Exp: ${me2}` : ''}${md2 > 0 ? `\n- Diamante: ${md2}` : ''}${mp2 > 0 ? `\n- Pocion: ${mp2}` : ''}${mc2 > 0 ? `\n- Caja comun: ${mc2}` : ''}${mu2 > 0 ? `\n- Caja normal: ${mu2}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 100) {
                         global.DATABASE._data.users[m.sender].mythic -= 100
@@ -407,7 +407,7 @@ Abriste *100 cajas miticas* y obtienes:
                     let md3 = (_md3 * 1)
                     let Mychat3 = `
 Abriste *1000 cajas miticas* y obtienes:
-:${mm3 > 0 ? `\n- Dinero: ${mm3}` : ''}${me3 > 0 ? `\n- Exp: ${me3}` : ''}${md3 > 0 ? `\n- Diamante: ${md3}` : ''}${mp3 > 0 ? `\n- Pocion: ${mp3}` : ''}${mc3 > 0 ? `\n- Caja comun: ${mc3}` : ''}${mu3 > 0 ? `\n- Caja normal: ${mu3}` : ''}
+${mm3 > 0 ? `\n- Dinero: ${mm3}` : ''}${me3 > 0 ? `\n- Exp: ${me3}` : ''}${md3 > 0 ? `\n- Diamante: ${md3}` : ''}${mp3 > 0 ? `\n- Pocion: ${mp3}` : ''}${mc3 > 0 ? `\n- Caja comun: ${mc3}` : ''}${mu3 > 0 ? `\n- Caja normal: ${mu3}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 1000) {
                         global.DATABASE._data.users[m.sender].mythic -= 1000
@@ -456,7 +456,7 @@ Abriste *1000 cajas miticas* y obtienes:
                     let lmm = (_lmm * 1)
                     let Lechat = `
 Abriste *una caja legendaria* y obtienes:
-:${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le}` : ''}${ld > 0 ? `\n- Diamante: ${ld}` : ''}${lp > 0 ? `\n- Pocion: ${lp}` : ''}${lc > 0 ? `\n- Caja comun: ${lc}` : ''}${lu > 0 ? `\n- Caja normal: ${lu}` : ''}
+${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le}` : ''}${ld > 0 ? `\n- Diamante: ${ld}` : ''}${lp > 0 ? `\n- Pocion: ${lp}` : ''}${lc > 0 ? `\n- Caja comun: ${lc}` : ''}${lu > 0 ? `\n- Caja normal: ${lu}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 1) {
                         global.DATABASE._data.users[m.sender].legendary -= 1
@@ -499,7 +499,7 @@ Abriste *una caja legendaria* y obtienes:
                     let lmm1 = (_lmm1 * 1)
                     let Lechat1 = `
 Abriste *10 cajas legendarias* y obtienes:
-:${lm1 > 0 ? `\n- Dinero: ${lm1}` : ''}${le1 > 0 ? `\n- Exp: ${le1}` : ''}${ld1 > 0 ? `\n- Diamante: ${ld1}` : ''}${lp1 > 0 ? `\n- Pocion: ${lp1}` : ''}${lc1 > 0 ? `\n- Caja comun: ${lc1}` : ''}${lu1 > 0 ? `\n- Caja normal: ${lu1}` : ''}
+${lm1 > 0 ? `\n- Dinero: ${lm1}` : ''}${le1 > 0 ? `\n- Exp: ${le1}` : ''}${ld1 > 0 ? `\n- Diamante: ${ld1}` : ''}${lp1 > 0 ? `\n- Pocion: ${lp1}` : ''}${lc1 > 0 ? `\n- Caja comun: ${lc1}` : ''}${lu1 > 0 ? `\n- Caja normal: ${lu1}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 10) {
                         global.DATABASE._data.users[m.sender].legendary -= 10
@@ -542,7 +542,7 @@ Abriste *10 cajas legendarias* y obtienes:
                     let lmm2 = (_lmm2 * 1)
                     let Lechat2 = `
 Abriste *100 cajas legendarias* y obtienes:
-:${lm2 > 0 ? `\n- Dinero: ${lm2}` : ''}${le2 > 0 ? `\n- Exp: ${le2}` : ''}${ld2 > 0 ? `\n- Diamante: ${ld2}` : ''}${lp2 > 0 ? `\n- Pocion: ${lp2}` : ''}${lc2 > 0 ? `\n- Caja comun: ${lc2}` : ''}${lu2 > 0 ? `\n- Caja normal: ${lu2}` : ''}
+${lm2 > 0 ? `\n- Dinero: ${lm2}` : ''}${le2 > 0 ? `\n- Exp: ${le2}` : ''}${ld2 > 0 ? `\n- Diamante: ${ld2}` : ''}${lp2 > 0 ? `\n- Pocion: ${lp2}` : ''}${lc2 > 0 ? `\n- Caja comun: ${lc2}` : ''}${lu2 > 0 ? `\n- Caja normal: ${lu2}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 100) {
                         global.DATABASE._data.users[m.sender].legendary -= 100
@@ -585,7 +585,7 @@ Abriste *100 cajas legendarias* y obtienes:
                     let lmm3 = (_lmm3 * 1)
                     let Lechat3 = `
 Abriste *1000 cajas legendarias* y obtienes:
-:${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 > 0 ? `\n- Diamante: ${ld3}` : ''}${lp3 > 0 ? `\n- Pocion: ${lp3}` : ''}${lc3 > 0 ? `\n- Caja comun: ${lc3}` : ''}${lu3 > 0 ? `\n- Caja normal: ${lu3}` : ''}
+${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 > 0 ? `\n- Diamante: ${ld3}` : ''}${lp3 > 0 ? `\n- Pocion: ${lp3}` : ''}${lc3 > 0 ? `\n- Caja comun: ${lc3}` : ''}${lu3 > 0 ? `\n- Caja normal: ${lu3}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 1000) {
                         global.DATABASE._data.users[m.sender].legendary -= 1000
