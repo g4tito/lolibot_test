@@ -38,7 +38,8 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
                     let ce = (_ce * 1)
                     let cu = (_cu * 1)
                     let Hcom = `
-Abriste *una caja comun* y obtienes:${cm > 0 ? `\n- Dinero: ${cm}` : ''}${ce > 0 ? `\n- - Exp: ${ce}` : ''}${cp > 0 ? `\n- Pocion: ${cp}` : ''}${cc > 0 ? `\n- Caja comun: ${cc}` : ''}${cu > 0 ? `\n- Caja normal: ${cu}` : ''}
+Abriste *una caja comun* y obtienes:
+${cm > 0 ? `\n- Dinero: ${cm}` : ''}${ce > 0 ? `\n- - Exp: ${ce}` : ''}${cp > 0 ? `\n- Pocion: ${cp}` : ''}${cc > 0 ? `\n- Caja comun: ${cc}` : ''}${cu > 0 ? `\n- Caja normal: ${cu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1) {
                         global.DATABASE._data.users[m.sender].common -= 1
@@ -62,7 +63,8 @@ Abriste *una caja comun* y obtienes:${cm > 0 ? `\n- Dinero: ${cm}` : ''}${ce > 0
                     let ce1 = (_ce1 * 1)
                     let cu1 = (_cu1 * 1)
                     let Hcom1 = `
-Abriste *10 cajas comunes* y obtienes:${cm1 > 0 ? `\n- Dinero: ${cm1}` : ''}${ce1 > 0 ? `\n- Exp: ${ce1} *exp*` : ''}${cp1 > 0 ? `\n- Pocion: ${cp1} *potion*` : ''}${cc1 > 0 ? `\ncommon crate: ${cc1} *crate*` : ''}${cu1 > 0 ? `\n- Caja normal: ${cu1} *crate*` : ''}
+Abriste *10 cajas comunes* y obtienes:
+${cm1 > 0 ? `\n- Dinero: ${cm1}` : ''}${ce1 > 0 ? `\n- Exp: ${ce1}` : ''}${cp1 > 0 ? `\n- Pocion: ${cp1}` : ''}${cc1 > 0 ? `\ncommon crate: ${cc1}` : ''}${cu1 > 0 ? `\n- Caja normal: ${cu1}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 10) {
                         global.DATABASE._data.users[m.sender].common -= 10
@@ -86,7 +88,8 @@ Abriste *10 cajas comunes* y obtienes:${cm1 > 0 ? `\n- Dinero: ${cm1}` : ''}${ce
                     let ce2 = (_ce2 * 1)
                     let cu2 = (_cu2 * 1)
                     let Hcom2 = `
-Abriste *100 cajas comunes* y obtienes:${cm2 > 0 ? `\n- Dinero: ${cm2}` : ''}${ce2 > 0 ? `\n- Exp: ${ce2} *exp*` : ''}${cp2 > 0 ? `\n- Pocion: ${cp2} *potion*` : ''}${cc2 > 0 ? `\ncommon crate: ${cc2} *crate*` : ''}${cu2 > 0 ? `\n- Caja normal: ${cu2} *crate*` : ''}
+Abriste *100 cajas comunes* y obtienes:
+${cm2 > 0 ? `\n- Dinero: ${cm2}` : ''}${ce2 > 0 ? `\n- Exp: ${ce2}` : ''}${cp2 > 0 ? `\n- Pocion: ${cp2}` : ''}${cc2 > 0 ? `\ncommon crate: ${cc2}` : ''}${cu2 > 0 ? `\n- Caja normal: ${cu2}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 100) {
                         global.DATABASE._data.users[m.sender].common -= 100
@@ -110,7 +113,8 @@ Abriste *100 cajas comunes* y obtienes:${cm2 > 0 ? `\n- Dinero: ${cm2}` : ''}${c
                     let ce3 = (_ce3 * 1)
                     let cu3 = (_cu3 * 1)
                     let Hcom3 = `
-Abriste *1000 cajas comunes* y obtienes:${cm3 > 0 ? `\n- Dinero: ${cm3}` : ''}${ce3 > 0 ? `\n- Exp: ${ce3} *exp*` : ''}${cp3 > 0 ? `\n- Pocion: ${cp3} *potion*` : ''}${cc3 > 0 ? `\ncommon crate: ${cc3} *crate*` : ''}${cu3 > 0 ? `\n- Caja normal: ${cu3} *crate*` : ''}
+Abriste *1000 cajas comunes* y obtienes:
+${cm3 > 0 ? `\n- Dinero: ${cm3}` : ''}${ce3 > 0 ? `\n- Exp: ${ce3}` : ''}${cp3 > 0 ? `\n- Pocion: ${cp3}` : ''}${cc3 > 0 ? `\ncommon crate: ${cc3}` : ''}${cu3 > 0 ? `\n- Caja normal: ${cu3}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1000) {
                         global.DATABASE._data.users[m.sender].common -= 1000
@@ -145,7 +149,8 @@ Abriste *1000 cajas comunes* y obtienes:${cm3 > 0 ? `\n- Dinero: ${cm3}` : ''}${
                     let uu = (_uu * 1)
                     let uc = (_uc * 1)
                     let Hun = `
-Abriste *un caja normal* y obtienes:${um > 0 ? `\n- Dinero: ${um}` : ''}${ue > 0 ? `\n- Exp: ${ue} *exp*` : ''}${ud > 0 ? `\n- Diamante: ${ud} *diamond*` : ''}${up > 0 ? `\n- Pocion: ${up} *potion*` : ''}${uc > 0 ? `\n- Caja comun: ${uc} *crate*` : ''}${uu > 0 ? `\n- Caja normal: ${uu} *crate*` : ''}
+Abriste *un caja normal* y obtienes:
+${um > 0 ? `\n- Dinero: ${um}` : ''}${ue > 0 ? `\n- Exp: ${ue}` : ''}${ud > 0 ? `\n- Diamante: ${ud}` : ''}${up > 0 ? `\n- Pocion: ${up}` : ''}${uc > 0 ? `\n- Caja comun: ${uc}` : ''}${uu > 0 ? `\n- Caja normal: ${uu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].uncommon >= 1) {
                         global.DATABASE._data.users[m.sender].uncommon -= 1
@@ -160,7 +165,7 @@ Abriste *un caja normal* y obtienes:${um > 0 ? `\n- Dinero: ${um}` : ''}${ue > 0
                             m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc} Mythic Crate`)
                             global.DATABASE._data.users[m.sender].mythic += umc * 1
                         }
-                    } else conn.reply(m.chat, 'Uncommon crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
                     break
                 case '10':
                     let _ud1 = `${Math.floor(Math.random() * 5)}`.trim()
@@ -178,7 +183,8 @@ Abriste *un caja normal* y obtienes:${um > 0 ? `\n- Dinero: ${um}` : ''}${ue > 0
                     let uu1 = (_uu1 * 1)
                     let uc1 = (_uc1 * 1)
                     let Hun1 = `
-Abriste *10 cajas normales* y obtienes:${um1 > 0 ? `\n- Dinero: ${um1}` : ''}${ue1 > 0 ? `\n- Exp: ${ue1} *exp*` : ''}${ud1 > 0 ? `\n- Diamante: ${ud1} *diamond*` : ''}${up1 > 0 ? `\n- Pocion: ${up1} *potion*` : ''}${uc1 > 0 ? `\n- Caja comun: ${uc1} *crate*` : ''}${uu1 > 0 ? `\n- Caja normal: ${uu1} *crate*` : ''}
+Abriste *10 cajas normales* y obtienes:
+${um1 > 0 ? `\n- Dinero: ${um1}` : ''}${ue1 > 0 ? `\n- Exp: ${ue1}` : ''}${ud1 > 0 ? `\n- Diamante: ${ud1}` : ''}${up1 > 0 ? `\n- Pocion: ${up1}` : ''}${uc1 > 0 ? `\n- Caja comun: ${uc1}` : ''}${uu1 > 0 ? `\n- Caja normal: ${uu1}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].uncommon >= 10) {
                         global.DATABASE._data.users[m.sender].uncommon -= 10
@@ -193,7 +199,7 @@ Abriste *10 cajas normales* y obtienes:${um1 > 0 ? `\n- Dinero: ${um1}` : ''}${u
                             m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc1} Mythic Crate`)
                             global.DATABASE._data.users[m.sender].mythic += umc1 * 1
                         }
-                    } else conn.reply(m.chat, 'Uncommon crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
                     break
                 case '100':
                     let _ud2 = `${Math.floor(Math.random() * 20)}`.trim()
@@ -211,7 +217,8 @@ Abriste *10 cajas normales* y obtienes:${um1 > 0 ? `\n- Dinero: ${um1}` : ''}${u
                     let uu2 = (_uu2 * 1)
                     let uc2 = (_uc2 * 1)
                     let Hun2 = `
-Abriste *100 cajas normales* y obtienes:${um2 > 0 ? `\n- Dinero: ${um2}` : ''}${ue2 > 0 ? `\n- Exp: ${ue2} *exp*` : ''}${ud2 > 0 ? `\n- Diamante: ${ud2} *diamond*` : ''}${up2 > 0 ? `\n- Pocion: ${up2} *potion*` : ''}${uc2 > 0 ? `\n- Caja comun: ${uc2} *crate*` : ''}${uu2 > 0 ? `\n- Caja normal: ${uu2} *crate*` : ''}
+Abriste *100 cajas normales* y obtienes:
+${um2 > 0 ? `\n- Dinero: ${um2}` : ''}${ue2 > 0 ? `\n- Exp: ${ue2}` : ''}${ud2 > 0 ? `\n- Diamante: ${ud2}` : ''}${up2 > 0 ? `\n- Pocion: ${up2}` : ''}${uc2 > 0 ? `\n- Caja comun: ${uc2}` : ''}${uu2 > 0 ? `\n- Caja normal: ${uu2}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].uncommon >= 100) {
                         global.DATABASE._data.users[m.sender].uncommon -= 100
@@ -226,7 +233,7 @@ Abriste *100 cajas normales* y obtienes:${um2 > 0 ? `\n- Dinero: ${um2}` : ''}${
                             m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc2} Mythic Crate`)
                             global.DATABASE._data.users[m.sender].mythic += umc2 * 1
                         }
-                    } else conn.reply(m.chat, 'Uncommon crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
                     break
                 case '1000':
                     let _ud3 = `${Math.floor(Math.random() * 50)}`.trim()
@@ -244,7 +251,8 @@ Abriste *100 cajas normales* y obtienes:${um2 > 0 ? `\n- Dinero: ${um2}` : ''}${
                     let uu3 = (_uu3 * 1)
                     let uc3 = (_uc3 * 1)
                     let Hun3 = `
-Abriste *1000 cajas normales* y obtienes:${um3 > 0 ? `\n- Dinero: ${um3}` : ''}${ue3 > 0 ? `\n- Exp: ${ue3} *exp*` : ''}${ud3 > 0 ? `\n- Diamante: ${ud3} *diamond*` : ''}${up3 > 0 ? `\n- Pocion: ${up3} *potion*` : ''}${uc3 > 0 ? `\n- Caja comun: ${uc3} *crate*` : ''}${uu3 > 0 ? `\n- Caja normal: ${uu3} *crate*` : ''}
+Abriste *1000 cajas normales* y obtienes:
+${um3 > 0 ? `\n- Dinero: ${um3}` : ''}${ue3 > 0 ? `\n- Exp: ${ue3}` : ''}${ud3 > 0 ? `\n- Diamante: ${ud3}` : ''}${up3 > 0 ? `\n- Pocion: ${up3}` : ''}${uc3 > 0 ? `\n- Caja comun: ${uc3}` : ''}${uu3 > 0 ? `\n- Caja normal: ${uu3}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].uncommon >= 1000) {
                         global.DATABASE._data.users[m.sender].uncommon -= 1000
@@ -259,7 +267,7 @@ Abriste *1000 cajas normales* y obtienes:${um3 > 0 ? `\n- Dinero: ${um3}` : ''}$
                             m.reply(`*Selamat anda mendapatkan item Rare yaitu*\n${umc3} Mythic Crate`)
                             global.DATABASE._data.users[m.sender].mythic += umc3 * 1
                         }
-                    } else conn.reply(m.chat, 'Uncommon crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas normales', m)
                     break
                 default:
                     return conn.reply(m.chat, Lmao ,m)
@@ -286,7 +294,8 @@ Abriste *1000 cajas normales* y obtienes:${um3 > 0 ? `\n- Dinero: ${um3}` : ''}$
                     let ml = (_ml * 1)
                     let md = (_md * 1)
                     let Mychat = `
-Anda telah membuka *Mythic crate* dan mendapatkan:${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me} *exp*` : ''}${md > 0 ? `\n- Diamante: ${md} *diamond*` : ''}${mp > 0 ? `\n- Pocion: ${mp} *potion*` : ''}${mc > 0 ? `\n- Caja comun: ${mc} *crate*` : ''}${mu > 0 ? `\n- Caja normal: ${mu} *crate*` : ''}
+Abriste *una caja mitica* y obtienes:
+:${mm > 0 ? `\n- Dinero: ${mm}` : ''}${me > 0 ? `\n- Exp: ${me}` : ''}${md > 0 ? `\n- Diamante: ${md}` : ''}${mp > 0 ? `\n- Pocion: ${mp}` : ''}${mc > 0 ? `\n- Caja comun: ${mc}` : ''}${mu > 0 ? `\n- Caja normal: ${mu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 1) {
                         global.DATABASE._data.users[m.sender].mythic -= 1
@@ -305,7 +314,7 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm > 0 ? `\n- Dinero: ${mm}`
                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml} Legendary Crate`)
                             global.DATABASE._data.users[m.sender].legendary += ml * 1
                         }
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas miticas', m)
                     break
                 case '10':
                     let _mm1 = `${Math.floor(Math.random() * 2000)}`.trim()
@@ -325,7 +334,8 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm > 0 ? `\n- Dinero: ${mm}`
                     let ml1 = (_ml1 * 1)
                     let md1 = (_md1 * 1)
                     let Mychat1 = `
-Anda telah membuka *Mythic crate* dan mendapatkan:${mm1 > 0 ? `\n- Dinero: ${mm1}` : ''}${me1 > 0 ? `\n- Exp: ${me1} *exp*` : ''}${md1 > 0 ? `\n- Diamante: ${md1} *diamond*` : ''}${mp1 > 0 ? `\n- Pocion: ${mp1} *potion*` : ''}${mc1 > 0 ? `\n- Caja comun: ${mc1} *crate*` : ''}${mu1 > 0 ? `\n- Caja normal: ${mu1} *crate*` : ''}
+Abriste *10 cajas miticas* y obtienes:
+:${mm1 > 0 ? `\n- Dinero: ${mm1}` : ''}${me1 > 0 ? `\n- Exp: ${me1}` : ''}${md1 > 0 ? `\n- Diamante: ${md1}` : ''}${mp1 > 0 ? `\n- Pocion: ${mp1}` : ''}${mc1 > 0 ? `\n- Caja comun: ${mc1}` : ''}${mu1 > 0 ? `\n- Caja normal: ${mu1}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 10) {
                         global.DATABASE._data.users[m.sender].mythic -= 10
@@ -344,7 +354,7 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm1 > 0 ? `\n- Dinero: ${mm1
                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml1} Legendary Crate`)
                             global.DATABASE._data.users[m.sender].legendary += ml1 * 1
                         }
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas miticas', m)
                     break
                 case '100':
                     let _mm2 = `${Math.floor(Math.random() * 25000)}`.trim()
@@ -364,7 +374,8 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm1 > 0 ? `\n- Dinero: ${mm1
                     let ml2 = (_ml2 * 1)
                     let md2 = (_md2 * 1)
                     let Mychat2 = `
-Anda telah membuka *Mythic crate* dan mendapatkan:${mm2 > 0 ? `\n- Dinero: ${mm2}` : ''}${me2 > 0 ? `\n- Exp: ${me2} *exp*` : ''}${md2 > 0 ? `\n- Diamante: ${md2} *diamond*` : ''}${mp2 > 0 ? `\n- Pocion: ${mp2} *potion*` : ''}${mc2 > 0 ? `\n- Caja comun: ${mc2} *crate*` : ''}${mu2 > 0 ? `\n- Caja normal: ${mu2} *crate*` : ''}
+Abriste *100 cajas miticas* y obtienes:
+:${mm2 > 0 ? `\n- Dinero: ${mm2}` : ''}${me2 > 0 ? `\n- Exp: ${me2}` : ''}${md2 > 0 ? `\n- Diamante: ${md2}` : ''}${mp2 > 0 ? `\n- Pocion: ${mp2}` : ''}${mc2 > 0 ? `\n- Caja comun: ${mc2}` : ''}${mu2 > 0 ? `\n- Caja normal: ${mu2}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 100) {
                         global.DATABASE._data.users[m.sender].mythic -= 100
@@ -375,7 +386,7 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm2 > 0 ? `\n- Dinero: ${mm2
                         global.DATABASE._data.users[m.sender].common += mc2 * 1
                         global.DATABASE._data.users[m.sender].uncommon += mu2 * 1
                         conn.reply(m.chat, Mychat2, m)
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas miticas', m)
                     break
                 case '1000':
                     let _mm3 = `${Math.floor(Math.random() * 500000)}`.trim()
@@ -395,7 +406,8 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm2 > 0 ? `\n- Dinero: ${mm2
                     let ml3 = (_ml3 * 1)
                     let md3 = (_md3 * 1)
                     let Mychat3 = `
-Anda telah membuka *Mythic crate* dan mendapatkan:${mm3 > 0 ? `\n- Dinero: ${mm3}` : ''}${me3 > 0 ? `\n- Exp: ${me3} *exp*` : ''}${md3 > 0 ? `\n- Diamante: ${md3} *diamond*` : ''}${mp3 > 0 ? `\n- Pocion: ${mp3} *potion*` : ''}${mc3 > 0 ? `\n- Caja comun: ${mc3} *crate*` : ''}${mu3 > 0 ? `\n- Caja normal: ${mu3} *crate*` : ''}
+Abriste *1000 cajas miticas* y obtienes:
+:${mm3 > 0 ? `\n- Dinero: ${mm3}` : ''}${me3 > 0 ? `\n- Exp: ${me3}` : ''}${md3 > 0 ? `\n- Diamante: ${md3}` : ''}${mp3 > 0 ? `\n- Pocion: ${mp3}` : ''}${mc3 > 0 ? `\n- Caja comun: ${mc3}` : ''}${mu3 > 0 ? `\n- Caja normal: ${mu3}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].mythic >= 1000) {
                         global.DATABASE._data.users[m.sender].mythic -= 1000
@@ -414,7 +426,7 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm3 > 0 ? `\n- Dinero: ${mm3
                             m.reply(`*Selamat anda mendapatkan item Epic yaitu*\n${ml3} Legendary Crate`)
                             global.DATABASE._data.users[m.sender].legendary += ml3 * 1
                         }
-                    } else conn.reply(m.chat, 'Mythic crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas miticas', m)
                     break
                 default:
                     return conn.reply(m.chat, Lmao, m)
@@ -443,7 +455,8 @@ Anda telah membuka *Mythic crate* dan mendapatkan:${mm3 > 0 ? `\n- Dinero: ${mm3
                     let ld = (_ld * 1) 
                     let lmm = (_lmm * 1)
                     let Lechat = `
-Anda telah membuka *Legendary crate* dan mendapatkan:${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le} *exp*` : ''}${ld > 0 ? `\n- Diamante: ${ld} *diamond*` : ''}${lp > 0 ? `\n- Pocion: ${lp} *potion*` : ''}${lc > 0 ? `\n- Caja comun: ${lc} *crate*` : ''}${lu > 0 ? `\n- Caja normal: ${lu} *crate*` : ''}
+Abriste *una caja legendaria* y obtienes:
+:${lm > 0 ? `\n- Dinero: ${lm}` : ''}${le > 0 ? `\n- Exp: ${le}` : ''}${ld > 0 ? `\n- Diamante: ${ld}` : ''}${lp > 0 ? `\n- Pocion: ${lp}` : ''}${lc > 0 ? `\n- Caja comun: ${lc}` : ''}${lu > 0 ? `\n- Caja normal: ${lu}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 1) {
                         global.DATABASE._data.users[m.sender].legendary -= 1
@@ -463,7 +476,7 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm > 0 ? `\n- Dinero: ${l
                             global.DATABASE._data.users[m.sender].legendary += ll * 1
                             global.DATABASE._data.users[m.sender].pet += lpp * 1
                         }
-                    } else conn.reply(m.chat, 'Legendary crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas legendarias', m)
                     break
                 case '10':
                     let _lm1 = `${Math.floor(Math.random() * 10000)}`.trim()
@@ -485,7 +498,8 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm > 0 ? `\n- Dinero: ${l
                     let ld1 = (_ld1 * 1) 
                     let lmm1 = (_lmm1 * 1)
                     let Lechat1 = `
-Anda telah membuka *Legendary crate* dan mendapatkan:${lm1 > 0 ? `\n- Dinero: ${lm1}` : ''}${le1 > 0 ? `\n- Exp: ${le1} *exp*` : ''}${ld1 > 0 ? `\n- Diamante: ${ld1} *diamond*` : ''}${lp1 > 0 ? `\n- Pocion: ${lp1} *potion*` : ''}${lc1 > 0 ? `\n- Caja comun: ${lc1} *crate*` : ''}${lu1 > 0 ? `\n- Caja normal: ${lu1} *crate*` : ''}
+Abriste *10 cajas legendarias* y obtienes:
+:${lm1 > 0 ? `\n- Dinero: ${lm1}` : ''}${le1 > 0 ? `\n- Exp: ${le1}` : ''}${ld1 > 0 ? `\n- Diamante: ${ld1}` : ''}${lp1 > 0 ? `\n- Pocion: ${lp1}` : ''}${lc1 > 0 ? `\n- Caja comun: ${lc1}` : ''}${lu1 > 0 ? `\n- Caja normal: ${lu1}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 10) {
                         global.DATABASE._data.users[m.sender].legendary -= 10
@@ -505,7 +519,7 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm1 > 0 ? `\n- Dinero: ${
                             global.DATABASE._data.users[m.sender].legendary += ll1 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp1 * 1
                         }
-                    } else conn.reply(m.chat, 'Legendary crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas legendarias', m)
                     break
                 case '100':
                     let _lm2 = `${Math.floor(Math.random() * 100000)}`.trim()
@@ -527,7 +541,8 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm1 > 0 ? `\n- Dinero: ${
                     let ld2 = (_ld2 * 1) 
                     let lmm2 = (_lmm2 * 1)
                     let Lechat2 = `
-Anda telah membuka *Legendary crate* dan mendapatkan:${lm2 > 0 ? `\n- Dinero: ${lm2}` : ''}${le2 > 0 ? `\n- Exp: ${le2} *exp*` : ''}${ld2 > 0 ? `\n- Diamante: ${ld2} *diamond*` : ''}${lp2 > 0 ? `\n- Pocion: ${lp2} *potion*` : ''}${lc2 > 0 ? `\n- Caja comun: ${lc2} *crate*` : ''}${lu2 > 0 ? `\n- Caja normal: ${lu2} *crate*` : ''}
+Abriste *100 cajas legendarias* y obtienes:
+:${lm2 > 0 ? `\n- Dinero: ${lm2}` : ''}${le2 > 0 ? `\n- Exp: ${le2}` : ''}${ld2 > 0 ? `\n- Diamante: ${ld2}` : ''}${lp2 > 0 ? `\n- Pocion: ${lp2}` : ''}${lc2 > 0 ? `\n- Caja comun: ${lc2}` : ''}${lu2 > 0 ? `\n- Caja normal: ${lu2}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 100) {
                         global.DATABASE._data.users[m.sender].legendary -= 100
@@ -547,7 +562,7 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm2 > 0 ? `\n- Dinero: ${
                             global.DATABASE._data.users[m.sender].legendary += ll2 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp2 * 1
                         }
-                    } else conn.reply(m.chat, 'Legendary crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas legendarias', m)
                     break
                 case '1000':
                     let _lm3 = `${Math.floor(Math.random() * 2000000)}`.trim()
@@ -569,7 +584,8 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm2 > 0 ? `\n- Dinero: ${
                     let ld3 = (_ld3 * 1) 
                     let lmm3 = (_lmm3 * 1)
                     let Lechat3 = `
-Anda telah membuka *Legendary crate* dan mendapatkan:${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3} *exp*` : ''}${ld3 > 0 ? `\n- Diamante: ${ld3} *diamond*` : ''}${lp3 > 0 ? `\n- Pocion: ${lp3} *potion*` : ''}${lc3 > 0 ? `\n- Caja comun: ${lc3} *crate*` : ''}${lu3 > 0 ? `\n- Caja normal: ${lu3} *crate*` : ''}
+Abriste *1000 cajas legendarias* y obtienes:
+:${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 > 0 ? `\n- Diamante: ${ld3}` : ''}${lp3 > 0 ? `\n- Pocion: ${lp3}` : ''}${lc3 > 0 ? `\n- Caja comun: ${lc3}` : ''}${lu3 > 0 ? `\n- Caja normal: ${lu3}` : ''}
 `.trim()  
                     if (global.DATABASE._data.users[m.sender].legendary >= 1000) {
                         global.DATABASE._data.users[m.sender].legendary -= 1000
@@ -589,7 +605,7 @@ Anda telah membuka *Legendary crate* dan mendapatkan:${lm3 > 0 ? `\n- Dinero: ${
                             global.DATABASE._data.users[m.sender].legendary += ll3 * 1
                             global.DATABASE._data.users[m.sender].pet += lpp3 * 1
                         }
-                    } else conn.reply(m.chat, 'Legendary crate anda tidak cukup', m)
+                    } else conn.reply(m.chat, 'No tienes suficientes cajas legendarias', m)
                     break
                 default:
                     return conn.reply(m.chat, Lmao, m)
