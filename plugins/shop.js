@@ -25,42 +25,37 @@ let handler  = async (m, { conn, text, command, args, usedPrefix, DevMode }) => 
     let jualbeli = (args[0] || '').toLowerCase()
     let shoprpg = fs.readFileSync('./src/shop.png')
     const Kchat = `
-Lista de articulos:
+*🛒 ARTÍCULOS DE COMPRA 🛍️*
 
-*Artículos  |  Precio de compra*
+- Pocion: _$${potion}_
+- Diamante: _$${Bdiamond}_
+- Basura: _$${Bsampah}_
+- Armadura: _$${armor}_
+- Pico: _$${pickaxe}_
 
-- Pocion:           ${potion}
-- Diamante:     ${Bdiamond}
-- Basura:           ${Bsampah}
-- Armadura:      ${armor}
-- Pico:                 ${pickaxe}
-
-*📦 Cajas*
-- Comun:          ${Bcommon}
-- Normal:         ${Buncommon}
-- Mitico:            ${Bmythic}
-- Legendario:  ${Blegendary}
-
-${usedPrefix}shop <buy> <item> <total>
+*Cajas 📦*
+- Comun: _$${Bcommon}_
+- Normal: _$${Buncommon}_
+- Mitico: _$${Bmythic}_
+- Legendario: _$${Blegendary}_
 
 *Ejemplo se uso* :
 ${usedPrefix}shop buy pocion 1
-– – – – – – – – – – – – – – –
 
-*Artículos  |  Precio de venta*
+━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━
 
-- Pocion:           ${Spotion}
-- Diamante:     ${Sdiamond}
-- Piedra:            ${Sbatu}
-- Basura:           ${Ssampah}
+*🛒 ARTÍCULOS DE VENTA 🛍️*
 
-*📦 Cajas*
-- Comun:          ${Scommon}
-- Normal:         ${Suncommon}
-- Mitico:            ${Smythic}
-- Legendario:  ${Slegendary}
+- Pocion: _$${Spotion}_
+- Diamante: _$${Sdiamond}_
+- Piedra: _$${Sbatu}_
+- Basura: _$${Ssampah}_
 
-${usedPrefix}shop <sell> <item> <total>
+*Cajas 📦*
+- Comun: _$${Scommon}_
+- Normal: _$${Suncommon}_
+- Mitico: _$${Smythic}_
+- Legendario: _$${Slegendary}_
 
 *Ejemplo se uso* :
 ${usedPrefix}shop sell basura 10
