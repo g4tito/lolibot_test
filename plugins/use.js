@@ -2,7 +2,7 @@ let { MessageType } = require('@adiwajshing/baileys')
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
     let msgerror = (pickRandom(['Error', 'astagfirullah error', 'Nice Error', 'Salah format keknya :v', 'error bro', 'Kocak error :v', 'wtf error :v', 'Ciaaa error', 'error cuyy', 'dahlah (emot batu) error']))
     try {
-        let msgkurang = (pickRandom(['No tienes suficientes pociones, 'Te quedaste sin pociones', 'No te queda mas pociones', 'Te que das te sin po ci o nes :v', 'No tienes pociones', 'No tienes mas pociones']))
+        let msgkurang = (pickRandom(['No tienes suficientes pociones', 'Te quedaste sin pociones', 'No te queda mas pociones', 'Te que das te sin po ci o nes :v', 'No tienes pociones', 'No tienes mas pociones']))
         let msgpenuh = (pickRandom(['Tu vida ya esta llena', 'Ya no puedes beber mas pociones', 'Tu vida esta llena :v', 'Ya no puedes usar mas pociones']))
         let kucing = global.DATABASE._data.users[m.sender].kucing
         let usepotion = (kucing == 0 ? 40 : '' || kucing == 1 ? 45 : '' || kucing == 2 ? 50 : '' || kucing == 3 ? 55 : '' || kucing == 4 ? 60 : '' || kucing == 5 ? 65 : '' || kucing == 6 ? 70 : '' || kucing == 7 ? 75 : '' || kucing == 8 ? 80 : '' || kucing == 9 ? 85 : '' || kucing == 10 ? 90 : '')
