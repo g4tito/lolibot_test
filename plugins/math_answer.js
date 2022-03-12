@@ -2,7 +2,7 @@ global.math = global.math ? global.math : {}
 let handler = async (m, { conn }) => {
   let id = m.chat
   if (!m.quoted || m.quoted.sender != conn.user.jid || !/^Cuanto es el resultado de/i.test(m.quoted.text)) throw false
-  if (!(id in global.math)) throw 'Soal itu telah berakhir'
+  if (!(id in global.math)) throw 'Esa pregunta ya ah terminado!'
   if (m.quoted.id == global.math[id][0].id) {
   let math = global.math[id][1]
   if (m.text == math.result) {
