@@ -10,7 +10,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         let json = JSON.parse(pin)
         if (!json.status) throw `Tidak dapat diunduh`
         conn.reply(m.chat, wait, m)
-        await conn.sendFile(m.chat, json.data.url, '', kasihcaption, m) //, false )
+        await conn.sendFile(m.chat, json.data.url, '', `${json.data.url}`, m) //, false )
 
     })
 
