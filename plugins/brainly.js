@@ -1,5 +1,5 @@
 const { Brainly } = require('brainly-scraper-v2');
-const brain = new Brainly("id")
+const brain = Brainly("id")
 let handler = async function (m, { text, usedPrefix, command }) {
   if (!text) throw `uhm.. soalnya mana?\n\ncontoh:\n${usedPrefix + command} apa itu javascript?`
   brain.search("id", text).then(async res => {
