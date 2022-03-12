@@ -363,7 +363,7 @@ ${usedPrefix}shop sell basura 10
                         if (global.DATABASE._data.users[m.sender].iron >= count * 1) {
                             global.DATABASE._data.users[m.sender].iron -= count * 1
                             global.DATABASE._data.users[m.sender].money += Siron * count
-                            conn.reply(m.chat, `Vendiste ${count} de hierro por ${Siron * count} de dinero, m)
+                            conn.reply(m.chat, `Vendiste ${count} de hierro por ${Siron * count} de dinero`, m)
                         } else conn.reply(m.chat, `No tienes suficiente hierro para vender`, m)
                         break
                 default:
