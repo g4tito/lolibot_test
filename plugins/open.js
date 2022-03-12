@@ -612,7 +612,6 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
             }
             break
         case 'pet':
-        case 'mascota':
             let _mknp = pickRandom([1, 2, 1, 5, 3, 2, 1, 2, 4, 1, 3, 5, 2, 4, 3])
             let mknp = (_mknp * 1)
             let kucing = global.DATABASE._data.users[m.sender].kucing
@@ -666,7 +665,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
 }
 handler.help = ['open <caja>']
 handler.tags = ['rpg']
-handler.command = /^(open|buka|abrir)$/i
+handler.command = /^(open|buka)$/i
 
 handler.fail = null
 
