@@ -25,7 +25,7 @@ let handler  = async (m, { conn, text, command, args, usedPrefix, DevMode }) => 
     let jualbeli = (args[0] || '').toLowerCase()
     let shoprpg = fs.readFileSync('./src/shop.png')
     const Kchat = `
-*🛒 ARTÍCULOS DE COMPRA 🛍️*
+*🛒 ARTÍCULOS PARA COMPRAR 🛍️*
 
 - Pocion: _$${potion}_
 - Diamante: _$${Bdiamond}_
@@ -44,7 +44,7 @@ ${usedPrefix}shop buy pocion 1
 
 ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━ ━
 
-*🛒 ARTÍCULOS DE VENTA 🛍️*
+*🛒 ARTÍCULOS PARA VENDER 🛍️*
 
 - Pocion: _$${Spotion}_
 - Diamante: _$${Sdiamond}_
@@ -143,6 +143,20 @@ ${usedPrefix}shop sell basura 10
                         break
                     default:
                         return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
+                }
+                break
+            case 'up':
+               switch (_type) {
+               	case 'pico':
+                        if (global.DATABASE._data.users[m.sender].pickaxedurability >= 5000) return conn.reply(m.chat, 'Tu pico tiene la durabilidad máxima', m)
+                        if (global.DATABASE._data.users[m.sender].money > Upickaxe * 1) {
+                            global.DATABASE._data.users[m.sender].pickaxedurability += 500
+                            global.DATABASE._data.users[m.sender].money -= Upickaxe * 1
+                            conn.reply(m.chat, `Se aumento la *durabilidad del pico* por ${Upickaxe} de dinero` ,m)
+                        } else conn.reply(m.chat, `Tu dinero no es suficiente para aumentar la durabilidad del pico que cuesta ${Upickaxe} de dinero`, m)
+                        break
+                     default:
+                        return conn.reply(m.chat, Kchat, m)
                 }
                 break
             case 'sell': 
