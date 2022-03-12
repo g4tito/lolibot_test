@@ -112,8 +112,8 @@ Inventario de @${m.sender.split("@s.whatsapp.net")[0]}
 
      *PROGRESO*
 ╭──────────────
-│*Tu nivel:* ${level} ➯ ${level + 1}
-│Exp: ${exp} -> ${math <= 0 ? `\n│Use ${usedPrefix}levelup para subir de nivel` : `${math}`}
+│👤 *Tu nivel* ${level} ➯ ${level + 1}
+│Exp: ${exp} -> ${math <= 0 ? `\n│Use ${usedPrefix}levelup para subir de nivel!` : `${math}`}
 ╰──────────────
 ╭──────────────
 │🦊 *Zorro* ${rubah == 0 ? 'No tiene' : '' || rubah > 0 && rubah < 5 ? `nivel ${rubah} ➯ ${rubah + 1}\n│Exp: ${_rubah} -> ${rubah * 100}` : '' || rubah == 5 ? 'Nivel maximo' : ''}
