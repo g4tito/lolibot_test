@@ -2,6 +2,7 @@ let handler = m => m
 
 handler.all = async function (m) {
     this.spam = this.spam ? this.spam : {}
+    if (m.isBaileys && m.fromMe) return true
     if (!(m.sender in this.spam)) {
         let spaming = {
         jid: await m.sender, 
