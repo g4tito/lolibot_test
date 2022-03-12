@@ -2,12 +2,12 @@ let { MessageType } = require('@adiwajshing/baileys')
 let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
     let msgerror = (pickRandom(['Error', 'astagfirullah error', 'Nice Error', 'Salah format keknya :v', 'error bro', 'Kocak error :v', 'wtf error :v', 'Ciaaa error', 'error cuyy', 'dahlah (emot batu) error']))
     try {
-        let msgkurang = (pickRandom(['No tienes suficientes opciones', 'ciaa gk cukup potionyya :v', 'wtf gk cukup :v', 'beli potion dulu, potionmu gk cukup', 'Duaarr potionmu gk cukup', 'eyyyy potionmu kurang', 'beli dulu lah, masak mau pakai potion tapi gk ada potionnnya :v', 'minta ke orang lain suruh transfer potion, biar potionmu gk kurang :v', 'Beli potion dulu KK']))
+        let msgkurang = (pickRandom(['No tienes suficientes pociones, 'Te quedaste sin pociones', 'No te queda mas pociones', 'Te que das te sin po ci o nes :v', 'No tienes pociones', 'No tienes mas pociones']))
         let msgpenuh = (pickRandom(['Tu vida ya esta llena', 'Ya no puedes beber mas pociones', 'Tu vida esta llena :v', 'Ya no puedes usar mas pociones']))
         let kucing = global.DATABASE._data.users[m.sender].kucing
         let usepotion = (kucing == 0 ? 40 : '' || kucing == 1 ? 45 : '' || kucing == 2 ? 50 : '' || kucing == 3 ? 55 : '' || kucing == 4 ? 60 : '' || kucing == 5 ? 65 : '' || kucing == 6 ? 70 : '' || kucing == 7 ? 75 : '' || kucing == 8 ? 80 : '' || kucing == 9 ? 85 : '' || kucing == 10 ? 90 : '')
         let healt = global.DATABASE._data.users[m.sender].healt
-        if (/use|pakai/i.test(command)) {
+        if (/use|usar/i.test(command)) {
             try {
                 let count = (/[0-9]/g.test(args[1])) ? !args[1] || args.length < 2 ? Math.max((Math.ceil((100 - global.DATABASE._data.users[m.sender].healt) / usepotion)), 1) : Math.max(args[1], 1) : Math.max((Math.ceil((100 - global.DATABASE._data.users[m.sender].healt) / usepotion)), 1)
                 let _count = (count * 1)
@@ -65,9 +65,9 @@ let handler  = async (m, { conn, command, args, usedPrefix, DevMode }) =>  {
     }
 }
 
-handler.help = ['use <item> <total>', 'heal']
+handler.help = ['use ', 'heal']
 handler.tags = ['rpg']
-handler.command = /^(use|heal)$/i
+handler.command = /^(use|heal|usar)$/i
 
 module.exports = handler
 
