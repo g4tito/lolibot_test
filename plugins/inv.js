@@ -81,7 +81,6 @@ Inventario de @${m.sender.split("@s.whatsapp.net")[0]}
 
      *ESTADO*
 *• ♥️ Vida:* ${healt}
-*• ♥️ Vida:* ${healt}
 *• 👕 Armadura:* ${armor == 0 ? 'No tiene' : '' || armor == 1 ? 'Armadura de cuero' : '' || armor == 2 ? 'Armadura de hierro' : '' || armor == 3 ? 'Armadura de oro' : '' || armor == 4 ? 'Armadura de diamante' : '' || armor == 5 ? 'Armadura de netherite' : ''}
 *• ⛏️ Pico:* ${pickaxe == 0 ? 'No tiene' : '' || pickaxe == 1 ? 'Pico de piedra' : '' || pickaxe == 2 ? 'Pico de hierro' : '' || pickaxe == 3 ? 'Pico de oro' : '' || pickaxe == 4 ? 'Pico de diamante' : '' || pickaxe == 5 ? 'Pico de netherite' : ''}
 *• ⛏️ Durabilidad:* ${pdurability}
@@ -114,17 +113,17 @@ ${readMore}
 
      *PROGRESO*
 ╭──────────────
-│Tu nivel: *${level}* ➯ *${level + 1}*
-│Exp: ${exp}/${math <= 0 ? `\n│Use ${usedPrefix}levelup para subir de nivel` : `${math}`}]
+│*Tu nivel:* ${level} ➯ ${level + 1}
+│Exp: ${exp} -> ${math <= 0 ? `\n│Use ${usedPrefix}levelup para subir de nivel` : `${math}`}
 ╰──────────────
 ╭──────────────
-│🦊 *Zorro* ${rubah == 0 ? 'No tiene' : '' || rubah > 0 && rubah < 5 ? `nivel ${rubah} ➯ ${rubah + 1}\n│Exp ${_rubah} -> ${rubah * 100}` : '' || rubah == 5 ? 'Nivel maximo' : ''}
+│🦊 *Zorro* ${rubah == 0 ? 'No tiene' : '' || rubah > 0 && rubah < 5 ? `nivel ${rubah} ➯ ${rubah + 1}\n│Exp: ${_rubah} -> ${rubah * 100}` : '' || rubah == 5 ? 'Nivel maximo' : ''}
 ╰──────────────
 ╭──────────────
-│🐺 *Lobo* ${kuda == 0 ? 'No tiene' : '' || kuda > 0 && kuda < 5 ? `nivel ${kuda} ➯ ${kuda + 1}\n│Exp ${_kuda} -> ${kuda * 100}` : '' || kuda == 5 ? 'Nivel maximo' : ''}
+│🐺 *Lobo* ${kuda == 0 ? 'No tiene' : '' || kuda > 0 && kuda < 5 ? `nivel ${kuda} ➯ ${kuda + 1}\n│Exp: ${_kuda} -> ${kuda * 100}` : '' || kuda == 5 ? 'Nivel maximo' : ''}
 ╰──────────────
 ╭──────────────
-│🐱 *Gato* ${kucing == 0 ? 'No tiene' : '' || kucing > 0 && kucing < 5 ? `nivel ${kucing} ➯ ${kucing + 1}\n│Exp ${_kucing} -> ${kucing * 100}` : '' || kucing == 5 ? 'Nivel maximo' : ''}
+│🐱 *Gato* ${kucing == 0 ? 'No tiene' : '' || kucing > 0 && kucing < 5 ? `nivel ${kucing} ➯ ${kucing + 1}\n│Exp: ${_kucing} -> ${kucing * 100}` : '' || kucing == 5 ? 'Nivel maximo' : ''}
 ╰──────────────
 
      *TOPS*
@@ -138,8 +137,8 @@ Top *${usersmythic.indexOf(m.sender) + 1}* de *${usersmythic.length}* en cajas m
 Top *${userslegendary.indexOf(m.sender) + 1}* de *${userslegendary.length}* en cajas legendarias
 Top *${userssampah.indexOf(m.sender) + 1}* de *${userssampah.length}* en basura
 `.trim()
-    conn.sendMessage(m.chat, { contentText: str, footerText: '\n', buttons: [{buttonId: `${usedPrefix}shop`, buttonText: {displayText: 'Tienda ⛺'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": `${_healt}`, "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 99999999999, "pageCount": `${diamond + batu + iron + potion + sampah + makananpet}`, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": `${_healt}`, "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": false 
-            }}, MessageType.buttonsMessage, { quoted: m, thumbnail: false, contextInfo: { mentionedJid: [m.sender], forwardingScore: 750, isForwarded: true, externalAdReply: { title: '◖🎒 INVENTARIO 🎒◗', thumbnail: invt, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
+    conn.sendMessage(m.chat, { contentText: str, footerText: '\n', buttons: [{buttonId: `${usedPrefix}shop`, buttonText: {displayText: 'Tienda ⛺'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": `${_healt}`, "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 99999999999, "pageCount": `${diamond + batu + iron + potion + sampah + makananpet}`, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": `${_healt} ${healt}`, "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": false 
+            }}, MessageType.buttonsMessage, { quoted: m, thumbnail: false, contextInfo: { mentionedJid: [m.sender], forwardingScore: 750, isForwarded: true, externalAdReply: { title: '❱ ❭❱ INVENTARIO ❰❬ ❰', thumbnail: invt, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
             }
             }
             })
