@@ -33,7 +33,7 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
                 let sampah = `${Math.floor(Math.random() * 300)}`.trim()
                 let legendary = (_legendary * 1)
                 let str = `
-*Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['en las tierras perdidas', 'al vale de Kara', 'a Beleriand', 'a la ciudad de fuego', 'a Camorrus', 'al fin del horizonte', 'al grito de cuervo', 'al valle del anochecer'])} y obtienes:*
+*Tu vida se reduce -${healt * 1} porque fuiste ${pickRandom(['a las tierras perdidas', 'al vale de Kara', 'a Beleriand', 'a la ciudad de fuego', 'a Camorrus', 'al fin del horizonte', 'al grito de cuervo', 'al valle del anochecer'])} y obtienes:*
 
 - Exp: ${exp} 
 - Dinero: ${uang}
@@ -58,7 +58,7 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
                 global.DATABASE._data.users[m.sender].sampah += sampah * 1
                 global.DATABASE._data.users[m.sender].lastadventure = new Date * 1
             } else conn.reply(m.chat, `Te quedaste sin energía vuelve dentro de *${timers}*`, m)
-        } else conn.reply(m.chat, '*Mínimo 80 de salud para poder ir de aventura*\n\nPuedes comprar *pociones de vida* con el comando\n• ${usedPrefix}shop buy pocion <total>', m)
+        } else conn.reply(m.chat, `*Mínimo 80 de salud para poder ir de aventura*\n\nPuedes comprar *pociones de vida* con el comando\n• ${usedPrefix}shop buy pocion <total>`, m)
     } catch (e) {
         console.log(e)
         conn.reply(m.chat, 'Error', m)
