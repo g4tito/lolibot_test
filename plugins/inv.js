@@ -97,7 +97,6 @@ Inventario de @${m.sender.split("@s.whatsapp.net")[0]}
 *• 🗑️ Basura:* ${sampah}
 *• 🥫 Alimento:* ${makananpet}
 *• 🎒 Total inv:* ${diamond + batu + iron + potion + sampah + makananpet} items
-${readMore}
 
      *CAJAS*
 *• 📦 Comun:* ${common}
