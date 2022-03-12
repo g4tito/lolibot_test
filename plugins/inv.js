@@ -118,13 +118,13 @@ ${readMore}
 │Exp: ${exp}/${math <= 0 ? `\n│Use ${usedPrefix}levelup para subir de nivel` : `${math}`}]
 ╰──────────────
 ╭──────────────
-│🦊 *Zorro* ${rubah == 0 ? 'No tiene' : '' || rubah > 0 && rubah < 5 ? `nivel ${rubah} ➯ ${rubah + 1}\n│Exp ${_rubah} -> ${rubah  100}` : '' || rubah == 5 ? 'Nivel maximo' : ''}
+│🦊 *Zorro* ${rubah == 0 ? 'No tiene' : '' || rubah > 0 && rubah < 5 ? `nivel ${rubah} ➯ ${rubah + 1}\n│Exp ${_rubah} -> ${rubah * 100}` : '' || rubah == 5 ? 'Nivel maximo' : ''}
 ╰──────────────
 ╭──────────────
-│🐺 *Lobo* ${kuda == 0 ? 'No tiene' : '' || kuda > 0 && kuda < 5 ? `nivel ${kuda} ➯ ${kuda + 1}\n│Exp ${_kuda} -> ${kuda  100}` : '' || kuda == 5 ? 'Nivel maximo' : ''}
+│🐺 *Lobo* ${kuda == 0 ? 'No tiene' : '' || kuda > 0 && kuda < 5 ? `nivel ${kuda} ➯ ${kuda + 1}\n│Exp ${_kuda} -> ${kuda * 100}` : '' || kuda == 5 ? 'Nivel maximo' : ''}
 ╰──────────────
 ╭──────────────
-│🐱 *Gato* ${kucing == 0 ? 'No tiene' : '' || kucing > 0 && kucing < 5 ? `nivel ${kucing} ➯ ${kucing + 1}\n│Exp ${_kucing} -> ${kucing  100}` : '' || kucing == 5 ? 'Nivel maximo' : ''}
+│🐱 *Gato* ${kucing == 0 ? 'No tiene' : '' || kucing > 0 && kucing < 5 ? `nivel ${kucing} ➯ ${kucing + 1}\n│Exp ${_kucing} -> ${kucing * 100}` : '' || kucing == 5 ? 'Nivel maximo' : ''}
 ╰──────────────
 
      *TOPS*
