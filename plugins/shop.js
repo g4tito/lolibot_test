@@ -4,6 +4,7 @@ const Spotion = 150
 const Bdiamond = 900
 const Sdiamond = 750
 const Sbatu = 2
+const Siron = 50
 const Bcommon = 200
 const Scommon = 20
 const Suncommon = 100
@@ -49,6 +50,7 @@ ${usedPrefix}shop buy pocion 1
 - Pocion: _$${Spotion}_
 - Diamante: _$${Sdiamond}_
 - Piedra: _$${Sbatu}_
+- Piedra: _$${Siron}_
 - Basura: _$${Ssampah}_
 
 *Cajas 📦*
@@ -358,6 +360,13 @@ ${usedPrefix}shop sell basura 10
                         conn.reply(m.chat, `Vendiste ${count} de diamante por ${Sdiamond * count} de dinero`, m)
                     } else conn.reply(m.chat, `No tienes suficiente diamantes para vender`, m)
                     break
+                case 'hierro':
+                        if (global.db.data.users[m.sender].iron >= count * 1) {
+                            global.db.data.users[m.sender].iron -= count * 1
+                            global.db.data.users[m.sender].money += Siron * count
+                            conn.reply(m.chat, `Vendiste ${count} de hierro por ${Siron * count} de dinero, m)
+                        } else conn.reply(m.chat, `No tienes suficiente hierro para vender`, m)
+                        break
                 default:
                     return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
             }
