@@ -612,6 +612,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
             }
             break
         case 'pet':
+        case 'mascota':
             let _mknp = pickRandom([1, 2, 1, 5, 3, 2, 1, 2, 4, 1, 3, 5, 2, 4, 3])
             let mknp = (_mknp * 1)
             let kucing = global.DATABASE._data.users[m.sender].kucing
@@ -627,7 +628,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
                 } else if (_pet == 'gato' && kucing == 0) {
                     global.DATABASE._data.users[m.sender].kucing += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Felicidades obtienes un ${_pet}${mknp > 0 ? ` y ${mknp} comida para mascotas*`*` : '*'}`, m)
+                    conn.reply(m.chat, `*Felicidades obtienes un ${_pet}${mknp > 0 ? ` y ${mknp} comida para mascotas*` : '*'}`, m)
                 } else if (_pet == 'zorro' && rubah > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
@@ -635,7 +636,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
                 } else if (_pet == 'zorro' && rubah == 0) {
                     global.DATABASE._data.users[m.sender].rubah += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Felicidades obtienes un ${_pet}${mknp > 0 ? ` y ${mknp} comida para mascotas*`*` : '*'}`, m)
+                    conn.reply(m.chat, `*Felicidades obtienes un ${_pet}${mknp > 0 ? ` y ${mknp} comida para mascotas*` : '*'}`, m)
                 } else if (_pet == 'lobo' && kuda  > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
@@ -665,7 +666,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
 }
 handler.help = ['open <caja>']
 handler.tags = ['rpg']
-handler.command = /^(open|buka)$/i
+handler.command = /^(open|buka|abrir)$/i
 
 handler.fail = null
 
