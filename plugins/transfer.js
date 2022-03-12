@@ -86,7 +86,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].common -= count * 1
                         global.DATABASE._data.users[who].common += count * 1
-                        conn.reply(m.chat, `Se transfirió ${count} Cajas comunes`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió *${count}* Cajas comunes`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].common += count * 1
                         m.reply('Error de transferencia')
@@ -104,7 +104,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].uncommon -= count * 1
                         global.DATABASE._data.users[who].uncommon += count * 1
-                        conn.reply(m.chat, `Se transfirió ${count} Cajas normales`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió *${count}* Cajas normales`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].uncommon += count * 1
                         m.reply('Error de transferencia')
@@ -122,7 +122,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].mythic -= count * 1
                         global.DATABASE._data.users[who].mythic += count * 1
-                        conn.reply(m.chat, `Se transfirió ${count} Cajas miticas`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió *${count}* Cajas miticas`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].mythic += count * 1
                         m.reply('Error de transferencia')
@@ -140,7 +140,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                     try {
                         global.DATABASE._data.users[m.sender].legendary -= count * 1
                         global.DATABASE._data.users[who].legendary += count * 1
-                        conn.reply(m.chat, `Se transfirió ${count} Cajas legendarias`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió *${count}* Cajas legendarias`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].legendary += count * 1
                         m.reply('Error de transferencia')
