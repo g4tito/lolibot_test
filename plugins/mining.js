@@ -27,7 +27,7 @@ global.DATABASE._data.users[m.sender].pickaxedurability -= konz * 1
 global.DATABASE._data.users[m.sender].exp += hasiiiil * 1
 
           setTimeout(() => {
-          	m.reply(`Minaste en ${goa} y obtienes:
+          	m.reply(`Minaste en *${goa}* y obtienes:
           
 - Diamante: ${hasil}
 - Hiero: ${hasiiil}
@@ -36,7 +36,7 @@ global.DATABASE._data.users[m.sender].exp += hasiiiil * 1
           }, 0)
           
             } else m.reply(`Te quedaste sin energía vuelve dentro de *${waktur}*`)
-         } else m.reply(`Sube el nivel a tu pico, escribiendo ${usedPrefix}shop buy pico`)
+         } else m.reply(`Repara tu pico, escribiendo ${usedPrefix}shop up pico`)
      } else m.reply(`Todavía no tienes un pico, compralo escribiendo ${usedPrefix}shop buy pico`)
  }
 
