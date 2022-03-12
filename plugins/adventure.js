@@ -33,10 +33,11 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
                 let sampah = `${Math.floor(Math.random() * 300)}`.trim()
                 let legendary = (_legendary * 1)
                 let str = `
-Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['a un mundo de los sueños', 'al fin del mundo', 'a marte', 'a la luna', 'a pluto', 'al sol', 'a su corazón', '...'])} y obtienes
-- *Exp* :${exp} 
-- *Dinero* : ${uang}
-- *Basura* : ${sampah}${potion == 0 ? '' : '\n- *Pocion* : ' + potion + ''}${diamond == 0 ? '' : '\n- *Diamantes* : ' + diamond + ''}${common == 0 ? '' : '\n- *Cajas comunes* : ' + common + ''}${uncommon == 0 ? '' : '\n- *Caja poco común* : ' + uncommon + ''}
+*Tu vida se reduce -${healt * 1} porque te has aventurado ${pickRandom(['en las tierras perdidas', 'al vale de Kara', 'a Beleriand', 'a la ciudad de fuego', 'a Camorrus', 'al fin del horizonte', 'al grito de cuervo', 'al valle del anochecer'])} y obtienes:*
+
+- Exp: ${exp} 
+- Dinero: ${uang}
+- Basura: ${sampah}${potion == 0 ? '' : '\n- Pocion: ' + potion + ''}${diamond == 0 ? '' : '\n- Diamantes: ' + diamond + ''}${common == 0 ? '' : '\n- Cajas comunes: ' + common + ''}${uncommon == 0 ? '' : '\n- Caja poco común: ' + uncommon + ''}
 `.trim()
                 conn.reply(m.chat, str, m)
                 if (mythic > 0) {
