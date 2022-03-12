@@ -11,12 +11,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
 - Normal
 - Mitico
 - Legendario
-
-*Cantidades disponibles:*
-- 1
-- 10
-- 100
-- 1000
+- Mascota
 `.trim()
     let _lmao = args[0]
     let Lmao = `Solo están disponible estas cantidades 1, 10, 100, 1000`
