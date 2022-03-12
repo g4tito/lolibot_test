@@ -58,7 +58,7 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
                 global.DATABASE._data.users[m.sender].sampah += sampah * 1
                 global.DATABASE._data.users[m.sender].lastadventure = new Date * 1
             } else conn.reply(m.chat, `Te quedaste sin energía vuelve dentro de *${timers}*`, m)
-        } else conn.reply(m.chat, 'Mínimo 80 de salud para poder emprender una aventura, compra una vida primero escribiendo *' + usedPrefix + 'shop buy pocion <total>*\ny luego *' + usedPrefix + 'use pocion <total>*\n\n_para obtener dinero gratis y porciones utiliza_ *' + usedPrefix + 'daily*', m)
+        } else conn.reply(m.chat, '*Mínimo 80 de salud para poder ir de aventura*\n\nPuedes comprar *pociones de vida* con el comando\n• ${usedPrefix}shop buy pocion <total>', m)
     } catch (e) {
         console.log(e)
         conn.reply(m.chat, 'Error', m)
@@ -70,7 +70,7 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
         }
     }
 }
-handler.help = ['adventure', 'petualang', 'berpetualang', 'mulung', 'work']
+handler.help = ['adventure']
 handler.tags = ['rpg']
 handler.command = /^(adventure|(ber)?petualang(ang)?|mulung|work)$/i
 
