@@ -1,4 +1,4 @@
-let Brainly = require("brainly-scraper-v2");
+import { Brainly } from "brainly-scraper-v2";
 let brain = new Brainly("id");
 let handler = async function (m, { text, usedPrefix, command }) {
   if (!text) throw `uhm.. soalnya mana?\n\ncontoh:\n${usedPrefix + command} apa itu javascript?`
