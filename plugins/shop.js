@@ -125,7 +125,7 @@ ${usedPrefix}shop sell basura 10
                         
                         break
                     case 'armadura':
-                            if (global.DATABASE._data.users[m.sender].armor == 5) return conn.reply(m.chat, 'Armormu sudah *Level Max*', m)
+                            if (global.DATABASE._data.users[m.sender].armor == 5) return conn.reply(m.chat, 'Tu armadura esta al nivel máximo', m)
                             if (global.DATABASE._data.users[m.sender].money > armor) {
                                 global.DATABASE._data.users[m.sender].armor += 1
                                 global.DATABASE._data.users[m.sender].money -= armor * 1
@@ -134,14 +134,14 @@ ${usedPrefix}shop sell basura 10
                         
                         break
                     case 'pico':
-                            if (global.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esta a nivel maximo', m)
-                            if (global.DATABASE._data.users[m.sender].money > pickaxe) {
-                                global.DATABASE._data.users[m.sender].pickaxe += 1
-                                global.DATABASE._data.users[m.sender].pickaxedurability += pickaxe_durability * 1
-                                global.DATABASE._data.users[m.sender].money -= pickaxe * 1
-                                conn.reply(m.chat, `Compraste un pico por ${pickaxe} de dinero` ,m)
-                            } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
-                        
+                        if (global.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esa al nivel máximo', m)
+                        if (global.DATABASE._data.users[m.sender].money > pickaxe * 1) {
+                            global.DATABASE._data.users[m.sender].pickaxe += 1
+                            global.DATABASE._data.users[m.sender].pickaxedurability += ( 0 ? 500 : '' || 1 ? 1000 : '' || 2 ? 1500 : '' || 3 ? 2000 : '' || 4 ? 2500 : '' || 5 ? 3000 : '')
+                            global.DATABASE._data.users[m.sender].money -= pickaxe * 1
+                            conn.reply(m.chat, `Compraste un pico por ${pickaxe} de dinero` ,m)
+                                                      
+                        } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
                         break
                     default:
                         return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
