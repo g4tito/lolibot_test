@@ -624,7 +624,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
                 if (_pet == 'gato' && kucing > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas*` : ''}`, m)
+                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas` : ''}`, m)
                 } else if (_pet == 'gato' && kucing == 0) {
                     global.DATABASE._data.users[m.sender].kucing += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
@@ -632,7 +632,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
                 } else if (_pet == 'zorro' && rubah > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas*` : ''}`, m)
+                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas` : ''}`, m)
                 } else if (_pet == 'zorro' && rubah == 0) {
                     global.DATABASE._data.users[m.sender].rubah += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
@@ -640,7 +640,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
                 } else if (_pet == 'lobo' && kuda  > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas*` : ''}`, m)
+                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas` : ''}`, m)
                 } else if (_pet == 'lobo' && kuda == 0) {
                     global.DATABASE._data.users[m.sender].kuda += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
