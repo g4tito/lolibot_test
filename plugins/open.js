@@ -39,7 +39,7 @@ let handler = async (m, { conn, command, args, text, usedPrefix, DevMode }) => {
                     let cu = (_cu * 1)
                     let Hcom = `
 Abriste *una caja comun* y obtienes:
-${cm > 0 ? `\n- Dinero: ${cm}` : ''}${ce > 0 ? `\n- - Exp: ${ce}` : ''}${cp > 0 ? `\n- Pocion: ${cp}` : ''}${cc > 0 ? `\n- Caja comun: ${cc}` : ''}${cu > 0 ? `\n- Caja normal: ${cu}` : ''}
+${cm > 0 ? `\n- Dinero: ${cm}` : ''}${ce > 0 ? `\n- Exp: ${ce}` : ''}${cp > 0 ? `\n- Pocion: ${cp}` : ''}${cc > 0 ? `\n- Caja comun: ${cc}` : ''}${cu > 0 ? `\n- Caja normal: ${cu}` : ''}
 `.trim()
                     if (global.DATABASE._data.users[m.sender].common >= 1) {
                         global.DATABASE._data.users[m.sender].common -= 1
@@ -612,50 +612,51 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
             }
             break
         case 'pet':
+        case 'mascota':
             let _mknp = pickRandom([1, 2, 1, 5, 3, 2, 1, 2, 4, 1, 3, 5, 2, 4, 3])
             let mknp = (_mknp * 1)
             let kucing = global.DATABASE._data.users[m.sender].kucing
             let rubah = global.DATABASE._data.users[m.sender].rubah
             let kuda = global.DATABASE._data.users[m.sender].kuda
-            let _pet = `${pickRandom(['kucing', 'rubah', 'kuda'])}`.trim()
+            let _pet = `${pickRandom(['gato', 'zorro', 'lobo'])}`.trim()
             if (global.DATABASE._data.users[m.sender].pet > 0) { 
                 global.DATABASE._data.users[m.sender].pet -= 1
-                if (_pet == 'kucing' && kucing > 0) {
+                if (_pet == 'gato' && kucing > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Anda sudah memiliki pet ${_pet}, Hadiahmu diganti dengan 2 potion${mknp > 0 ? ` Dan ${mknp} Makanan Pet` : ''}`, m)
-                } else if (_pet == 'kucing' && kucing == 0) {
+                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas*` : ''}`, m)
+                } else if (_pet == 'gato' && kucing == 0) {
                     global.DATABASE._data.users[m.sender].kucing += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Selamat Anda mendapatkan pet${_pet} ${mknp > 0 ? ` Dan ${mknp} Makanan Pet*` : '*'}`, m)
-                } else if (_pet == 'rubah' && rubah > 0) {
+                    conn.reply(m.chat, `*Felicidades obtienes un ${_pet}${mknp > 0 ? ` y ${mknp} comida para mascotas*`*` : '*'}`, m)
+                } else if (_pet == 'zorro' && rubah > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Anda sudah memiliki pet ${_pet}, Hadiahmu diganti dengan 2 potion ${mknp > 0 ? `Dan ${mknp} Makanan Pet` : ''}`, m)
-                } else if (_pet == 'rubah' && rubah == 0) {
+                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas*` : ''}`, m)
+                } else if (_pet == 'zorro' && rubah == 0) {
                     global.DATABASE._data.users[m.sender].rubah += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Selamat Anda mendapatkan pet ${_pet}${mknp > 0 ? ` Dan ${mknp} Makanan Pet*` : '*'}`, m)
-                } else if (_pet == 'kuda' && kuda  > 0) {
+                    conn.reply(m.chat, `*Felicidades obtienes un ${_pet}${mknp > 0 ? ` y ${mknp} comida para mascotas*`*` : '*'}`, m)
+                } else if (_pet == 'lobo' && kuda  > 0) {
                     global.DATABASE._data.users[m.sender].potion += 2
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `Anda sudah memiliki pet ${_pet}, Hadiahmu diganti dengan 2 potion${mknp > 0 ? ` Dan ${mknp} Makanan Pet` : ''}`, m)
-                } else if (_pet == 'kuda' && kuda == 0) {
+                    conn.reply(m.chat, `Ya tienes un *${_pet}*, tu recompensa se reemplaza con *2* pociones${mknp > 0 ? ` y ${mknp} comida para mascotas*` : ''}`, m)
+                } else if (_pet == 'lobo' && kuda == 0) {
                     global.DATABASE._data.users[m.sender].kuda += 1
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    conn.reply(m.chat, `*Selamat Anda mendapatkan pet ${_pet}${mknp > 0 ? ` Dan ${mknp} Makanan Pet*` : '*'}`, m)
+                    conn.reply(m.chat, `*Felicidades obtienes un ${_pet}${mknp > 0 ? ` y ${mknp} comida para mascotas*` : '*'}`, m)
                 } else {
                     global.DATABASE._data.users[m.sender].makananpet += mknp * 1
-                    m.reply(pickRandom(['Anda kurang beruntung', 'Coba buka lagi lain kali, karena gk dapet pet', 'kasian gk dapet pet', 'Mungkin lagi gk hoki dan gk dapet pet', 'wkwkkwkwke']) + '. Anda hanya mendapatkan *' + mknp + '* makanan pet')
+                    m.reply(pickRandom(['Esta caja de mascotas está vacía']) + '. Sólo obtienes *' + mknp + '* comida para mascotas')
                 }
-            } else m.reply('Pet Crate kamu tidak cukup')
+            } else m.reply('No tienes suficiente caja de mascotas')
             break
         default:
             return conn.reply(m.chat, bruh, m)
     }
   } catch (e) {
       console.log(e)
-      conn.reply(m.chat, `${usedPrefix}open <crate name> < 1 | 10 | 100 | 1000 >\n\nContoh penggunaan: *${usedPrefix}open common 10*\n\nlist crate:\n*common*\n*uncommon*\n*mythic*\n*legendary*`, m)
+      conn.reply(m.chat, bruh, m)
       if (DevMode) {
         for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
             conn.sendMessage(jid, 'Open.js error\nNo: *' + m.sender.split`@`[0] + '*\nCommand: *' + m.text + '*\n\n*' + e + '*', MessageType.text)
@@ -665,7 +666,7 @@ ${lm3 > 0 ? `\n- Dinero: ${lm3}` : ''}${le3 > 0 ? `\n- Exp: ${le3}` : ''}${ld3 >
 }
 handler.help = ['open <caja>']
 handler.tags = ['rpg']
-handler.command = /^(open|buka|gacha)$/i
+handler.command = /^(open|buka|abrir)$/i
 
 handler.fail = null
 
