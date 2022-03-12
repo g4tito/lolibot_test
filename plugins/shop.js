@@ -19,8 +19,7 @@ let handler  = async (m, { conn, text, command, args, usedPrefix, DevMode }) => 
     const _armor = global.DATABASE._data.users[m.sender].armor
     const armor = (_armor == 0 ? 20000 : '' || _armor == 1 ? 49999 : '' || _armor == 2 ? 99999 : '' || _armor == 3 ? 149999 : '' || _armor == 4 ? 299999 : '')
     const _pickaxe = global.DATABASE._data.users[m.sender].pickaxe
-    const pickaxe = (_pickaxe == 0 ? 10000 : '' || _pickaxe == 1 ? 39999 : '' || _pickaxe == 2 ? 59999 : '' || _pickaxe == 3 ? 79999 : '' || _pickaxe == 4 ? 109999 : '')
-    const pickaxe_durability = (_pickaxe == 0 ? 2000 : '' || _pickaxe == 1 ? 5999 : '' || _pickaxe == 2 ? 9999 : '' || _pickaxe == 3 ? 15999 : '' || _pickaxe == 4 ? 59999 : '')
+   const pickaxe = (_pickaxe == 0 ? 20000 : '' || _pickaxe == 1 ? 49999 : '' || _pickaxe == 2 ? 99999 : '' || _pickaxe == 3 ? 149999 : '' || _pickaxe == 4 ? 299999 : '')
     let type = (args[0] || '').toLowerCase()
     let _type = (args[1] || '').toLowerCase()
     let jualbeli = (args[0] || '').toLowerCase()
@@ -50,7 +49,7 @@ ${usedPrefix}shop buy pocion 1
 - Pocion: _$${Spotion}_
 - Diamante: _$${Sdiamond}_
 - Piedra: _$${Sbatu}_
-- Piedra: _$${Siron}_
+- Hierro: _$${Siron}_
 - Basura: _$${Ssampah}_
 
 *Cajas 📦*
@@ -288,15 +287,15 @@ ${usedPrefix}shop sell basura 10
                         } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar una armadura, costo ${armor} de dinero`, m)
                     
                     break
-                case 'pico':
-                            if (global.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esta a nivel maximo', m)
-                            if (global.DATABASE._data.users[m.sender].money > pickaxe) {
-                                global.DATABASE._data.users[m.sender].pickaxe += 1
-                                global.DATABASE._data.users[m.sender].pickaxedurability += pickaxe_durability * 1
-                                global.DATABASE._data.users[m.sender].money -= pickaxe * 1
-                                conn.reply(m.chat, `Compraste un pico por ${pickaxe} de dinero` ,m)
-                            } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
-                        
+             case 'pickaxe':
+                        if (lobal.DATABASE._data.users[m.sender].pickaxe == 5) return conn.reply(m.chat, 'Tu pico esta a nivel maximo', m)
+                        if (lobal.DATABASE._data.users[m.sender].money > pickaxe * 1) {
+                            lobal.DATABASE._data.users[m.sender].pickaxe += 1
+                            lobal.DATABASE._data.users[m.sender].pickaxedurability += ( 0 ? 500 : '' || 1 ? 1000 : '' || 2 ? 1500 : '' || 3 ? 2000 : '' || 4 ? 2500 : '' || 5 ? 3000 : '')
+                            lobal.DATABASE._data.users[m.sender].money -= pickaxe * 1
+                            conn.reply(m.chat, `Compraste un pico por ${pickaxe} de dinero` ,m)
+                          
+                        } else conn.reply(m.chat, `Tu dinero no es suficiente para comprar un pico que cuesta ${pickaxe} de dinero`, m)
                         break
                 default:
                     return conn.reply(m.chat, Kchat, text, { quoted: m, contextInfo: { externalAdReply:{title: `\t\t\t\tTIENDA RPG`, previewType:"PHOTO",thumbnail: shoprpg, sourceUrl:``}}})
@@ -361,9 +360,9 @@ ${usedPrefix}shop sell basura 10
                     } else conn.reply(m.chat, `No tienes suficiente diamantes para vender`, m)
                     break
                 case 'hierro':
-                        if (global.db.data.users[m.sender].iron >= count * 1) {
-                            global.db.data.users[m.sender].iron -= count * 1
-                            global.db.data.users[m.sender].money += Siron * count
+                        if (global.DATABASE._data.users[m.sender].iron >= count * 1) {
+                            global.DATABASE._data.users[m.sender].iron -= count * 1
+                            global.DATABASE._data.users[m.sender].money += Siron * count
                             conn.reply(m.chat, `Vendiste ${count} de hierro por ${Siron * count} de dinero, m)
                         } else conn.reply(m.chat, `No tienes suficiente hierro para vender`, m)
                         break
@@ -382,7 +381,7 @@ ${usedPrefix}shop sell basura 10
     }
 }
 
-handler.help = ['shop <sell|buy> <tipo>', 'toko <sell|buy> <tipo>']
+handler.help = ['shop']
 handler.tags = ['rpg']
     
 handler.command = /^(shop|toko|buy|beli|sell|jual)$/i
