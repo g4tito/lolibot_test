@@ -1,7 +1,7 @@
 let { MessageType } = require('@adiwajshing/baileys')
 let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
     if (args.length < 3) {
-        return conn.reply(m.chat, `*Ejemplo, uso del comando*\n• ${usedPrefix + command} <tipo> <cantidad> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Tipos de transferencias:*\n\n- Dinero\n- Diamante`.trim(), m)
+        return conn.reply(m.chat, `*Ejemplo, uso del comando*\n• ${usedPrefix + command} <tipo> <cantidad> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Tipos de transferencias:*\n\n- Dinero\n- Diamante\n- Pocion\n- Basura\n- Comun\n- Normal\n- Mitico\n- Legendario`.trim(), m)
     } else try {
         let type = (args[0] || '').toLowerCase()
         let count = args[1] && args[1].length > 0 ? Math.min(9999999, Math.max(parseInt(args[1]), 1)) : Math.min(1)
@@ -27,7 +27,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                     }
                 } else conn.reply(m.chat, `No tienes suficiente dinero para transferir`.trim(), m)
                 break
-            case 'potion':
+            case 'pocion':
                 if (global.DATABASE._data.users[m.sender].potion >= count * 1) {
                     try {
                         global.DATABASE._data.users[m.sender].potion -= count * 1
@@ -45,7 +45,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                     }
                 } else conn.reply(m.chat, `No tienes suficientes pociones para transferir`.trim(), m)
                 break
-            case 'sampah':
+            case 'basura':
                 if (global.DATABASE._data.users[m.sender].sampah >= count * 1) {
                     try {
                         global.DATABASE._data.users[m.sender].sampah -= count * 1
@@ -61,7 +61,7 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                             }
                         }
                     }
-                } else conn.reply(m.chat, `Sampah kamu tidak cukup`.trim(), m)
+                } else conn.reply(m.chat, `No tienes suficiente basura para transferir`.trim(), m)
                 break
             case 'diamante':
                 if (global.DATABASE._data.users[m.sender].diamond >= count * 1) {
@@ -81,12 +81,12 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                     }
                 } else conn.reply(m.chat, `No tienes suficientes diamantes para transferir`.trim(), m)
                 break
-            case 'common':
+            case 'comun':
                 if (global.DATABASE._data.users[m.sender].common >= count * 1) {
                     try {
                         global.DATABASE._data.users[m.sender].common -= count * 1
                         global.DATABASE._data.users[who].common += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Common Crate`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió ${count} Cajas comunes`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].common += count * 1
                         m.reply('Error de transferencia')
@@ -97,14 +97,14 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                             }
                         }
                     }
-                } else conn.reply(m.chat, `Common crate kamu kamu tidak cukup`.trim(), m)
+                } else conn.reply(m.chat, `No tienes suficientes cajas comunes para transferir`.trim(), m)
                 break
-            case 'uncommon':
+            case 'normal':
                 if (global.DATABASE._data.users[m.sender].uncommon >= count * 1) {
                     try {
                         global.DATABASE._data.users[m.sender].uncommon -= count * 1
                         global.DATABASE._data.users[who].uncommon += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Uncommon Crate`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió ${count} Cajas normales`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].uncommon += count * 1
                         m.reply('Error de transferencia')
@@ -115,14 +115,14 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                             }
                         }
                     }
-                } else conn.reply(m.chat, `Uncommon crate kamu kamu tidak cukup`.trim(), m)
+                } else conn.reply(m.chat, `No tienes suficientes cajas normales para transferir`.trim(), m)
                 break
-            case 'mythic':
+            case 'mitico':
                 if (global.DATABASE._data.users[m.sender].mythic >= count * 1) {
                     try {
                         global.DATABASE._data.users[m.sender].mythic -= count * 1
                         global.DATABASE._data.users[who].mythic += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Mythic crate`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió ${count} Cajas miticas`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].mythic += count * 1
                         m.reply('Error de transferencia')
@@ -133,14 +133,14 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                             }
                         }
                     }
-                } else conn.reply(m.chat, `Mythic crate kamu kamu tidak cukup`.trim(), m)
+                } else conn.reply(m.chat, `No tienes suficientes cajas miticas para transferir`.trim(), m)
                 break
-            case 'legendary':
+            case 'legendario':
                 if (global.DATABASE._data.users[m.sender].legendary >= count * 1) {
                     try {
                         global.DATABASE._data.users[m.sender].legendary -= count * 1
                         global.DATABASE._data.users[who].legendary += count * 1
-                        conn.reply(m.chat, `Berhasil mentransfer ${count} Legendary crate`.trim(), m)
+                        conn.reply(m.chat, `Se transfirió ${count} Cajas legendarias`.trim(), m)
                     } catch (e) {
                         global.DATABASE._data.users[m.sender].legendary += count * 1
                         m.reply('Error de transferencia')
@@ -151,13 +151,13 @@ let handler = async (m, { conn, args, usedPrefix, command, DevMode }) => {
                             }
                         }
                     }
-                } else conn.reply(m.chat, `Legendary crate kamu kamu tidak cukup`.trim(), m)
+                } else conn.reply(m.chat, `No tienes suficientes cajas legendarias para transferir`.trim(), m)
                 break
             default:
-                return conn.reply(m.chat, `*El formato que estás usando es incorrecto*\n• ${usedPrefix + command} <tipo> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Lista de transferencias:*\n\n- Dinero\n- Diamante`.trim(), m)
+                return conn.reply(m.chat, `*El formato que estás usando es incorrecto*\n• ${usedPrefix + command} <tipo> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Lista de transferencias:*\n\n- Dinero\n- Diamante\n- Pocion\n- Basura\n- Comun\n- Normal\n- Mitico\n- Legendario`.trim(), m)
         }
     } catch (e) {
-        conn.reply(m.chat, `*El formato que estás usando es incorrecto*\n• ${usedPrefix + command} <tipo> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Lista de transferencias:*\n\n- Dinero\n- Diamante`.trim(), m)
+        conn.reply(m.chat, `*El formato que estás usando es incorrecto*\n• ${usedPrefix + command} <tipo> <@tag>\n\n- Ejemplo: ${usedPrefix + command} dinero 100 @tag\n\n*Lista de transferencias:*\n\n- Dinero\n- Diamante\n- Pocion\n- Basura\n- Comun\n- Normal\n- Mitico\n- Legendario`.trim(), m)
         console.log(e)
         if (DevMode) {
             for (let jid of global.owner.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(v => v != conn.user.jid)) {
