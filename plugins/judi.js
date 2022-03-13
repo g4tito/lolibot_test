@@ -8,7 +8,7 @@ async function handler(m, { conn, args, isROwner }) {
     try {
         let user = global.DATABASE._data.users[m.sender]
         let count = (args[0] && number(parseInt(args[0])) ? Math.max(parseInt(args[0]), 1) : /all/i.test(args[0]) ? Math.floor(parseInt(user.money)) : 1) * 1
-        if ((user.money * 1) < count) return conn.sendMessage(m.chat, button('💵Uang kamu tidak cukup!!', user), MessageType.buttonsMessage, { quoted: m })
+        if ((user.money * 1) < count) return conn.sendMessage(m.chat, button('*Tu dinero no es suficiente para apostar*', user), MessageType.buttonsMessage, { quoted: m })
         if (!(m.sender in confirm)) {
             confirm[m.sender] = {
                 sender: m.sender,
@@ -114,18 +114,14 @@ function button(teks, user) {
     let monthly = new Date - user.lastmonthly > 2592000000
     let weekly = new Date - user.lastweekly > 604800000
     let adventure = new Date - user.lastadventure > 300000
-    let fishing = new Date - user.lastfishing > 300000
     let mining = new Date - user.lastmining > 300000
-    let dungeon = new Date - user.lastdungeon > 600000
-    console.log({claim, monthly, weekly, adventure, fishing, mining, dungeon})
+    console.log({claim, monthly, weekly, adventure, mining})
 
-    if (monthly) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/monthly'}, type: 1})
-    if (weekly) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/weekly'}, type: 1})
-    if (claim) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/claim'}, type: 1})
-    if (adventure) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/adventure'}, type: 1})
-    if (fishing) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/fishing'}, type: 1})
-    if (mining) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/mining'}, type: 1})
-    if (dungeon) buttons.push({buttonId: `id${buttons.length + 1}`, buttonText: {displayText: '/dungeon'}, type: 1})
+    if (monthly) buttons.push({buttonId: `.monthly`, buttonText: {displayText: 'Reclamo del mes 🎑'}, type: 1})
+    if (weekly) buttons.push({buttonId: `.weekly`, buttonText: {displayText: '🎁 Reclamo de la semana'}, type: 1})
+    if (claim) buttons.push({buttonId: `.daily`, buttonText: {displayText: 'Reclamo del día'}, type: 1})
+    if (adventure) buttons.push({buttonId: `.adventure`, buttonText: {displayText: 'Aventura 🏔️'}, type: 1})
+    if (mining) buttons.push({buttonId: `.mining`, buttonText: {displayText: 'Minar ⛏'}, type: 1})
     if (buttons.length == 0) throw teks
     
     const buttonMessage = {
