@@ -9,19 +9,22 @@ let handler = async (m, { text }) => {
     if (res.status !== 200) throw json
     let str = json.items.map((repo, index) => {
         return `
-${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
-_${repo.html_url}_
+*RESULTADO NRO ${1 + index}*. 
 
-_Dibuat pada *${formatDate(repo.created_at)}*_
-_Terakhir update pada *${formatDate(repo.updated_at)}*_
-👁  ${repo.watchers}   🍴  ${repo.forks}   ⭐  ${repo.stargazers_count}
-${repo.open_issues} Issue${repo.description ? `
-*Deskripsi:*\n${repo.description}` : ''}
-*Clone:* \`\`\`$ git clone ${repo.clone_url}\`\`\`
+*• 📦 Link:* ${repo.html_url}
+*• 🏵️ Creador:* ${repo.owner.login}
+*• 🐣 Nombre:* ${repo.name}
+*• 📅 Creado el:* ${formatDate(repo.created_at)}
+*• ⏰ Última actualización:* ${formatDate(repo.updated_at)}
+*• 👁 Visitas:* ${repo.watchers}
+*• 🍴 Bifurcado:* ${repo.forks}
+*• ⭐ Estrellas:* ${repo.stargazers_count}
+*• 🧩 Issues:* ${repo.open_issues}
+*• 🎐 Descripción:* ${repo.description ? `${repo.description}` : 'Sin Descripción'}
+*• ♻️ Clone:* ${repo.clone_url}
 `.trim()
     }).join('\n\n')
-//conn.sendMessage(m.chat, await (await fetch("https://avatars.githubusercontent.com/u/84881966?v=0")).buffer(), MessageType.image, { quoted: m, caption: str })
-m.reply(`${json.items[0].owner.avatar_url}`)
+conn.sendMessage(m.chat, await (await fetch(json.items[0].owner.avatar_url)).buffer(), MessageType.image, { quoted: m, caption: str })
 }
 handler.help = ['githubsearch'].map(v => v + '')
 handler.tags = ['tools']
@@ -36,9 +39,6 @@ function formatDate(n, locale = 'es') {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric'
+      year: 'numeric'
     })
   }
