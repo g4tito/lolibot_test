@@ -5,7 +5,7 @@ let handler = async (m, { conn, usedPrefix, DevMode }) => {
         let __timers = (new Date - global.DATABASE._data.users[m.sender].lastadventure)
         let _timers = (cooldown - __timers)
         let timers = clockString(_timers)
-        if (global.DATABASE._data.users[m.sender].healt > 79) {
+        if (global.DATABASE._data.users[m.sender].healt >= 79) {
             if (new Date - global.DATABASE._data.users[m.sender].lastadventure > cooldown) {
                 let armor = global.DATABASE._data.users[m.sender].armor
                 let rubah = global.DATABASE._data.users[m.sender].rubah
