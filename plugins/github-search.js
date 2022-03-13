@@ -6,9 +6,9 @@ let handler = async (m, { text }) => {
     }))
     let json = await res.json()
     if (res.status !== 200) throw json
-    let str = json.items.map((repo, index) => {
+    let str = json.items.map((repo, owner, index) => {
         return `
-${repo.avatar_url}
+${owner.avatar_url}
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
 _Dibuat pada *${formatDate(repo.created_at)}*_
