@@ -44,8 +44,8 @@ Hola *@%user*, %greeting
 
 *• 🐤 Nombre:* %name
 *• 📟 Número:* %user
-*• 📆 Fecha:* %datee
-*• ⏱️ Hora:* 
+*• 📆 Fecha:* %date
+*• ⏱️ Hora:* %time
 
 Un simple *Bot de WhatsApp*
 hecho por @%ownum
@@ -65,7 +65,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     let latensi = speed() - timestamp
     
     let d = new Date(new Date + 3600000)
-    let locale = 'id'
+    let locale = 'es'
     // d.getTimeZoneOffset()
     // Offset -420 is 18.00
     // Offset    0 is  0.00
@@ -148,7 +148,6 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       server: conn.browserDescription[0],
       navega: conn.browserDescription[1],
       version: conn.browserDescription[2],
-      datee: formatDate,
       bio: biot.status == 401 ? 'Sin info' : biot.status,
       greeting: saludo,
       npmname: package.name,
@@ -198,15 +197,6 @@ function clockString(ms) {
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
 
-function formatDate(n, locale = 'es') {
-    let d = new Date(n)
-    return d.toLocaleDateString(locale, {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
-    })
-  }
 
 var ase = new Date();
                         var waktoonyabro = ase.getHours();
