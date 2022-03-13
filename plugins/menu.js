@@ -138,7 +138,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       after
     ].join('\n')
     text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
-    biot = await Fg.getStatus(`${m.sender.split('@')[0]}@c.us`)
+    biot = await conn.getStatus(`${m.sender.split('@')[0]}@c.us`)
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
