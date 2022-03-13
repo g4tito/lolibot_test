@@ -8,6 +8,7 @@ let handler = async (m, { text }) => {
     if (res.status !== 200) throw json
     let str = json.items.map((repo, index) => {
         return `
+${repo.avatar_url}
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
 _Dibuat pada *${formatDate(repo.created_at)}*_
