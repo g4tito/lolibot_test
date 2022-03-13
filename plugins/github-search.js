@@ -1,7 +1,7 @@
 let { MessageType } = require("@adiwajshing/baileys")
 let fetch = require('node-fetch')
-let handler = async (m, { text }) => {
-    if (!text) throw 'Cari apa?'
+let handler = async (m, { text, usedPrefix, command }) => {
+    if (!text) throw `*Ingrese el nombre de un repositorio de github*\n\n- Ejemplo: ${usedPrefix + command} lolibot`
     let res = await fetch(global.API('https://api.github.com', '/search/repositories', {
         q: text
     }))
@@ -9,13 +9,13 @@ let handler = async (m, { text }) => {
     if (res.status !== 200) throw json
     let str = json.items.map((repo, index) => {
         return `
-*RESULTADO NRO ${1 + index}*. 
+*RESULTADO NRO ${1 + index}*
 
 *• 📦 Link:* ${repo.html_url}
 *• 🏵️ Creador:* ${repo.owner.login}
 *• 🐣 Nombre:* ${repo.name}
 *• 📅 Creado el:* ${formatDate(repo.created_at)}
-*• ⏰ Última actualización:* ${formatDate(repo.updated_at)}
+*• ⏰ Actualización:* ${formatDate(repo.updated_at)}
 *• 👁 Visitas:* ${repo.watchers}
 *• 🍴 Bifurcado:* ${repo.forks}
 *• ⭐ Estrellas:* ${repo.stargazers_count}
@@ -23,7 +23,7 @@ let handler = async (m, { text }) => {
 *• 🎐 Descripción:* ${repo.description ? `${repo.description}` : 'Sin Descripción'}
 *• ♻️ Clone:* ${repo.clone_url}
 `.trim()
-    }).join('\n\n━━━━━━━━━━━━━━━\n\n')
+    }).join('\n\n━━━━━━━━━━━━━━━━━━\n')
 conn.sendMessage(m.chat, await (await fetch(json.items[0].owner.avatar_url)).buffer(), MessageType.image, { quoted: m, caption: str })
 }
 handler.help = ['githubsearch'].map(v => v + '')
