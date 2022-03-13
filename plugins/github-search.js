@@ -20,9 +20,7 @@ ${repo.open_issues} Issue${repo.description ? `
 *Clone:* \`\`\`$ git clone ${repo.clone_url}\`\`\`
 `.trim()
     }).join('\n\n')
-let strr = json.items.map((rep) => {
-conn.sendMessage(m.chat, await (await fetch(rep.owner.avatar_url)).buffer(), MessageType.image, { quoted: m, caption: str })
-})
+conn.sendMessage(m.chat, await (await fetch(json.items.owner.avatar_url)).buffer(), MessageType.image, { quoted: m, caption: str })
 }
 handler.help = ['githubsearch'].map(v => v + '')
 handler.tags = ['tools']
