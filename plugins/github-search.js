@@ -11,7 +11,7 @@ let handler = async (m, { text }) => {
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
 
-${repo.description}
+${repo.id}
 
 _Dibuat pada *${formatDate(repo.created_at)}*_
 _Terakhir update pada *${formatDate(repo.updated_at)}*_
