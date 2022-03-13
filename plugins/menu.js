@@ -51,7 +51,7 @@ Un simple *Bot de WhatsApp*
 hecho por @%ownum
 `.trimStart(),
   header: '     _*%category*_',
-  body: '⎔ > %cmd %islimit %isPremium',
+  body: '➛ %cmd %islimit %isPremium',
   footer: '╶',
   after: "*lolibot-ofc@^0.9.8*\n```Customizable WhatsApp Bot```",
 }
