@@ -23,7 +23,7 @@ let handler = async (m, { text }) => {
 *• 🎐 Descripción:* ${repo.description ? `${repo.description}` : 'Sin Descripción'}
 *• ♻️ Clone:* ${repo.clone_url}
 `.trim()
-    }).join('\n\n')
+    }).join('\n\n━━━━━━━━━━━━━━━\n\n')
 conn.sendMessage(m.chat, await (await fetch(json.items[0].owner.avatar_url)).buffer(), MessageType.image, { quoted: m, caption: str })
 }
 handler.help = ['githubsearch'].map(v => v + '')
