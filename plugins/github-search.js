@@ -8,10 +8,10 @@ let handler = async (m, { text }) => {
     if (res.status !== 200) throw json
     let str = json.items.map((repo, index) => {
         return `
+${repo.owner.avatar_url}
+
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
-
-${repo.id}
 
 _Dibuat pada *${formatDate(repo.created_at)}*_
 _Terakhir update pada *${formatDate(repo.updated_at)}*_
