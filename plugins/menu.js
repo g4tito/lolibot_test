@@ -43,12 +43,12 @@ Hola *@%user*, %greeting
 *• 💫 Tu info:* %bio
 
 *• 🐤 Nombre:* %name
-*• 📟 Número:* %user
+*• 📟 Número:* +%user
 *• 📆 Fecha:* %date
 *• ⏱️ Hora:* %time
 
 Un simple *Bot de WhatsApp*
-hecho por @%ownum
+hecho por @%ownum!
 `.trimStart(),
   header: '     _*%category*_',
   body: '*⎔ >* %cmd %islimit %isPremium',
@@ -127,8 +127,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
           ...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
             return menu.help.map(help => {
               return body.replace(/%cmd/g, menu.prefix ? help : '%p' + help)
-                .replace(/%islimit/g, menu.limit ? '(Limit)' : '')
-                .replace(/%isPremium/g, menu.premium ? '(Premium)' : '')
+                .replace(/%islimit/g, menu.limit ? '(limite)' : '')
+                .replace(/%isPremium/g, menu.premium ? '(premium)' : '')
                 .trim()
             }).join('\n')
           }),
@@ -160,7 +160,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
      let tumb = fs.readFileSync('./src/menu.jpg')
      let tumbb = fs.readFileSync('./src/menu2.jpg')
-     conn.sendMessage(m.chat, { contentText: text.trim(), footerText: 'Lolibot - OFC', buttons: [{buttonId: '.info', buttonText: {displayText: '🍭 INFO'}, type: 1},{buttonId: '.owner', buttonText: {displayText: '🍧 CREADOR'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": "Dibuat Oleh: Arifi Razzaq", "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 99999999999, "pageCount": 25791, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": "𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄", "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": tumb 
+     conn.sendMessage(m.chat, { contentText: text.trim(), footerText: '  Lolibot - OFC', buttons: [{buttonId: '.info', buttonText: {displayText: '🛰 INFO'}, type: 1},{buttonId: '.owner', buttonText: {displayText: '🎋 CREADOR'}, type: 1}], "headerType": "DOCUMENT", "documentMessage": { "url": "https://mmg.whatsapp.net/d/f/Ano5cGYOFQnC51uJaqGBWiCrSJH1aDCi8-YPQMMb1N1y.enc", "mimetype": "application/vnd.ms-excel", "title": "Dibuat Oleh: Arifi Razzaq", "fileSha256": "8Xfe3NQDhjwVjR54tkkShLDGrIFKR9QT5EsthPyxDCI=", "fileLength": 99999999999, "pageCount": 25791, "mediaKey": "XWv4hcnpGY51qEVSO9+e+q6LYqPR3DbtT4iqS9yKhkI=", "fileName": "𝕷𝖔𝖑𝖎𝖇𝖔𝖙 - 𝕺𝖋𝖎𝖈𝖎𝖆𝖑™.⁖⃟•᭄", "fileEncSha256": "NI9ykWUcXKquea4BmH7GgzhMb3pAeqqwE+MTFbH/Wk8=", "directPath": "/v/t62.7119-24/35160407_568282564396101_3119299043264875885_n.enc?ccb=11-4&oh=d43befa9a76b69d757877c3d430a0752&oe=61915CEC", "mediaKeyTimestamp": "1634472176", "jpegThumbnail": tumb 
             }}, MessageType.buttonsMessage, { quoted: m, thumbnail: tumbb, contextInfo: { mentionedJid: [m.sender, ownernum], forwardingScore: 750, isForwarded: true, externalAdReply: { title: `あなたは私のすべてです`, body: '💌 Macielly & Gatito 💫', thumbnail: tumbb, mediaType:"2", previewType: "VIDEO", mediaUrl: ""
             }
             }
@@ -170,9 +170,9 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
     throw e
   }
 }
-handler.help = ['menu', 'help', '?']
+handler.help = ['menu', 'comandos']
 handler.tags = ['main']
-handler.command = /^(menu|help|\?)$/i
+handler.command = /^(menu|comandos)$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
