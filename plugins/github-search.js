@@ -6,11 +6,13 @@ let handler = async (m, { text }) => {
     }))
     let json = await res.json()
     if (res.status !== 200) throw json
-    let str = json.items.map((repo, owner, index) => {
+    let str = json.items.map((repo, index) => {
         return `
-${owner.avatar_url}
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
+
+${repo.description}
+
 _Dibuat pada *${formatDate(repo.created_at)}*_
 _Terakhir update pada *${formatDate(repo.updated_at)}*_
 👁  ${repo.watchers}   🍴  ${repo.forks}   ⭐  ${repo.stargazers_count}
@@ -21,10 +23,10 @@ ${repo.open_issues} Issue${repo.description ? `
     }).join('\n\n')
     m.reply(str)
 }
-handler.help = ['githubsearch'].map(v => v + ' <pencarian>')
+handler.help = ['githubsearch'].map(v => v + '')
 handler.tags = ['tools']
 
-handler.command = /^g(ithub|h)search$/i
+handler.command = /^(githubsearch)$/i
 
 module.exports = handler
 
