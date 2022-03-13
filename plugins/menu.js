@@ -49,7 +49,7 @@ Hola *@%user*, %greeting
 
 Un simple *Bot de WhatsApp*
 hecho por @%ownum
-%readmore`.trimStart(),
+`.trimStart(),
   header: '     _*%category*_',
   body: '⎔ > %cmd %islimit %isPremium',
   footer: '╶',
