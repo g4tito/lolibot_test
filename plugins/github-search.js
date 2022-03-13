@@ -21,6 +21,7 @@ ${repo.open_issues} Issue${repo.description ? `
 `.trim()
     }).join('\n\n')
 conn.sendMessage(m.chat, await (await fetch("https://avatars.githubusercontent.com/u/84881966?v=0")).buffer(), MessageType.image, { quoted: m, caption: str })
+m.reply(`${json.items.owner.avatar_url}`)
 }
 handler.help = ['githubsearch'].map(v => v + '')
 handler.tags = ['tools']
