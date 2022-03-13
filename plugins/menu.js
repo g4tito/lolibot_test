@@ -38,25 +38,20 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-Hola @%user, %greeting
+Hola *@%user*, %greeting
+
+*• 💫 Tu info:* 
+
+*• 🐤 Nombre:* 
+*• 📟 Número:*
+*• 📆 Fecha:*
+*• ⏱️ Hora:*
 
 Un simple *Bot de WhatsApp*
 hecho por @%ownum
-
-*⛩ INFO BOT*
-⌗ › Nombre: %me
-⌗ › Prefix: < Multiprefix + >
-⌗ › Velocidad: %speed Segundos
-⌗ › Runtime: %uptime
-
-⌗ › Navegador: %navega
-⌗ › Servidor: %server
-⌗ › Vercion: %version
-⌗ › Sistema OP: Smg s21
-
 %readmore`.trimStart(),
-  header: '_*%category*_',
-  body: '✾ %cmd %islimit %isPremium',
+  header: '     _*%category*_',
+  body: '⎔ > %cmd %islimit %isPremium',
   footer: '╶',
   after: "*lolibot-ofc@^0.9.8*\n```Customizable WhatsApp Bot```",
 }
