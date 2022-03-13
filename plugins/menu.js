@@ -40,12 +40,12 @@ const defaultMenu = {
   before: `
 Hola *@%user*, %greeting
 
-*• 💫 Tu info:* 
+*• 💫 Tu info:* %bio
 
-*• 🐤 Nombre:* 
-*• 📟 Número:*
-*• 📆 Fecha:*
-*• ⏱️ Hora:*
+*• 🐤 Nombre:* %name
+*• 📟 Número:* %user
+*• 📆 Fecha:* %datee
+*• ⏱️ Hora:* 
 
 Un simple *Bot de WhatsApp*
 hecho por @%ownum
@@ -138,6 +138,7 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       after
     ].join('\n')
     text = typeof conn.menu == 'string' ? conn.menu : typeof conn.menu == 'object' ? _text : ''
+    biot = await Fg.getStatus(`${m.sender.split('@')[0]}@c.us`)
     let replace = {
       '%': '%',
       p: _p, uptime, muptime,
@@ -147,7 +148,8 @@ let handler = async (m, { conn, usedPrefix: _p }) => {
       server: conn.browserDescription[0],
       navega: conn.browserDescription[1],
       version: conn.browserDescription[2],
-      speed: latensi.toFixed(4),
+      datee: formatDate,
+      bio: biot.status == 401 ? 'Sin info' : biot.status,
       greeting: saludo,
       npmname: package.name,
       npmdesc: package.description,
@@ -195,6 +197,16 @@ function clockString(ms) {
   let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
   return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
 }
+
+function formatDate(n, locale = 'es') {
+    let d = new Date(n)
+    return d.toLocaleDateString(locale, {
+      weekday: 'long',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
+  }
 
 var ase = new Date();
                         var waktoonyabro = ase.getHours();
