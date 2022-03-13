@@ -8,7 +8,7 @@ let handler = async (m, { text }) => {
     let json = await res.json()
     if (res.status !== 200) throw json
     let str = json.items.map((repo, index) => {
-        return conn.sendMessage(m.chat, await (await fetch(repo.owner.avatar_url)).buffer(), MessageType.image, { quoted: m, caption: `
+        return `
 ${1 + index}. *${repo.full_name}*${repo.fork ? ' (fork)' : ''}
 _${repo.html_url}_
 
@@ -18,9 +18,9 @@ _Terakhir update pada *${formatDate(repo.updated_at)}*_
 ${repo.open_issues} Issue${repo.description ? `
 *Deskripsi:*\n${repo.description}` : ''}
 *Clone:* \`\`\`$ git clone ${repo.clone_url}\`\`\`
-`.trim() })
+`.trim()
     }).join('\n\n')
-    m.reply(str)
+conn.sendMessage(m.chat, await (await fetch(repo.owner.avatar_url)).buffer(), MessageType.image, { quoted: m, caption: str })
 }
 handler.help = ['githubsearch'].map(v => v + '')
 handler.tags = ['tools']
