@@ -3,7 +3,6 @@
 pkg update && pkg upgrade
 apt update && apt upgrade
 bin=$PREFIX/bin
-dir=$(pwd)
 if [ -e $bin/node ]; then 
   echo -e "\u001b[32mYa estaba instalado nodejs!"
 else 
