@@ -55,9 +55,10 @@ global.APIKeys = { // APIKey Here
 
 // Sticker WM
 global.packname = 'Lolibot - OFC'
-global.author = '💌 Macielly & Gatito 💫'
+global.author = '💌 Lobita & Gatito 💫'
 
 global.wait = '↻ Espere un momento...'
+global.error = '☓ Ocurrió un error inesperado'
 
 global.multiplier = 39 // The higher, The harder levelup
 
