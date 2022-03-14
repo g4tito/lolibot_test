@@ -60,6 +60,8 @@ global.author = '💌 Lobita & Gatito 💫'
 global.wait = '↻ Espere un momento...'
 global.error = '☓ Ocurrió un error inesperado'
 
+global.botname = 'Lolibot - OFC'
+
 global.multiplier = 39 // The higher, The harder levelup
 
 let fs = require('fs')
