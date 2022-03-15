@@ -1,15 +1,15 @@
-console.log('Starting...')
+console.log('Iniciando...')
 let { spawn } = require('child_process')
 let path = require('path')
 let fs = require('fs')
 let package = require('./package.json')
 const CFonts  = require('cfonts')
-CFonts.say('Lightweight\nWhatsApp Bot', {
-  font: 'chrome',
+CFonts.say('WhatsApp bot', {
+  font: 'tiny',
   align: 'center',
   gradient: ['red', 'magenta']
 })
-CFonts.say(`'${package.name}' By @${package.author.name || package.author}`, {
+CFonts.say(`by gatito`, {
   font: 'console',
   align: 'center',
   gradient: ['red', 'magenta']
@@ -47,7 +47,7 @@ function start(file) {
   })
   p.on('exit', code => {
     isRunning = false
-    console.error('Exited with code:', code)
+    console.error('Ocurrió un error:', code)
     if (code === 0) return
     fs.watchFile(args[0], () => {
       fs.unwatchFile(args[0])
