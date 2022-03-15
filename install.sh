@@ -1,3 +1,5 @@
+#!/usr/bin/bash
+
 spin () {
 
 local pid=$!
