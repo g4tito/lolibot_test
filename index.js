@@ -12,7 +12,7 @@ CFonts.say('WhatsApp bot', {
 CFonts.say(`by gatito`, {
   font: 'console',
   align: 'center',
-  gradient: ['red', 'magenta']
+  gradient: ['yellow']
 })
 
 var isRunning = false
