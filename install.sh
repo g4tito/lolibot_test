@@ -173,9 +173,7 @@ echo -e " ${NOCOLOR}"
 echo -e " ${PURPLE} Instalando módulos npm"
 echo -e " ${GREEN}"
 
-npm i node-tesseract-ocr --no-bin-links
-npm install --no-bin-links
-npm i --no-bin-links
+npm install
 sleep 2
 clear
 figlet -c -f standard -t 'loli-bot' | lolcat 
