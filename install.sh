@@ -158,6 +158,17 @@ apt-get install tesseract -y
 wget -O ~/../usr/share/tessdata/ind.traineddata "https://github.com/tesseract-ocr/tessdata/blob/master/ind.traineddata?raw=true"
 sleep 2
 clear
+
+figlet -c -f standard -t 'loli-bot' | lolcat 
+
+echo -e " ${NOCOLOR}"
+echo -e " ${PURPLE} Instalando npm versión 6.14.14 "
+echo -e " ${GREEN}"
+sleep 5
+npm install -g npm@6.14.14
+sleep 2
+clear
+
 figlet -c -f standard -t 'loli-bot' | lolcat 
 
 echo -e " ${NOCOLOR}"
@@ -172,7 +183,6 @@ figlet -c -f standard -t 'loli-bot' | lolcat
 echo -e " ${NOCOLOR}"
 echo -e " ${PURPLE} Instalando módulos npm"
 echo -e " ${GREEN}"
-
 npm install
 sleep 2
 clear
