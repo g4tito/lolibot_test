@@ -9,6 +9,10 @@
     "src": "src",
     "plugins": "plugins"
   },
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
+  },
   "scripts": {
     "start": "node index.js",
     "test": "node test.js"
@@ -20,8 +24,7 @@
     "js-whatsapp",
     "whatsapp",
     "Games-wabot",
-    "wabot-aq",
-    "lolibot"
+    "wabot-aq"
   ],
   "homepage": "https://github.com/BochilGaming/games-wabot",
   "author": {
@@ -29,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nurutomo/wabot-aq.git"
+    "url": "git+https://github.com/BochilGaming/games-wabot.git"
   },
   "bugs": {
     "url": "https://github.com/BochilGaming/games-wabot/issues"
